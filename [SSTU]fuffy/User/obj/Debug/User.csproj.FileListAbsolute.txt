@@ -1,0 +1,5 @@
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\User\bin\Debug\User.dll
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\User\bin\Debug\User.pdb
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\User\obj\Debug\User.csprojResolveAssemblyReference.cache
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\User\obj\Debug\User.dll
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\User\obj\Debug\User.pdb

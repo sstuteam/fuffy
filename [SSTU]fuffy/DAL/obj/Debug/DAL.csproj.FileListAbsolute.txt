@@ -1,0 +1,7 @@
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\DAL\bin\Debug\DAL.dll
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\DAL\bin\Debug\DAL.pdb
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\DAL\bin\Debug\User.dll
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\DAL\bin\Debug\User.pdb
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\DAL\obj\Debug\DAL.dll
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\DAL\obj\Debug\DAL.pdb
