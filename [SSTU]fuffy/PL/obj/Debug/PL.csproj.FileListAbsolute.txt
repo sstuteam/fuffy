@@ -1,0 +1,10 @@
+E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\bin\Debug\PL.exe.config
+E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\bin\Debug\PL.exe
+E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\bin\Debug\PL.pdb
+E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\bin\Debug\BLL.dll
+E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\bin\Debug\BLL.pdb
+E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\obj\Debug\PL.csprojResolveAssemblyReference.cache
+E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\obj\Debug\PL.exe
+E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\obj\Debug\PL.pdb
+E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\bin\Debug\User.dll
+E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\bin\Debug\User.pdb
