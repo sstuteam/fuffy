@@ -5,14 +5,17 @@
 .container {
     margin-top: 5vh;
     background-image: url('content/List.png');
-    height: 90vh;
+    height: 86vh;
     background-size: cover;
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); 
 }
 
 .cap {
     border-radius: 10px;
-    background-color: rgba(60, 60, 60, 0.2);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: rgba(70, 0, 70, 0.1);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
@@ -24,6 +27,11 @@
     height: 8vh;
 }
 
+.content-padding{
+    padding-left:auto;
+    padding-right: auto;
+}
+
 .logo {
     margin: 0.5vh 0 0 0;
     max-width: 100%;
@@ -31,12 +39,26 @@
 }
 
 .content-cell {
-    height: 81vh;
+    height: 77.5vh;
     border-radius: 10px;
+    border-top-right-radius:0;
+    border-top-left-radius:0;
+}
+.scroll{
+    overflow-y:scroll;
 }
 
-.content-cell-flank {
-    background-color: rgba(60, 60, 60, 0.2);
+.content-cell-flank-left {
+    background-color: rgba(70, 0, 70, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    position: relative;
+}
+.content-cell-flank-left:focus + .btn-show{
+    visibility: visible;
+    left:30px;
+}
+.content-cell-flank-right {
+    background-color: rgba(70, 0, 70, 0.1);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
@@ -46,7 +68,8 @@
 
 .user-name {
     height: 7vh;
-    font-family: Aharoni;
+    /*font-family: Aharoni;*/
+    font-family:'Buxton Sketch';
     font-size: 6vh;
     color: blueviolet;
     text-align: center;
@@ -54,7 +77,8 @@
 
 .status {
     height: auto;
-    font-family: Aharoni;
+    /*font-family: Aharoni;*/
+    font-family:'Buxton Sketch';
     font-size: 3vh;
     color: mediumvioletred;
     text-align: center;
@@ -77,19 +101,23 @@
 .about-user {
     padding-left: 2vh;
     height: 4vh;
-    font-family: Aharoni;
+    /*font-family: Aharoni;*/
+    font-family:'Buxton Sketch';
     font-size: 3vh;
     color: darkblue;
-    text-align: left;
+    /*text-align: left;*/
+    text-align:center;
 }
 
 .about-user-text {
     padding-left: 2vh;
     height: 5vh;
-    font-family: Aharoni;
-    font-size: 2vh;
+    /*font-family: Aharoni;*/
+    font-family:'Buxton Sketch';
+    font-size: 2.5vh;
     color: blue;
-    text-align: left;
+    /*text-align: left;*/
+    text-align:center;
 }
 
 .albums-list {
@@ -99,7 +127,8 @@
 
 .albums {
     height: 100%;
-    font-family: Aharoni;
+    /*font-family: Aharoni;*/
+    font-family:'Buxton Sketch';
     font-size: 5vh;
     color: blueviolet;
     text-align: right;
@@ -111,9 +140,9 @@
     height: 100%;
 }
 
-    .add-album img {
+    /*.add-album img {
         height: 100%;
-    }
+    }*/
 
 .album-cover {
     height: 17vh;
@@ -134,7 +163,7 @@
 
 .photo {
     text-align: center;
-    height: 25vh;
+    /*height: 25vh;*/
     padding: 1vh;
 }
 
@@ -142,3 +171,108 @@
         height: 100%;
         width: 100%;
     }
+
+    .size{
+        height:14vh;
+    }
+    a{
+        font-family:'Buxton Sketch';
+    }
+    a, a:hover, a:active, a:focus{
+        text-decoration:none;
+        cursor:pointer;
+    }
+    .search-margin-right{
+        margin-right:1vw;
+    }
+    
+
+
+
+
+.item {
+  width: 10vw;
+  height: 10vw;
+
+  float: left;
+
+  background-image: url(content/1-2.jpg);
+  background-size:cover;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin:4px;
+}
+.item1 {
+  width: 10vw;
+  height: 10vw;
+
+  float: left;
+
+  background-image: url(content/3.jpg);
+  background-size:cover;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin:4px;
+}
+.item2 {
+  width: 10vw;
+  height: 10vw;
+
+  float: left;
+
+  background-image: url(content/4.jpg);
+  background-size:cover;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin:4px;
+}
+.item:hover {
+    opacity: 0.9;
+}
+.item1:hover {
+    opacity: 0.9;
+}
+.item2:hover {
+    opacity: 0.9;
+}
+
+
+.btn-hide{
+    margin-top: 4vh;
+}
+.btn-show-left{
+    margin-top: 3vh;
+    /*visibility: hidden;*/
+    position: absolute;
+    height: 1vh;
+    width: 2vw;
+    font-size: 1vh;
+    /*background-color: blueviolet;*/
+    border: 1vw solid transparent; 
+    border-left: 1vw solid blueviolet;
+}
+.btn-show-right{
+    margin-top: 3vh;
+    /*visibility: hidden;*/
+    position: absolute;
+    height: 1vh;
+    width: 2vw;
+    font-size: 1vh;
+    /*background-color: blueviolet;*/
+    border: 1vw solid transparent; 
+    border-right: 1vw solid blueviolet;
+}
+.modal-content{
+    width: 52.5em;
+}
+img{
+    max-width: 700px;
+}
+.comment{
+    margin-top: 3vh;
+    height: 10vh;
+    width: 20vw;
+    font-family: buxton Sketch;
+    font-size: 2.5vh;
+    max-width: 700px;
+}
