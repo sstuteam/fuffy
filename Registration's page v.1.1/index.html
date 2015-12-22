@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fuffy Регистрация</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="reset.css" rel="stylesheet" />
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="cap row">
+            <div class="logo-container cap-cell pull-left col-md-3">
+                <img class="logo" src="content/Fuffy.png" />
+            </div>
+        </div>
+        <div class="content row">
+            <div class="registration-info col-xs-12 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
+                <form action="" enctype="multipart/form-data">
+                    <div class="registration-level">
+                        <label>Логин:</label><span class="star">*</span>
+                        <input class="registration-input input-sm" type="text" name="login" id="login" />
+                    </div>
+                    <div class="registration-level">
+                        <label>Пароль:</label><span class="star">*</span>
+                        <input class="registration-input input-sm" type="password" name="password" id="password" />
+                    </div>
+                    <div class="registration-level">
+                        <label>Повторите пароль:</label><span class="star">*</span>
+                        <input class="registration-input input-sm" type="password" name="repeat-password" id="repeat-password" />
+                    </div>
+                    <div class="registration-level">
+                        <label>Email:</label><span class="star">*</span>
+                        <input class="registration-input input-sm" type="email" name="email" id="email" />
+                    </div>
+                    <div class="registration-level">
+                        <label>Ник:</label>
+                        <input class="registration-input input-sm" type="text" name="nickname" id="nickname" />
+                    </div>
+                    <div class="registration-level">
+                        <label>Аватар</label>
+                        <input class="registration-input input-sm" type="file" name="avatar" id="avatar" />
+                        <button class="btn btn-danger" type="reset">Удалить</button>
+                    </div>
+                    <div class="registration-level">
+                        <button class="btn btn-success" type="submit">Готово</button>
+                    </div>
+                    <hr />
+                    <span class="prompt">Данные, обязательные для заполнения отмечены "<span class="star">*</span>"</span>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
