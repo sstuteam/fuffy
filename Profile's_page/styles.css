@@ -1,5 +1,7 @@
 ﻿body {
     background-image: url('content/Background.png');
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .container {
@@ -33,9 +35,8 @@
 }
 
 .logo {
-    margin: 0.5vh 0 0 0;
-    max-width: 100%;
-    max-height: 100%;
+    margin: 2vh 0 0 0;
+    height: 5vh;
 }
 
 .content-cell {
@@ -47,12 +48,12 @@
 .scroll{
     overflow-y:scroll;
 }
-
+@media screen and (min-device-width: 750px) {
 .content-cell-flank-left {
     background-color: rgba(70, 0, 70, 0.1);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     position: relative;
-}
+}}
 .content-cell-flank-left:focus + .btn-show{
     visibility: visible;
     left:30px;
@@ -131,13 +132,15 @@
     font-family:'Buxton Sketch';
     font-size: 5vh;
     color: blueviolet;
-    text-align: right;
+    text-align: center;
 }
 
 .add-album {
     padding: 0;
     text-align: right;
     height: 100%;
+    margin-top: 2.5vh;
+    text-align: left;
 }
 
     /*.add-album img {
@@ -191,8 +194,8 @@
 
 
 .item {
-  width: 10vw;
-  height: 10vw;
+  width: 10em;
+  height: 10em;
 
   float: left;
 
@@ -203,8 +206,8 @@
   margin:4px;
 }
 .item1 {
-  width: 10vw;
-  height: 10vw;
+  width: 10em;
+  height: 10em;
 
   float: left;
 
@@ -215,8 +218,8 @@
   margin:4px;
 }
 .item2 {
-  width: 10vw;
-  height: 10vw;
+  width: 10em;
+  height: 10em;
 
   float: left;
 
@@ -240,27 +243,27 @@
 .btn-hide{
     margin-top: 4vh;
 }
-.btn-show-left{
-    margin-top: 3vh;
+.btn-hide-show{
+    /*margin-top: 3vh;*/
     /*visibility: hidden;*/
     position: absolute;
-    height: 1vh;
-    width: 2vw;
-    font-size: 1vh;
     /*background-color: blueviolet;*/
-    border: 1vw solid transparent; 
-    border-left: 1vw solid blueviolet;
+    border: 1px solid blueviolet; 
+    background-color: violet;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    cursor: pointer;
 }
-.btn-show-right{
-    margin-top: 3vh;
-    /*visibility: hidden;*/
+/*.btn-hide-show-albums{
     position: absolute;
-    height: 1vh;
-    width: 2vw;
-    font-size: 1vh;
-    /*background-color: blueviolet;*/
-    border: 1vw solid transparent; 
-    border-right: 1vw solid blueviolet;
+    border: 1px solid violet;
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+}*/
+.col-xs-1{
+    padding: 0;
 }
 .modal-content{
     width: 52.5em;
@@ -275,4 +278,47 @@ img{
     font-family: buxton Sketch;
     font-size: 2.5vh;
     max-width: 700px;
+}
+
+.for-icons{
+    margin-bottom: 0.5vh;
+    cursor: pointer;
+}
+.for-icons:hover{
+    opacity: 0.9;
+}
+.like{
+    margin-top: 3vh;
+}
+img {
+   max-width: 100%;
+   height: auto;
+   width: auto\9; /* ie8 */
+   background-size: cover; 
+}
+.block-xs{
+    vertical-align: central;
+    width: auto;
+    height: auto;
+    background-color: blueviolet;
+    position: absolute;
+}
+.album-sm{
+    background-color: blueviolet;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+    font-family: buxton Sketch;
+    font-size: 3vh;
+    width: 100%;
+    height: auto;
+}
+.albums-sm-in-modal{
+    margin-right: 2vw;
+    border: 1px solid white;
+    border-radius: 2px;
+    cursor: pointer;
+}
+textarea{
+    border-radius: 3px;
 }

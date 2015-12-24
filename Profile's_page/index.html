@@ -1,177 +1,299 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Fuffy</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="reset.css" rel="stylesheet" />
-    <link href="bootstrap.css" rel="stylesheet" />
-    <link href="styles.css" rel="stylesheet" />
-
-    <link href="effects\component.css" rel="stylesheet" type="text/css" />
-    <link href="bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-
-</head>
-<body>
+      <link href="reset.css" rel="stylesheet" />
+      <link href="bootstrap.css" rel="stylesheet" />
+      <link href="styles.css" rel="stylesheet" />
+      <link href="effects\component.css" rel="stylesheet" type="text/css" />
+      <link href="bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    </head>
+  <body>
     <div class="container">
-        <div class="cap row">
-                <div class="btn-show-left" onclick="showLeftDiv();"></div>
-
-            <!--<div class="cap-cell  col-xs-2">
-                <img class="logo" src="content/Fuffy.png" />
-            </div> -->
-            <div class="cap-cell col-xs-2 col-xs-offset-9">
-                <form class="search-margin">
-                    <input class="search-form form-control" type="text" placeholder="Поиск" />
-                </form>
-            </div>
-            <div class="col-xs-1">
-        <div class="btn-show-right" onclick="showRightDiv();"></div>
-    </div>
+      <div class="cap row">
+        <div class="cap-cell  col-xs-3 hidden-xs">
+          <img class="logo" src="content/Fuffy.png" />
         </div>
-        <div class="content row">
-            <div class="content-cell content-cell-flank-left col-xs-3" onclick="hideLeftDiv();">
-                <div class="user-name row">Mia Wallace</div>
-                <div class="status row">I want that trophy, so dance good.</div>
-                <div class="user-main-photo row">
-                    <img src="content/SBVIA4nAZRs.jpg" />
+        <!--<div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle col-xs-4 hidden-sm hidden-md hidden-lg" type="button" data-toggle="dropdown">Перейти
+            </button>
+                <ul class="dropdown-menu col-xs-4 hidden-sm hidden-md hidden-lg">
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+            </div>-->
+        <div class="cap-cell col-md-2 col-md-offset-7 col-sm-3 col-sm-offset-6 col-xs-4 ">
+          <form class="search-margin">
+            <input class="search-form form-control" type="text" placeholder="Поиск" />
+          </form>
+        </div>
+
+      </div>
+      <div class="content row">
+        <div class="content-cell content-cell-flank-left col-md-3 col-sm-3 col-xs-3 " id="#profileBlock">
+          <div class="row">
+            <div class="col-md-1 col-sm-1 hidden-xs">
+              <div id="hide-profile" class="btn-hide-show">
+                P
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="user-name">
+              Mia Wallace
+            </div>
+          </div>
+          <div class="row">
+            <div class="status hidden-xs">
+              I want that trophy, so dance good.
+            </div>
+          </div>
+          <div class="user-main-photo row">
+            <img src="content/SBVIA4nAZRs.jpg" />
+          </div>
+          <div class="row about-user row hidden-xs">
+            About me:
+          </div>
+          <div class="row about-user-text row hidden-xs">
+            I want to dance, I want to win.
+          </div>
+          <div data-toggle="modal" data-target="#albumsModal" class="album-sm hidden-md hidden-lg"> Альбомы </div>
+          <!-- Modal -->
+          <div class="modal fade" id="albumsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+              aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">
+                    Альбомы
+                  </h4>
                 </div>
-                <div class="about-user row">About me:</div>
-                <div class="about-user-text row">I want to dance, I want to win.</div>
-            </div>
-
-            <div class="content-cell scroll content-padding col-xs-6">
-                    <!-- Button trigger modal -->
-<img data-toggle="modal" data-target="#myModal" class="item"/>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Название модали</h4>
-      </div>
-      <div class="modal-body">
-        <img src="content\1-2.jpg"/>
-        <textarea class="comment">
-     
-        </textarea>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-primary">Отправить</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<img data-toggle="modal" data-target="#myModal1" class="item1"/>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Название модали</h4>
-      </div>
-      <div class="modal-body">
-        <img src="content\3.jpg"/>
-         <textarea class="comment">
-     
-        </textarea>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-primary">Отправить</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<img data-toggle="modal" data-target="#myModal2" class="item2"/>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Название модали</h4>
-      </div>
-      <div class="modal-body">
-        <img src="content\4.jpg"/>
-         <textarea class="comment">
-     
-        </textarea>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-primary">Отправить</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-                
-            </div>
-    <div class="content-cell content-cell-flank-right col-xs-3" onclick="hideRightDiv();">
-                <div class="albums-list row">
-                    <div class="albums col-xs-8">Albums:</div>
-                    <div class="add-album col-xs-4">
-                        <img src="content/new.png" />
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-sm-3 col-xs-3">
+                      <img class="size albums-sm-in-modal" src="content/1-2.jpg" />
+                      <div class="album-name row">
+                        <a>Album's Name</a>
+                      </div>
                     </div>
+                    <div class="col-sm-3 col-xs-3">
+                      <img class="size albums-sm-in-modal" src="content/1-2.jpg" />
+                      <div class="album-name row">
+                        <a>Album's Name</a>
+                      </div>
+                    </div>
+                  </div>
+                  <br/>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="album-name">
+                        <a>Добавить новый альбом</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <ol>
-                    <li>
-                        <div class="album-cover row">
-                            <section class="demo-1">
-                                <div class="grid">
-                                    <div class="box">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                                            <line class="top" x1="0" y1="0" x2="900" y2="0" />
-                                            <line class="left" x1="0" y1="460" x2="0" y2="-920" />
-                                            <line class="bottom" x1="300" y1="460" x2="-600" y2="460" />
-                                            <line class="right" x1="300" y1="0" x2="300" y2="1380" />
-                                        </svg>
-
-                                    <img class="size" src="content/1-2.jpg" />
-
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="album-name row"><a>Album's Name</a></div>
-                    </li>
-                    <li>
-                        <div class="album-cover row">
-                           <section class="demo-1">
-                                <div class="grid">
-                                    <div class="box">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                                            <line class="top" x1="0" y1="0" x2="900" y2="0" />
-                                            <line class="left" x1="0" y1="460" x2="0" y2="-920" />
-                                            <line class="bottom" x1="300" y1="460" x2="-600" y2="460" />
-                                            <line class="right" x1="300" y1="0" x2="300" y2="1380" />
-                                        </svg>
-                                    <img class="size" src="content/1-2.jpg" />
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                        <div class="album-name row"><a>Album's Name</a></div>
-                    </li>
-                </ol>
+                </form>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="scripts\bootstrap.min.js"></script>
-    <!--<script type="text/javascript" src="scripts\masonry.js"></script>-->
-    <script type="text/javascript" src="scripts\script.js"></script>
-</body>
+        <div class="content-cell scroll content-padding col-md-6 col-sm-9 col-xs-9">
+          <div class="row">
+
+            <div class="col-md-1 col-sm-1 hidden-xs">
+              <div id="profile" class="btn-hide-show">
+                P
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-1 col-sm-1 hidden-sm hidden-xs">
+              <div id="albums" class="btn-hide-show">
+                А
+              </div>
+            </div>
+          </div>
+          <!-- Button trigger modal -->
+          <img data-toggle="modal" data-target="#myModal" class="item" />
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+              aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">
+                    Название
+                  </h4>
+                </div>
+                <div class="modal-body">
+                  <img src="content\1-2.jpg" />
+                  <button type="submit" class="like" id="like">
+                    0
+                  </button>
+                  <br />
+                  <form>
+                    <textarea class="comment">
+
+                    </textarea>
+                  </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">
+                    Отправить
+                  </button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <img data-toggle="modal" data-target="#myModal1" class="item1" />
+          <!-- Modal -->
+          <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+              aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">
+                    -
+                  </h4>
+                </div>
+                <div class="modal-body">
+                  <img src="content\3.jpg" />
+                  <button type="button" class="like" id="like">
+                    0
+                  </button>
+                  <br />
+                  <form>
+                    <textarea class="comment">
+
+                    </textarea>
+                  </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">
+                    Отправить
+                  </button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <img data-toggle="modal" data-target="#myModal2" class="item2" />
+          <!-- Modal -->
+          <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+              aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                  </button>
+                  <h4 class="modal-title" id="myModalLabel">
+                    Ленивые
+                  </h4>
+                </div>
+
+                <div class="modal-body">
+                  <img src="content\4.jpg" />
+                  <br/>
+                  <button type="button" class="like" id="like">
+                    0
+                  </button>
+                  <br />
+                  <form>
+                    <textarea class="comment" >
+
+                    </textarea>
+                  </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary">
+                    Отправить
+                  </button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-cell content-cell-flank-right col-md-3 hidden-sm hidden-xs" id="#albumBlock">
+          <div class=" row albums-list">
+            <div class="col-xs-10 albums">
+              Albums:
+              <ol>
+                <li>
+                  <div class="album-cover row">
+                    <section class="demo-1">
+                      <div class="grid">
+                        <div class="box">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                            <line class="top" x1="0" y1="0" x2="900" y2="0" />
+                            <line class="left" x1="0" y1="460" x2="0" y2="-920" />
+                            <line class="bottom" x1="300" y1="460" x2="-600" y2="460" />
+                            <line class="right" x1="300" y1="0" x2="300" y2="1380" />
+                          </svg>
+
+                          <img class="size" src="content/1-2.jpg" />
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="album-name row">
+                    <a>Album's Name</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="album-cover row">
+                    <section class="demo-1">
+                      <div class="grid">
+                        <div class="box">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                            <line class="top" x1="0" y1="0" x2="900" y2="0" />
+                            <line class="left" x1="0" y1="460" x2="0" y2="-920" />
+                            <line class="bottom" x1="300" y1="460" x2="-600" y2="460" />
+                            <line class="right" x1="300" y1="0" x2="300" y2="1380" />
+                          </svg>
+                          <img class="size" src="content/1-2.jpg" />
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="album-name row">
+                    <a>Album's Name</a>
+                  </div>
+                </li>
+              </ol>
+            </div>
+            <div id="hide-albums" class="btn-hide-show">А</div>
+
+            <div class="col-xs-2 add-album">
+              <img src="content/new.png" class="for-icons" />
+              <img src="content/add.png" class="for-icons" />
+              <img src="content/set.png" class="for-icons" />
+            </div>
+            <div class="row">
+              <div class="col-md-1 col-sm-1 hidden-xs">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="scripts\jquery-2.1.4.min.js"></script>
+      <script src="scripts\bootstrap.min.js"></script>
+      <!--<script type="text/javascript" src="scripts\masonry.js"></script>-->
+      <script type="text/javascript" src="scripts\script.js"></script>
+    </body>
 </html>
