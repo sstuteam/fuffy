@@ -1,4 +1,8 @@
-﻿body {
+﻿@font-face {
+    font-family: 'BuxtonSketch';
+    src: url('../fonts/BuxtonSketch.ttf') format('truetype');
+}
+body {
     background-image: url('../content/Background.png');
     background-attachment: fixed;
     background-size: cover;
