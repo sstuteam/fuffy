@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBLL.cs" />
     <Compile Include="Logic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -48,8 +49,8 @@
       <Project>{f7822d93-9eb2-4ef3-9429-6963d4260edf}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\User\Entities.csproj">
-      <Project>{1077aa8c-87cc-4516-b451-bcfbb37535f4}</Project>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{b6a86a0c-f125-4858-81ad-5bc8e692d226}</Project>
       <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>

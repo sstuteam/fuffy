@@ -1,0 +1,149 @@
+﻿@font-face {
+    font-family: 'BuxtonSketch';
+    src: url('../fonts/BuxtonSketch.ttf') format('truetype');
+}
+
+body {
+    background: url('../content/Background.png') no-repeat;
+    width:100%;
+    background-size:cover;
+    background-attachment:fixed;
+}
+
+h2, input, a{
+    font-family: BuxtonSketch;
+}
+
+.board-low {
+    background: url('../content/start_board_low.png') center no-repeat;
+    background-size:cover;
+    margin-top: 5%;
+    padding-bottom:5vh;
+    border:medium    groove #B2BAEB;
+}
+
+img.big-logo{
+    width:50%;
+    height:40%;
+    margin-bottom:-8vw;
+}
+
+.popular-photos-block{
+   margin-left:2.5%;
+}
+
+.example-img-1, .example-img-2, .example-img-3, .example-img-4, .example-img-5, .example-img-6{
+    position:absolute;
+}
+
+.example-img-1{
+    width:16%;
+    top:20%;
+    left:5%;
+}
+
+.example-img-2{
+    height:11vw;
+    top:52%;
+    left:5%;
+}
+
+.example-img-3{
+    width:11vw;
+    top:52%;
+    left:15%;
+}
+
+.example-img-4{
+    width:16%;
+    top:20%;
+    right:5%;
+}
+
+.example-img-5{
+    height:11vw;
+    top:52%;
+    right:5%;
+}
+
+.example-img-6{
+    width:11vw;
+    top:52%;
+    right:15%;
+}
+
+.popular-users{
+    margin-left:73%;
+    bottom:35.5vh;
+}
+
+.login-form{
+    margin-top:4%;
+    padding:0;
+}
+
+h2{
+    font-size:2vw;
+}
+
+form h2{
+    margin-left:3%;
+}
+
+input{
+    margin-top:4%;
+    font-size:1.3vw;
+}
+
+input[type="text"], input[type="password"]{
+    background-color:#788AF8;
+    padding-left:1%;
+    border:medium solid #B2BAEB;
+    width:14vw;
+    font-size:1.2vw;
+    margin-left:14%;
+}
+
+input[type=text]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder{
+    color:#646672;
+}
+
+input[type="text"]::-moz-placeholder, input[type="password"]::-moz-placeholder{
+    color:#646672;
+}
+
+input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder{
+    color:#646672;
+}
+
+input[type=text]:focus::-webkit-input-placeholder, input[type="password"]:focus::-webkit-input-placeholder{
+    color:transparent;
+}
+
+input[type="text"]:focus::-moz-placeholder, input[type="password"]:focus::-moz-placeholder{
+    color:transparent;
+}
+
+input[type="text"]:focus:-ms-input-placeholder, input[type="password"]:focus:-ms-input-placeholder{
+    color:transparent;
+}
+
+input[type=button]{
+    margin-left:25%;
+    background-color:#BCC0D9;
+    color:#36264A;
+}
+
+.create-album{
+    margin-left:37%;
+    font-size:2vw;
+    color:#36264A;
+    cursor:pointer;
+    margin-top:8vh;
+}
+
+.create-album:hover{
+    text-decoration:none;
+    color:#36267B;
+    cursor:pointer;
+}

@@ -1,0 +1,68 @@
+﻿body {
+    background-image: url('Фото/Background.png');
+}
+
+.container {
+    margin-top: 5vh;
+    background-image: url('Фото/List.png');
+    height: 90vh;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.cap {
+    border-radius: 10px;
+    background-color: rgba(60, 60, 60, 0.2);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.cap-cell {
+    height: 8vh;
+}
+
+.logo {
+    margin: 0.5vh 0 0 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.content {
+    margin-top: 0.7vh;
+}
+
+.registration-info {
+    overflow:auto;
+    height:81vh;
+    border-radius: 10px;
+    background-color: rgba(60, 60, 60, 0.2);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.registration-level {
+    padding-top: 0.6vh;
+}
+
+.registration-input {
+    display:block;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    margin: 5px 0 5px 0;
+}
+
+.star {
+    color:red;
+}
+
+.prompt {
+    font-size:1.7vh;
+}
+
+form {
+    margin: 2vh 0 2vh 0;
+}

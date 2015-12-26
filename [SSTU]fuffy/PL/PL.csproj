@@ -54,9 +54,9 @@
       <Project>{ca180497-3004-4267-9628-06366c89bb21}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\User\Entities.csproj">
+    <ProjectReference Include="..\User\User.csproj">
       <Project>{1077aa8c-87cc-4516-b451-bcfbb37535f4}</Project>
-      <Name>Entities</Name>
+      <Name>User</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

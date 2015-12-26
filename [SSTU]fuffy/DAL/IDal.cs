@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities;
 
 namespace DAL
 {
-    interface IDal
+    public interface IDAL
     {
+        bool Add(User user);
+        List<User> GetAllUser();
     }
 }

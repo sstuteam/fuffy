@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,8 +46,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\User\Entities.csproj">
-      <Project>{1077aa8c-87cc-4516-b451-bcfbb37535f4}</Project>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{b6a86a0c-f125-4858-81ad-5bc8e692d226}</Project>
       <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>

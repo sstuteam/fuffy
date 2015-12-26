@@ -1,0 +1,115 @@
+﻿@model PL_MVC.Models.User   
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Fuffy Регистрация</title>
+    <meta charset="utf-8" />
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/styles_R.css" rel="stylesheet" />
+</head>
+<body>    
+    <div class="container">
+        <div class="cap row">
+            <div class="cap-cell pull-left col-xs-3">               
+                <img class="logo" src="~/Content/Фото/Fuffy.png" />              
+            </div>
+        </div>
+        <div class="content row">
+            <div class="registration-info col-xs-6 col-xs-push-3">
+                @using (Html.BeginForm("Registration","User"))
+                {
+                    @*@Html.TextBox("ligin", "", new { @class = "registration-input input-sm", name = "login", id = "login" })*@
+
+
+                    <div class="registration-level">
+                        <label>Логин:</label><span class="star">*</span>
+                        @*@Html.TextBox("ligin", "", new { @class = "registration-input input-sm", name = "login", id = "login" })*@
+                        @*@Html.LabelFor(x=>x.login,"login")*@
+                        @Html.TextBoxFor(x=>x.login, new { @class = "registration-input input-sm", name = "login", id = "login" })
+                        
+                        @*@Html.TextBox("ligin", "", new { @class = "registration-input input-sm", name = "login", id = "login" })*@
+                        @*<input class="registration-input input-sm" type="text" name="login" id="login" />*@
+
+                    </div>
+                    <div class="registration-level">
+                        <label>Пароль:</label><span class="star">*</span>
+                        @*@Html.TextBox("password", "", new { @class = "registration-input input-sm", name = "password", id = "password" })*@
+                        @Html.PasswordFor(x=>x.passwordFirst, new { @class = "registration-input input-sm", name = "password", id = "password" })
+
+                        @*<input class="registration-input input-sm" type="password" name="password" id="password" />*@
+                    </div>
+                    <div class="registration-level">
+                        <label>Повторите пароль:</label><span class="star">*</span>
+                        @*@Html.TextBox("repeat-password", "", new { @class = "registration-input input-sm", name = "repeat-password", id = "repeat-password" })*@
+                        @Html.PasswordFor(x=>x.passwordRepeat, new { @class = "registration-input input-sm", name = "repeat-passwor", id = "repeat-password" })
+
+                        @*<input class="registration-input input-sm" type="password" name="repeat-password" id="repeat-password" />*@
+                    </div>
+                    <div class="registration-level">
+                        <label>Email:</label><span class="star">*</span>
+                        @*@Html.TextBox("email", "", new { @class = "registration-input input-sm", name = "email", id = "email" })*@
+                        @Html.TextBoxFor(x=>x.eMail, new { @class = "registration-input input-sm", name = "email", id = "email" })
+                        
+                        @*<input class="registration-input input-sm" type="email" name="email" id="email" />*@
+                    </div>
+                    <div class="registration-level">
+                        <label>Ник:</label><span class="star">*</span>
+                        @*@Html.TextBox("name","", new { @class = "registration-input input-sm", name = "name", id = "name" })*@
+                        @Html.TextBoxFor(x=>x.name, new { @class = "registration-input input-sm", name = "name", id = "name" })
+                   
+                        @*<input class="registration-input input-sm" type="text" name="nickname" id="nickname" />*@
+                    </div>
+                    <div class="registration-level">
+                        <label>Аватар</label>
+                        <input class="registration-input input-sm" type="file" name="avatar" id="avatar" />
+                        <button class="btn btn-danger" type="reset">Удалить</button>
+                    </div>
+                    <div class="registration-level">                       
+                        <button class="btn btn-success" type="submit">Готово</button>
+                    </div>
+                    <hr />
+                    <span class="prompt">Данные, обязательные для заполнения отмечены "<span class="star">*</span>"</span>
+
+                }
+                @*<form action="" enctype="multipart/form-data">
+                    <div class="registration-level">
+                        <label>Логин:</label><span class="star">*</span>
+                       
+                        @Html.TextBox("ligin", "", new { @class = "registration-input input-sm", name = "login", id = "login" })
+                        <input class="registration-input input-sm" type="text" name="login" id="login" />
+                        
+                    </div>
+                    <div class="registration-level">
+                        <label>Пароль:</label><span class="star">*</span>
+                        <input class="registration-input input-sm" type="password" name="password" id="password" />
+                    </div>
+                    <div class="registration-level">
+                        <label>Повторите пароль:</label><span class="star">*</span>
+                        <input class="registration-input input-sm" type="password" name="repeat-password" id="repeat-password" />
+                    </div>
+                    <div class="registration-level">
+                        <label>Email:</label><span class="star">*</span>
+                        <input class="registration-input input-sm" type="email" name="email" id="email" />
+                    </div>
+                    <div class="registration-level">
+                        <label>Ник:</label><span class="star">*</span>
+                        <input class="registration-input input-sm" type="text" name="nickname" id="nickname" />
+                    </div>
+                    <div class="registration-level">
+                        <label>Аватар</label>
+                        <input class="registration-input input-sm" type="file" name="avatar" id="avatar" />
+                        <button class="btn btn-danger" type="reset">Удалить</button>
+                    </div>
+                    <div class="registration-level">
+                        <button class="btn btn-success" type="submit">Готово</button>
+                    </div>
+                    <hr />
+                    <span class="prompt">Данные, обязательные для заполнения отмечены "<span class="star">*</span>"</span>
+                </form>*@
+            </div>
+        </div>
+    </div>
+</body>
+</html>
