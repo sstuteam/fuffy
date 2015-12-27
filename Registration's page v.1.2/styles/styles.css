@@ -2,19 +2,6 @@
     font-family: 'BuxtonSketch';
     src: url('../fonts/BuxtonSketch.ttf') format('truetype');
 }
-body {
-    background-image: url('../content/Background.png');
-    background-attachment: fixed;
-    background-size: cover;
-    font-family: BuxtonSketch;
-    font-size: 2.5vh;
-}
-
-.container {
-    background-image: url('../content/List.png');
-    background-size: cover;
-    border-radius: 10px;
-}
 
 @media all and (min-width:769px) {
     .container {
@@ -25,6 +12,10 @@ body {
     .registration-info {
         height: 81vh;
     }
+
+    .text-input {
+    width:20vw;
+}
 }
 
 @media all and (max-width:768px) {
@@ -36,6 +27,16 @@ body {
     .registration-info {
         height: 91vh;
     }
+
+    .text-input {
+        width:50vw;
+    }
+}
+
+.container {
+    background-image: url('../content/List.png');
+    background-size: cover;
+    border-radius: 10px;
 }
 
 .cap {
@@ -75,19 +76,11 @@ body {
 
 .registration-input {
     display:block;
-}
-
-hr {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-button {
-    margin: 5px 0 5px 0;
+    font-size: 2.5vh;
 }
 
 .star {
-    color:red;
+    color:#FE1010;
 }
 
 .prompt {
@@ -96,4 +89,16 @@ button {
 
 form {
     margin: 2vh 0 2vh 0;
+}
+
+button {
+    margin: 5px 0 5px 0;
+}
+
+body {
+    background-image: url('../content/Background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: BuxtonSketch;
+    font-size: 2.5vh;
 }
