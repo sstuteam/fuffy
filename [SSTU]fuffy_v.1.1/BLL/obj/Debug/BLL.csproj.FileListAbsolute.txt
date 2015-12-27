@@ -1,0 +1,18 @@
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\BLL\bin\Debug\BLL.dll
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\BLL\bin\Debug\BLL.pdb
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\BLL\bin\Debug\DAL.dll
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\BLL\bin\Debug\User.dll
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\BLL\bin\Debug\DAL.pdb
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\BLL\bin\Debug\User.pdb
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\BLL\obj\Debug\BLL.dll
+c:\users\артем\documents\visual studio 2015\Projects\[SSTU]fuffy\BLL\obj\Debug\BLL.pdb
+E:\[SSTU]fuffy\BLL\bin\Debug\BLL.dll
+E:\[SSTU]fuffy\BLL\bin\Debug\BLL.pdb
+E:\[SSTU]fuffy\BLL\bin\Debug\DAL.dll
+E:\[SSTU]fuffy\BLL\bin\Debug\DAL.pdb
+E:\[SSTU]fuffy\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\[SSTU]fuffy\BLL\obj\Debug\BLL.dll
+E:\[SSTU]fuffy\BLL\obj\Debug\BLL.pdb
+E:\[SSTU]fuffy\BLL\bin\Debug\Entities.dll
+E:\[SSTU]fuffy\BLL\bin\Debug\Entities.pdb

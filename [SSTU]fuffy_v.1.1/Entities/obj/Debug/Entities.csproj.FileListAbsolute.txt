@@ -1,0 +1,5 @@
+E:\[SSTU]fuffy\Entities\bin\Debug\Entities.dll
+E:\[SSTU]fuffy\Entities\bin\Debug\Entities.pdb
+E:\[SSTU]fuffy\Entities\obj\Debug\Entities.dll
+E:\[SSTU]fuffy\Entities\obj\Debug\Entities.pdb
+E:\[SSTU]fuffy\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
