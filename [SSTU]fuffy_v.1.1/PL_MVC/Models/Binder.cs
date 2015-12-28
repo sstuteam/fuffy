@@ -14,7 +14,7 @@ namespace PL_MVC.Models
         {
             user.idUser = Guid.NewGuid();
             return bll.AddUser((Entities.User)user);
-        }
+        }        
         
         public static bool CheckLogin(string Login)
         {

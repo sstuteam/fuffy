@@ -23,8 +23,10 @@ namespace PL_MVC.Controllers
         [HttpPost]
         public ActionResult Registration(User user)
         {
+            if (user.PasswordFirst == user.PasswordRepeat)
+                user.Password = user.PasswordFirst;
             Binder.CheckLogin(user.Login);
-            //Binder.AddUser(user);
+            Binder.AddUser(user);
             return RedirectToAction("Index","Home");
         }
         public ActionResult Profile(Guid id)

@@ -29,7 +29,7 @@ namespace DAL
                 com.Parameters.AddWithValue("@Email", user.Email);
                 c.Open();
                 var a = com.ExecuteNonQuery();
-                return a != 0;
+                return a > 0;
             }          
         }
 
@@ -38,7 +38,7 @@ namespace DAL
             var listUser = new List<User>();          
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("SELECT [UserID],[Login],[Password],[Email],[Name] FROM [dbo].[User]", c);
+                SqlCommand com = new SqlCommand("SELECT [UserID],[Login],[Password],[Email],[Name] FROM [dbo].[Profile]", c);
                 c.Open();
                 var reader = com.ExecuteReader();
                 while (reader.Read())

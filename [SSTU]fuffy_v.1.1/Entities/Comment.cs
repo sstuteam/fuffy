@@ -41,5 +41,7 @@ namespace Entities
             userId = UserId;
             photoId = PhotoId;
         }
+
+        public Comment() { }
     }
 }
