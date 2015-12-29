@@ -1,16 +1,66 @@
 ﻿body {
-    background-image: url('content/Background.png');
+    background-image: url('../images/Background.png');
     background-attachment: fixed;
     background-size: cover;
+    font-family: buxton sketch;
+}
+
+a {
+    font-family: 'Buxton Sketch';
+}
+
+    a, a:hover, a:active, a:focus {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    background-size: cover;
+}
+.user-main-photo img {
+        max-height: 100%;
+        max-width: 100%;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+.album-cover img {
+        max-height: 100%;
+}
+    .photo img {
+        height: 100%;
+        width: 100%;
+    }
+
+textarea {
+    border-radius: 3px;
+}
+
+@media screen and (min-device-width: 750px) {
+    .content-cell-flank-left {
+        background-color: rgba(70, 0, 70, 0.1);
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        position: relative;
+    }
+}
+
+.modal-body{
+    text-align:center;
+}
+
+.search-margin-right {
+    margin-right: 1vw;
 }
 
 .container {
     margin-top: 5vh;
-    background-image: url('content/List.png');
+    background-image: url('../images/List.png');
     height: 86vh;
     background-size: cover;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .cap {
@@ -29,11 +79,6 @@
     height: 8vh;
 }
 
-.content-padding{
-    padding-left:auto;
-    padding-right: auto;
-}
-
 .logo {
     margin: 2vh 0 0 0;
     height: 5vh;
@@ -42,22 +87,20 @@
 .content-cell {
     height: 77.5vh;
     border-radius: 10px;
-    border-top-right-radius:0;
-    border-top-left-radius:0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
 }
-.scroll{
-    overflow-y:scroll;
-}
-@media screen and (min-device-width: 750px) {
-.content-cell-flank-left {
-    background-color: rgba(70, 0, 70, 0.1);
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    position: relative;
-}}
-.content-cell-flank-left:focus + .btn-show{
+
+.content-cell-flank-left:focus + .btn-show {
     visibility: visible;
-    left:30px;
+    left: 30px;
 }
+
+.scroll {
+    overflow-y: scroll;
+}
+
+
 .content-cell-flank-right {
     background-color: rgba(70, 0, 70, 0.1);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -68,18 +111,13 @@
 }
 
 .user-name {
-    height: 7vh;
-    /*font-family: Aharoni;*/
-    font-family:'Buxton Sketch';
     font-size: 6vh;
     color: blueviolet;
-    text-align: center;
 }
 
 .status {
-    height: auto;
     /*font-family: Aharoni;*/
-    font-family:'Buxton Sketch';
+    font-family: 'Buxton Sketch';
     font-size: 3vh;
     color: mediumvioletred;
     text-align: center;
@@ -87,38 +125,30 @@
 
 .user-main-photo {
     padding: 1vh;
-    height: 40vh;
-    line-height: 30vh;
     text-align: center;
 }
 
-    .user-main-photo img {
-        max-height: 100%;
-        max-width: 100%;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
 
 .about-user {
     padding-left: 2vh;
     height: 4vh;
     /*font-family: Aharoni;*/
-    font-family:'Buxton Sketch';
+    font-family: 'Buxton Sketch';
     font-size: 3vh;
     color: darkblue;
     /*text-align: left;*/
-    text-align:center;
+    text-align: center;
 }
 
 .about-user-text {
     padding-left: 2vh;
     height: 5vh;
     /*font-family: Aharoni;*/
-    font-family:'Buxton Sketch';
+    font-family: 'Buxton Sketch';
     font-size: 2.5vh;
     color: blue;
     /*text-align: left;*/
-    text-align:center;
+    text-align: center;
 }
 
 .albums-list {
@@ -129,7 +159,7 @@
 .albums {
     height: 100%;
     /*font-family: Aharoni;*/
-    font-family:'Buxton Sketch';
+    font-family: 'Buxton Sketch';
     font-size: 5vh;
     color: blueviolet;
     text-align: center;
@@ -143,19 +173,12 @@
     text-align: left;
 }
 
-    /*.add-album img {
-        height: 100%;
-    }*/
-
 .album-cover {
     height: 17vh;
     padding: 1vh;
     text-align: center;
 }
 
-    .album-cover img {
-        max-height: 100%;
-    }
 
 .album-name {
     height: 4vh;
@@ -170,108 +193,45 @@
     padding: 1vh;
 }
 
-    .photo img {
-        height: 100%;
-        width: 100%;
-    }
-
-    .size{
-        height:14vh;
-    }
-    a{
-        font-family:'Buxton Sketch';
-    }
-    a, a:hover, a:active, a:focus{
-        text-decoration:none;
-        cursor:pointer;
-    }
-    .search-margin-right{
-        margin-right:1vw;
-    }
-    
-
-
-
-
-.item {
-  width: 10em;
-  height: 10em;
-
-  float: left;
-
-  background-image: url(content/1-2.jpg);
-  background-size:cover;
-  border: 2px solid white;
-  border-radius: 5px;
-  margin:4px;
+.size {
+    height: 14vh;
 }
-.item1 {
-  width: 10em;
-  height: 10em;
 
-  float: left;
-
-  background-image: url(content/3.jpg);
-  background-size:cover;
-  border: 2px solid white;
-  border-radius: 5px;
-  margin:4px;
-}
-.item2 {
-  width: 10em;
-  height: 10em;
-
-  float: left;
-
-  background-image: url(content/4.jpg);
-  background-size:cover;
-  border: 2px solid white;
-  border-radius: 5px;
-  margin:4px;
+.item img{
+    width: 15vw;
+    min-width:150px;
+    float: left;
+    /*background-size: cover;*/
+    border: 2px solid white;
+    border-radius: 5px;
+    margin: 8px;
 }
 .item:hover {
     opacity: 0.9;
 }
-.item1:hover {
-    opacity: 0.9;
-}
-.item2:hover {
-    opacity: 0.9;
-}
 
-
-.btn-hide{
+.btn-hide {
     margin-top: 4vh;
 }
-.btn-hide-show{
-    /*margin-top: 3vh;*/
-    /*visibility: hidden;*/
+
+.btn-hide-show {
     position: absolute;
-    /*background-color: blueviolet;*/
-    border: 1px solid blueviolet; 
+    border: 1px solid blueviolet;
     background-color: violet;
     width: 20px;
     height: 20px;
     text-align: center;
     cursor: pointer;
 }
-/*.btn-hide-show-albums{
-    position: absolute;
-    border: 1px solid violet;
-    width: 20px;
-    height: 20px;
-    padding: 1px;
-}*/
-.col-xs-1{
+.col-xs-1 {
     padding: 0;
 }
-.modal-content{
+
+.modal-content {
     width: 52.5em;
 }
-img{
-    max-width: 700px;
-}
-.comment{
+
+.comment {
     margin-top: 3vh;
     height: 10vh;
     width: 20vw;
@@ -280,30 +240,28 @@ img{
     max-width: 700px;
 }
 
-.for-icons{
+.for-icons {
     margin-bottom: 0.5vh;
     cursor: pointer;
 }
-.for-icons:hover{
-    opacity: 0.9;
-}
-.like{
+
+    .for-icons:hover {
+         opacity: 0.9;
+    }
+
+.like {
     margin-top: 3vh;
 }
-img {
-   max-width: 100%;
-   height: auto;
-   width: auto\9; /* ie8 */
-   background-size: cover; 
-}
-.block-xs{
+
+.block-xs {
     vertical-align: central;
     width: auto;
     height: auto;
     background-color: blueviolet;
     position: absolute;
 }
-.album-sm{
+
+.album-sm {
     background-color: blueviolet;
     border-radius: 2px;
     text-align: center;
@@ -313,12 +271,10 @@ img {
     width: 100%;
     height: auto;
 }
-.albums-sm-in-modal{
+
+.albums-sm-in-modal {
     margin-right: 2vw;
     border: 1px solid white;
     border-radius: 2px;
     cursor: pointer;
-}
-textarea{
-    border-radius: 3px;
 }

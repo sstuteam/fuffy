@@ -1,4 +1,4 @@
-function changeBackground1(str) {
+function changeBackground1() {
     document.body.style.backgroundImage = "url('Styles/Images/symphony.png')";
 }
 
@@ -15,4 +15,9 @@ function changeBackground4() {
 }
 function changeBackground5() {
     document.body.style.backgroundImage = "url('Styles/Images/congruent_pentagon.png')";
+}
+
+function goToPage(str) {
+    var url = document.getElementById(str);
+    document.location.href = url.value;
 }
