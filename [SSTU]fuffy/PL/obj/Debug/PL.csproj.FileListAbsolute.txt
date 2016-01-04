@@ -8,3 +8,6 @@ E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\obj\Debug\PL.ex
 E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\obj\Debug\PL.pdb
 E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\bin\Debug\User.dll
 E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\PL\bin\Debug\User.pdb
+C:\Users\Евгений\Documents\fuffy\[SSTU]fuffy\PL\bin\Debug\PL.exe.config
+C:\Users\Евгений\Documents\fuffy\[SSTU]fuffy\PL\obj\Debug\PL.exe
+C:\Users\Евгений\Documents\fuffy\[SSTU]fuffy\PL\obj\Debug\PL.pdb
