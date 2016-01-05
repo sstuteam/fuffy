@@ -1,0 +1,49 @@
+*::-webkit-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*::-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-ms-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+	
+}
+body input:required:valid,
+body textarea:required:valid {
+	
+}
+body {
+	font-family: sans-serif;
+	font-size: 16px;
+	min-width: 320px;
+	position: relative;
+}
+.hidden {
+	display: none;
+}
+
+.masonry-container {
+	padding: 0;
+}
+.grid-sizer {
+	width: 25%;
+	float: left;
+	min-height: 1px;
+}
+.item {
+	height: 33.34vh;
+}
+.item img {
+	width: 100%;
+}
