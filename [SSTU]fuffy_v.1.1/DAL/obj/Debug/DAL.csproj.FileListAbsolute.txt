@@ -19,10 +19,3 @@ E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy_v.1.1\DAL\bin\Debu
 E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.dll
 E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.pdb
-C:\Users\Евгений\Documents\fuffy\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-C:\Users\Евгений\Documents\fuffy\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.dll
-C:\Users\Евгений\Documents\fuffy\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.pdb
-C:\Users\Евгений\Documents\fuffy\[SSTU]fuffy_v.1.1\DAL\bin\Debug\DAL.dll
-C:\Users\Евгений\Documents\fuffy\[SSTU]fuffy_v.1.1\DAL\bin\Debug\DAL.pdb
-C:\Users\Евгений\Documents\fuffy\[SSTU]fuffy_v.1.1\DAL\bin\Debug\Entities.dll
-C:\Users\Евгений\Documents\fuffy\[SSTU]fuffy_v.1.1\DAL\bin\Debug\Entities.pdb

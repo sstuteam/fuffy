@@ -13,6 +13,9 @@ namespace Entities
         public string Email { get; set; }
         public Guid idUser;
         public string Name { get; set; }
+        public string Cookies { get; set; }
+        public int RoleId { get; set; }     //
+        public string Status { get; set; }
         //public string sername;
 
         /// <summary>
@@ -20,10 +23,10 @@ namespace Entities
         /// </summary>
         public bool IsBlocked { get; set; }
 
-        /// <summary>
-        /// Свойство показывающее имеет ли пользователь права администратора
-        /// </summary>
-        public bool IsAdmin { get; private set; }
+        ///// <summary>
+        ///// Свойство показывающее имеет ли пользователь права администратора
+        ///// </summary>
+        //public bool IsAdmin { get; private set; }
 
         //public DateTime dateOfBirthday;  //Дата рождения
         public int countOfLikes; //Количество лайков, поставленных пользователю за все его фотографии
@@ -44,6 +47,7 @@ namespace Entities
             this.Email = Email;
             //dateOfBirthday = DateOfBirthday;
             idUser = Guid.NewGuid();
+            RoleId = 0;
         }
         /// <summary>
         /// Конструктор пользователя, информация о котором считана из базы
@@ -68,7 +72,7 @@ namespace Entities
             this.idUser = idUser;
         }
 
-        public User(Guid idUser, string Login, string Password, string Name, string Email /*,DateTime DateOfBirthday*/)
+        public User(Guid idUser, string Login, string Password, string Name, string Email, string Cookies,string Status /*,DateTime DateOfBirthday*/)
         {
             this.Login = Login;
             this.Password = Password;
@@ -76,9 +80,15 @@ namespace Entities
             this.Email = Email;
             //this.dateOfBirthday = DateOfBirthday;
             this.idUser = idUser;
+            this.Cookies = Cookies;
+            this.Status = Status;
         }
 
-        public User() { }
+        public User()
+        {
+            idUser = Guid.NewGuid();
+            RoleId = 0;
+        }
 
 
     }

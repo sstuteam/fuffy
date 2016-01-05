@@ -1,4 +1,4 @@
-﻿@model PL_MVC.Models.User   
+﻿@model PL_MVC.Models.RegistrationModel
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,27 +8,28 @@
     <link href="~/Content/reset.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/styles_R.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 </head>
 <body>    
     <div class="container">
         <div class="cap row">
             <div class="cap-cell pull-left col-xs-3">               
-                <img class="logo" src="~/Content/Фото/Fuffy.png" />              
+                <img class="logo" src="~/Content/Photo/Fuffy.png" />              
             </div>
         </div>
         <div class="content row">
             <div class="registration-info col-xs-6 col-xs-push-3">
-                @using (Html.BeginForm("Registration","User"))
+                @using (Html.BeginForm("Registration","Registration"))
                 {
                     @*@Html.TextBox("ligin", "", new { @class = "registration-input input-sm", name = "login", id = "login" })*@
-
-
                     <div class="registration-level">
                         <label>Логин:</label><span class="star">*</span>
                         @*@Html.TextBox("ligin", "", new { @class = "registration-input input-sm", name = "login", id = "login" })*@
                         @*@Html.LabelFor(x=>x.login,"login")*@
                         @Html.TextBoxFor(x=>x.Login, new { @class = "registration-input input-sm", name = "login", id = "login" })
-                        
+                        @Html.ValidationMessageFor(x=>x.Login)
                         @*@Html.TextBox("ligin", "", new { @class = "registration-input input-sm", name = "login", id = "login" })*@
                         @*<input class="registration-input input-sm" type="text" name="login" id="login" />*@
 
@@ -36,29 +37,29 @@
                     <div class="registration-level">
                         <label>Пароль:</label><span class="star">*</span>
                         @*@Html.TextBox("password", "", new { @class = "registration-input input-sm", name = "password", id = "password" })*@
-                        @Html.PasswordFor(x=>x.PasswordFirst, new { @class = "registration-input input-sm", name = "password", id = "password" })
-
+                        @Html.PasswordFor(x=>x.Password, new { @class = "registration-input input-sm", name = "password", id = "password" })
+                        @Html.ValidationMessageFor(x => x.Password)
                         @*<input class="registration-input input-sm" type="password" name="password" id="password" />*@
                     </div>
                     <div class="registration-level">
                         <label>Повторите пароль:</label><span class="star">*</span>
                         @*@Html.TextBox("repeat-password", "", new { @class = "registration-input input-sm", name = "repeat-password", id = "repeat-password" })*@
                         @Html.PasswordFor(x=>x.PasswordRepeat, new { @class = "registration-input input-sm", name = "repeat-passwor", id = "repeat-password" })
-
+                        @Html.ValidationMessageFor(x => x.PasswordRepeat)
                         @*<input class="registration-input input-sm" type="password" name="repeat-password" id="repeat-password" />*@
                     </div>
                     <div class="registration-level">
                         <label>Email:</label><span class="star">*</span>
                         @*@Html.TextBox("email", "", new { @class = "registration-input input-sm", name = "email", id = "email" })*@
-                        @Html.TextBoxFor(x=>x.Email, new { @class = "registration-input input-sm", name = "email", id = "email" })
-                        
+                        @Html.TextBoxFor(x => x.Email, new { @class = "registration-input input-sm", name = "email", id = "email" })
+                        @Html.ValidationMessageFor(x => x.Email)
                         @*<input class="registration-input input-sm" type="email" name="email" id="email" />*@
                     </div>
                     <div class="registration-level">
                         <label>Ник:</label><span class="star">*</span>
                         @*@Html.TextBox("name","", new { @class = "registration-input input-sm", name = "name", id = "name" })*@
                         @Html.TextBoxFor(x=>x.Name, new { @class = "registration-input input-sm", name = "name", id = "name" })
-                   
+                        @Html.ValidationMessageFor(x => x.Name)
                         @*<input class="registration-input input-sm" type="text" name="nickname" id="nickname" />*@
                     </div>
                     <div class="registration-level">

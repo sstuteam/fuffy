@@ -14,25 +14,14 @@ namespace PL_MVC.Controllers
         {            
             return View();
         }
-        [HttpGet]      
-        public ActionResult Registration()
+        
+       
+        [PageAuthorize(RoleID = 0)]        
+        public ActionResult Profile()
         {
-            return View("~/Views/User/RegisterPage/Registration.cshtml");
-            //return View();
-        }
-        [HttpPost]
-        public ActionResult Registration(User user)
-        {
-            if (user.PasswordFirst == user.PasswordRepeat)
-                user.Password = user.PasswordFirst;
-            Binder.CheckLogin(user.Login);
-            Binder.AddUser(user);
-            return RedirectToAction("Index","Home");
-        }
-        public ActionResult Profile(Guid id)
-        {
-            return View();
-        }
+            var user = AuthHelper.GetUser(HttpContext);
+            return View("~/Views/User/Profile.cshtml",user);
+        }      
 
     }
 }

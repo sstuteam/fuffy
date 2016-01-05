@@ -4,7 +4,7 @@
     src: url('../fonts/BuxtonSketch.ttf') format('truetype');
 }
 body {
-    background: url('Фото/Background.png') no-repeat;
+    background: url('Photo/Background.png') no-repeat;
     width:100%;
     background-size:cover;
     background-attachment:fixed;
@@ -15,7 +15,7 @@ h2, input, a{
 }
 
 .board-low {
-    background: url('Фото/start_board_low.png') center no-repeat;
+    background: url('Photo/start_board_low.png') center no-repeat;
     background-size:cover;
     margin-top: 5%;
     padding-bottom:5vh;

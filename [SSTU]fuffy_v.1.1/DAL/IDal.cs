@@ -11,5 +11,7 @@ namespace DAL
     {
         bool Add(User user);
         List<User> GetAllUser();
+        User GetUser(string cookie);                    //
+        User GetUser(string Login, string Password);    //
     }
 }

@@ -11,14 +11,22 @@ namespace PL_MVC.Models
     {
         public static IBLL bll = new Logic();
         public static bool AddUser(User user)
-        {
-            user.idUser = Guid.NewGuid();
+        {            
             return bll.AddUser((Entities.User)user);
         }        
         
         public static bool CheckLogin(string Login)
         {
             return bll.CheckLogin(Login);
+        }
+        public static User GetUser(string cookie)
+        {
+            return bll.GetUser(cookie);
+        }
+
+        public static User GetUser(string Login,string Password)
+        {
+            return bll.GetUser(Login, Password);
         }
     }
 }

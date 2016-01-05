@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model PL_MVC.Models.Home
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -11,27 +12,36 @@
 </head>
 <body class="col-xs-12">
         <div class="col-xs-offset-1 col-xs-10 board-low">
-            <img class="col-xs-6 col-xs-offset-3 big-logo" src="~/Content/Фото/big_logo.png" />            
+            <img class="col-xs-6 col-xs-offset-3 big-logo" src="~/Content/Photo/big_logo.png" />            
             <div class="row col-xs-12">
                 <h2 class="popular-photos-block col-xs-3">Популярные фото</h2>
-                <img src="~/Content/Фото/image1.jpg" class="example-img-1"/>
-                <img src="~/Content/Фото/image2.jpg" class="example-img-2"/>
-                <img src="~/Content/Фото/image3.jpg" class="example-img-3" />
-                <form method='post' class="col-xs-4 col-xs-offset-1 login-form">
+                <img src="~/Content/Photo/image1.jpg" class="example-img-1"/>
+                <img src="~/Content/Photo/image2.jpg" class="example-img-2"/>
+                <img src="~/Content/Photo/image3.jpg" class="example-img-3" />
+                @using (Html.BeginForm("LogIn", "Account",FormMethod.Post,new { @class = "col-xs-4 col-xs-offset-1 login-form" }))
+                {
                     <h2>Создай свой фотоальбом!</h2>
-                    @*@Html.TextBox("Login","", new { @class = "col-xs-offset-2 col-xs-5",data_id = "login", placeholder ="Login" })*@
+                    @Html.TextBoxFor(x => x.Login, new { @class = "col-xs-offset-2 col-xs-", placeholder = "Login" })
+                    @Html.ValidationMessageFor(x=>x.Login)
+                    @Html.PasswordFor(x => x.Password, new { @class = "col-xs-offset-2 col-xs-5", placeholder = "Password" })
+                    @Html.ValidationMessageFor(x=>x.Password)
+                    <input type="submit" value="Войти" class="col-xs-offset-2 col-xs-4" />
+                }
+                @*<form method='post' class="col-xs-4 col-xs-offset-1 login-form">
+                    <h2>Создай свой фотоальбом!</h2>
+                   
                     <input type="text" class="col-xs-offset-2 col-xs-5" placeholder="Логин"/>
                     <input type="password" class="col-xs-offset-2 col-xs-5" placeholder="Пароль" />
                     <input type="button" value="Войти" class="col-xs-offset-2 col-xs-4"/>
-                </form>
+                </form>*@
                 <h2 class="col-xs-4 col-xs-offset-9 popular-users">Популярные пользователи</h2>
-                <img src="~/Content/Фото/image1.jpg" class="example-img-4"/>
-                <img src="~/Content/Фото/image2.jpg" class="example-img-5" />
-                <img src="~/Content/Фото/image3.jpg" class="example-img-6" />
+                <img src="~/Content/Photo/image1.jpg" class="example-img-4"/>
+                <img src="~/Content/Photo/image2.jpg" class="example-img-5" />
+                <img src="~/Content/Photo/image3.jpg" class="example-img-6" />
             </div>
 
-            <a class="col-xs-offset-4 col-xs-4 create-album">@Html.ActionLink("Создай свой альбом", "Registration","User", routeValues: null, htmlAttributes: new { id = "registerLink" })</a>            
-            <a class="col-xs-offset-4 col-xs-4 create-album" href="@Url.Action("Registration", "User")">Создай свой альбом</a>
+            <a class="col-xs-offset-4 col-xs-4 create-album">@Html.ActionLink("Создай свой альбом", "Registration", "Registration", routeValues: null, htmlAttributes: new { id = "registerLink" })</a>            
+            <a class="col-xs-offset-4 col-xs-4 create-album" href="@Url.Action("Registration", "Registration")">Создай свой альбом</a>
         </div>
 </body> 
 </html>

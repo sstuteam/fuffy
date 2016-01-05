@@ -1,10 +1,10 @@
 ﻿body {
-    background-image: url('Фото/Background.png');
+    background-image: url('Photo/Background.png');
 }
 
 .container {
     margin-top: 5vh;
-    background-image: url('Фото/List.png');
+    background-image: url('Photo/List.png');
     height: 90vh;
     background-size: cover;
     border-radius: 10px;

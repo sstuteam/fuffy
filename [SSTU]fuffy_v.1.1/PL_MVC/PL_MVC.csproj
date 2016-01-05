@@ -97,43 +97,66 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\component.css" />
     <Content Include="Content\Normalize.css" />
+    <Content Include="Content\Photo\1-2.jpg" />
+    <Content Include="Content\Photo\3.jpg" />
+    <Content Include="Content\Photo\4.jpg" />
+    <Content Include="Content\Photo\add.png" />
+    <Content Include="Content\Photo\edit.png" />
+    <Content Include="Content\Photo\new.png" />
+    <Content Include="Content\Photo\SBVIA4nAZRs.jpg" />
+    <Content Include="Content\Photo\set.png" />
+    <Content Include="Content\style_P.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\styles.css" />
-    <Content Include="Content\Фото\Background.png" />
-    <Content Include="Content\Фото\big_logo.png" />
-    <Content Include="Content\Фото\Fuffy.png" />
-    <Content Include="Content\Фото\image1.jpg" />
-    <Content Include="Content\Фото\image2.jpg" />
-    <Content Include="Content\Фото\image3.jpg" />
-    <Content Include="Content\Фото\List.png" />
-    <Content Include="Content\Фото\start_board_low.png" />
+    <Content Include="Content\Photo\Background.png" />
+    <Content Include="Content\Photo\big_logo.png" />
+    <Content Include="Content\Photo\Fuffy.png" />
+    <Content Include="Content\Photo\image1.jpg" />
+    <Content Include="Content\Photo\image2.jpg" />
+    <Content Include="Content\Photo\image3.jpg" />
+    <Content Include="Content\Photo\List.png" />
+    <Content Include="Content\Photo\start_board_low.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\BuxtonSketch.ttf" />
-    <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-2.1.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <None Include="Views\Home\index.cshtml" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\styles_R.css" />
-    <None Include="Views\User\RegisterPage\Registration.cshtml" />
+    <None Include="Views\Registration\Registration.cshtml" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Views\User\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthHelper.cs" />
     <Compile Include="Models\Binder.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Home.cs" />
+    <Compile Include="Models\PageAuthorizeAttribute.cs" />
+    <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -145,7 +168,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -153,7 +175,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Account\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{ca180497-3004-4267-9628-06366c89bb21}</Project>

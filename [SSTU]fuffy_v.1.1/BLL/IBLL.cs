@@ -11,5 +11,7 @@ namespace BLL
     {
         bool AddUser(User user);
         bool CheckLogin(string Login);
+        User GetUser(string cookie);
+        User GetUser(string Login, string Password);
     }
 }

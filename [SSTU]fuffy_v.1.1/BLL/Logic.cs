@@ -30,5 +30,27 @@ namespace BLL
         {                                        //false - такой логин уже существует
             return dal.GetAllUser().FirstOrDefault(x => x.Login == Login) == null;
         }
+
+        public User GetUser(string cookie)   //*
+        {
+            var listUser = dal.GetAllUser();
+            return listUser.FirstOrDefault(x => x.Cookies == cookie);
+        }
+
+        //public User GetUser(string cookie)   //**Посмотреть какая реальзация быстрее
+        //{
+        //    return dal.GetUser(cookie);
+        //}
+
+        public User GetUser(string Login, string Password)   //*Посмотреть какая реализация быстрее
+        {
+            var listUser = dal.GetAllUser();
+            return listUser.FirstOrDefault(x => x.Login == Login && x.Password == Password);
+        }
+
+        //public User GetUser(string Login, string Password)   //*
+        //{
+        //    return dal.GetUser(Login, Password);
+        //}
     }
 }
