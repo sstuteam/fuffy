@@ -1,4 +1,0 @@
-E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\User\bin\Debug\User.dll
-E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\User\bin\Debug\User.pdb
-E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\User\obj\Debug\User.dll
-E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy\User\obj\Debug\User.pdb

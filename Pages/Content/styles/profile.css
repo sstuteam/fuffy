@@ -1,0 +1,273 @@
+﻿@font-face { 
+font-family: 'BuxtonSketch'; 
+src: url('../fonts/BuxtonSketch.ttf') format('truetype'); 
+}
+
+@media (max-height:736px)
+{
+	.user-name {
+		margin-top:1vh;
+		font-size: 3vh;
+		color: blueviolet;
+	}
+}
+
+a, a:hover, a:active, a:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.item:hover {
+    opacity: 0.9;
+}
+
+.for-icons:hover {
+    opacity: 0.9;
+}
+
+.user-main-photo img {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+.album-cover img {
+    max-height: 100%;
+}
+
+ .photo img {
+    height: 100%;
+    width: 100%;
+ }
+
+ .item img{
+    width: 15vw;
+    min-width:150px;
+    float: left;
+    /*background-size: cover;*/
+    border: 2px solid white;
+    border-radius: 5px;
+    margin: 8px;
+}
+
+ .content-cell-flank-left {
+    background-color: rgba(70, 0, 70, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    position: relative;
+    width:fixed;
+ }
+
+.modal-body {
+    text-align:center;
+}
+
+.search-margin-right {
+    margin-right: 1vw;
+}
+
+.container {
+    margin-top: 5vh;
+    height: 86vh;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.cap {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.logo {
+    margin: 2vh 0 0 0;
+    height: 5vh;
+}
+
+.content-cell {
+    height: 77.5vh;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.content-cell-flank-left:focus + .btn-show {
+    visibility: visible;
+    left: 30px;
+}
+
+.scroll {
+    overflow-y: scroll;
+}
+
+.content-cell-flank-right {
+    background-color: rgba(70, 0, 70, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.search-form {
+    margin: 1.3vh 0 0 0;
+}
+
+.user-name {
+	margin-top:1vh;
+	font-size: 4vh;
+	color: blueviolet;
+}
+
+.status {
+    /*font-family: Aharoni;*/
+    font-family: 'Buxton Sketch';
+    font-size: 3vh;
+    color: mediumvioletred;
+    text-align: center;
+}
+
+.user-main-photo {
+    padding: 1vh;
+    text-align: center;
+}
+
+
+.about-user {
+    padding-left: 2vh;
+    height: 4vh;
+    /*font-family: Aharoni;*/
+    font-family: 'Buxton Sketch';
+    font-size: 3vh;
+    color: darkblue;
+    /*text-align: left;*/
+    text-align: center;
+}
+
+.about-user-text {
+    padding-left: 2vh;
+    height: 5vh;
+    /*font-family: Aharoni;*/
+    font-family: 'Buxton Sketch';
+    font-size: 2.5vh;
+    color: blue;
+    /*text-align: left;*/
+    text-align: center;
+}
+
+.albums-list {
+    height: 9vh;
+    padding: 1vh;
+}
+
+.albums {
+    height: 100%;
+    /*font-family: Aharoni;*/
+    font-family: 'Buxton Sketch';
+    font-size: 5vh;
+    color: blueviolet;
+    text-align: center;
+}
+
+.add-album {
+    padding: 0;
+    text-align: right;
+    height: 100%;
+    margin-top: 2.5vh;
+    text-align: left;
+}
+
+.album-cover {
+    height: 17vh;
+    padding: 1vh;
+    text-align: center;
+}
+
+.album-name {
+    height: 4vh;
+    font-family: Aharoni;
+    font-size: 3vh;
+    text-align: center;
+}
+
+.photo {
+    text-align: center;
+    /*height: 25vh;*/
+    padding: 1vh;
+}
+
+.size {
+    height: 14vh;
+}
+
+.btn-hide {
+    margin-top: 4vh;
+}
+
+.btn-hide-show {
+    border: 1px solid blueviolet;
+    background-color: violet;
+    width: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.col-xs-1 {
+    padding: 0;
+}
+
+.modal-content {
+    width: 52.5em;
+}
+
+.comment {
+    margin-top: 3vh;
+    height: 10vh;
+    width: 20vw;
+    font-family: buxton Sketch;
+    font-size: 2.5vh;
+    max-width: 700px;
+}
+
+.for-icons {
+    margin-bottom: 0.5vh;
+    cursor: pointer;
+}
+
+.like {
+    margin-top: 3vh;
+}
+
+.block-xs {
+    vertical-align: central;
+    width: auto;
+    height: auto;
+    background-color: blueviolet;
+    position: absolute;
+}
+
+.album-sm {
+    background-color: blueviolet;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+    font-family: buxton Sketch;
+    font-size: 3vh;
+    width: 100%;
+    height: auto;
+}
+
+.albums-sm-in-modal {
+    margin-right: 2vw;
+    border: 1px solid white;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+a {
+    font-family: 'Buxton Sketch';
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    background-size: cover;
+}
+
+textarea {
+    border-radius: 3px;
+}
