@@ -89,14 +89,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\effects.css" />
     <Content Include="App_Data\FuffuDB.mdf" />
     <Content Include="App_Data\FuffuDB_log.ldf">
       <DependentUpon>FuffuDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\reset.css" />
     <Content Include="Content\admin-panel.css" />
-    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\common.css" />
-    <Content Include="Content\effects.css" />
     <Content Include="Content\Photo\1.jpg" />
     <Content Include="Content\Photo\11a.jpg" />
     <Content Include="Content\Photo\11b.jpg" />
@@ -133,17 +134,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\admin-panel-change-background.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="fonts\BuxtonSketch.ttf" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Scripts\profile.js" />
     <Content Include="Views\Admin\Pages.cshtml" />
     <Content Include="Views\Admin\Users.cshtml" />
-    <Content Include="Content\reset.css" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Views\Registration\Registration.cshtml" />
     <Content Include="Web.config" />

@@ -1,15 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width"/>
     <link href="Content/styles/libs/reset.css" rel="stylesheet" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="Content/styles/libs/bootstrap.css"/>
     <script src="Scripts/libs/jquery-2.1.4.min.js"></script>
-  
     <script src="Scripts/libs/bootstrap.min.js"></script>
-   <!-- <link rel="stylesheet" type="text/css" href="Content/styles/libs/bootstrap.css">-->
     <link href="Content/styles/StartPage.css" rel="stylesheet" />
    
 
@@ -109,9 +107,9 @@
               <!--    Здесь начинается слайдер-->
 
 
-                   <div id="carousel" class="carousel slide" >
+                   <div id="carousel" class="carousel slide" data-interval="10000"; data-pause="hover">
                         <ol class="carousel-indicators">
-                            <li class="active" data-target="#i-carousel" data-slide-to="0"></li> <!-- для включения прокрутки здесь в классе active вставить букву e-->
+                            <li class="active" data-target="#carousel" data-slide-to="0"></li> <!-- для включения прокрутки здесь в классе active вставить букву e-->
                             <li data-target="#carousel" data-slide-to="1"></li>
                             <li data-target="#carousel" data-slide-to="2"></li>
                         </ol>
@@ -159,7 +157,7 @@
               </div>
               <div class="medium-part container-fluid">
                    <h2>Крупнейшее сообщество для профессиональных фотографов и любителей, дизайнеров, стилистов и просто креативных людей, ищущих вдохновение</h2>
-                        <div class="t container-fluid">                
+                        <div class="container-fluid">                
                                       <div class="metka row" >
                                               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 photo-of-day" style=" padding: 0px; padding-bottom: 5px;">
                                                     <h5 style="color: white; text-align: center;">Фото дня</h5> 
