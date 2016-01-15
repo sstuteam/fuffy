@@ -24,10 +24,10 @@ namespace PL_MVC.Controllers
                 switch (user.RoleId)
                 {
                     case 0: return RedirectToAction(nameof(UserController.Profile), "User");
-                    case 1: return RedirectToAction("AdminPanel", "Admin");  // реализовать контроллер
+                    case 1: return RedirectToAction(nameof(AdminController.AdminPanel), "Admin"); 
                 }
-            }
-            return RedirectToAction("Index", "Home");
+            }            
+            return RedirectToAction("RepeatIndex", "Home");
         }
 
         public ActionResult LogOff()

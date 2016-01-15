@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Pages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {    
+    <link href="~/Content/admin-panel.css" rel="stylesheet" />
+}
+@section scripts{    
+    <script src="~/Scripts/admin-panel-change-background.js"></script>
+}
+    <div class="container">
+        <div class="main">
+            <div class="row">
+                <div class="col-xs-2"> 
+                    <div class="row point font">
+                        @Html.ActionLink("Пользователи", "UserLists", "Admin")
+                    </div>
+                    <div class="row point font">
+                        @Html.ActionLink("Страницы", "Pages", "Admin")
+                    </div>
+                </div>
+                <div id="pages">
+
+                    <div class="col-xs-10 two font">
+                        <p>Фон:</p>
+                        <form>
+                            <div class="backgrounds">
+
+                                <div class="bg bg1" onclick="changeBackground1()"></div>
+                                <div class="bg bg2" onclick="changeBackground2()"></div>
+                                <div class="bg bg3" onclick="changeBackground3()"></div>
+                                <div class="bg bg4" onclick="changeBackground4()"></div>
+                                <div class="bg bg5" onclick="changeBackground5()"></div>
+                            </div>
+                            <button type="button" class="btn btn-success ">Ок</button>
+                        </form>
+                        <div>
+                            <form class="inline">
+                                <p class="inline">Шрифт:</p>
+                                <select>
+                                    <option>Buxton Sketch</option>
+                                </select>
+                                <div class="test">
+                                    <p>Ваш шрифт</p>
+                                </div>
+                                <button type="button" class="btn btn-success ">Ок</button>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        </div>
+  
+
+
+

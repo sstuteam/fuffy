@@ -13,5 +13,11 @@ namespace PL_MVC.Models
         public string Login { get; set; }
         [Required(ErrorMessage = "*")]
         public string Password { get; set; }
+        public bool ErrorAuth = false;
+        public Home() { }
+        public Home (bool ErrorAuth)
+        {
+            this.ErrorAuth = ErrorAuth;
+        }
     }
 }

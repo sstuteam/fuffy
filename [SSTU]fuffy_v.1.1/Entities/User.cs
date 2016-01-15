@@ -72,7 +72,7 @@ namespace Entities
             this.idUser = idUser;
         }
 
-        public User(Guid idUser, string Login, string Password, string Name, string Email, string Cookies,string Status /*,DateTime DateOfBirthday*/)
+        public User(Guid idUser, string Login, string Password, string Name, string Email, string Cookies,string Status,int RoleId /*,DateTime DateOfBirthday*/)
         {
             this.Login = Login;
             this.Password = Password;
@@ -82,6 +82,7 @@ namespace Entities
             this.idUser = idUser;
             this.Cookies = Cookies;
             this.Status = Status;
+            this.RoleId = RoleId;
         }
 
         public User()

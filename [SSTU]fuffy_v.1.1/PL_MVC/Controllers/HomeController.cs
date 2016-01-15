@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PL_MVC.Models;
 
 namespace PL_MVC.Controllers
 {
@@ -10,8 +11,13 @@ namespace PL_MVC.Controllers
     {
         // GET: Home
         public ActionResult Index()
+        {        
+            return View("~/Views/Home/Index.cshtml");
+        }
+
+        public ActionResult RepeatIndex()
         {
-            return View("~/Views/Home/index.cshtml");
+            return View("~/Views/Home/Index.cshtml",new Home(true));
         }
        
     }

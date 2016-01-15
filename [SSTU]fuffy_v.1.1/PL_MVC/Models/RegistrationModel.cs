@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace PL_MVC.Models
 {
     public class RegistrationModel
-    {                                           //сделать чтобы эти фильтры работали
+    {                                           
         [Required(ErrorMessage = "*")]
         public string Login { get; set; }
         [Required(ErrorMessage = "*")]

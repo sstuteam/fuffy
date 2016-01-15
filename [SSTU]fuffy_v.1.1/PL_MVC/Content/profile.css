@@ -1,53 +1,64 @@
-﻿body {   
-    background-image: url('Photo/Background.png');
-    background-attachment: fixed;
-    background-size: cover;
-    font-family: buxton sketch;
+﻿@font-face { 
+font-family: 'BuxtonSketch'; 
+src: url('../fonts/BuxtonSketch.ttf') format('truetype'); 
 }
 
-a {
-    font-family: 'Buxton Sketch';   
+@media (max-height:736px)
+{
+	.user-name {
+		margin-top:1vh;
+		font-size: 3vh;
+		color: blueviolet;
+	}
 }
 
-
-    a, a:hover, a:active, a:focus {
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-img {
-    max-width: 100%;
-    height: auto;
-    width: auto\9; /* ie8 */
-    background-size: cover;
+a, a:hover, a:active, a:focus {
+    text-decoration: none;
+    cursor: pointer;
 }
+
+.item:hover {
+    opacity: 0.9;
+}
+
+.for-icons:hover {
+    opacity: 0.9;
+}
+
 .user-main-photo img {
-        max-height: 100%;
-        max-width: 100%;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
+
 .album-cover img {
-        max-height: 100%;
-}
-    .photo img {
-        height: 100%;
-        width: 100%;
-    }
-
-textarea {
-    border-radius: 3px;
+    max-height: 100%;
 }
 
-@media screen and (min-device-width: 750px) {
-    .content-cell-flank-left {
-        background-color: rgba(70, 0, 70, 0.1);
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        position: relative;
-    }
+ .photo img {
+    height: 100%;
+    width: 100%;
+ }
+
+ .item img{
+    width: 15vw;
+    min-width:150px;
+    float: left;
+    /*background-size: cover;*/
+    border: 2px solid white;
+    border-radius: 5px;
+    margin: 8px;
 }
 
-.modal-body{
+ .content-cell-flank-left {
+    background-color: rgba(70, 0, 70, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    position: relative;
+    width:fixed;
+ }
+
+.modal-body {
     text-align:center;
 }
 
@@ -57,27 +68,13 @@ textarea {
 
 .container {
     margin-top: 5vh;
-    background-image: url('Photo/List.png');
     height: 86vh;
-    background-size: cover;
-    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .cap {
-    border-radius: 10px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    background-color: rgba(70, 0, 70, 0.1);
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-.content {
-    margin-top: 0.7vh;
-}
-
-.cap-cell {
-    height: 8vh;
 }
 
 .logo {
@@ -101,7 +98,6 @@ textarea {
     overflow-y: scroll;
 }
 
-
 .content-cell-flank-right {
     background-color: rgba(70, 0, 70, 0.1);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -112,8 +108,9 @@ textarea {
 }
 
 .user-name {
-    font-size: 6vh;
-    color: blueviolet;
+	margin-top:1vh;
+	font-size: 4vh;
+	color: blueviolet;
 }
 
 .status {
@@ -180,7 +177,6 @@ textarea {
     text-align: center;
 }
 
-
 .album-name {
     height: 4vh;
     font-family: Aharoni;
@@ -198,29 +194,14 @@ textarea {
     height: 14vh;
 }
 
-.item img{
-    width: 15vw;
-    min-width:150px;
-    float: left;
-    /*background-size: cover;*/
-    border: 2px solid white;
-    border-radius: 5px;
-    margin: 8px;
-}
-.item:hover {
-    opacity: 0.9;
-}
-
 .btn-hide {
     margin-top: 4vh;
 }
 
 .btn-hide-show {
-    position: absolute;
     border: 1px solid blueviolet;
     background-color: violet;
     width: 20px;
-    height: 20px;
     text-align: center;
     cursor: pointer;
 }
@@ -245,10 +226,6 @@ textarea {
     margin-bottom: 0.5vh;
     cursor: pointer;
 }
-
-    .for-icons:hover {
-         opacity: 0.9;
-    }
 
 .like {
     margin-top: 3vh;
@@ -278,4 +255,19 @@ textarea {
     border: 1px solid white;
     border-radius: 2px;
     cursor: pointer;
+}
+
+a {
+    font-family: 'Buxton Sketch';
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+    background-size: cover;
+}
+
+textarea {
+    border-radius: 3px;
 }

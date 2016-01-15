@@ -39,12 +39,12 @@ namespace DAL
             var listUser = new List<User>();
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("SELECT [ID],[Login],[Password],[Email],[Nick],[Cookies],[Status] FROM [dbo].[Login]", c);
+                SqlCommand com = new SqlCommand("SELECT [ID],[Login],[Password],[Email],[Nick],[Cookies],[Status],[RoleID] FROM [dbo].[Login]", c);
                 c.Open();
                 var reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    User user = new User((Guid)reader["ID"], (string)reader["Login"], (string)reader["Password"], (string)reader["Nick"], (string)reader["Email"],(string)reader["Cookies"],(string)reader["Status"]);
+                    User user = new User((Guid)reader["ID"], (string)reader["Login"], (string)reader["Password"], (string)reader["Nick"], (string)reader["Email"],(string)reader["Cookies"],(string)reader["Status"],(int)reader["RoleID"]);
                     listUser.Add(user);
                 }
             }

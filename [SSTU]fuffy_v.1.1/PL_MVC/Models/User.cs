@@ -81,26 +81,34 @@ namespace PL_MVC.Models
 
         public static implicit operator Entities.User(User userModel)
         {
-            Entities.User userEntity = new Entities.User(userModel.idUser, userModel.Login, userModel.Password,
-                userModel.Name, userModel.Email, /*userModel.dateOfBirthday,*/ userModel.countOfLikes,
-                userModel.countOfAlbum);
-            userEntity.IsBlocked = userModel.IsBlocked;            
-            userEntity.RoleId = userModel.RoleId;
-            userEntity.Cookies = userModel.Cookies;
-            userEntity.Status = userModel.Status;
-            return userEntity;
+            if(userModel!=null)
+            {
+                Entities.User userEntity = new Entities.User(userModel.idUser, userModel.Login, userModel.Password,
+                    userModel.Name, userModel.Email, /*userModel.dateOfBirthday,*/ userModel.countOfLikes,
+                    userModel.countOfAlbum);
+                userEntity.IsBlocked = userModel.IsBlocked;            
+                userEntity.RoleId = userModel.RoleId;
+                userEntity.Cookies = userModel.Cookies;
+                userEntity.Status = userModel.Status;
+                return userEntity;
+            }
+            return null;            
         }
 
         public static implicit operator User(Entities.User userEntity)
         {
-            User userModel = new User(userEntity.idUser, userEntity.Login, userEntity.Password,
-                userEntity.Name, userEntity.Email, /*userEntity.dateOfBirthday,*/
-                userEntity.countOfLikes, userEntity.countOfAlbum);
-            userModel.IsBlocked = userEntity.IsBlocked;            
-            userModel.RoleId = userEntity.RoleId;
-            userModel.Cookies = userEntity.Cookies;
-            userModel.Status = userEntity.Status;
-            return userModel;
+            if (userEntity!=null)
+            {
+                User userModel = new User(userEntity.idUser, userEntity.Login, userEntity.Password,
+                    userEntity.Name, userEntity.Email, /*userEntity.dateOfBirthday,*/
+                    userEntity.countOfLikes, userEntity.countOfAlbum);
+                userModel.IsBlocked = userEntity.IsBlocked;            
+                userModel.RoleId = userEntity.RoleId;
+                userModel.Cookies = userEntity.Cookies;
+                userModel.Status = userEntity.Status;
+                return userModel;
+            }
+            return null;
         }
     }
 }

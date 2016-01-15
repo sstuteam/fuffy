@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles {
+    <link href="~/Content/admin-panel.css" rel="stylesheet" />
+}
+@section scripts{
+    <script src="~/Scripts/admin-panel-change-background.js"></script>
+}
+    <div class="container">
+        <div class="main">
+
+            <div class="row">
+
+                <div class="col-xs-2">
+                    <div class="row point font">
+                        @Html.ActionLink("Пользователи", "UserLists", "Admin")
+                    </div>
+                    <div class="row point font">
+                        @Html.ActionLink("Страницы", "Pages", "Admin")
+                    </div>
+                    @*<a href="~/Views/Admin/Users.cshtml" onclick="goToPage()">
+                        <div class="row point font">Пользователи</div>
+                    </a>
+                    <a href="~/Views/Admin/Pages.cshtml">
+                        <div class="row point font" onclick="goToPage()">Страницы</div>
+                    </a>*@
+                </div>
+                <div id="users">
+
+                    <div class="col-xs-10 two">
+
+                        <a href="#1" class="btn btn-primary btn-block font" data-toggle="collapse">Активые пользователи</a>
+
+                        <div id="1" class="collapse padding-left">
+                            <div class="row">
+                                <div class="col-xs-5">
+
+                                    <input type="text" class="form-control for-search" placeholder="Поиск" />
+                                    <form>
+                                        <select size="100" multiple name="hero[]" class="select">
+                                            <option>Мария</option>
+                                        </select>
+                                    </form>
+                                </div>
+                                <!-- закрывает div inline -->
+                                <div class="col-xs-5 padding">
+                                    <button class="btn btn-danger">Заблокировать</button>
+                                    <p class="font">Назначить:</p>
+                                    <select class="selectpicker">
+                                        <option>Модератором</option>
+                                        <option>Редактором</option>
+                                        <option>Ещё кем-то</option>
+                                    </select>
+                                    <br />
+                                    <button class="btn btn-success">Ок</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#2" class="btn btn-primary btn-block font" data-toggle="collapse">Заблокированные пользователи</a>
+
+                        <div id="2" class="collapse padding-left">
+                            <div class="row">
+                                <div class="col-xs-5">
+
+                                    <input type="text" class="form-control for-search" placeholder="Поиск" />
+                                    <form>
+                                        <select size="100" multiple name="hero[]" class="select selectpicker">
+                                            <option>Иван</option>
+                                        </select>
+                                    </form>
+                                </div>
+                                <!-- закрывает div inline -->
+                                <div class="col-xs-5 padding">
+                                    <button class="btn btn-success">Разблокировать</button>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <a href="#3" class="btn btn-primary btn-block font" data-toggle="collapse">Все пользователи</a>
+
+                        <div id="3" class="collapse padding-left">
+                            <div class="row">
+                                <div class="col-xs-5">
+
+                                    <input type="text" class="form-control for-search" placeholder="Поиск" />
+                                    <form>
+                                        <select size="100" multiple name="hero[]" class="select">
+                                            <option>Иван</option>
+                                            <option>Мария</option>
+                                        </select>
+                                    </form>
+                                </div>
+                                <!-- закрывает div inline -->
+                                <div class="col-xs-5 padding">
+                                    <button class="btn btn-success">Разблокировать</button>
+                                    <button class="btn btn-danger">Заблокировать</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div id="pages">
+                </div>
+            </div>
+        </div>
+    </div>
