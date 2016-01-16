@@ -11,35 +11,29 @@
 @section scripts{
     <script src="~/Scripts/profile.js"></script>  
 }
-
     <div class="container">
     <div class="cap row">
         <div class="cap-cell  col-xs-3 hidden-xs">
-            <img src="~/Content/Photo/Fuffy.png" />
+            <img class="logo" src="~/Content/Photo/Fuffy.png" />
         </div>
-
-        <!--<div class="cap-cell  col-xs-2">
-            <img class="logo" src="content/Fuffy.png" />
-        </div> -->
-        <div class="cap-cell col-md-2 col-md-offset-7 col-sm-3 col-sm-offset-6 col-xs-4">
+        <div class="cap-cell col-md-2 col-md-offset-6 col-sm-3 col-sm-offset-5 col-xs-4">
             <form class="search-margin">
-                <input class="search-form form-control" type="text" placeholder="Поиск" />
+                <input class="search-form form-control height-for-search" type="text" placeholder="Поиск" />
             </form>
         </div>
+        <div class="exit">
+            @Html.ActionLink("Выйти", "LogOff", "Account")
+        </div>
     </div>
-    @*<div class="col-xs-1">
-            <div class="btn-show-right" onclick="showRightDiv();"></div>
-        </div>*@
-
     <div class="content row">
-        <div class="content-cell content-cell-flank-left col-md-3 col-sm-3 col-xs-3 " id="#profileBlock">
+        <div class="content-cell content-cell-flank-left col-md-3 col-sm-3 col-xs-3 " id="profileBlock">
             <div class="row">
-                <div class="col-xs-1 btn-hide-show" id="hide-profile">
+                @*<div class="col-xs-1 btn-hide-show" id="hide-profile">
                     P
-                </div>
+                </div>*@
             </div>
             <div class="row">
-                <div class="user-name col-xs-10 col-xs-offset-2">
+                <div class="user-name col-xs-12">
                     @Model.Name
                 </div>
             </div>
@@ -82,16 +76,13 @@
                 </div>
             </div>
         </div>
-
         <div class="content-cell scroll content-padding col-md-6 col-sm-9 col-xs-9">
             <div class="row">
-
-                <div class="col-md-1 col-sm-1 col-xs-1">
+                @*<div class="col-md-1 col-sm-1 col-xs-1">
                     <div id="profile" class="btn-hide-show">
                         P
                     </div>
-                </div>
-
+                </div>*@
                 <div class="col-md-1 col-sm-1 col-offset-12 hidden-sm hidden-xs">
                     <div id="albums" class="btn-hide-show">
                         А
@@ -118,10 +109,8 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-    <div class="content-cell content-cell-flank-right col-md-3 hidden-sm hidden-xs" id="#albumBlock">
+    <div class="content-cell content-cell-flank-right col-md-3 hidden-sm hidden-xs" id="albumBlock">
         <div class=" row albums-list">
             <div class="col-xs-9 albums" id="albums-list">
 
@@ -132,11 +121,7 @@
                 <img src="~/Content/Photo/new.png" class="for-icons" id="add-new-album" />
                 <img src="~/Content/Photo/add.png" class="for-icons" id="add-new-photo" />
                 <img src="~/Content/Photo/set.png" class="for-icons" id="album-settings" />
-            </div>
-            <div style="position:absolute">
-                @Html.ActionLink("Выйти", "LogOff", "Account")
-        </div>
-           
+            </div>           
         </div>
     </div>
 </div>            

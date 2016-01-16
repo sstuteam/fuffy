@@ -5,10 +5,10 @@ src: url('../fonts/BuxtonSketch.ttf') format('truetype');
 
 @media (max-height:736px)
 {
-	.user-name {
+	.user-name {        
 		margin-top:1vh;
 		font-size: 3vh;
-		color: blueviolet;
+		color: blueviolet;        
 	}
 }
 
@@ -26,7 +26,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .user-main-photo img {
-    max-height: 100%;
+    max-height: 50vh;
     max-width: 100%;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -108,6 +108,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .user-name {
+    text-align:center;
 	margin-top:1vh;
 	font-size: 4vh;
 	color: blueviolet;
@@ -226,6 +227,9 @@ a, a:hover, a:active, a:focus {
     margin-bottom: 0.5vh;
     cursor: pointer;
 }
+.height-of-search{
+	height: 5vh;
+}
 
 .like {
     margin-top: 3vh;
@@ -255,6 +259,9 @@ a, a:hover, a:active, a:focus {
     border: 1px solid white;
     border-radius: 2px;
     cursor: pointer;
+}
+.exit {
+    margin-top: 3vh;
 }
 
 a {
