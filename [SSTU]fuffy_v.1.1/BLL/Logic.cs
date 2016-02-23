@@ -14,7 +14,17 @@ namespace BLL
         public Logic()
         {
             dal = new DBWork();
-        }       
+        }
+
+        public bool Add(Photo image)
+        {
+            return dal.Add(image);
+        }
+
+        public bool AddAlbom(Album album)
+        {
+            return dal.Add(album);
+        }
 
         public bool AddUser(User user)
         {
@@ -29,6 +39,11 @@ namespace BLL
         public bool CheckLogin(string Login)     //true - проверка пройдена, дубликат не найден,
         {                                        //false - такой логин уже существует
             return dal.GetAllUser().FirstOrDefault(x => x.Login == Login) == null;
+        }
+
+        public Guid GetIdAlbum(Guid IDUser, string nameAlbom)
+        {
+            return dal.GetAllAlbums().FirstOrDefault(x=>x.IDUser==IDUser&&x.Name=="Other").IDAlbum;
         }
 
         public User GetUser(string cookie)   //*

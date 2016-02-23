@@ -28,5 +28,20 @@ namespace PL_MVC.Models
         {
             return bll.GetUser(Login, Password);
         }
+
+        public static Guid GetIdAlbum(Guid idUser, string v)
+        {
+            return bll.GetIdAlbum(idUser, v);
+        }
+
+        public static bool AddAlbom(Album album)
+        {
+            return bll.AddAlbom(album);
+        }
+
+        public static bool Add(Photo image)
+        {
+            return bll.Add(image);
+        }
     }
 }

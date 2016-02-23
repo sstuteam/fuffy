@@ -117,10 +117,14 @@
             </div>
             <div id="hide-albums" class="col-md-1 btn-hide-show">А</div>
 
-            <div class="col-xs-2 add-album">
-                <img src="~/Content/Photo/new.png" class="for-icons" id="add-new-album" />
-                <img src="~/Content/Photo/add.png" class="for-icons" id="add-new-photo" />
-                <img src="~/Content/Photo/set.png" class="for-icons" id="album-settings" />
+            <div class="col-xs-2 add-album">                 
+                @using (Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <img src="~/Content/Photo/new.png" class="for-icons" id="add-new-album" />
+                    <input type="file" name="uploaded" src="~/Content/Photo/add.png">
+                    <img src="~/Content/Photo/set.png" class="for-icons" id="album-settings" />
+                    <button type="submit">Ок</button>
+                }
             </div>           
         </div>
     </div>

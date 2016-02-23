@@ -14,44 +14,30 @@ namespace PL_MVC.Models
 
         public Guid userId; // ид юзера, который написал коментарий    // Для таблицы
         public Guid photoId;// ид фото, к которому написан коммент     // связи
-        /// <summary>
-        /// Конструктор создания нового коммента
-        /// </summary>
-        /// <param name="Text"></param>
-        /// <param name="IdUser"></param>
-        /// <param name="IdPhoto"></param>
-        public Comment(string Text, Guid UserId, Guid PhotoId)
+        
+
+        public Comment() { }          
+
+        public static explicit operator Entities.Comment(Comment commentModel)
         {
-            commentId = Guid.NewGuid();
-            text = Text;
-            photoId = PhotoId;
-            userId = UserId;
-        }
-        /// <summary>
-        /// Конструктор коммента, считанного из базы
-        /// </summary>
-        /// <param name="CommentId"></param>
-        /// <param name="Text"></param>
-        /// <param name="UserId"></param>
-        /// <param name="PhotoId"></param>
-        public Comment(Guid CommentId, string Text, Guid UserId, Guid PhotoId)
-        {
-            commentId = CommentId;
-            text = Text;
-            userId = UserId;
-            photoId = PhotoId;
+            return new Entities.Comment()
+            {
+                commentId=commentModel.commentId,
+                photoId=commentModel.photoId,
+                text=commentModel.text,
+                userId=commentModel.userId    
+            };
         }
 
-        public static explicit operator Entities.Comment(Comment commen)
+        public static explicit operator Comment(Entities.Comment commentEntitie)
         {
-            return new Entities.Comment(commen.commentId, commen.text, 
-                commen.userId, commen.photoId);
-        }
-
-        public static explicit operator Comment(Entities.Comment comment)
-        {
-            return new Comment(comment.commentId, comment.text,
-                comment.userId, comment.photoId);
+            return new Comment()
+            {
+                commentId=commentEntitie.commentId,
+                photoId=commentEntitie.photoId,
+                text=commentEntitie.text,
+                userId=commentEntitie.userId
+            };
         }
     }
 }

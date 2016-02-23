@@ -8,3 +8,8 @@ E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy_v.1.1\Entities\bin
 E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
 E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.dll
 E:\Мои документы\CommandProject\fuffy\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.pdb
+C:\Users\8apri_000\Documents\CommandProject\[SSTU]fuffy_v.1.1\Entities\bin\Debug\Entities.dll
+C:\Users\8apri_000\Documents\CommandProject\[SSTU]fuffy_v.1.1\Entities\bin\Debug\Entities.pdb
+C:\Users\8apri_000\Documents\CommandProject\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\8apri_000\Documents\CommandProject\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.dll
+C:\Users\8apri_000\Documents\CommandProject\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.pdb

@@ -29,67 +29,32 @@ namespace PL_MVC.Models
 
         //public DateTime dateOfBirthday;  //Дата рождения
         public int countOfLikes; //Количество лайков, поставленных пользователю за все его фотографии
-        public int countOfAlbum; //Количество альбомов
-        /// <summary>
-        /// Конструктор для регистрации нового пользователя
-        /// </summary>
-        /// <param name="Login"></param>
-        /// <param name="Password"></param>
-        /// <param name="Name"></param>
-        /// <param name="EMail"></param>
-        /// <param name="DateOfBirthday"></param>
-        public User(string Login, string Password, string Name, string Email/*, DateTime DateOfBirthday*/)
-        {
-            this.Login = Login;
-            this.Password = Password;
-            this.Name = Name;
-            this.Email = Email;
-            //dateOfBirthday = DateOfBirthday;
-            idUser = Guid.NewGuid();
-            RoleId = 0;
-        }
-        /// <summary>
-        /// Конструктор пользователя, информация о котором считана из базы
-        /// </summary>
-        /// <param name="IdUser"></param>
-        /// <param name="Login"></param>
-        /// <param name="Password"></param>
-        /// <param name="Name"></param>
-        /// <param name="EMail"></param>
-        /// <param name="DateOfBirthday"></param>
-        /// <param name="CountOfLikes"></param>
-        /// <param name="CountOfAlbums"></param>
-        public User(Guid idUser, string Login, string Password, string Name, string Email,  /*DateTime DateOfBirthday,*/ int countOfLikes, int countOfAlbums)
-        {
-            this.Login = Login;
-            this.Password = Password;
-            this.Name = Name;
-            this.Email = Email;
-            //this.dateOfBirthday = DateOfBirthday;
-            this.countOfAlbum = countOfAlbums;
-            this.countOfLikes = countOfLikes;
-            this.idUser = idUser;
-        }  
+        public int countOfAlbum; //Количество альбомов   
 
         public User()
         {
             idUser = Guid.NewGuid();
             RoleId = 0;
-        }
-
-
+        } 
 
         public static implicit operator Entities.User(User userModel)
         {
             if(userModel!=null)
             {
-                Entities.User userEntity = new Entities.User(userModel.idUser, userModel.Login, userModel.Password,
-                    userModel.Name, userModel.Email, /*userModel.dateOfBirthday,*/ userModel.countOfLikes,
-                    userModel.countOfAlbum);
-                userEntity.IsBlocked = userModel.IsBlocked;            
-                userEntity.RoleId = userModel.RoleId;
-                userEntity.Cookies = userModel.Cookies;
-                userEntity.Status = userModel.Status;
+                Entities.User userEntity = new Entities.User()
+                {
+                    idUser=userModel.idUser,
+                    Cookies=userModel.Cookies,
+                    countOfAlbum=userModel.countOfAlbum,
+                    countOfLikes=userModel.countOfLikes,
+                    Email=userModel.Email,
+                    IsBlocked=userModel.IsBlocked,
+                    Login=userModel.Login,
+                    Name=userModel.Name,
+                    Password=userModel.Password,
+                    RoleId=userModel.RoleId,
+                    Status=userModel.Status
+                };
                 return userEntity;
             }
             return null;            
@@ -99,14 +64,21 @@ namespace PL_MVC.Models
         {
             if (userEntity!=null)
             {
-                User userModel = new User(userEntity.idUser, userEntity.Login, userEntity.Password,
-                    userEntity.Name, userEntity.Email, /*userEntity.dateOfBirthday,*/
-                    userEntity.countOfLikes, userEntity.countOfAlbum);
-                userModel.IsBlocked = userEntity.IsBlocked;            
-                userModel.RoleId = userEntity.RoleId;
-                userModel.Cookies = userEntity.Cookies;
-                userModel.Status = userEntity.Status;
-                return userModel;
+                User userModel = new User()
+                {
+                    idUser=userEntity.idUser,
+                    Cookies=userEntity.Cookies,
+                    countOfAlbum=userEntity.countOfAlbum,
+                    countOfLikes=userEntity.countOfLikes,
+                    Email=userEntity.Email,
+                    IsBlocked=userEntity.IsBlocked,
+                    Login=userEntity.Login,
+                    Name=userEntity.Name,
+                    Password=userEntity.Password,
+                    RoleId=userEntity.RoleId,
+                    Status=userEntity.Status
+                };
+                return userModel;    
             }
             return null;
         }

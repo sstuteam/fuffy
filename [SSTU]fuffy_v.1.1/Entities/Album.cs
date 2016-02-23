@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    class Album
+    public class Album
     {
-        public string Name;  //имя альбома
-        public Guid AlbumId;  //идентификатор альбома
-        public List<Guid> PhotoId;  //идентификаторы фото, принадлежащих альбому
+        public string Name { get; set; }
+        public string Spetification{ get; set;}
+        public Guid IDAlbum;
+        public Guid IDUser;
         /// <summary>
         /// Конструктор нового альбома
         /// </summary>
@@ -18,35 +19,9 @@ namespace Entities
         public Album(string name)
         {
             Name = name;
-            AlbumId = Guid.NewGuid();
-            PhotoId = new List<Guid>();
-
+            IDAlbum = Guid.NewGuid();
         }
-        /// <summary>
-        /// Метод добавления фото в альбом
-        /// </summary>
-        /// <param name="Photo">идентификатор фото</param>
-        public void Add(Guid Photo)
-        {
-            PhotoId.Add(Photo);
-        }
-        /// <summary>
-        /// метод удаления фото из альбома
-        /// </summary>
-        /// <param name="Photo">идентификатор фото</param>
-        public void Delete(Guid Photo)
-        {
-            PhotoId.Remove(Photo);
-        }
-        /// <summary>
-        /// Метод , возвращающий идентификаторы вложенных фото
-        /// </summary>
-        /// <param name="List">Список фотографий</param>
-        /// <returns></returns>
-        public Guid[] Look(List<Guid> List)
-        {
-            Guid[] numbers = List.ToArray<Guid>();
-            return numbers;
-        }
+        
+        public Album() { }          
     }
 }
