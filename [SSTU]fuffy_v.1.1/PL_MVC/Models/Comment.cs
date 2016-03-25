@@ -8,24 +8,36 @@ namespace PL_MVC.Models
 {
     public class Comment
     {
-        public Guid commentId;
-        public string text;
+        public Guid CommentId { get; set; }
+        public string Text { get; set; }
 
+        public int Like { get; set; }
 
-        public Guid userId; // ид юзера, который написал коментарий    // Для таблицы
-        public Guid photoId;// ид фото, к которому написан коммент     // связи
-        
+        public Guid UserId { get; set; } // ид юзера, который написал коментарий    // Для таблицы
+        public Guid PhotoId { get; set; }// ид фото, к которому написан коммент     // связи 
 
-        public Comment() { }          
+        public Comment() { }
+        public Comment(string text, Guid commentId, Guid photoId, Guid userId)
+        {
+            this.Text = text;
+            this.CommentId = commentId;
+            this.PhotoId = photoId;
+            this.UserId = userId;
+        }
+
+        public Comment(string text)
+        {
+            Text = text;
+        }
 
         public static explicit operator Entities.Comment(Comment commentModel)
         {
             return new Entities.Comment()
             {
-                commentId=commentModel.commentId,
-                photoId=commentModel.photoId,
-                text=commentModel.text,
-                userId=commentModel.userId    
+                CommentId=commentModel.CommentId,
+                PhotoId=commentModel.PhotoId,
+                Text=commentModel.Text,
+                UserId=commentModel.UserId    
             };
         }
 
@@ -33,10 +45,10 @@ namespace PL_MVC.Models
         {
             return new Comment()
             {
-                commentId=commentEntitie.commentId,
-                photoId=commentEntitie.photoId,
-                text=commentEntitie.text,
-                userId=commentEntitie.userId
+                CommentId=commentEntitie.CommentId,
+                PhotoId=commentEntitie.PhotoId,
+                Text=commentEntitie.Text,
+                UserId=commentEntitie.UserId
             };
         }
     }

@@ -18,8 +18,10 @@ namespace PL_MVC.Models
         [Required(ErrorMessage = "*")]
         public string Name { get; set; }
         [Required(ErrorMessage = "*")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         [Required(ErrorMessage = "*")]
+        [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string PasswordRepeat { get; set; }
     }

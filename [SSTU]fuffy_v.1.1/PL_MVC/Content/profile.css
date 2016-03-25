@@ -1,15 +1,14 @@
-﻿@font-face { 
-font-family: 'BuxtonSketch'; 
-src: url('../fonts/BuxtonSketch.ttf') format('truetype'); 
+﻿@font-face {
+    font-family: 'BuxtonSketch';
+    src: url('../fonts/BuxtonSketch.ttf') format('truetype');
 }
 
-@media (max-height:736px)
-{
-	.user-name {        
-		margin-top:1vh;
-		font-size: 3vh;
-		color: blueviolet;        
-	}
+@media (max-height:736px) {
+    .user-name {
+        margin-top: 1vh;
+        font-size: 3vh;
+        color: blueviolet;
+    }
 }
 
 a, a:hover, a:active, a:focus {
@@ -17,6 +16,12 @@ a, a:hover, a:active, a:focus {
     cursor: pointer;
 }
 
+.Buttons {
+    position:absolute;
+    top: 30px;
+    right:20px;
+    bottom:20px;
+}
 .item:hover {
     opacity: 0.9;
 }
@@ -24,26 +29,33 @@ a, a:hover, a:active, a:focus {
 .for-icons:hover {
     opacity: 0.9;
 }
+.for-icon {
+    position:absolute;
+    right:0;
+    left:0;
+    top:0;
+    bottom:0;
+}
 
 .user-main-photo img {
     max-height: 50vh;
     max-width: 100%;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
+}
 
 .album-cover img {
     max-height: 100%;
 }
 
- .photo img {
+.photo img {
     height: 100%;
     width: 100%;
- }
+}
 
- .item img{
+.item img {
     width: 15vw;
-    min-width:150px;
+    min-width: 150px;
     float: left;
     /*background-size: cover;*/
     border: 2px solid white;
@@ -51,15 +63,15 @@ a, a:hover, a:active, a:focus {
     margin: 8px;
 }
 
- .content-cell-flank-left {
+.content-cell-flank-left {
     background-color: rgba(70, 0, 70, 0.1);
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     position: relative;
-    width:fixed;
- }
+    width: fixed;
+}
 
 .modal-body {
-    text-align:center;
+    text-align: center;
 }
 
 .search-margin-right {
@@ -108,10 +120,10 @@ a, a:hover, a:active, a:focus {
 }
 
 .user-name {
-    text-align:center;
-	margin-top:1vh;
-	font-size: 4vh;
-	color: blueviolet;
+    text-align: center;
+    margin-top: 1vh;
+    font-size: 4vh;
+    color: blueviolet;
 }
 
 .status {
@@ -198,6 +210,11 @@ a, a:hover, a:active, a:focus {
 .btn-hide {
     margin-top: 4vh;
 }
+.btn-open {
+    opacity:0;
+    height:70%;
+    width:70%;
+}
 
 .btn-hide-show {
     border: 1px solid blueviolet;
@@ -206,6 +223,7 @@ a, a:hover, a:active, a:focus {
     text-align: center;
     cursor: pointer;
 }
+
 .col-xs-1 {
     padding: 0;
 }
@@ -227,8 +245,9 @@ a, a:hover, a:active, a:focus {
     margin-bottom: 0.5vh;
     cursor: pointer;
 }
-.height-of-search{
-	height: 5vh;
+
+.height-of-search {
+    height: 5vh;
 }
 
 .like {
@@ -260,6 +279,7 @@ a, a:hover, a:active, a:focus {
     border-radius: 2px;
     cursor: pointer;
 }
+
 .exit {
     margin-top: 3vh;
 }
@@ -278,3 +298,25 @@ img {
 textarea {
     border-radius: 3px;
 }
+
+#modal-add {    
+    position:center;
+    font-family: Arial;     
+	transition: opacity 400ms ease-in;
+	display:none;
+	pointer-events:unset;
+}
+
+/*.file {
+    overflow: hidden;
+    width: 38px;
+    height: 35px;
+    background-image:url(Photo/add.png);
+}
+
+input[type=file] {
+    opacity: 0;
+    filter: alpha(opacity:0);
+    font-size: 199px;
+    border: none;
+}*/

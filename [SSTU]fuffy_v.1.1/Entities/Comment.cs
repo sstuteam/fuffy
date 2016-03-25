@@ -8,13 +8,21 @@ namespace Entities
 {
     public class Comment
     {
-        public Guid commentId;
-        public string text;
+        public Guid CommentId { get; set; }
+        public string Text { get; set; }
 
+        public int Like { get; set; }
 
-        public Guid userId; // ид юзера, который написал коментарий    // Для таблицы
-        public Guid photoId;// ид фото, к которому написан коммент     // связи 
+        public Guid UserId { get; set; } // ид юзера, который написал коментарий    // Для таблицы
+        public Guid PhotoId { get; set; }// ид фото, к которому написан коммент     // связи 
 
         public Comment() { }
+        public Comment(string text, Guid commentId, Guid photoId, Guid userId)
+        {
+            this.Text = text;
+            this.CommentId = commentId;
+            this.PhotoId = photoId;
+            this.UserId = userId;
+        }
     }
 }

@@ -34,5 +34,10 @@ namespace PL_MVC.Controllers
             }
             return View("~/Views/User/Profile.cshtml", user);
         }
+        [HttpGet]
+        public ActionResult Upload()
+        {
+            return View();
+        }
     }
 }

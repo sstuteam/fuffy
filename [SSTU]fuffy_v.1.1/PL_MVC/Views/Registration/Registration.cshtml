@@ -21,7 +21,7 @@
         </div>
         <div class="content row">
             <div class="registration-info col-xs-12 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
-                @using (Html.BeginForm("Registration","Registration"))
+                @using (Html.BeginForm("registration","Registration"))
                 {                  
                     <div class="registration-level">
                         <label>Логин:</label><span class="star">*</span>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="registration-level">
                         <button class="btn btn-danger" type="reset">Удалить</button>
-                        <button class="btn btn-success" type="submit">Готово</button>
+                        <button class="btn btn-success" type="submit" >Готово</button>
                     </div>
                     <span class="prompt">Данные, обязательные для заполнения отмечены "<span class="star">*</span>"</span>
                 }

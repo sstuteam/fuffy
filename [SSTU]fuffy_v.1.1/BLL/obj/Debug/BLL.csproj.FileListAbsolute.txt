@@ -34,3 +34,39 @@ C:\Users\8apri_000\Documents\CommandProject\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Enti
 C:\Users\8apri_000\Documents\CommandProject\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\8apri_000\Documents\CommandProject\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.dll
 C:\Users\8apri_000\Documents\CommandProject\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.pdb
+C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\bin\Debug\BLL.dll
+C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\bin\Debug\BLL.pdb
+C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\bin\Debug\DAL.dll
+C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.dll
+C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\bin\Debug\DAL.pdb
+C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.pdb
+C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.dll
+C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.pdb
+C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.dll
+C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.pdb
+C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\bin\Debug\BLL.dll
+C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\bin\Debug\BLL.pdb
+C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\bin\Debug\DAL.dll
+C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.dll
+C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\bin\Debug\DAL.pdb
+C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.pdb
+F:\Project\Новая папка\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+F:\Project\Новая папка\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.dll
+F:\Project\Новая папка\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.pdb
+F:\Project\Новая папка\[SSTU]fuffy_v.1.1\BLL\bin\Debug\BLL.dll
+F:\Project\Новая папка\[SSTU]fuffy_v.1.1\BLL\bin\Debug\BLL.pdb
+F:\Project\Новая папка\[SSTU]fuffy_v.1.1\BLL\bin\Debug\DAL.dll
+F:\Project\Новая папка\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.dll
+F:\Project\Новая папка\[SSTU]fuffy_v.1.1\BLL\bin\Debug\DAL.pdb
+F:\Project\Новая папка\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.pdb
+C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\bin\Debug\BLL.dll
+C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\bin\Debug\BLL.pdb
+C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\bin\Debug\DAL.dll
+C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.dll
+C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\bin\Debug\DAL.pdb
+C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.pdb
+C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.dll
+C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.pdb

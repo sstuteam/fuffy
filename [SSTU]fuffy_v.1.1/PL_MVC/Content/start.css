@@ -1,0 +1,83 @@
+﻿body {
+    background-image: url(../Images/start.jpg);
+    background-size:cover;
+    background-position:right;
+    background-attachment:fixed;
+}
+.sitename{
+    font-size: 90px;
+    line-height: 90px;
+    padding-top: 90px;
+    font-weight: 800;
+    color: #FFF;
+    opacity: 0.8;
+    text-align: center;
+
+    margin-bottom:20px;
+}
+.sitetext{
+    line-height: 50px;
+    font-weight: 800;
+    color: #FFF;
+    opacity: 0.8;
+    text-align: center;
+}
+.login-form{
+    background-color: rgba(230,230,230,.4);
+    padding: 10px;
+    border-radius: 2px;
+    margin-bottom: 90px;
+    width: 320px;
+    margin: 0 auto;
+    position: relative;
+   
+}
+.login-form input{
+    height:60px;
+    width:100%;
+    opacity:1!important;
+    padding: 0 15px;
+    font-size: 15px;
+    color:#303030;
+    box-sizing:border-box;
+    margin-top:5px;
+}
+.login-button{
+    border:none;
+}
+.signup{
+    margin-top:10px;
+    text-align:center;
+}
+a{
+    text-decoration:none;
+    color:#303030;
+}
+.photos-on-start-page{
+   padding: 10px;
+    border-radius: 2px;
+    margin-bottom: 90px;
+    width: 650px;
+    margin: 0 auto;
+    position: relative;
+}
+@media (min-width:640px) {
+    .photos-on-start-page div {
+        display: inline-block;
+    }
+}
+@media (max-width:640px) {
+    .photos-on-start-page div {
+        display: none;
+    }
+}
+.popular-photos{
+    background-color:rgba(230,230,230,.4);
+    width:320px;
+    height:20vh;
+}
+.new-photos{
+    background-color:rgba(230,230,230,.4);
+    width:320px;
+    height:20vh;
+}

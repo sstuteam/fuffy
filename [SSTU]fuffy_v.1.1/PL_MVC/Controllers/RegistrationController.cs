@@ -21,16 +21,20 @@ namespace PL_MVC.Controllers
             Binder.CheckLogin(user.Login);
             user.Cookies = Guid.NewGuid().ToString();
             user.idUser = Guid.NewGuid();
-            Album album = new Album ()
+            Album album = new Album()
             {
-                IDAlbum=Guid.NewGuid(),
-                IDUser=user.idUser,
-                Name="Other",
-                Spetification="No spetification"
-            };
-                         
+                IDAlbum = Guid.NewGuid(),
+                IDUser = user.idUser,
+                Name = "Other",
+                Spetification = "No spetification"
+            };                          
             Binder.AddUser(user);
-            Binder.AddAlbom(album);
+            Binder.AddAlbum(album);
+            return RedirectToAction("Index", "Home");
+        }
+       [HttpPost]
+        public ActionResult AddUser(User user)
+        {
             return RedirectToAction("Index", "Home");
         }
     }

@@ -16,14 +16,19 @@ namespace BLL
             dal = new DBWork();
         }
 
-        public bool Add(Photo image)
+        public bool AddPhoto(Photo image)
         {
-            return dal.Add(image);
+            return dal.AddPhoto(image);
         }
 
-        public bool AddAlbom(Album album)
+        public bool AddAlbum(Album album)
         {
-            return dal.Add(album);
+            return dal.AddAlbum(album);
+        }
+
+        public bool AddComment(Comment comment)
+        {
+            return dal.AddComment(comment);
         }
 
         public bool AddUser(User user)
@@ -39,6 +44,12 @@ namespace BLL
         public bool CheckLogin(string Login)     //true - проверка пройдена, дубликат не найден,
         {                                        //false - такой логин уже существует
             return dal.GetAllUser().FirstOrDefault(x => x.Login == Login) == null;
+        }
+
+        public IEnumerable<Comment> GetComments()
+        {
+            IEnumerable<Comment> listcomments = dal.GetComments();
+            return listcomments;
         }
 
         public Guid GetIdAlbum(Guid IDUser, string nameAlbom)
@@ -61,6 +72,12 @@ namespace BLL
         {
             var listUser = dal.GetAllUser();
             return listUser.FirstOrDefault(x => x.Login == Login && x.Password == Password);
+        }
+
+        public IEnumerable<Photo> Search(string name, string fragment)
+        {
+            IEnumerable<Photo> listPhoto = dal.Search(name, fragment);
+            return listPhoto;
         }
 
         //public User GetUser(string Login, string Password)   //*

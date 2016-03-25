@@ -17,7 +17,7 @@ namespace DAL
             ConnectionString = ConfigurationManager.ConnectionStrings["FuffyDB"].ConnectionString;
         }
 
-        public bool Add(Album album)
+        public bool AddPhoto(Album album)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
@@ -48,7 +48,7 @@ namespace DAL
                 return a > 0;
             }
         }
-        public bool Add(Photo image)
+        public bool AddPhoto(Photo image)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
@@ -63,8 +63,8 @@ namespace DAL
                 return a > 0;
             }
         }
-
-        public List<User> GetAllUser()
+        
+        public IEnumerable<User> GetAllUser()
         {
             var listUser = new List<User>();
             using (SqlConnection c = new SqlConnection(ConnectionString))
@@ -76,21 +76,27 @@ namespace DAL
                 {
                     User user = new User()
                     {
-                        idUser=(Guid)reader["ID"],
-                        Login=(string)reader["Login"],
-                        Password=(string)reader["Password"],
-                        Name=(string)reader["Nick"],
-                        Email=(string)reader["Email"],
-                        Cookies=(string)reader["Cookies"],
-                        Status=(string)reader["Status"],
-                        RoleId=(int)reader["RoleID"],                                    
+                        idUser = (Guid)reader["ID"],
+                        Login = (string)reader["Login"],
+                        Password = (string)reader["Password"],
+                        Name = (string)reader["Nick"],
+                        Email = (string)reader["Email"],
+                        Cookies = (string)reader["Cookies"] ,
+                        /*Status = (string)reader["Status"],*/
+                        /*RoleId = (int)reader["RoleID"],*/
                     };
+                    if (reader["Status"] == System.DBNull.Value)
+                    { user.Status = null; }
+                    else user.Status = (string)reader["Status"];
+                    if (reader["RoleID"] == System.DBNull.Value)
+                    { user.RoleId = 0; }
+                    else user.RoleId = (int)reader["RoleID"];
                     listUser.Add(user);
                 }
             }
             return listUser;
         }
-        public List<Album> GetAllAlbums()
+        public IEnumerable<Album> GetAllAlbums()
         {
             var listAlbum = new List<Album>();
             using (SqlConnection c = new SqlConnection(ConnectionString))
@@ -123,6 +129,91 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        
+        public IEnumerable<Comment> GetComments()
+        {
+            var listComment = new List<Comment>();
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("SELECT Comment, Likes FROM [dbo].[Comments]", c);
+                c.Open();
+                var reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Comment comment = new Comment((string)reader["Comment"], (Guid)reader["CommentID"], (Guid)reader["PhotoID"], (Guid)reader["ID"]);
+                    listComment.Add(comment);
+                }
+            }
+            return listComment;
+        }
+        public bool AddComment(Comment comment)
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Comment] ([Comment], [Likes], [CommentID], [PhotoId]) VALUES (@Comment, @Likes, @CommentID, @PhotoId)", c);
+                com.Parameters.AddWithValue("@Comment", comment.Text);
+                com.Parameters.AddWithValue("@Likes", comment.Like);
+                com.Parameters.AddWithValue("@CommentID", comment.CommentId);
+                com.Parameters.AddWithValue("@PhotoID", comment.PhotoId);
+                com.Parameters.AddWithValue("@ID", comment.UserId);
+                c.Open();
+                return com.ExecuteNonQuery() > 1;
+            }
+        }
+        public IEnumerable<Photo> Search(string name, string fragment)
+        {
+            IEnumerable<Photo> listPhoto = GetAllPhoto();
+            var result = new List<Photo>();
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                foreach (var item in listPhoto)
+                {
+                    if (name == item.Name && item.Spetification.Contains(fragment))
+                    {
+                        result.Add(item);
+                    }
+                }
+            }
+            return result;
+        }
+
+        public bool AddAlbum(Album album)
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Album] ([Name], [ID], [IDAlbum], [Spetification]) VALUES (@Name, @ID, @IDAlbum, @Spetification)", c);
+                com.Parameters.AddWithValue("@Name", album.Name);
+                com.Parameters.AddWithValue("@ID", album.IDUser);
+                com.Parameters.AddWithValue("@IDAlbum", album.IDAlbum);
+                com.Parameters.AddWithValue("@Spetification", album.Spetification);
+                c.Open();
+            }
+                /*throw new NotImplementedException();*/
+                return true;
+        }
+
+        public IEnumerable<Photo> GetAllPhoto()
+        {
+            var listPhoto = new List<Photo>();
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("SELECT  ([PhotoId],[AlbumId],[Name],[Spetification],[Image]) FROM [dbo].[Photo]", c);
+                c.Open();
+                var reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Photo photo = new Photo()
+                    {
+                        IDPhoto = (Guid)reader["PhotoId"],
+                        IDAlbum = (Guid)reader["AlbumId"],
+                        Name = (string)reader["Name"],
+                        CountLikes = (int)reader["Likes"],
+                        Spetification = (string)reader["Name"],
+                        Image = (byte[])reader["Image"]
+                    };
+                    listPhoto.Add(photo);
+                }
+            }
+            return listPhoto;
+        }
     }
 }

@@ -21,7 +21,8 @@ namespace PL_MVC.Controllers
         {
             var user = AuthHelper.GetUser(HttpContext);
             return View("~/Views/User/Profile.cshtml",user);
-        }      
+        }
 
+        
     }
 }

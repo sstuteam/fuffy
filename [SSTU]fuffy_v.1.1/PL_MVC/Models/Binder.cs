@@ -34,14 +34,26 @@ namespace PL_MVC.Models
             return bll.GetIdAlbum(idUser, v);
         }
 
-        public static bool AddAlbom(Album album)
+        public static bool AddAlbum(Album album)
         {
-            return bll.AddAlbom(album);
+            return bll.AddAlbum(album);
         }
 
         public static bool Add(Photo image)
         {
-            return bll.Add(image);
+            return bll.AddPhoto(image);
+        }
+        public static bool AddComment(Comment comment)
+        {
+            return bll.AddComment((Entities.Comment)comment);
+        }
+        public static IEnumerable<Entities.Comment> GetComments()
+        {
+            return bll.GetComments();
+        }
+        public static IEnumerable<Entities.Photo> Search(string name, string fragment)
+        {
+            return bll.Search(name, fragment);
         }
     }
 }

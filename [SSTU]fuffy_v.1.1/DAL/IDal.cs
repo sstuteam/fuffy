@@ -9,12 +9,22 @@ namespace DAL
 {
     public interface IDAL
     {
+        
+        //фото
+        bool AddAlbum(Album album);
+        IEnumerable<Photo> GetAllPhoto();
+        IEnumerable<Album> GetAllAlbums();    
+        bool AddPhoto(Photo image);
+        IEnumerable<Photo> Search(string name, string fragment);
+        //комментарии
+        bool AddComment(Comment comment);
+        IEnumerable<Comment> GetComments();
+
+        //пользователи
         bool Add(User user);
-        bool Add(Album album);
-        bool Add(Photo image);
-        List<User> GetAllUser();
+        IEnumerable<User> GetAllUser();
         User GetUser(string cookie);                    //
         User GetUser(string Login, string Password);    //
-        List<Album> GetAllAlbums();         
+             
     }
 }

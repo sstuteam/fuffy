@@ -1,24 +1,25 @@
 ﻿@model PL_MVC.Models.User
+@using PL_MVC.Controllers;
 @{
-    ViewBag.Title = "Fuffy";
+    ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section styles {
     <link href="~/Content/effects.css" rel="stylesheet" />
-    <link href="~/Content/common.css" rel="stylesheet" />   
+    <link href="~/Content/common.css" rel="stylesheet" />
     <link href="~/Content/profile.css" rel="stylesheet" />
 }
 @section scripts{
-    <script src="~/Scripts/profile.js"></script>  
+    <script src="~/Scripts/profile.js"></script>
 }
-    <div class="container">
+<div class="container"> 
     <div class="cap row">
         <div class="cap-cell  col-xs-3 hidden-xs">
             <img class="logo" src="~/Content/Photo/Fuffy.png" />
         </div>
         <div class="cap-cell col-md-2 col-md-offset-6 col-sm-3 col-sm-offset-5 col-xs-4">
             <form class="search-margin">
-                <input class="search-form form-control height-for-search" type="text" placeholder="Поиск" />
+                <input class="search-form form-control height-for-search" type="text" placeholder="Поиск" name="name" />
             </form>
         </div>
         <div class="exit">
@@ -28,18 +29,16 @@
     <div class="content row">
         <div class="content-cell content-cell-flank-left col-md-3 col-sm-3 col-xs-3 " id="profileBlock">
             <div class="row">
-                @*<div class="col-xs-1 btn-hide-show" id="hide-profile">
-                    P
-                </div>*@
+
             </div>
             <div class="row">
                 <div class="user-name col-xs-12">
-                    @Model.Name
+                    @Model.Name                    
                 </div>
             </div>
             <div class="row status">
                 <div class="col-md-12 hidden-xs">
-                    @(Model?.Status)
+                    @(Model.Status)
                 </div>
             </div>
             <div class="user-main-photo row">
@@ -50,11 +49,12 @@
             <div class="row about-user hidden-xs">
                 <div class="col-md-12 hidden-sm">
                     About me:
+                    <!--I am interested in "Предпочтения , выбранные при регистрации"-->
                 </div>
             </div>
             <div class="row about-user-text row hidden-xs hidden-sm">
                 <div class="col-md-12">
-                    @(Model?.Status)
+                    <!--@(Model.Status)-->
                 </div>
             </div>
 
@@ -71,6 +71,7 @@
                             <h4 class="modal-title" id="albums-modal"></h4>
                         </div>
                         <div class="modal-body" id="modal-body-albums">
+                           
                         </div>
                     </div>
                 </div>
@@ -78,20 +79,14 @@
         </div>
         <div class="content-cell scroll content-padding col-md-6 col-sm-9 col-xs-9">
             <div class="row">
-                @*<div class="col-md-1 col-sm-1 col-xs-1">
-                    <div id="profile" class="btn-hide-show">
-                        P
-                    </div>
-                </div>*@
-                <div class="col-md-1 col-sm-1 col-offset-12 hidden-sm hidden-xs">
-                    <div id="albums" class="btn-hide-show">
-                        А
-                    </div>
-                </div>
+
             </div>
             <div class="row">
                 <!-- Button trigger modal -->
-                <div data-toggle="modal" data-target="#myModal" class="item" /></div>
+                <div data-toggle="modal" data-target="#myModal" class="item">
+                <img src="/Content/Photo/forProfile.jpg" />
+                </div>
+            
             <!-- Modal -->
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
@@ -111,23 +106,20 @@
         </div>
     </div>
     <div class="content-cell content-cell-flank-right col-md-3 hidden-sm hidden-xs" id="albumBlock">
-        <div class=" row albums-list">
+        <div class="row albums-list">
             <div class="col-xs-9 albums" id="albums-list">
 
             </div>
-            <div id="hide-albums" class="col-md-1 btn-hide-show">А</div>
 
-            <div class="col-xs-2 add-album">                 
-                @using (Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    <img src="~/Content/Photo/new.png" class="for-icons" id="add-new-album" />
-                    <input type="file" name="uploaded" src="~/Content/Photo/add.png">
-                    <img src="~/Content/Photo/set.png" class="for-icons" id="album-settings" />
-                    <button type="submit">Ок</button>
-                }
-            </div>           
+            <div class="col-xs-2 add-album">
+                <!-- <button type="button" class="btn btn-open" data-toggle="modal" data-target="#modal-add">-->
+                    <a href="~/Album/NewAlbum"><img src="~/Content/Photo/new.png" class="for-icons" id="add-new-album"  /></a>
+                <!-- </button>--> 
+               <img src="~/Content/Photo/set.png" class="for-icons" id="album-settings" />
+                <a href="~/File/Upload"><img src="~/Content/Photo/add.png" class="for-icons" id="album-settings" /></a>
+                         
+            </div>
         </div>
+    </div>        
     </div>
-</div>            
-
-    
+    </div>

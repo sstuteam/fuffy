@@ -64,10 +64,8 @@
                                                 <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                                             </div>
 
-
                                             @using (Html.BeginForm("LogIn", "Account", FormMethod.Post, new { @class = "form" }))
                                             {
-
                                                 <div class="form-group">
                                                     @*<label class="sr-only" for="exampleInputEmail2">Email</label>*@
                                                     @Html.TextBoxFor(x => x.Login, new { @class = "form-control", placeholder = "Login" })
@@ -143,21 +141,21 @@
             <div class="carousel-inner">
                 <div class="item active">
                     <img src="~/Content/Photo/11a.jpg" />
-                    <div class="carousel-caption">
+                    <div class="hidden-xs carousel-caption">
                         <h3>Улови красоту</h3>
                         <p></p>
                     </div>
                 </div>
                 <div class="item">
                     <img src="~/Content/Photo/11b.jpg" />
-                    <div class="carousel-caption">
+                    <div class="hidden-xs carousel-caption">
                         <h3> Запечатли закат</h3>
                         <p> </p>
                     </div>
                 </div>
                 <div class="item">
                     <img src="~/Content/Photo/11a.jpg" />
-                    <div class="carousel-caption">
+                    <div class="hidden-xs carousel-caption">
                         <h3>Создай шедевр</h3>
                         <p></p>
                     </div>

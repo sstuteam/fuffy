@@ -36,5 +36,11 @@ namespace PL_MVC.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-    }
+
+/*[HttpGet]
+        public ActionResult AddAlbum(Home homeModel)
+        {
+            return RedirectToAction("Profile","User");
+        }*/
+   }
 }
