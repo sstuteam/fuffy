@@ -29,7 +29,11 @@
     <div class="content row">
         <div class="content-cell content-cell-flank-left col-md-3 col-sm-3 col-xs-3 " id="profileBlock">
             <div class="row">
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 47ca7164dfd44f6c4525534d4c4da4edc39d76ce
             </div>
             <div class="row">
                 <div class="user-name col-xs-12">
@@ -79,7 +83,11 @@
         </div>
         <div class="content-cell scroll content-padding col-md-6 col-sm-9 col-xs-9">
             <div class="row">
+<<<<<<< HEAD
 
+=======
+               
+>>>>>>> 47ca7164dfd44f6c4525534d4c4da4edc39d76ce
             </div>
             <div class="row">
                 <!-- Button trigger modal -->
@@ -111,6 +119,7 @@
 
             </div>
 
+<<<<<<< HEAD
             <div class="col-xs-2 add-album">
                 <!-- <button type="button" class="btn btn-open" data-toggle="modal" data-target="#modal-add">-->
                     <a href="~/Album/NewAlbum"><img src="~/Content/Photo/new.png" class="for-icons" id="add-new-album"  /></a>
@@ -119,6 +128,19 @@
                 <a href="~/File/Upload"><img src="~/Content/Photo/add.png" class="for-icons" id="album-settings" /></a>
                          
             </div>
+=======
+            <div class="col-xs-2 add-album">                 
+                @using (Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <img src="~/Content/Photo/new.png" class="for-icons" id="add-new-album" />
+                    <img src="~/Content/Photo/set.png" class="for-icons" id="album-settings" />
+                                        <div class="file">
+                        <input type="file" name="uploaded">
+                    </div>                            
+                    <button type="submit">Ок</button>
+                }
+            </div>           
+>>>>>>> 47ca7164dfd44f6c4525534d4c4da4edc39d76ce
         </div>
     </div>        
     </div>

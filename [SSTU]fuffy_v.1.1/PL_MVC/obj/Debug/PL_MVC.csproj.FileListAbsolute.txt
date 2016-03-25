@@ -178,6 +178,7 @@ C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\PL_MVC\bin\ru\System.Web.Mvc.reso
 C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\PL_MVC\obj\Debug\PL_MVC.csprojResolveAssemblyReference.cache
 C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\PL_MVC\obj\Debug\PL_MVC.dll
 C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\PL_MVC\obj\Debug\PL_MVC.pdb
+<<<<<<< HEAD
 C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\PL_MVC\obj\Debug\PL_MVC.csprojResolveAssemblyReference.cache
 C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\PL_MVC\obj\Debug\PL_MVC.dll
 C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\PL_MVC\obj\Debug\PL_MVC.pdb
@@ -313,3 +314,5 @@ C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\PL_MVC\bin\ru\System.Web.Mvc.resources.
 C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\PL_MVC\obj\Debug\PL_MVC.csprojResolveAssemblyReference.cache
 C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\PL_MVC\obj\Debug\PL_MVC.dll
 C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\PL_MVC\obj\Debug\PL_MVC.pdb
+=======
+>>>>>>> 47ca7164dfd44f6c4525534d4c4da4edc39d76ce
