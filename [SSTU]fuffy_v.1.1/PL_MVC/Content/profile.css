@@ -299,7 +299,6 @@ textarea {
     border-radius: 3px;
 }
 
-<<<<<<< HEAD
 #modal-add {    
     position:center;
     font-family: Arial;     
@@ -309,9 +308,6 @@ textarea {
 }
 
 /*.file {
-=======
-.file {
->>>>>>> 47ca7164dfd44f6c4525534d4c4da4edc39d76ce
     overflow: hidden;
     width: 38px;
     height: 35px;
@@ -323,8 +319,4 @@ input[type=file] {
     filter: alpha(opacity:0);
     font-size: 199px;
     border: none;
-<<<<<<< HEAD
 }*/
-=======
-}
->>>>>>> 47ca7164dfd44f6c4525534d4c4da4edc39d76ce

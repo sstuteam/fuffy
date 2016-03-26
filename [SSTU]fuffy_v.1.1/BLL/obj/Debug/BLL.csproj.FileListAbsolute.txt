@@ -43,7 +43,6 @@ C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.pdb
 C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.dll
 C:\Users\DEn\Documents\fuffy\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.pdb
-<<<<<<< HEAD
 C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.dll
 C:\Users\DEn\Desktop\Новая папка (4)\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.pdb
@@ -71,5 +70,3 @@ C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.pdb
 C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.dll
 C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.pdb
-=======
->>>>>>> 47ca7164dfd44f6c4525534d4c4da4edc39d76ce
