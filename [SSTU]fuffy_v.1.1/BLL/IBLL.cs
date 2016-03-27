@@ -22,6 +22,8 @@ namespace BLL
         //пользователи
         bool AddUser(User user);
         bool CheckLogin(string Login);
+        IEnumerable<Album> GetAllAlbums();
+        string GetAllAlbumsForUser(Guid iduser);
         User GetUser(string cookie);
         User GetUser(string Login, string Password);
         

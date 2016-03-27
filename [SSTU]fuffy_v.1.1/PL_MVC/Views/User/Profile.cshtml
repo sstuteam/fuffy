@@ -1,4 +1,5 @@
 ﻿@model PL_MVC.Models.User
+@using PL_MVC.Models
 @using PL_MVC.Controllers;
 @{
     ViewBag.Title = Model.Name;
@@ -107,8 +108,16 @@
     </div>
     <div class="content-cell content-cell-flank-right col-md-3 hidden-sm hidden-xs" id="albumBlock">
         <div class="row albums-list">
-            <div class="col-xs-9 albums" id="albums-list">
-
+            <div class="col-xs-9 albums">
+          Albums:
+                <ol><li><div class="album-cover row"><section class="col-md-12 demo-1">
+                    <div class="grid"><div class="box"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                        <line class="top" x1="0" y1="0" x2="900" y2="0" />
+                        <line class="left" x1="0" y1="460" x2="0" y2="-920" />
+                        <line class="bottom" x1="300" y1="460" x2="-600" y2="460" />
+                        <line class="right" x1="300" y1="0" x2="300" y2="1380" /></svg>
+                        <img class="size" src="/Content/Photo/forProfile.jpg" /></div></div></section></div>   
+                        <div class="album-name row"> <a>Albums Name: @Model.GetAllAlbumsForUser(@Model.idUser) </a></div> </li></ol>               
             </div>
 
             <div class="col-xs-2 add-album">

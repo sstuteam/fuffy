@@ -79,7 +79,14 @@ namespace BLL
             IEnumerable<Photo> listPhoto = dal.Search(name, fragment);
             return listPhoto;
         }
-
+        public IEnumerable<Album> GetAllAlbums()
+        {
+            return dal.GetAllAlbums();
+        }
+        public string GetAllAlbumsForUser(Guid iduser)
+        {
+            return dal.GetAllAlbumsForUser(iduser);
+        }
         //public User GetUser(string Login, string Password)   //*
         //{
         //    return dal.GetUser(Login, Password);

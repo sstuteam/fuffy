@@ -23,7 +23,7 @@ namespace PL_MVC.Models
         /// Свойство, показывающее заблокирован ли пользователь
         /// </summary>
         public bool IsBlocked { get; set; }
-
+       // public string  GetAllAlbums { get { if (Binder.GetAllAlbumsForUser(idUser) != "") return Binder.GetAllAlbumsForUser(idUser); else return "You've got no albums"; } set { }}
         ///// <summary>
         ///// Свойство показывающее имеет ли пользователь права администратора
         ///// </summary>
@@ -32,13 +32,16 @@ namespace PL_MVC.Models
         //public DateTime dateOfBirthday;  //Дата рождения
         public int countOfLikes; //Количество лайков, поставленных пользователю за все его фотографии
         public int countOfAlbum; //Количество альбомов   
-
+        public string GetAllAlbumsForUser(Guid userid)
+        {
+          if (Binder.GetAllAlbumsForUser(userid) != "") return Binder.GetAllAlbumsForUser(idUser); else return "You've got no albums"; 
+        }
         public User()
         {
             idUser = Guid.NewGuid();
             RoleId = 0;
-        } 
-
+        }        
+      
         public static implicit operator Entities.User(User userModel)
         {
             if(userModel!=null)
@@ -55,7 +58,8 @@ namespace PL_MVC.Models
                     Name=userModel.Name,
                     Password=userModel.Password,
                     RoleId=userModel.RoleId,
-                    Status=userModel.Status
+                    Status=userModel.Status,
+                    //GetAllAlbums = userModel.GetAllAlbums
                 };
                 return userEntity;
             }
@@ -78,7 +82,8 @@ namespace PL_MVC.Models
                     Name=userEntity.Name,
                     Password=userEntity.Password,
                     RoleId=userEntity.RoleId,
-                    Status=userEntity.Status
+                    Status=userEntity.Status,
+                   // GetAllAlbums = userEntity.GetAllAlbums
                 };
                 return userModel;    
             }

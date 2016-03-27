@@ -17,6 +17,8 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public ActionResult Add(Album model)
         {
+            var user = AuthHelper.GetUser(HttpContext);
+            model.IDUser = user.idUser;
             Binder.AddAlbum(model);
             //return View("~/Views/Create/NewAlbum.cshtml");
             return RedirectToAction("Profile","User");

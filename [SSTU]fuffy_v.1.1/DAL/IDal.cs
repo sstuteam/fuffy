@@ -23,6 +23,7 @@ namespace DAL
         //пользователи
         bool Add(User user);
         IEnumerable<User> GetAllUser();
+        string GetAllAlbumsForUser(Guid iduser);
         User GetUser(string cookie);                    //
         User GetUser(string Login, string Password);    //
              

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL;
+using PL_MVC.Models;
 
 namespace PL_MVC.Models
 {    
@@ -46,6 +47,14 @@ namespace PL_MVC.Models
         public static bool AddComment(Comment comment)
         {
             return bll.AddComment((Entities.Comment)comment);
+        }
+        public static IEnumerable<Entities.Album> GetAllAlbums()
+        {
+            return bll.GetAllAlbums();
+        }
+        public static string GetAllAlbumsForUser(Guid iduser)
+        {
+            return bll.GetAllAlbumsForUser(iduser);
         }
         public static IEnumerable<Entities.Comment> GetComments()
         {

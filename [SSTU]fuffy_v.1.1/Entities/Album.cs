@@ -22,6 +22,6 @@ namespace Entities
             IDAlbum = Guid.NewGuid();
         }
         
-        public Album() { }          
+        public Album() { IDAlbum = Guid.NewGuid(); Spetification = "Defoult"; }          
     }
 }

@@ -116,8 +116,29 @@ namespace DAL
                 }
             }
             return listAlbum;
-        }     
-      
+        }
+        public string GetAllAlbumsForUser(Guid iduser)
+        {
+            StringBuilder listAlbum= new StringBuilder("");
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("SELECT [ID], [Name] FROM [dbo].[Album]", c);
+                c.Open();
+                var reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    if ( (Guid)reader["ID"]== iduser)
+                    {
+                        string album = (string)reader["Name"];
+
+
+                        listAlbum.Append(album);
+                    }
+                }
+                return listAlbum.ToString();
+            }
+        }
+
 
         public User GetUser(string cookie)        //
         {                                         //

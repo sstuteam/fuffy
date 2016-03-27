@@ -13,7 +13,7 @@ namespace PL_MVC.Models
         public Guid IDAlbum;
         public Guid IDUser;
 
-        public Album() {  }
+        public Album() { IDAlbum = Guid.NewGuid(); Spetification = "Defoult"; }
 
         public static implicit operator Entities.Album(Album albumModel)
         {
