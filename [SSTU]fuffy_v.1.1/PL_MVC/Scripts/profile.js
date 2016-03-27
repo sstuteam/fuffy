@@ -7,23 +7,7 @@ $('#albums-list').html('Albums:<ol><li><div class="album-cover row"><section cla
 
 
 $('#albums-modal').text('Albums');
-$('#modal-body-photos').html('<img @Model src = "/Content/Photo/forProfile.jpg" /><br/><button type="submit" class="like" id="like">0</button><br/>' +
-    '<div id="placeforcomment">' +
 
-    '</div>' +
-    '<form>' +
-    '    <textarea id="comment">' + '</textarea>' +
-
-    '    <a id="sendcomment">Send!</a>' +
-    '</form>'); $('#modal-body-photos').html('<img src = "/Content/Photo/forProfile.jpg" /><br/><button type="submit" class="like" id="like">0</button><br/>' +
-    '<div id="placeforcomment">' +
-
-    '</div>' +
-    '<form>' +
-    '    <textarea id="comment">' + '</textarea>' +
-
-    '    <a id="sendcomment">Send!</a>' +
-    '</form>');
 $('.like').click(function () {
     if (yhl == 0) {
         like = like + 1;

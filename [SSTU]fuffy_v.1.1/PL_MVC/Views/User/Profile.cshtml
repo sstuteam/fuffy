@@ -19,11 +19,11 @@
         </div>
         <div class="cap-cell col-md-2 col-md-offset-6 col-sm-3 col-sm-offset-5 col-xs-4">
             <form class="search-margin">
-                <input class="search-form form-control height-for-search" type="text" placeholder="Поиск" name="name" />
+                <input class="search-form form-control height-for-search" type="text" placeholder="Search" name="name" />
             </form>
         </div>
         <div class="exit">
-            @Html.ActionLink("Выйти", "LogOff", "Account")
+            @Html.ActionLink("LogOff", "LogOff", "Account")
         </div>
     </div>
     <div class="content row">
@@ -83,26 +83,7 @@
             </div>
             <div class="row">
                 <!-- Button trigger modal -->
-                <div data-toggle="modal" data-target="#myModal" class="item">
-                <img src="/Content/Photo/forProfile.jpg" />
-                </div>
-            
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                &times;
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel"></h4>
-                        </div>
-                        <div class="modal-body" id="modal-body-photos">
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @Html.Partial("_PartialPhoto")
         </div>
     </div>
     <div class="content-cell content-cell-flank-right col-md-3 hidden-sm hidden-xs" id="albumBlock">

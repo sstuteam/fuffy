@@ -70,9 +70,7 @@ a, a:hover, a:active, a:focus {
     width: fixed;
 }
 
-.modal-body {
-    text-align: center;
-}
+
 
 .search-margin-right {
     margin-right: 1vw;
@@ -306,7 +304,10 @@ textarea {
 	display:none;
 	pointer-events:unset;
 }
-
+.add-comment, .specification{
+    display:inherit;
+    margin-top:2vh;
+}
 /*.file {
     overflow: hidden;
     width: 38px;
