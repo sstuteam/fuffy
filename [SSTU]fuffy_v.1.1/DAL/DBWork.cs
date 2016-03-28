@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Entities;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace DAL
 {
@@ -36,6 +37,7 @@ namespace DAL
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
+                user.Password = GetHashString(user.Password);
                 SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Login] ([ID],[Login],[Password],[Nick],[Email],[Cookies]) VALUES (@ID,@Login,@Password,@Nick,@Email,@Cookies)", c);
                 com.Parameters.AddWithValue("@ID", user.idUser);
                 com.Parameters.AddWithValue("@Login", user.Login);
@@ -235,6 +237,29 @@ namespace DAL
                 }
             }
             return listPhoto;
+        }
+
+        public static string GetHashString(string Password)
+        {
+            //переводим строку в байт-массив 
+            byte[] bytes = Encoding.Unicode.GetBytes(Password);
+
+            //создаем объект для получения средств шифрования  
+            MD5CryptoServiceProvider CSP =
+                new MD5CryptoServiceProvider();
+
+            //вычисляем хеш-представление в байтах  
+            byte[] byteHash = CSP.ComputeHash(bytes);
+
+            string hash = string.Empty;
+
+            //формируем одну цельную строку из массива  
+            foreach (byte b in byteHash)
+                hash += string.Format("{0:x2}", b);
+
+            Password = hash;
+
+            return Password;
         }
     }
 }
