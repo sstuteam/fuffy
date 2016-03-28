@@ -18,15 +18,15 @@ namespace PL_MVC.Controllers
         public ActionResult LogIn(Home homeModel)
         {
             User user = Binder.GetUser(homeModel.Login, homeModel.Password);
-            if (user!=null)
+            if (user != null)
             {
                 AuthHelper.LogInUser(HttpContext, user.Cookies);
                 switch (user.RoleId)
                 {
                     case 0: return RedirectToAction(nameof(UserController.Profile), "User");
-                    case 1: return RedirectToAction(nameof(AdminController.AdminPanel), "Admin"); 
+                    case 1: return RedirectToAction(nameof(AdminController.AdminPanel), "Admin");
                 }
-            }            
+            }
             return RedirectToAction("RepeatIndex", "Home");
         }
 
@@ -37,10 +37,10 @@ namespace PL_MVC.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-/*[HttpGet]
-        public ActionResult AddAlbum(Home homeModel)
-        {
-            return RedirectToAction("Profile","User");
-        }*/
-   }
+        /*[HttpGet]
+                public ActionResult AddAlbum(Home homeModel)
+                {
+                    return RedirectToAction("Profile","User");
+                }*/
+    }
 }

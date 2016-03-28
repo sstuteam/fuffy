@@ -9,7 +9,7 @@ namespace Entities
     public class Album
     {
         public string Name { get; set; }
-        public string Spetification{ get; set;}
+        public string Spetification { get; set; }
         public Guid IDAlbum;
         public Guid IDUser;
         /// <summary>
@@ -21,7 +21,7 @@ namespace Entities
             Name = name;
             IDAlbum = Guid.NewGuid();
         }
-        
-        public Album() { IDAlbum = Guid.NewGuid(); Spetification = "Defoult"; }          
+
+        public Album() { IDAlbum = Guid.NewGuid(); Spetification = "Defoult"; }
     }
 }

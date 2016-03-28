@@ -1,53 +1,8 @@
 ﻿body {
     background-color: #fafafa;
     font-family: 'Arial';
-    font-size: 16px;
 }
 
-.navbar-inverse {
-    background-color: #904684;
-    color: #e9e9e9;
-}
-
-    .navbar-inverse .navbar-brand {
-        color: #e9e9e9;
-        text-decoration: none;
-    }
-
-.navbar-fixed-top {
-    top: 0;
-}
-
-.navbar-inverse .navbar-brand:hover {
-    color: white;
-    text-decoration: none;
-}
-
-.navbar-brand {
-    float: left;
-    padding: 15px;
-    line-height: 20px;
-    font-size: 22px;
-}
-
-.navbar-right {
-    float: right !important;
-}
-
-.navbar .nav > li > a {
-    padding: 15px;
-    font-size: 20px;
-}
-
-.navbar input {
-    margin: 9px;
-}
-
-@media (min-width:982px) {
-    .content {
-        margin-top: 60px;
-    }
-}
 
 .content {
     text-align: center;

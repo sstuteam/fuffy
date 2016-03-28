@@ -22,12 +22,12 @@ namespace Entities
         /// Свойство, показывающее заблокирован ли пользователь
         /// </summary>
         public bool IsBlocked { get; set; }
-        //public string GetAllAlbums { get; set; }
+
         ///// <summary>
         ///// Свойство показывающее имеет ли пользователь права администратора
         ///// </summary>
         //public bool IsAdmin { get; private set; }
-        
+
         //public DateTime dateOfBirthday;  //Дата рождения
         public int countOfLikes=0; //Количество лайков, поставленных пользователю за все его фотографии
         public int countOfAlbum=0; //Количество альбомов         

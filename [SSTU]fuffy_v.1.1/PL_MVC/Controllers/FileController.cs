@@ -14,16 +14,16 @@ namespace PL_MVC.Controllers
         public ActionResult Upload(HttpPostedFileBase uploaded)
         {
             var user = AuthHelper.GetUser(HttpContext);
-            if (uploaded!=null)
-            {                 
+            if (uploaded != null)
+            {
                 Photo image = new Photo()
                 {
-                    IDPhoto=Guid.NewGuid(),
-                    Name="photo"+(string)uploaded.ContentType,
-                    Spetification=" ",
-                    CountLikes=0,
-                    IDAlbum=Binder.GetIdAlbum(user.idUser,"Other"),
-                    Image=new byte[uploaded.ContentLength]
+                    IDPhoto = Guid.NewGuid(),
+                    Name = "photo" + (string)uploaded.ContentType,
+                    Spetification = " ",
+                    CountLikes = 0,
+                    IDAlbum = Binder.GetIdAlbum(user.idUser, "Other"),
+                    Image = new byte[uploaded.ContentLength]
                 };
                 using (BinaryReader br = new BinaryReader(uploaded.InputStream))
                 {

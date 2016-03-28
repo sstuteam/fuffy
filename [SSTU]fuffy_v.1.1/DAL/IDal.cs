@@ -9,11 +9,11 @@ namespace DAL
 {
     public interface IDAL
     {
-        
+
         //фото
         bool AddAlbum(Album album);
         IEnumerable<Photo> GetAllPhoto();
-        IEnumerable<Album> GetAllAlbums();    
+        IEnumerable<Album> GetAllAlbums();
         bool AddPhoto(Photo image);
         IEnumerable<Photo> Search(string name, string fragment);
         //комментарии
@@ -26,6 +26,6 @@ namespace DAL
         string GetAllAlbumsForUser(Guid iduser);
         User GetUser(string cookie);                    //
         User GetUser(string Login, string Password);    //
-             
+
     }
 }

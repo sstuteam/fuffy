@@ -7,15 +7,15 @@ using BLL;
 using PL_MVC.Models;
 
 namespace PL_MVC.Models
-{    
+{
     public static class Binder
     {
         public static IBLL bll = new Logic();
         public static bool AddUser(User user)
-        {            
+        {
             return bll.AddUser((Entities.User)user);
-        }        
-        
+        }
+
         public static bool CheckLogin(string Login)
         {
             return bll.CheckLogin(Login);
@@ -25,7 +25,7 @@ namespace PL_MVC.Models
             return bll.GetUser(cookie);
         }
 
-        public static User GetUser(string Login,string Password)
+        public static User GetUser(string Login, string Password)
         {
             return bll.GetUser(Login, Password);
         }

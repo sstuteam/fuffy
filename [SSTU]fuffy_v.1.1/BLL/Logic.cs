@@ -37,8 +37,8 @@ namespace BLL
             {
                 dal.Add(user);
                 return true;
-            }            
-                return false;            
+            }
+            return false;
         }
 
         public bool CheckLogin(string Login)     //true - проверка пройдена, дубликат не найден,
@@ -54,7 +54,7 @@ namespace BLL
 
         public Guid GetIdAlbum(Guid IDUser, string nameAlbom)
         {
-            return dal.GetAllAlbums().FirstOrDefault(x=>x.IDUser==IDUser&&x.Name=="Other").IDAlbum;
+            return dal.GetAllAlbums().FirstOrDefault(x => x.IDUser == IDUser && x.Name == "Other").IDAlbum;
         }
 
         public User GetUser(string cookie)   //*
@@ -71,7 +71,7 @@ namespace BLL
         public User GetUser(string Login, string Password)   //*Посмотреть какая реализация быстрее
         {
             var listUser = dal.GetAllUser();
-            return listUser.FirstOrDefault(x => x.Login == Login && x.Password == DBWork.GetHashString(Password));
+            return listUser.FirstOrDefault(x => x.Login == Login && x.Password ==Password);
         }
 
         public IEnumerable<Photo> Search(string name, string fragment)

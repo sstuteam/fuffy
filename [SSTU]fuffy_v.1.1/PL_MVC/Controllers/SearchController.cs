@@ -15,5 +15,10 @@ namespace PL_MVC.Controllers
             IEnumerable<Photo> listPhoto = Search(name, fragment);
             return listPhoto;
         }
-	}
+        [HttpGet]
+        public ActionResult Search()
+        {
+            return View("~/Views/Search/Search.cshtml"); ;
+        }
+    }
 }

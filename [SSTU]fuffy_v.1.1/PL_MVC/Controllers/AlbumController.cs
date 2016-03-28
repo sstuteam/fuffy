@@ -21,7 +21,7 @@ namespace PL_MVC.Controllers
             model.IDUser = user.idUser;
             Binder.AddAlbum(model);
             //return View("~/Views/Create/NewAlbum.cshtml");
-            return RedirectToAction("Profile","User");
+            return RedirectToAction("Profile", "User");
         }
     }
 }

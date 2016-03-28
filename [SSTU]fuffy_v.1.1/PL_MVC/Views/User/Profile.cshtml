@@ -1,5 +1,4 @@
 ﻿@model PL_MVC.Models.User
-@using PL_MVC.Models
 @using PL_MVC.Controllers;
 @{
     ViewBag.Title = Model.Name;
@@ -20,11 +19,12 @@
         </div>
         <div class="cap-cell col-md-2 col-md-offset-6 col-sm-3 col-sm-offset-5 col-xs-4">
             <form class="search-margin">
-                <input class="search-form form-control height-for-search" type="text" placeholder="Поиск" name="name" />
+                <input class="search-form form-control height-for-search" type="text" placeholder="Search" name="name" />
             </form>
         </div>
+        @Html.ActionLink("Ok", "Search", "Search")
         <div class="exit">
-            @Html.ActionLink("Выйти", "LogOff", "Account")
+            @Html.ActionLink("LogOff", "LogOff", "Account")
         </div>
     </div>
     <div class="content row">
@@ -84,47 +84,40 @@
             </div>
             <div class="row">
                 <!-- Button trigger modal -->
-                <div data-toggle="modal" data-target="#myModal" class="item">
-                <img src="/Content/Photo/forProfile.jpg" />
-                </div>
-            
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                &times;
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel"></h4>
-                        </div>
-                        <div class="modal-body" id="modal-body-photos">
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @Html.Partial("_PartialPhoto")
         </div>
     </div>
     <div class="content-cell content-cell-flank-right col-md-3 hidden-sm hidden-xs" id="albumBlock">
         <div class="row albums-list">
-            <div class="col-xs-9 albums">
-          Albums:
-                <ol><li><div class="album-cover row"><section class="col-md-12 demo-1">
-                    <div class="grid"><div class="box"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                        <line class="top" x1="0" y1="0" x2="900" y2="0" />
-                        <line class="left" x1="0" y1="460" x2="0" y2="-920" />
-                        <line class="bottom" x1="300" y1="460" x2="-600" y2="460" />
-                        <line class="right" x1="300" y1="0" x2="300" y2="1380" /></svg>
-                        <img class="size" src="/Content/Photo/forProfile.jpg" /></div></div></section></div>   
-                        <div class="album-name row"> <a>Albums Name: @Model.GetAllAlbumsForUser(@Model.idUser) </a></div> </li></ol>               
+            <div class="col-xs-9 albums" id="albums-list">
+                Albums:
+                <ol>
+                    <li>
+                        <div class="album-cover row">
+                            <section class="col-md-12 demo-1">
+                                <div class="grid">
+                                    <div class="box">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                                            <line class="top" x1="0" y1="0" x2="900" y2="0" />
+                                            <line class="left" x1="0" y1="460" x2="0" y2="-920" />
+                                            <line class="bottom" x1="300" y1="460" x2="-600" y2="460" />
+                                            <line class="right" x1="300" y1="0" x2="300" y2="1380" />
+                                        </svg>
+                                        <img class="size" src="/Content/Photo/forProfile.jpg" />
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="album-name row"> <a>Albums Name: @Model.GetAllAlbumsForUser(@Model.idUser) </a></div>
+                    </li>
+                </ol>     
             </div>
 
             <div class="col-xs-2 add-album">
                 <!-- <button type="button" class="btn btn-open" data-toggle="modal" data-target="#modal-add">-->
                     <a href="~/Album/NewAlbum"><img src="~/Content/Photo/new.png" class="for-icons" id="add-new-album"  /></a>
                 <!-- </button>--> 
-               <img src="~/Content/Photo/set.png" class="for-icons" id="album-settings" />
+               <a href="~/Settings/Settings"><img src="~/Content/Photo/set.png" class="for-icons" id="album-settings" /></a>
                 <a href="~/File/Upload"><img src="~/Content/Photo/add.png" class="for-icons" id="album-settings" /></a>
                          
             </div>

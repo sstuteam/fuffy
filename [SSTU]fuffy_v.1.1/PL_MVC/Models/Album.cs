@@ -17,14 +17,14 @@ namespace PL_MVC.Models
 
         public static implicit operator Entities.Album(Album albumModel)
         {
-            if (albumModel!=null)
+            if (albumModel != null)
             {
                 Entities.Album albumEntities = new Entities.Album()
                 {
-                    IDAlbum=albumModel.IDAlbum,
-                    IDUser=albumModel.IDUser,
-                    Name=albumModel.Name,
-                    Spetification=albumModel.Spetification
+                    IDAlbum = albumModel.IDAlbum,
+                    IDUser = albumModel.IDUser,
+                    Name = albumModel.Name,
+                    Spetification = albumModel.Spetification
                 };
                 return albumEntities;
             }
@@ -33,15 +33,15 @@ namespace PL_MVC.Models
 
         public static implicit operator Album(Entities.Album albumEntities)
         {
-            if(albumEntities!=null)
+            if (albumEntities != null)
             {
                 Album albumModel = new Album()
                 {
-                    IDAlbum=albumEntities.IDAlbum,
-                    IDUser=albumEntities.IDUser,
-                    Name=albumEntities.Name,
-                    Spetification=albumEntities.Spetification
-                };                
+                    IDAlbum = albumEntities.IDAlbum,
+                    IDUser = albumEntities.IDUser,
+                    Name = albumEntities.Name,
+                    Spetification = albumEntities.Spetification
+                };
                 return albumModel;
             }
             return null;

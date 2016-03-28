@@ -8,6 +8,6 @@
 
 @using (@Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <input class="file" name="uploaded" />
+    <input type="file" class="file" name="uploaded" />
     <button typr="submit">Send!</button>
 }

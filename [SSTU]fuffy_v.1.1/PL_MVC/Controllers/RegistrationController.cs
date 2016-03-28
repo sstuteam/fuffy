@@ -17,7 +17,7 @@ namespace PL_MVC.Controllers
         }
         [HttpPost]
         public ActionResult Registration(User user)
-        {            
+        {
             Binder.CheckLogin(user.Login);
             user.Cookies = Guid.NewGuid().ToString();
             user.idUser = Guid.NewGuid();
@@ -27,12 +27,12 @@ namespace PL_MVC.Controllers
                 IDUser = user.idUser,
                 Name = "Other",
                 Spetification = "No spetification"
-            };                          
+            };
             Binder.AddUser(user);
             Binder.AddAlbum(album);
             return RedirectToAction("Index", "Home");
         }
-       [HttpPost]
+        [HttpPost]
         public ActionResult AddUser(User user)
         {
             return RedirectToAction("Index", "Home");

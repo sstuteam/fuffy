@@ -26,6 +26,6 @@ namespace BLL
         string GetAllAlbumsForUser(Guid iduser);
         User GetUser(string cookie);
         User GetUser(string Login, string Password);
-        
+
     }
 }

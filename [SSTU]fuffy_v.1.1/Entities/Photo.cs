@@ -22,8 +22,8 @@ namespace Entities
         {
             IDPhoto = Guid.NewGuid();
             IDAlbum = CorrentAlbum;
-        }  
-        
-        public Photo() { }      
+        }
+
+        public Photo() { }
     }
 }
