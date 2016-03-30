@@ -23,9 +23,16 @@ namespace BLL
 
         public bool AddAlbum(Album album)
         {
-            return dal.AddAlbum(album);
+            //проверка для имени
+            if (CheckAlbumName(album.IDUser, album.Name))
+            { return dal.AddAlbum(album); }
+            else { return false; }
         }
 
+        public bool CheckAlbumName(Guid ID, string Name)
+        {
+            return dal.GetAllAlbums(ID).FirstOrDefault(x => x.Name == Name) == null;
+        }
         public bool AddComment(Comment comment)
         {
             return dal.AddComment(comment);
@@ -54,7 +61,7 @@ namespace BLL
 
         public Guid GetIdAlbum(Guid IDUser, string nameAlbom)
         {
-            return dal.GetAllAlbums().FirstOrDefault(x => x.IDUser == IDUser && x.Name == "Other").IDAlbum;
+            return dal.GetAllAlbums(IDUser).FirstOrDefault(x => x.IDUser == IDUser && x.Name == "Other").IDAlbum;
         }
 
         public User GetUser(string cookie)   //*
@@ -79,9 +86,9 @@ namespace BLL
             IEnumerable<Photo> listPhoto = dal.Search(name, fragment);
             return listPhoto;
         }
-        public IEnumerable<Album> GetAllAlbums()
+        public IEnumerable<Album> GetAllAlbums(Guid ID)
         {
-            return dal.GetAllAlbums();
+            return dal.GetAllAlbums(ID);
         }
         public string GetAllAlbumsForUser(Guid iduser)
         {

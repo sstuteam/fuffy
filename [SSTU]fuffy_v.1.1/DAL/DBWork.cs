@@ -98,7 +98,7 @@ namespace DAL
             }
             return listUser;
         }
-        public IEnumerable<Album> GetAllAlbums()
+        public IEnumerable<Album> GetAllAlbums(Guid ID)
         {
             var listAlbum = new List<Album>();
             using (SqlConnection c = new SqlConnection(ConnectionString))
@@ -115,7 +115,8 @@ namespace DAL
                         Name = (string)reader["Name"],
                         Spetification = (string)reader["Spetification"]
                     };
-                    listAlbum.Add(album);
+                    if (album.IDUser == ID)
+                        listAlbum.Add(album);
                 }
             }
             return listAlbum;
@@ -133,9 +134,8 @@ namespace DAL
                     if ((Guid)reader["ID"] == iduser)
                     {
                         string album = (string)reader["Name"];
-
-
                         listAlbum.Append(album);
+                        listAlbum.Append(" ");
                     }
                 }
                 return listAlbum.ToString();
@@ -210,9 +210,11 @@ namespace DAL
                 com.Parameters.AddWithValue("@IDAlbum", album.IDAlbum);
                 com.Parameters.AddWithValue("@Spetification", album.Spetification);
                 c.Open();
+                var a = com.ExecuteNonQuery(); //хз, зачем это
+                return a > 0;
             }
             /*throw new NotImplementedException();*/
-            return true;
+           // return true;
         }
 
         public IEnumerable<Photo> GetAllPhoto(Guid id)

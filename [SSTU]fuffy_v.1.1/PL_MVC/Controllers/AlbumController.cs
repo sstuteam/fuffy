@@ -19,9 +19,13 @@ namespace PL_MVC.Controllers
         {
             var user = AuthHelper.GetUser(HttpContext);
             model.IDUser = user.idUser;
-            Binder.AddAlbum(model);
-            //return View("~/Views/Create/NewAlbum.cshtml");
-            return RedirectToAction("Profile", "User");
+            if (Binder.AddAlbum(model))
+                //return View("~/Views/Create/NewAlbum.cshtml");
+                return RedirectToAction("Profile", "User");
+            else {
+                // model.Name = "this name is already used";
+                return RedirectToAction("NewAlbumBreak", "Album");
+            }
         }
     }
 }

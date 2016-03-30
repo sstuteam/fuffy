@@ -48,9 +48,9 @@ namespace PL_MVC.Models
         {
             return bll.AddComment((Entities.Comment)comment);
         }
-        public static IEnumerable<Entities.Album> GetAllAlbums()
+        public static IEnumerable<Entities.Album> GetAllAlbums(Guid ID)
         {
-            return bll.GetAllAlbums();
+            return bll.GetAllAlbums(ID);
         }
         public static string GetAllAlbumsForUser(Guid iduser)
         {

@@ -19,11 +19,11 @@ namespace BLL
         //комментарии
         IEnumerable<Comment> GetComments();
         bool AddComment(Comment comment);
-
+        bool CheckAlbumName(Guid Id, string Name);
         //пользователи
         bool AddUser(User user);
         bool CheckLogin(string Login);
-        IEnumerable<Album> GetAllAlbums();
+        IEnumerable<Album> GetAllAlbums(Guid id);
         string GetAllAlbumsForUser(Guid iduser);
         User GetUser(string cookie);
         User GetUser(string Login, string Password);
