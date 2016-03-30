@@ -39,5 +39,15 @@ namespace PL_MVC.Controllers
         {
             return View();
         }
+        //[HttpGet]
+        //public string ReturnAllPhoto(Guid id)
+        //{
+
+        //    foreach (var item in Binder.GetAllPhoto(id))
+        //    {
+        //        return Convert.ToBase64String(item.Image);
+        //    }
+        //}
+
     }
 }

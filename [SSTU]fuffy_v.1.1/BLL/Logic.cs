@@ -71,7 +71,7 @@ namespace BLL
         public User GetUser(string Login, string Password)   //*Посмотреть какая реализация быстрее
         {
             var listUser = dal.GetAllUser();
-            return listUser.FirstOrDefault(x => x.Login == Login && x.Password ==Password);
+            return listUser.FirstOrDefault(x => x.Login == Login && x.Password == DBWork.GetHashString(Password));
         }
 
         public IEnumerable<Photo> Search(string name, string fragment)
@@ -86,6 +86,11 @@ namespace BLL
         public string GetAllAlbumsForUser(Guid iduser)
         {
             return dal.GetAllAlbumsForUser(iduser);
+        }
+
+        public IEnumerable<Photo> GetAllPhoto(Guid id)
+        {
+            return dal.GetAllPhoto(id);
         }
         //public User GetUser(string Login, string Password)   //*
         //{

@@ -64,5 +64,9 @@ namespace PL_MVC.Models
         {
             return bll.Search(name, fragment);
         }
+        public static IEnumerable<Entities.Photo> GetAllPhoto(Guid idUser)
+        {
+            return bll.GetAllPhoto(idUser);
+        }
     }
 }

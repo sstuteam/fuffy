@@ -12,6 +12,7 @@ namespace BLL
         //фотографии
         bool AddAlbum(Album album);
         bool AddPhoto(Photo image);
+        IEnumerable<Photo> GetAllPhoto(Guid id);
         Guid GetIdAlbum(Guid IDUser, string nameAlbom);
         IEnumerable<Photo> Search(string name, string fragment);
 

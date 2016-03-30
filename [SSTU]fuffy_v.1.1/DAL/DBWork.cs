@@ -215,12 +215,12 @@ namespace DAL
             return true;
         }
 
-        public IEnumerable<Photo> GetAllPhoto()
+        public IEnumerable<Photo> GetAllPhoto(Guid id)
         {
             var listPhoto = new List<Photo>();
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("SELECT  ([PhotoId],[AlbumId],[Name],[Spetification],[Image]) FROM [dbo].[Photo]", c);
+                SqlCommand com = new SqlCommand("SELECT  [Image], [Likes], [PhotoId],[AlbumId],[Name],[Spetification] FROM [dbo].[Photo]", c);
                 c.Open();
                 var reader = com.ExecuteReader();
                 while (reader.Read())
@@ -234,6 +234,32 @@ namespace DAL
                         Spetification = (string)reader["Name"],
                         Image = (byte[])reader["Image"]
                     };
+
+                    listPhoto.Add(photo);
+                }
+            }
+            return listPhoto;
+        }
+        public IEnumerable<Photo> GetAllPhoto()
+        {
+            var listPhoto = new List<Photo>();
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("SELECT  [Image], [Likes], [PhotoId],[AlbumId],[Name],[Spetification] FROM [dbo].[Photo]", c);
+                c.Open();
+                var reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Photo photo = new Photo()
+                    {
+                        IDPhoto = (Guid)reader["PhotoId"],
+                        IDAlbum = (Guid)reader["AlbumId"],
+                        Name = (string)reader["Name"],
+                        CountLikes = (int)reader["Likes"],
+                        Spetification = (string)reader["Name"],
+                        Image = (byte[])reader["Image"]
+                    };
+
                     listPhoto.Add(photo);
                 }
             }

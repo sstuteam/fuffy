@@ -12,6 +12,7 @@ namespace DAL
 
         //фото
         bool AddAlbum(Album album);
+        IEnumerable<Photo> GetAllPhoto(Guid id);
         IEnumerable<Photo> GetAllPhoto();
         IEnumerable<Album> GetAllAlbums();
         bool AddPhoto(Photo image);

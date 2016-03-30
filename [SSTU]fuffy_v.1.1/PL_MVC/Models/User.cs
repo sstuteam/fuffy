@@ -36,6 +36,10 @@ namespace PL_MVC.Models
         {
             if (Binder.GetAllAlbumsForUser(userid) != "") return Binder.GetAllAlbumsForUser(idUser); else return "You've got no albums";
         }
+        public IEnumerable<Entities.Photo> GetAllPhoto(Guid id)
+        {
+                return Binder.GetAllPhoto(id);
+        }
         public User()
         {
             idUser = Guid.NewGuid();
