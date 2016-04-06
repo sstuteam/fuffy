@@ -12,8 +12,8 @@ namespace DAL
 
         //фото
         bool AddAlbum(Album album);
-        IEnumerable<Photo> GetAllPhoto(Guid id);
         IEnumerable<Photo> GetAllPhoto();
+        IEnumerable<Photo> GetAllPhotoForUser(Guid id);
         IEnumerable<Album> GetAllAlbums(Guid id);
         bool AddPhoto(Photo image);
         IEnumerable<Photo> Search(string name, string fragment);
@@ -24,7 +24,7 @@ namespace DAL
         //пользователи
         bool Add(User user);
         IEnumerable<User> GetAllUser();
-        string GetAllAlbumsForUser(Guid iduser);
+        IEnumerable<Album> GetAllAlbumsForUser(Guid iduser);
         User GetUser(string cookie);                    //
         User GetUser(string Login, string Password);    //
 

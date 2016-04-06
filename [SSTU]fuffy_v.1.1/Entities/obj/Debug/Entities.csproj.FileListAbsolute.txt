@@ -43,3 +43,18 @@ C:\Users\DEn\Desktop\FUFFY MARCH 2016\fuffy — копия\[SSTU]fuffy_v.1.1\Ent
 C:\Users\DEn\Desktop\FUFFY MARCH 2016\fuffy — копия\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.dll
 C:\Users\DEn\Desktop\FUFFY MARCH 2016\fuffy — копия\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.pdb
 C:\Users\Aleks\Desktop\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\DEn\Documents\fuffy8\[SSTU]fuffy_v.1.1\Entities\bin\Debug\Entities.dll
+C:\Users\DEn\Documents\fuffy8\[SSTU]fuffy_v.1.1\Entities\bin\Debug\Entities.pdb
+C:\Users\DEn\Documents\fuffy8\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\DEn\Documents\fuffy8\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.dll
+C:\Users\DEn\Documents\fuffy8\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.pdb
+C:\Users\141358\Desktop\[SSTU]fuffy_v.1.1\Entities\bin\Debug\Entities.dll
+C:\Users\141358\Desktop\[SSTU]fuffy_v.1.1\Entities\bin\Debug\Entities.pdb
+C:\Users\141358\Desktop\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\141358\Desktop\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.dll
+C:\Users\141358\Desktop\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.pdb
+C:\Users\DEn\Desktop\Новая папка (5)\[SSTU]fuffy_v.1.1\Entities\bin\Debug\Entities.dll
+C:\Users\DEn\Desktop\Новая папка (5)\[SSTU]fuffy_v.1.1\Entities\bin\Debug\Entities.pdb
+C:\Users\DEn\Desktop\Новая папка (5)\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\DEn\Desktop\Новая папка (5)\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.dll
+C:\Users\DEn\Desktop\Новая папка (5)\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.pdb

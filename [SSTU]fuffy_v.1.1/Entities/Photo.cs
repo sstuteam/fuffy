@@ -14,6 +14,8 @@ namespace Entities
         public int CountLikes { get; set; }
         public string Spetification { get; set; }
         public byte[] Image { get; set; }
+
+        public string ImageType { get; set; }
         /// <summary>
         /// Конструктор фотографии
         /// </summary>

@@ -155,7 +155,6 @@
     <Content Include="Views\Create\NewAlbum.cshtml" />
     <Content Include="Views\Create\NewAlbumBreak.cshtml" />
     <None Include="Views\Registration\Registration.cshtml" />
-    <Content Include="Views\Home\Start.html" />
     <Content Include="Views\Search\Search.html" />
     <Content Include="Views\User\Profile.html" />
     <Content Include="Web.config">
@@ -171,8 +170,10 @@
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\PhotoContent.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -199,6 +200,8 @@
     <Content Include="Views\Search\Search.cshtml" />
     <Content Include="Views\Shared\_PartialPhoto.cshtml" />
     <Content Include="Views\Shared\_NewLayout.cshtml" />
+    <Content Include="Views\Settings\Settings.cshtml" />
+    <Content Include="Views\Shared\_PartialAlbums.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

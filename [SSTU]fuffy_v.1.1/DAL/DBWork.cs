@@ -88,15 +88,25 @@ namespace DAL
                         /*RoleId = (int)reader["RoleID"],*/
                     };
                     if (reader["Status"] == System.DBNull.Value)
-                    { user.Status = null; }
-                    else user.Status = (string)reader["Status"];
-                    if (reader["RoleID"] == System.DBNull.Value)
-                    { user.RoleId = 0; }
-                    else user.RoleId = (int)reader["RoleID"];
-                    listUser.Add(user);
+                    {
+                        user.Status = null;
+                    }
+                    else
+                    {
+                        user.Status = (string)reader["Status"];
+                        if (reader["RoleID"] == System.DBNull.Value)
+                        {
+                            user.RoleId = 0;
+                        }
+                        else
+                        {
+                            user.RoleId = (int)reader["RoleID"];
+                            listUser.Add(user);
+                        }
+                    }
                 }
+                return listUser;
             }
-            return listUser;
         }
         public IEnumerable<Album> GetAllAlbums(Guid ID)
         {
@@ -121,25 +131,27 @@ namespace DAL
             }
             return listAlbum;
         }
-        public string GetAllAlbumsForUser(Guid iduser)
+        public IEnumerable<Album> GetAllAlbumsForUser(Guid iduser)
         {
-            StringBuilder listAlbum = new StringBuilder("");
-            using (SqlConnection c = new SqlConnection(ConnectionString))
-            {
-                SqlCommand com = new SqlCommand("SELECT [ID], [Name] FROM [dbo].[Album]", c);
-                c.Open();
-                var reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    if ((Guid)reader["ID"] == iduser)
-                    {
-                        string album = (string)reader["Name"];
-                        listAlbum.Append(album);
-                        listAlbum.Append(" ");
-                    }
-                }
-                return listAlbum.ToString();
-            }
+            var listAlbums = GetAllAlbums(iduser);
+            return listAlbums;
+            //StringBuilder listAlbum = new StringBuilder("");
+            //using (SqlConnection c = new SqlConnection(ConnectionString))
+            //{
+            //    SqlCommand com = new SqlCommand("SELECT [ID], [Name] FROM [dbo].[Album]", c);
+            //    c.Open();
+            //    var reader = com.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        if ((Guid)reader["ID"] == iduser)
+            //        {
+            //            string album = (string)reader["Name"];
+            //            listAlbum.Append(album);
+            //            listAlbum.Append(" ");
+            //        }
+            //    }
+            //    return listAlbum.ToString();
+            //}
         }
 
 
@@ -214,34 +226,11 @@ namespace DAL
                 return a > 0;
             }
             /*throw new NotImplementedException();*/
-           // return true;
+            // return true;
         }
 
-        public IEnumerable<Photo> GetAllPhoto(Guid id)
-        {
-            var listPhoto = new List<Photo>();
-            using (SqlConnection c = new SqlConnection(ConnectionString))
-            {
-                SqlCommand com = new SqlCommand("SELECT  [Image], [Likes], [PhotoId],[AlbumId],[Name],[Spetification] FROM [dbo].[Photo]", c);
-                c.Open();
-                var reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    Photo photo = new Photo()
-                    {
-                        IDPhoto = (Guid)reader["PhotoId"],
-                        IDAlbum = (Guid)reader["AlbumId"],
-                        Name = (string)reader["Name"],
-                        CountLikes = (int)reader["Likes"],
-                        Spetification = (string)reader["Name"],
-                        Image = (byte[])reader["Image"]
-                    };
 
-                    listPhoto.Add(photo);
-                }
-            }
-            return listPhoto;
-        }
+
         public IEnumerable<Photo> GetAllPhoto()
         {
             var listPhoto = new List<Photo>();
@@ -261,8 +250,8 @@ namespace DAL
                         Spetification = (string)reader["Name"],
                         Image = (byte[])reader["Image"]
                     };
-
                     listPhoto.Add(photo);
+
                 }
             }
             return listPhoto;
@@ -290,5 +279,23 @@ namespace DAL
 
             return Password;
         }
+
+        public IEnumerable<Photo> GetAllPhotoForUser(Guid idUser)
+        {
+            var albums = GetAllAlbums(idUser);
+            var photoes = GetAllPhoto();
+            foreach (var photo in photoes)
+            {
+                foreach (var album in albums)
+                {
+                    if (photo.IDAlbum == album.IDAlbum)
+                    {
+                        yield return photo;
+                    }
+                }
+            }
+        }
+
     }
 }
+

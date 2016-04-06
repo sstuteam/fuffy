@@ -12,7 +12,8 @@ namespace BLL
         //фотографии
         bool AddAlbum(Album album);
         bool AddPhoto(Photo image);
-        IEnumerable<Photo> GetAllPhoto(Guid id);
+        IEnumerable<Photo> GetAllPhotoForUser(Guid id);
+        IEnumerable<Photo> GetAllPhoto();
         Guid GetIdAlbum(Guid IDUser, string nameAlbom);
         IEnumerable<Photo> Search(string name, string fragment);
 
@@ -24,7 +25,7 @@ namespace BLL
         bool AddUser(User user);
         bool CheckLogin(string Login);
         IEnumerable<Album> GetAllAlbums(Guid id);
-        string GetAllAlbumsForUser(Guid iduser);
+        IEnumerable<Album> GetAllAlbumsForUser(Guid iduser);
         User GetUser(string cookie);
         User GetUser(string Login, string Password);
 

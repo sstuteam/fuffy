@@ -52,7 +52,7 @@ namespace PL_MVC.Models
         {
             return bll.GetAllAlbums(ID);
         }
-        public static string GetAllAlbumsForUser(Guid iduser)
+        public static IEnumerable<Entities.Album> GetAllAlbumsForUser(Guid iduser)
         {
             return bll.GetAllAlbumsForUser(iduser);
         }
@@ -64,9 +64,17 @@ namespace PL_MVC.Models
         {
             return bll.Search(name, fragment);
         }
-        public static IEnumerable<Entities.Photo> GetAllPhoto(Guid idUser)
+        public static IEnumerable<Entities.Photo> GetAllPhoto()
         {
-            return bll.GetAllPhoto(idUser);
+            return bll.GetAllPhoto();
         }
+        public static IEnumerable<Entities.Photo> GetAllPhotoForUser(Guid id)
+        {
+            return bll.GetAllPhotoForUser(id);
+        }
+        //internal static Controllers.PhotoContent GetPhoto(Guid id)
+        //{
+
+        //}
     }
 }

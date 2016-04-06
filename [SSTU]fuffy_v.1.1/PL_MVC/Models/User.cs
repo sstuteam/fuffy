@@ -32,13 +32,17 @@ namespace PL_MVC.Models
         //public DateTime dateOfBirthday;  //Дата рождения
         public int countOfLikes; //Количество лайков, поставленных пользователю за все его фотографии
         public int countOfAlbum; //Количество альбомов   
-        public string GetAllAlbumsForUser(Guid userid)
+        public IEnumerable<Entities.Album> GetAllAlbumsForUser(Guid userid)
         {
-            if (Binder.GetAllAlbumsForUser(userid) != "") return Binder.GetAllAlbumsForUser(idUser); else return "You've got no albums";
+            return Binder.GetAllAlbumsForUser(userid);
         }
-        public IEnumerable<Entities.Photo> GetAllPhoto(Guid id)
+        public IEnumerable<Entities.Photo> GetAllPhoto()
         {
-                return Binder.GetAllPhoto(id);
+            return Binder.GetAllPhoto();
+        }
+        public IEnumerable<Entities.Photo> GetAllPhotoForUser()
+        {
+            return Binder.GetAllPhotoForUser(idUser);
         }
         public User()
         {

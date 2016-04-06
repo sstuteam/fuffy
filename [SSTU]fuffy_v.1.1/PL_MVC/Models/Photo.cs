@@ -15,6 +15,7 @@ namespace PL_MVC.Models
         public string Spetification { get; set; }
         public byte[] Image { get; set; }
         public Photo() { }
+        public string ImageType { get; set; }
 
         public static implicit operator Entities.Photo(Photo photoModel)
         {
@@ -51,5 +52,9 @@ namespace PL_MVC.Models
             }
             return null;
         }
+        //public IEnumerable<Entities.Photo> GetAllPhoto()
+        //{
+        //    return Binder.GetAllPhoto(IDAlbum);
+        //}
     }
 }

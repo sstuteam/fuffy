@@ -1,13 +1,13 @@
 ﻿
 @{
     ViewBag.Title = "Upload";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-
-<h2>Upload</h2>
+<div class="container content">
+    <h2>Upload</h2>
 
 @using (@Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <input type="file" class="file" name="uploaded" />
-    <button typr="submit">Send!</button>
-}
+    <button type="submit">Send!</button>
+}</div>

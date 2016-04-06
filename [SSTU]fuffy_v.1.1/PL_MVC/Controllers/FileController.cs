@@ -23,7 +23,8 @@ namespace PL_MVC.Controllers
                     Spetification = " ",
                     CountLikes = 0,
                     IDAlbum = Binder.GetIdAlbum(user.idUser, "Other"),
-                    Image = new byte[uploaded.ContentLength]
+                    Image = new byte[uploaded.ContentLength],
+                    ImageType = uploaded.ContentType
                 };
                 using (BinaryReader br = new BinaryReader(uploaded.InputStream))
                 {
@@ -39,15 +40,27 @@ namespace PL_MVC.Controllers
         {
             return View();
         }
-        //[HttpGet]
-        //public string ReturnAllPhoto(Guid id)
-        //{
 
-        //    foreach (var item in Binder.GetAllPhoto(id))
-        //    {
-        //        return Convert.ToBase64String(item.Image);
-        //    }
-        //}
+        //<a href=/File/GetPhoto/4234324>
+        
+        [HttpGet]
+        public FileResult GetPhoto(Guid idPhoto)
+        {
+            Models.Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
+            if (photo != null)
+            {
+                return File(photo.Image, "image/jpeg"); 
+            }
+            else
+            {
+                return null;
+            }
+        }
+        [ChildActionOnly]
+        public ActionResult PartialPhoto()
+        {
+            return PartialView("_PartialPhoto");
+        }
 
     }
 }

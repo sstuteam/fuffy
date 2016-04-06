@@ -90,15 +90,22 @@ namespace BLL
         {
             return dal.GetAllAlbums(ID);
         }
-        public string GetAllAlbumsForUser(Guid iduser)
+        public IEnumerable<Album> GetAllAlbumsForUser(Guid iduser)
         {
             return dal.GetAllAlbumsForUser(iduser);
         }
 
-        public IEnumerable<Photo> GetAllPhoto(Guid id)
+        
+        public IEnumerable<Photo> GetAllPhoto()
         {
-            return dal.GetAllPhoto(id);
+            return dal.GetAllPhoto();
         }
+
+        public IEnumerable<Photo> GetAllPhotoForUser(Guid id)
+        {
+            return dal.GetAllPhotoForUser(id);
+        }
+
         //public User GetUser(string Login, string Password)   //*
         //{
         //    return dal.GetUser(Login, Password);

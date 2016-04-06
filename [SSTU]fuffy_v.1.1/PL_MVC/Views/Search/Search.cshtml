@@ -8,49 +8,51 @@
     <link href="~/Content/profile-and-search.css" rel="stylesheet" />
 }
 
-
-<div class="content"><h2>Advanced Search</h2>
-    <form method="post" role="form">
-        <div class="form-group">
-            <input class="form-control" type="search" placeholder="Title" name="name" />
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="search" placeholder="User name" />
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="search" placeholder="Key words" name="fragment" />
-        </div>
-        <div class="form-group">
+<div class="container">
+    <div class="content">
+        <h2>Advanced Search</h2>
+        <form method="post" role="form">
+            <div class="form-group">
+                <input class="form-control" type="search" placeholder="Title" name="name" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="search" placeholder="User name" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="search" placeholder="Key words" name="fragment" />
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Register
+                    </label>
+                </div>
+            </div>
+            <h4>Preferences</h4>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox"> Register
+                    <input type="checkbox"> Art
                 </label>
             </div>
-        </div>
-        <h4>Preferences</h4>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"> Art
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"> Sport
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" /> Politics
-            </label>
-        </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" /> Science
-            </label>
-        </div>
-        <div class="row row-btn-center">
-            <a href="@Url.Action("Search","Search")">Search!</a>
-        </div>
-    </form>
-    <h2>Resutls:</h2>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Sport
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" /> Politics
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" /> Science
+                </label>
+            </div>
+            <div class="row row-btn-center">
+                <a href="@Url.Action("Search","Search")">Search!</a>
+            </div>
+        </form>
+        <h2>Resutls:</h2>
+    </div>
 </div>
