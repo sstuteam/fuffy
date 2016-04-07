@@ -154,6 +154,7 @@
     <Content Include="Views\File\Upload.cshtml" />
     <Content Include="Views\Create\NewAlbum.cshtml" />
     <Content Include="Views\Create\NewAlbumBreak.cshtml" />
+    <Content Include="Views\File\GetPhotoView.cshtml" />
     <None Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\Search\Search.html" />
     <Content Include="Views\User\Profile.html" />
@@ -198,7 +199,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Views\Search\Search.cshtml" />
-    <Content Include="Views\Shared\_PartialPhoto.cshtml" />
+    <Content Include="Views\Shared\PartialPhoto.cshtml" />
     <Content Include="Views\Shared\_NewLayout.cshtml" />
     <Content Include="Views\Settings\Settings.cshtml" />
     <Content Include="Views\Shared\_PartialAlbums.cshtml" />

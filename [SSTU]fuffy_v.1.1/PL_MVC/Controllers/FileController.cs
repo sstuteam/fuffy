@@ -46,7 +46,7 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public FileResult GetPhoto(Guid idPhoto)
         {
-            Models.Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
+            Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
             if (photo != null)
             {
                 return File(photo.Image, "image/jpeg"); 
@@ -56,10 +56,18 @@ namespace PL_MVC.Controllers
                 return null;
             }
         }
-        [ChildActionOnly]
-        public ActionResult PartialPhoto()
+        [HttpGet]
+        public ViewResult GetPhotoView(Guid idPhoto)
         {
-            return PartialView("_PartialPhoto");
+            Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
+            if (photo != null)
+            {
+                return View(photo);
+            }
+            else
+            {
+                return null;
+            }
         }
 
     }

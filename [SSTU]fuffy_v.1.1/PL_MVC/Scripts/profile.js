@@ -1,11 +1,5 @@
 var like = 0;
 var yhl = 0;
-//$('.item').html('<img src = "/Content/Photo/forProfile.jpg" />');
-$('#myModalLabel').text('Title');
-//$('#modal-body-photos').html('<img src = "/Content/Photo/forProfile.jpg" /><br/><button type="submit" class="like" id="like">0</button><br/><form><textarea class="comment"></textarea><br /><br /><button type="button" class="btn btn-primary">Send</button></form>');
-$('#albums-modal').text('Albums');
-
-$('#albums-modal').text('Albums');
 
 $('.like').click(function () {
     if (yhl == 0) {

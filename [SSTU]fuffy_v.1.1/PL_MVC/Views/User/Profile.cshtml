@@ -3,22 +3,6 @@
     ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-@*<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2 col-sm-1 col-xs-12 user">
-            <div class="row">@Model.Name</div>
-            <div class="row">@Model.Status</div>
-            <div class="row">
-                <img src="~/Content/Photo/forProfile.jpg" class="avatar" />
-            </div>
-            <div class="row">About me</div>
-            <div class="row">Text about me</div>
-            <div class="row">
-                Albums:
-                @Html.Partial("_PartialAlbums")
-            </div>*@
-
-@*</div>*@
 <div class="container">
     <div class="row forcolons">
         <div class="col-xs-6 user">
@@ -42,42 +26,33 @@
             {
                 <div data-toggle="modal" data-target="#myModal" class="item">
                     <div class="item">
-                        <img src="@Url.Action("GetPhoto", "File",
-            new { item.IDPhoto })" />
+
+                        <a class="photoItem" href="@Url.Action("GetPhotoView", "File", new { item.IDPhoto })">
+
+                            <img src="@Url.Action("GetPhoto", "File", new { item.IDPhoto })" />
+                        </a>
                     </div>
                 </div>
-                <!--Как вывести в  модальное окно ВЫБРАНУЮ фотографию?-->
-                     <!-- Modal -->
-                    @*<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                            &times;
-                                        </button>
-                                        <h4 class="modal-title" id="myModalLabel"></h4>
-                                    </div>
-                                    <div class="modal-body" id="modal-body-photos">
-                                        <img src="@Url.Action("GetPhoto", "File", new { item.IDPhoto })" />
-                                        <div class="specification">
-                                            Specification:
-                                        </div>
-                                        Comments:
-                                        <form name="post">
-                                            <textarea cols="60" rows="5" class="add-comment"></textarea>
-                                            <div class="add-comment"><a type="submit">Send</a></div>
-
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>*@
 
             }
         </div>
     </div>
-    @* @Html.Action("PartialPhoto", "File")*@
-    @*@Html.Partial("_PartialUser")
-        @Html.Partial("_PartialPhoto")*@
 </div>
+
+@section scripts
+{
+    <script type="text/javascript">
+ 
+        $(function () {
+            $.ajaxSetup({ cache: false });
+           $(".compItem").click(function (e) {
+ 
+                e.preventDefault();
+                $.get(this.href, function (data) {
+                    $('#dialogContent').html(data);
+                    $('#modDialog').modal('show');
+                });
+            });
+        })
+    </script>
+}
