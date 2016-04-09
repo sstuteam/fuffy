@@ -17,7 +17,7 @@ namespace PL_MVC.Controllers
         
        
         [PageAuthorize(RoleID = 0)]        
-        public ActionResult Profile()
+        new public ActionResult Profile()
         {
             var user = AuthHelper.GetUser(HttpContext);
             return View("~/Views/User/Profile.cshtml",user);

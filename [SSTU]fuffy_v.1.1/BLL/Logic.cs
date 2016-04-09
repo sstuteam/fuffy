@@ -61,7 +61,7 @@ namespace BLL
 
         public Guid GetIdAlbum(Guid IDUser, string nameAlbom)
         {
-            return dal.GetAllAlbums(IDUser).FirstOrDefault(x => x.IDUser == IDUser && x.Name == "Other").IDAlbum;
+            return dal.GetAllAlbums(IDUser).FirstOrDefault(x => x.IDUser == IDUser && x.Name == nameAlbom).IDAlbum;
         }
 
         public User GetUser(string cookie)   //*
@@ -104,6 +104,11 @@ namespace BLL
         public IEnumerable<Photo> GetAllPhotoForUser(Guid id)
         {
             return dal.GetAllPhotoForUser(id);
+        }
+
+        public Album GetAlboum(Guid idAlbum)
+        {
+            return dal.GetAlboum(idAlbum);
         }
 
         //public User GetUser(string Login, string Password)   //*

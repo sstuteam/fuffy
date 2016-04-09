@@ -1,4 +1,4 @@
-﻿
+﻿@model PL_MVC.Models.User
 @{
     ViewBag.Title = "Upload";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
@@ -6,8 +6,23 @@
 <div class="container content">
     <h2>Upload</h2>
 
-@using (@Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <input type="file" class="file" name="uploaded" />
-    <button type="submit">Send!</button>
-}</div>
+    @using (@Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" class="file" name="uploaded" />
+        <p></p>
+        <input type="text" name="Title"/>
+        <input type="text" name="spetification"/> @*не добавляется/не выводится*@
+        <div>
+            Выберете альбом
+            <select name="AlbumName">
+                @foreach (var item in @Model.GetAllAlbumsForUser())
+                {
+                    <option>@item.Name </option>
+                }
+            </select>
+        </div>
+        <p></p>
+        <button type="submit">Send!</button>
+
+    }
+</div>

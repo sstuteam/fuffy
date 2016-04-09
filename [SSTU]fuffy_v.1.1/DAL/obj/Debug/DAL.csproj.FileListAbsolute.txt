@@ -110,3 +110,10 @@ C:\Users\DEn\Desktop\Новая папка (5)\[SSTU]fuffy_v.1.1\DAL\bin\Debug\E
 C:\Users\DEn\Desktop\Новая папка (5)\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\DEn\Desktop\Новая папка (5)\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.dll
 C:\Users\DEn\Desktop\Новая папка (5)\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.pdb
+C:\Users\DEn\Desktop\FUFFY 2016\8.4.16\[SSTU]fuffy_v.1.1\DAL\bin\Debug\DAL.dll
+C:\Users\DEn\Desktop\FUFFY 2016\8.4.16\[SSTU]fuffy_v.1.1\DAL\bin\Debug\DAL.pdb
+C:\Users\DEn\Desktop\FUFFY 2016\8.4.16\[SSTU]fuffy_v.1.1\DAL\bin\Debug\Entities.dll
+C:\Users\DEn\Desktop\FUFFY 2016\8.4.16\[SSTU]fuffy_v.1.1\DAL\bin\Debug\Entities.pdb
+C:\Users\DEn\Desktop\FUFFY 2016\8.4.16\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\DEn\Desktop\FUFFY 2016\8.4.16\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.dll
+C:\Users\DEn\Desktop\FUFFY 2016\8.4.16\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.pdb

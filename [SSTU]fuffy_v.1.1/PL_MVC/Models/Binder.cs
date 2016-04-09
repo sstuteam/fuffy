@@ -72,9 +72,10 @@ namespace PL_MVC.Models
         {
             return bll.GetAllPhotoForUser(id);
         }
-        //internal static Controllers.PhotoContent GetPhoto(Guid id)
-        //{
 
-        //}
+        public static Entities.Album GetAlboumName(Guid iDAlbum)
+        {
+            return bll.GetAlboum(iDAlbum);
+        }
     }
 }

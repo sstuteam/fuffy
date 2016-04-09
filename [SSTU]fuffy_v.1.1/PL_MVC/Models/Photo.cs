@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;  
+using System.Threading.Tasks;
 
 namespace PL_MVC.Models
 {
@@ -23,14 +23,14 @@ namespace PL_MVC.Models
             {
                 Entities.Photo photoEntities = new Entities.Photo()
                 {
-                    IDPhoto=photoModel.IDPhoto,
-                    IDAlbum=photoModel.IDAlbum,
-                    CountLikes=photoModel.CountLikes,
-                    Name=photoModel.Name,
-                    Spetification=photoModel.Spetification,
-                    Image=photoModel.Image                    
+                    IDPhoto = photoModel.IDPhoto,
+                    IDAlbum = photoModel.IDAlbum,
+                    CountLikes = photoModel.CountLikes,
+                    Name = photoModel.Name,
+                    Spetification = photoModel.Spetification,
+                    Image = photoModel.Image
                 };
-                return photoEntities;                
+                return photoEntities;
             }
             return null;
         }
@@ -41,20 +41,17 @@ namespace PL_MVC.Models
             {
                 Photo photoModel = new Photo()
                 {
-                    CountLikes=photoEntities.CountLikes,
-                    IDAlbum=photoEntities.IDAlbum,
-                    IDPhoto=photoEntities.IDPhoto,
-                    Image=photoEntities.Image,
-                    Name=photoEntities.Name,
-                    Spetification=photoEntities.Spetification
-                };                
+                    CountLikes = photoEntities.CountLikes,
+                    IDAlbum = photoEntities.IDAlbum,
+                    IDPhoto = photoEntities.IDPhoto,
+                    Image = photoEntities.Image,
+                    Name = photoEntities.Name,
+                    Spetification = photoEntities.Spetification
+                };
                 return photoModel;
             }
             return null;
         }
-        //public IEnumerable<Entities.Photo> GetAllPhoto()
-        //{
-        //    return Binder.GetAllPhoto(IDAlbum);
-        //}
+
     }
 }

@@ -18,20 +18,20 @@ namespace DAL
             ConnectionString = ConfigurationManager.ConnectionStrings["FuffyDB"].ConnectionString;
         }
 
-        public bool AddPhoto(Album album)
-        {
-            using (SqlConnection c = new SqlConnection(ConnectionString))
-            {
-                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Album] ([ID],[IDAlbum],[Name],[Spetification]) VALUES (@ID,@IDAlbum,@Name,@Spetification)", c);
-                com.Parameters.AddWithValue("@ID", album.IDUser);
-                com.Parameters.AddWithValue("@IDAlbum", album.IDAlbum);
-                com.Parameters.AddWithValue("@Name", album.Name);
-                com.Parameters.AddWithValue("@Spetification", album.Spetification);
-                c.Open();
-                var a = com.ExecuteNonQuery();         //попробывать другой вариант
-                return a > 0;
-            }
-        }
+        //public bool AddPhoto(Album album)
+        //{
+        //    using (SqlConnection c = new SqlConnection(ConnectionString))
+        //    {
+        //        SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Album] ([ID],[IDAlbum],[Name],[Spetification]) VALUES (@ID,@IDAlbum,@Name,@Spetification)", c);
+        //        com.Parameters.AddWithValue("@ID", album.IDUser);
+        //        com.Parameters.AddWithValue("@IDAlbum", album.IDAlbum);
+        //        com.Parameters.AddWithValue("@Name", album.Name);
+        //        com.Parameters.AddWithValue("@Spetification", album.Spetification);
+        //        c.Open();
+        //        var a = com.ExecuteNonQuery();         //попробывать другой вариант
+        //        return a > 0;
+        //    }
+        //}
 
         public bool Add(User user)
         {
@@ -247,7 +247,7 @@ namespace DAL
                         IDAlbum = (Guid)reader["AlbumId"],
                         Name = (string)reader["Name"],
                         CountLikes = (int)reader["Likes"],
-                        Spetification = (string)reader["Name"],
+                        Spetification = (string)reader["Spetification"],
                         Image = (byte[])reader["Image"]
                     };
                     listPhoto.Add(photo);
@@ -256,6 +256,7 @@ namespace DAL
             }
             return listPhoto;
         }
+
 
         public static string GetHashString(string Password)
         {
@@ -295,7 +296,39 @@ namespace DAL
                 }
             }
         }
+        public Album GetAlboum(Guid idAlbum)
+        {
+            var alboum = GetAllAlbums().FirstOrDefault(x=>x.IDAlbum==idAlbum);
+            return alboum;
+        }
+        /// <summary>
+        /// Возвращение всех альбомов
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Album> GetAllAlbums()
+        {
+            var listAlbum = new List<Album>();
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("SELECT [ID],[IDAlbum],[Name],[Spetification] FROM [dbo].[Album]", c);
+                c.Open();
+                var reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    Album album = new Album()
+                    {
+                        IDUser = (Guid)reader["ID"],
+                        IDAlbum = (Guid)reader["IDAlbum"],
+                        Name = (string)reader["Name"],
+                        Spetification = (string)reader["Spetification"]
+                    };
+                        listAlbum.Add(album);
+                }
+            }
+            return listAlbum;
+        }
 
     }
+
 }
 

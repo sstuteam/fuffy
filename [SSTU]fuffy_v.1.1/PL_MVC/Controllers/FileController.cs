@@ -11,21 +11,28 @@ namespace PL_MVC.Controllers
     public class FileController : Controller
     {
         [HttpPost]
-        public ActionResult Upload(HttpPostedFileBase uploaded)
-        {
+        public ActionResult Upload(HttpPostedFileBase uploaded,string AlbumName, string Title, string spetification)
+        {           
             var user = AuthHelper.GetUser(HttpContext);
             if (uploaded != null)
             {
                 Photo image = new Photo()
                 {
                     IDPhoto = Guid.NewGuid(),
-                    Name = "photo" + (string)uploaded.ContentType,
-                    Spetification = " ",
-                    CountLikes = 0,
-                    IDAlbum = Binder.GetIdAlbum(user.idUser, "Other"),
+                    Name = Title,
+                    Spetification = spetification,
+                    CountLikes = 0,//не пишет в дб                    
                     Image = new byte[uploaded.ContentLength],
                     ImageType = uploaded.ContentType
                 };
+                if (AlbumName != null)
+                {
+                    image.IDAlbum = Binder.GetIdAlbum(user.idUser, AlbumName);//берет имменно такой альбом
+                }
+                else
+                {
+                    image.IDAlbum = Binder.GetIdAlbum(user.idUser, "Other");
+                }
                 using (BinaryReader br = new BinaryReader(uploaded.InputStream))
                 {
                     image.Image = br.ReadBytes(image.Image.Length);
@@ -33,12 +40,13 @@ namespace PL_MVC.Controllers
                 Binder.Add(image);
                 //return File(image.Image, uploaded.ContentType);                
             }
-            return View("~/Views/User/Profile.cshtml", user);
+            return RedirectToAction("~/Views/User/Profile.cshtml", user);
         }
         [HttpGet]
         public ActionResult Upload()
         {
-            return View();
+            User user = AuthHelper.GetUser(HttpContext);
+            return View(user);
         }
 
         //<a href=/File/GetPhoto/4234324>
@@ -60,6 +68,7 @@ namespace PL_MVC.Controllers
         public ViewResult GetPhotoView(Guid idPhoto)
         {
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
+            ViewBag.AlboumName = Binder.GetAlboumName(photo.IDAlbum).Name;
             if (photo != null)
             {
                 return View(photo);

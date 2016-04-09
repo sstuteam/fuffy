@@ -27,14 +27,6 @@ namespace PL_MVC.Controllers
                 return RedirectToAction("NewAlbumBreak", "Album");
             }
         }
-        [HttpGet]
-        public IEnumerable<Album> GetAlbums(Guid ID)
-        {
-            Models.Album album = Binder.GetAllAlbumsForUser(ID).FirstOrDefault(i => i.IDAlbum == ID);
-            if (album != null)
-            {
-                yield return album;
-            }
-        }
+        
     }
 }
