@@ -40,7 +40,7 @@ namespace PL_MVC.Controllers
                 Binder.Add(image);
                 //return File(image.Image, uploaded.ContentType);                
             }
-            return RedirectToAction("~/Views/User/Profile.cshtml", user);
+            return RedirectToAction("Profile", "User", user);
         }
         [HttpGet]
         public ActionResult Upload()
@@ -68,7 +68,7 @@ namespace PL_MVC.Controllers
         public ViewResult GetPhotoView(Guid idPhoto)
         {
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
-            ViewBag.AlboumName = Binder.GetAlboumName(photo.IDAlbum).Name;
+            ViewBag.AlbumName = Binder.GetAlbumName(photo.IDAlbum).Name;
             if (photo != null)
             {
                 return View(photo);

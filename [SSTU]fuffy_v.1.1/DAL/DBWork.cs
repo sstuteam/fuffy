@@ -296,10 +296,10 @@ namespace DAL
                 }
             }
         }
-        public Album GetAlboum(Guid idAlbum)
+        public Album GetAlbum(Guid idAlbum)
         {
-            var alboum = GetAllAlbums().FirstOrDefault(x=>x.IDAlbum==idAlbum);
-            return alboum;
+            var album = GetAllAlbums().FirstOrDefault(x=>x.IDAlbum==idAlbum);
+            return album;
         }
         /// <summary>
         /// Возвращение всех альбомов

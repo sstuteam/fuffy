@@ -106,9 +106,9 @@ namespace BLL
             return dal.GetAllPhotoForUser(id);
         }
 
-        public Album GetAlboum(Guid idAlbum)
+        public Album GetAlbum(Guid idAlbum)
         {
-            return dal.GetAlboum(idAlbum);
+            return dal.GetAlbum(idAlbum);
         }
 
         //public User GetUser(string Login, string Password)   //*

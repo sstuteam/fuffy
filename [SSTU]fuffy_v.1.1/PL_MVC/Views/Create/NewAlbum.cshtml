@@ -1,18 +1,12 @@
 ﻿@model PL_MVC.Models.Album
 @using PL_MVC.Controllers;
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>    
+    <div class="container content">    
          @using (Html.BeginForm("Add", "Album", FormMethod.Get))
          {
             <div id="newlabel">
@@ -23,5 +17,3 @@
     }       
        <!-- <label>Model.IDUser</label>--><!--Не понятно, как передать юзер айди-->
         </div>
-</body>
-</html>

@@ -27,8 +27,9 @@
                     <li><a href="#about">People</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="~/Album/NewAlbum">Add Album</a></li>
-                    <li><a href="~/File/Upload">Upload</a></li>
+                    <li>@Html.ActionLink("Settings", "Settings", "Settings")</li>
+                    <li>@Html.ActionLink("Add album", "NewAlbum", "Album")</li>
+                    <li>@Html.ActionLink("Upload", "Upload", "File")</li>
                     <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
                     <li>
                         <a href="~/User/Profile" style="padding:0"> @*стиль здесь, т.к. из класса не работает*@
@@ -47,10 +48,9 @@
     </div>
     
         @RenderBody()
+
     <footer>Fuffy &copy; 2016</footer>
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-
-    @RenderSection("scripts",false) <!--для примера из metanit про модальные окна-->
 </body>
 </html>

@@ -10,10 +10,12 @@
     {
         <input type="file" class="file" name="uploaded" />
         <p></p>
+        <p>Title:</p>
         <input type="text" name="Title"/>
-        <input type="text" name="spetification"/> @*не добавляется/не выводится*@
+        <p>Specification:</p>
+        <textarea rows="5" cols="30"  name="spetification"></textarea>
         <div>
-            Выберете альбом
+            <span>Album:</span>
             <select name="AlbumName">
                 @foreach (var item in @Model.GetAllAlbumsForUser())
                 {

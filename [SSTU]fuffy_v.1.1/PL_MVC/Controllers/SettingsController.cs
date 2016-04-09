@@ -10,7 +10,7 @@ namespace PL_MVC.Controllers
     {
         // GET: Settings
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Settings()
         {
             return View();
         }

@@ -15,7 +15,7 @@ namespace DAL
         IEnumerable<Photo> GetAllPhoto();
         IEnumerable<Photo> GetAllPhotoForUser(Guid id);
         IEnumerable<Album> GetAllAlbums(Guid id);
-        Album GetAlboum(Guid idAlbum);
+        Album GetAlbum(Guid idAlbum);
         bool AddPhoto(Photo image);
         IEnumerable<Photo> Search(string name, string fragment);
         //комментарии
