@@ -1,0 +1,9 @@
+﻿@foreach (var item in @Model.GetAllAlbumsForUser())
+{
+       
+                <div class="albums">
+                    <img class="size" src="/Content/Photo/forProfile.jpg" /><!--Надо возвращать все фоточки с альбома, а не 1 стандартную-->
+                    <div class="album-name row"> <a href="@Url.Action("GetAlbum", "Album", new { item.IDAlbum})">@item.Name </a></div>
+                </div>
+         
+}

@@ -1,0 +1,27 @@
+﻿
+                     <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    &times;
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel"></h4>
+                            </div>
+                            <div class="modal-body" id="modal-body-photos">
+                                <img src="@Url.Action("GetPhoto", "File", new {IDPhoto="ac0e54ec-82a1-4305-b9cc-41947369af9e" })" /> @*неоткуда взять id *@
+                                <div class="specification">
+                                    Specification:
+                                </div>
+                                Comments:
+                                <form name="post">
+                                    <textarea cols="60" rows="5" class="add-comment"></textarea>
+                                    <div class="add-comment"><a @*type="submit"*@>Send</a></div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>

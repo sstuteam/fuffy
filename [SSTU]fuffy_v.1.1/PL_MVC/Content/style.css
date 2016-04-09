@@ -1,0 +1,92 @@
+﻿body {
+         /*padding-top: 50px;*/ /*из-за этой строчке на мобильных версиях был отступ*/
+        background-color: #fafafa;
+     }
+
+.navbar {
+            background-color: #904684;
+            border-color:#904684;
+        }
+input[type="search"]{
+    width:200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+h3 {
+        text-decoration: underline;
+        
+    color:#603259;
+   }
+
+h1, h2, h4 {
+                
+    color:#603259;
+           }
+.image-head{
+    width: 48px;
+    height:48px;
+}
+.content{
+    margin-top:60px;
+}
+.user{
+    text-align:center;
+    background-color:gray;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    height: 50.5vh;
+    overflow-y:scroll;
+}
+.scroll-y{
+    overflow-y:scroll;
+}
+.user-name{
+    text-align:center;
+}
+.avatar{
+    max-height: 30vh;
+    max-width: 100%;
+    border-radius: 5px;
+}
+.album-name{
+    text-align:center;
+}
+.albums img{
+    height:20vh;
+    margin-top:5vh;
+    border-radius: 5px;
+}
+.main{
+    padding-top:60px;
+    padding-bottom:10px;
+}
+.main img{
+    width:280px;
+    padding-bottom:10px;
+}
+.item{
+    display:inline-block;
+}
+.forcolons {
+    border:1px solid gray;
+    margin-top:35px;
+    border-radius:3px 3px;
+    height: 50.5vh;
+}
+.row-list{
+    padding-left:5vw;
+  	padding-right:5vw;
+}
+.height{
+    height:30vh;
+}
+footer{
+    text-align:center;
+    margin-top:10px;
+}
+.photo-width img{
+    width:100%;
+}
+.photo-info{
+    text-align:center;
+}

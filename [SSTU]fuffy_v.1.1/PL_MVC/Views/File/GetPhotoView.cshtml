@@ -1,0 +1,29 @@
+﻿@model PL_MVC.Models.Photo
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+
+<div class="container content">
+    <h4>@Model.Name</h4>
+    <div class="row">
+        <div class="col-md-9 photo-width">
+            <img src="@Url.Action("GetPhoto", "File", new { Model.IDPhoto })" />
+        </div>
+        <div class="col-md-3 scroll photo-info">
+            <div class="row">
+                Alboum: @ViewBag.AlboumName
+            </div>
+            <div class="row specification">
+                Specification: @Model.Spetification
+            </div>
+            <div class="row">
+               
+            </div>
+            <div class="row likes">
+                Likes: <button class="like" type="submit">@Model.CountLikes</button>
+            </div>
+        </div>
+    </div>
+</div>
