@@ -138,6 +138,7 @@
     <Content Include="Content\style.css" />
     <Content Include="Content\start.css" />
     <Content Include="Content\StartPage.css" />
+    <Content Include="Content\StyleSheet.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\admin-panel-change-background.js" />
@@ -155,6 +156,8 @@
     <Content Include="Views\Create\NewAlbum.cshtml" />
     <Content Include="Views\Create\NewAlbumBreak.cshtml" />
     <Content Include="Views\File\GetPhotoView.cshtml" />
+    <Content Include="Scripts\masonry.pkgd.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\Search\Search.html" />
     <Content Include="Views\User\Profile.html" />

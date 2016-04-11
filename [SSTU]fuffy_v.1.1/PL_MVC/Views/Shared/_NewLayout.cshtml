@@ -9,10 +9,11 @@
     <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
     <link href="~/Content/style.css" rel="stylesheet" />
     @RenderSection("styles", false)
+    @RenderSection("styleForProfile", false)
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse"> <!--Убрала navbar-fixed-top, т.к. при резких рывках он глючил -_- -->
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -52,5 +53,6 @@
     <footer>Fuffy &copy; 2016</footer>
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("masonry", false)
 </body>
 </html>

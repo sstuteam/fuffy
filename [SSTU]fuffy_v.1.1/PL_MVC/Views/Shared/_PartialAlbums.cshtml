@@ -1,9 +1,11 @@
 ﻿@foreach (var item in @Model.GetAllAlbumsForUser())
 {
-       
-                <div class="albums">
-                    <img class="size" src="/Content/Photo/forProfile.jpg" /><!--Надо возвращать все фоточки с альбома, а не 1 стандартную-->
-                    <div class="album-name row"> <a href="@Url.Action("GetAlbum", "Album", new { item.IDAlbum})">@item.Name </a></div>
-                </div>
-         
-}
+    <div class="col-sm-6 col-xs-6 album-div">
+        <div class="albums">
+            <img class="image-ava hidden-xs" src="/Content/Photo/forProfile.jpg">
+            <img class="image-xs visible-xs" src="/Content/Photo/forProfile.jpg">
+            <div class="album-name row"> <a href="@Url.Action("GetAlbum", "Album", new { item.IDAlbum})"><h2>@item.Name</h2> </a></div>
+            <h2> </h2>
+        </div>
+        </div>
+        }

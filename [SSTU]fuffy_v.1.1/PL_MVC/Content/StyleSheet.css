@@ -1,0 +1,33 @@
+﻿
+/*.image-colon{
+    width: 90%;
+    height:auto;
+    padding-top:2vh;
+}*/
+.image-head{
+    width:54px;
+    height:54px;
+}
+.image-xs{
+    width: 120px;
+    height:120px;
+}
+.forcolons {
+   border:1px solid gray;
+    height: 45vh;
+text-align:center;
+}
+.scrollx{
+  overflow-x: scroll;
+}
+
+.row-list{
+    padding-left:5vw;
+  	padding-right:5vw;
+}
+.album-div
+{
+    height:80%;
+    padding-top: 20px;
+}
+     

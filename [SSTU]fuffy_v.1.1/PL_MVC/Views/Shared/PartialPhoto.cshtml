@@ -1,1 +1,9 @@
-﻿
+﻿@foreach (var item in Model.GetAllPhotoForUser())
+{
+    <div class="item">
+            <a href="@Url.Action("GetPhotoView", "File", new { item.IDPhoto })">
+            <img src="@Url.Action("GetPhoto", "File", new { item.IDPhoto })" />
+        </a>
+    </div>
+
+}
