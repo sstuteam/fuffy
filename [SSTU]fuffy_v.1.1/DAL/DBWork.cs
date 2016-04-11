@@ -327,7 +327,109 @@ namespace DAL
             }
             return listAlbum;
         }
-
+        public int GetLikes(Guid Id)
+        {
+            int likes = 0;
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                var photoes = GetAllPhoto();
+                SqlCommand com = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Photo]", c);
+                c.Open();
+                var reader = com.ExecuteReader();
+                foreach (var photo in photoes)
+                {
+                    if (photo.IDPhoto == Id)
+                    {
+                        likes = (int)reader["Likes"];
+                    }
+                }
+                var comments = GetComments();
+                SqlCommand com1 = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Comment]", c);
+                c.Open();
+                var reader1 = com.ExecuteReader();
+                foreach (var comment in comments)
+                {
+                    Guid IDComment = (Guid)reader["ID"];
+                    if (IDComment == Id)
+                    {
+                        likes = (int)reader["Likes"];
+                    }
+                }
+            }
+            return likes;
+        }
+        public bool AddLike(Guid Id)
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                var photoes = GetAllPhoto();
+                SqlCommand com = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Photo]", c);
+                c.Open();
+                var reader = com.ExecuteReader();
+                foreach (var photo in photoes)
+                {
+                    if (photo.IDPhoto == Id)
+                    {
+                        int likes = (int)reader["Likes"];
+                        likes += 1;
+                        SqlCommand com2 = new SqlCommand("INSERT INTO [dbo].[Photo] ([Likes]) VALUES (@likes)", c);
+                    }
+                    return false;
+                }
+                var comments = GetComments();
+                SqlCommand com1 = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Comment]", c);
+                c.Open();
+                var reader1 = com.ExecuteReader();
+                foreach (var comment in comments)
+                {
+                    Guid IDComment = (Guid)reader["ID"];
+                    if (IDComment == Id)
+                    {
+                        int likes = (int)reader["Likes"];
+                        likes += 1;
+                        SqlCommand com3 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
+                    }
+                    return false;
+                }
+            }
+            return true;
+        }
+        public bool DeleteLike(Guid Id)
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                var photoes = GetAllPhoto();
+                SqlCommand com = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Photo]", c);
+                c.Open();
+                var reader = com.ExecuteReader();
+                foreach (var photo in photoes)
+                {
+                    if (photo.IDPhoto == Id)
+                    {
+                        int likes = (int)reader["Likes"];
+                        likes -= 1;
+                        SqlCommand com2 = new SqlCommand("INSERT INTO [dbo].[Photo] ([Likes]) VALUES (@likes)", c);
+                    }
+                    return false;
+                }
+                var comments = GetComments();
+                SqlCommand com1 = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Comment]", c);
+                c.Open();
+                var reader1 = com.ExecuteReader();
+                foreach (var comment in comments)
+                {
+                    Guid IDComment = (Guid)reader["ID"];
+                    if (IDComment == Id)
+                    {
+                        int likes = (int)reader["Likes"];
+                        likes -= 1;
+                        SqlCommand com3 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
+                    }
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 
 }

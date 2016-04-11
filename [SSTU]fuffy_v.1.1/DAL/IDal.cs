@@ -21,6 +21,9 @@ namespace DAL
         //комментарии
         bool AddComment(Comment comment);
         IEnumerable<Comment> GetComments();
+        int GetLikes(Guid Id);
+        bool AddLike(Guid Id);
+        bool DeleteLike(Guid Id);
 
         //пользователи
         bool Add(User user);

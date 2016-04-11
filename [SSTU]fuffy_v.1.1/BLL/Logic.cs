@@ -111,6 +111,18 @@ namespace BLL
             return dal.GetAlbum(idAlbum);
         }
 
+        public int GetLikes(Guid Id)
+        {
+            return dal.GetLikes(Id);
+        }
+        public bool AddLike(Guid Id)
+        {
+            return dal.AddLike(Id);
+        }
+        public bool DeleteLike(Guid Id)
+        {
+            return dal.DeleteLike(Id);
+        }
         //public User GetUser(string Login, string Password)   //*
         //{
         //    return dal.GetUser(Login, Password);
