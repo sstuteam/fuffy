@@ -3,38 +3,64 @@
     ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
+@section styleForProfile{
+    <link href="~/Content/StyleSheet.css" rel="stylesheet" />
+}
+@section masonry{
+    <script src="~/Scripts/masonry.pkgd.min.js"></script>
+}
 <div class="container">
-    <div class="row forcolons">
-        <div class="col-xs-6 user">
-            <div class="row"><h2>@Model.Name</h2></div>
-            <div class="row">Status: @Model.Status</div>
+    <div class="row">
+        <div class="col-sm-4 forcolons">
             <div class="row">
-                <img src="~/Content/Photo/forProfile.jpg" class="avatar" />
+                <div class="col-sm-4">
+                    <h2>@Model.Name</h2>
+                </div>
+                <div class="col-sm-1">
+                    <img src="">        <!--здесь желатьльно поставить переход на редактирование-->
+                </div>
+            </div><div class="row">
+                <div class="col-sm-12">
+                    <h4>Status:</h4>
+                    <h4>@Model.Status</h4>
+                </div>
             </div>
-            <div class="row">About me:</div>
-            <div class="row">Text about user</div>
+            <div class="row" style="height:50%">
+                <img class="avatar" src="/Content/Photo/forProfile.jpg">
+            </div>
+
         </div>
-        <div class="col-xs-6 scroll">
-            <div class="user">
-                @Html.Partial("_PartialAlbums")
+
+        <div class="col-sm-8 forcolons">
+            <div class="row">
+                <h2>Albums:</h2>
+            </div>
+            <div class="row">
+                <h1> </h1>
+            </div>
+            <div id="carousele" class="carousel slide" style="height:55%;padding-top: 20px" data-ride="carousel" data-interval="20000">
+                <div class="carousel-inner" style="height:100%">
+                    <div class="item active" style="height:100%">
+                        <div class="row-list" style="height:100%">
+                            @Html.Partial("_PartialAlbums")
+                        </div>
+                    </div>
+                </div>
+
+                <a class="left carousel-control" href="#carousele" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousele" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+
             </div>
         </div>
     </div>
     <div class="row main">
-        <div class="col-sm-12 forcentercolons">
-            @foreach (var item in Model.GetAllPhotoForUser())
-            {
-                <div data-toggle="modal" data-target="#myModal" class="item">
-                    <div class="item">
-
-                        <a class="photoItem" href="@Url.Action("GetPhotoView", "File", new { item.IDPhoto })">
-
-                            <img src="@Url.Action("GetPhoto", "File", new { item.IDPhoto })" />
-                        </a>
-                    </div>
-                </div>
-
-            }
+        <div class="masonry">
+            @Html.Partial("PartialPhoto")
         </div>
     </div>
+
 </div>
