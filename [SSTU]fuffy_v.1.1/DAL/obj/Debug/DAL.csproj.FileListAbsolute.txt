@@ -124,3 +124,10 @@ C:\Users\DEn\Documents\fuffy10\[SSTU]fuffy_v.1.1\DAL\bin\Debug\Entities.pdb
 C:\Users\DEn\Documents\fuffy10\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\DEn\Documents\fuffy10\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.dll
 C:\Users\DEn\Documents\fuffy10\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.pdb
+D:\Fuffy\[SSTU]fuffy_v.1.1\DAL\bin\Debug\DAL.dll
+D:\Fuffy\[SSTU]fuffy_v.1.1\DAL\bin\Debug\DAL.pdb
+D:\Fuffy\[SSTU]fuffy_v.1.1\DAL\bin\Debug\Entities.dll
+D:\Fuffy\[SSTU]fuffy_v.1.1\DAL\bin\Debug\Entities.pdb
+D:\Fuffy\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Fuffy\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.dll
+D:\Fuffy\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.pdb
