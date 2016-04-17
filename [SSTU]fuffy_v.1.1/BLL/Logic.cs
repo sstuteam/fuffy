@@ -116,17 +116,29 @@ namespace BLL
             return dal.GetAlbum(idAlbum);
         }
 
-        public int GetLikes(Guid Id)
+        public int GetLikesPhoto(Guid Id)
         {
-            return dal.GetLikes(Id);
+            return dal.GetLikesPhoto(Id);
         }
-        public bool AddLike(Guid Id)
+        public bool AddLikePhoto(Guid Id)
         {
-            return dal.AddLike(Id);
+            return dal.AddLikePhoto(Id);
         }
-        public bool DeleteLike(Guid Id)
+        public bool DeleteLikePhoto(Guid Id)
         {
-            return dal.DeleteLike(Id);
+            return dal.DeleteLikePhoto(Id);
+        }
+        public int GetLikesComment(Guid CommentId, Guid PhotoId)
+        {
+            return dal.GetLikesComment(CommentId, PhotoId);
+        }
+        public bool AddLikeComment(Guid CommentId, Guid PhotoId)
+        {
+            return dal.AddLikeComment(CommentId, PhotoId);
+        }
+        public bool DeleteLikeComment(Guid CommentId, Guid PhotoId)
+        {
+            return dal.DeleteLikeComment(CommentId, PhotoId);
         }
 
         public IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum)

@@ -24,9 +24,12 @@ namespace BLL
         IEnumerable<Comment> GetComments(Guid id);
         bool AddComment(Comment comment);
         bool CheckAlbumName(Guid Id, string Name);
-        int GetLikes(Guid Id);
-        bool AddLike(Guid Id);
-        bool DeleteLike(Guid Id);
+        int GetLikesPhoto(Guid Id);
+        bool AddLikePhoto(Guid Id);
+        bool DeleteLikePhoto(Guid Id);
+        int GetLikesComment(Guid CommentId,Guid PhotoId);
+        bool AddLikeComment(Guid CommentId, Guid PhotoId);
+        bool DeleteLikeComment(Guid CommentId, Guid PhotoId);
 
         //пользователи
         bool AddUser(User user);
