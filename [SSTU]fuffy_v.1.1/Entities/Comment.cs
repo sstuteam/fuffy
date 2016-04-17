@@ -16,13 +16,7 @@ namespace Entities
         public Guid UserId { get; set; } // ид юзера, который написал коментарий    // Для таблицы
         public Guid PhotoId { get; set; }// ид фото, к которому написан коммент     // связи 
 
+        public DateTime Date = DateTime.Now;
         public Comment() { }
-        public Comment(string text, Guid commentId, Guid photoId, Guid userId)
-        {
-            this.Text = text;
-            this.CommentId = commentId;
-            this.PhotoId = photoId;
-            this.UserId = userId;
-        }
     }
 }

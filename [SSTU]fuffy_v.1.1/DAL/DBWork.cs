@@ -65,7 +65,6 @@ namespace DAL
                 return a > 0;
             }
         }
-
         public IEnumerable<User> GetAllUser()
         {
             var listUser = new List<User>();
@@ -135,25 +134,13 @@ namespace DAL
         {
             var listAlbums = GetAllAlbums(iduser);
             return listAlbums;
-            //StringBuilder listAlbum = new StringBuilder("");
-            //using (SqlConnection c = new SqlConnection(ConnectionString))
-            //{
-            //    SqlCommand com = new SqlCommand("SELECT [ID], [Name] FROM [dbo].[Album]", c);
-            //    c.Open();
-            //    var reader = com.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        if ((Guid)reader["ID"] == iduser)
-            //        {
-            //            string album = (string)reader["Name"];
-            //            listAlbum.Append(album);
-            //            listAlbum.Append(" ");
-            //        }
-            //    }
-            //    return listAlbum.ToString();
-            //}
         }
 
+        public User GetUser(Guid id)        //
+        {                                         //
+            var user = GetAllUser().FirstOrDefault(x => x.idUser == id);
+            return user;
+        }
 
         public User GetUser(string cookie)        //
         {                                         //
@@ -165,18 +152,30 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Comment> GetComments()
+        public IEnumerable<Comment> GetComments(Guid id)
         {
             var listComment = new List<Comment>();
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("SELECT Comment, Likes FROM [dbo].[Comments]", c);
+                SqlCommand com = new SqlCommand("SELECT [Comment], [Likes], [CommentID], [PhotoId], [ID], [Date]  FROM [dbo].[Comment]", c);
                 c.Open();
                 var reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    Comment comment = new Comment((string)reader["Comment"], (Guid)reader["CommentID"], (Guid)reader["PhotoID"], (Guid)reader["ID"]);
-                    listComment.Add(comment);
+
+                    Comment comment = new Comment()
+                    {
+                        CommentId=(Guid)reader["CommentID"],
+                        PhotoId=(Guid)reader["PhotoId"],
+                        Like=(int)reader["Likes"],
+                        Text=(string)reader["Comment"],
+                        UserId=(Guid)reader["ID"],
+                        Date=(DateTime)reader["Date"]
+                    };
+                    if (comment.PhotoId == id)
+                    {
+                        listComment.Add(comment);
+                    }
                 }
             }
             return listComment;
@@ -185,12 +184,13 @@ namespace DAL
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Comment] ([Comment], [Likes], [CommentID], [PhotoId]) VALUES (@Comment, @Likes, @CommentID, @PhotoId)", c);
-                com.Parameters.AddWithValue("@Comment", comment.Text);
+                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Comment] ([Comment], [Likes], [CommentID], [PhotoId], [ID], [Date]) VALUES (@Text, @Likes, @CommentId, @PhotoId, @UserId, @Date)", c);
+                com.Parameters.AddWithValue("@Text", comment.Text);
                 com.Parameters.AddWithValue("@Likes", comment.Like);
-                com.Parameters.AddWithValue("@CommentID", comment.CommentId);
+                com.Parameters.AddWithValue("@CommentId", comment.CommentId);
                 com.Parameters.AddWithValue("@PhotoID", comment.PhotoId);
-                com.Parameters.AddWithValue("@ID", comment.UserId);
+                com.Parameters.AddWithValue("@UserId", comment.UserId);
+                com.Parameters.AddWithValue("@Date", comment.Date);
                 c.Open();
                 return com.ExecuteNonQuery() > 1;
             }
@@ -211,7 +211,11 @@ namespace DAL
             }
             return result;
         }
-
+        public Photo GetPhoto(Guid idPhoto)
+        {
+            Photo photo = GetAllPhoto().FirstOrDefault(x => x.IDPhoto == idPhoto);
+            return photo;
+        }
         public bool AddAlbum(Album album)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
@@ -225,8 +229,6 @@ namespace DAL
                 var a = com.ExecuteNonQuery(); //хз, зачем это
                 return a > 0;
             }
-            /*throw new NotImplementedException();*/
-            // return true;
         }
 
 
@@ -296,6 +298,10 @@ namespace DAL
                 }
             }
         }
+        public IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum)
+        {
+            return GetAllPhoto().Where(x=>x.IDAlbum==idAlbum).ToArray();
+        }
         public Album GetAlbum(Guid idAlbum)
         {
             var album = GetAllAlbums().FirstOrDefault(x=>x.IDAlbum==idAlbum);
@@ -333,37 +339,46 @@ namespace DAL
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
                 var photoes = GetAllPhoto();
-                SqlCommand com = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Photo]", c);
+                SqlCommand com = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Photo]", c);
                 c.Open();
                 var reader = com.ExecuteReader();
-                foreach (var photo in photoes)
+                while (reader.Read())
                 {
-                    if (photo.IDPhoto == Id)
+                    Like like = new Like()
                     {
-                        likes = (int)reader["Likes"];
+                        PhotoId = (Guid)reader["PhotoId"],
+                        Likes = (int)reader["Likes"]
+                    };
+                    foreach (var photo in photoes)
+                    {
+                        if (photo.IDPhoto == Id)
+                        {
+                            likes = like.Likes;
+                        }
                     }
                 }
-                var comments = GetComments();
-                SqlCommand com1 = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Comment]", c);
-                c.Open();
-                var reader1 = com.ExecuteReader();
-                foreach (var comment in comments)
-                {
-                    Guid IDComment = (Guid)reader["ID"];
-                    if (IDComment == Id)
-                    {
-                        likes = (int)reader["Likes"];
-                    }
-                }
+                //    var comments = GetComments();
+                //    SqlCommand com1 = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Comment]", c);
+                //    c.Open();
+                //    var reader1 = com.ExecuteReader();
+                //    foreach (var comment in comments)
+                //    {
+                //        Guid IDComment = (Guid)reader["ID"];
+                //        if (IDComment == Id)
+                //        {
+                //            likes = (int)reader["Likes"];
+                //        }
+                //    }
+                //}
+                return likes;
             }
-            return likes;
         }
         public bool AddLike(Guid Id)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
                 var photoes = GetAllPhoto();
-                SqlCommand com = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Photo]", c);
+                SqlCommand com = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Photo]", c);
                 c.Open();
                 var reader = com.ExecuteReader();
                 foreach (var photo in photoes)
@@ -376,21 +391,21 @@ namespace DAL
                     }
                     return false;
                 }
-                var comments = GetComments();
-                SqlCommand com1 = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Comment]", c);
-                c.Open();
-                var reader1 = com.ExecuteReader();
-                foreach (var comment in comments)
-                {
-                    Guid IDComment = (Guid)reader["ID"];
-                    if (IDComment == Id)
-                    {
-                        int likes = (int)reader["Likes"];
-                        likes += 1;
-                        SqlCommand com3 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
-                    }
-                    return false;
-                }
+                //var comments = GetComments();
+                //SqlCommand com1 = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Comment]", c);
+                //c.Open();
+                //var reader1 = com.ExecuteReader();
+                //foreach (var comment in comments)
+                //{
+                //    Guid IDComment = (Guid)reader["PhotoId"];
+                //    if (IDComment == Id)
+                //    {
+                //        int likes = (int)reader["Likes"];
+                //        likes += 1;
+                //        SqlCommand com3 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
+                //    }
+                //    return false;
+                //}
             }
             return true;
         }
@@ -399,7 +414,7 @@ namespace DAL
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
                 var photoes = GetAllPhoto();
-                SqlCommand com = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Photo]", c);
+                SqlCommand com = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Photo]", c);
                 c.Open();
                 var reader = com.ExecuteReader();
                 foreach (var photo in photoes)
@@ -412,21 +427,21 @@ namespace DAL
                     }
                     return false;
                 }
-                var comments = GetComments();
-                SqlCommand com1 = new SqlCommand("SELECT [ID],[Likes] FROM [dbo].[Comment]", c);
-                c.Open();
-                var reader1 = com.ExecuteReader();
-                foreach (var comment in comments)
-                {
-                    Guid IDComment = (Guid)reader["ID"];
-                    if (IDComment == Id)
-                    {
-                        int likes = (int)reader["Likes"];
-                        likes -= 1;
-                        SqlCommand com3 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
-                    }
-                    return false;
-                }
+                //var comments = GetComments();
+                //SqlCommand com1 = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Comment]", c);
+                //c.Open();
+                //var reader1 = com.ExecuteReader();
+                //foreach (var comment in comments)
+                //{
+                //    Guid IDComment = (Guid)reader["PhotoId"];
+                //    if (IDComment == Id)
+                //    {
+                //        int likes = (int)reader["Likes"];
+                //        likes -= 1;
+                //        SqlCommand com3 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
+                //    }
+                //    return false;
+                //}
             }
             return true;
         }

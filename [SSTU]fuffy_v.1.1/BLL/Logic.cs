@@ -35,6 +35,8 @@ namespace BLL
         }
         public bool AddComment(Comment comment)
         {
+            comment.CommentId = Guid.NewGuid();
+            comment.Date = DateTime.Now;
             return dal.AddComment(comment);
         }
 
@@ -53,10 +55,10 @@ namespace BLL
             return dal.GetAllUser().FirstOrDefault(x => x.Login == Login) == null;
         }
 
-        public IEnumerable<Comment> GetComments()
+        public IEnumerable<Comment> GetComments(Guid id)
         {
-            IEnumerable<Comment> listcomments = dal.GetComments();
-            return listcomments;
+
+            return dal.GetComments(id);
         }
 
         public Guid GetIdAlbum(Guid IDUser, string nameAlbom)
@@ -69,7 +71,10 @@ namespace BLL
             var listUser = dal.GetAllUser();
             return listUser.FirstOrDefault(x => x.Cookies == cookie);
         }
-
+        public User GetUser(Guid id)
+        {
+            return dal.GetUser(id);
+        }
         //public User GetUser(string cookie)   //**Посмотреть какая реальзация быстрее
         //{
         //    return dal.GetUser(cookie);
@@ -84,15 +89,15 @@ namespace BLL
         public IEnumerable<Photo> Search(string name, string fragment)
         {
             IEnumerable<Photo> listPhoto = dal.Search(name, fragment);
-            return listPhoto;
+            return listPhoto.ToArray();
         }
         public IEnumerable<Album> GetAllAlbums(Guid ID)
         {
-            return dal.GetAllAlbums(ID);
+            return dal.GetAllAlbums(ID).ToArray();
         }
         public IEnumerable<Album> GetAllAlbumsForUser(Guid iduser)
         {
-            return dal.GetAllAlbumsForUser(iduser);
+            return dal.GetAllAlbumsForUser(iduser).ToArray();
         }
 
         
@@ -103,7 +108,7 @@ namespace BLL
 
         public IEnumerable<Photo> GetAllPhotoForUser(Guid id)
         {
-            return dal.GetAllPhotoForUser(id);
+            return dal.GetAllPhotoForUser(id).ToArray();
         }
 
         public Album GetAlbum(Guid idAlbum)
@@ -122,6 +127,20 @@ namespace BLL
         public bool DeleteLike(Guid Id)
         {
             return dal.DeleteLike(Id);
+        }
+
+        public IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum)
+        {
+            return dal.GetAllPhotoForAlbum(idAlbum).ToArray();
+        }
+
+        public Photo GetPhoto(Guid idPhoto)
+        {
+            return dal.GetPhoto(idPhoto);
+        }
+        public IEnumerable<User> GetAllUser()
+        {
+            return dal.GetAllUser();
         }
         //public User GetUser(string Login, string Password)   //*
         //{

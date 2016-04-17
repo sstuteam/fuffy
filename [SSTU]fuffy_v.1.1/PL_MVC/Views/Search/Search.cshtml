@@ -1,4 +1,4 @@
-﻿
+﻿@model PL_MVC.Models.Photo
 @{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
@@ -54,5 +54,6 @@
             </div>
         </form>
         <h2>Resutls:</h2>
+        @Html.Action("Search", "SearchResult")
     </div>
 </div>

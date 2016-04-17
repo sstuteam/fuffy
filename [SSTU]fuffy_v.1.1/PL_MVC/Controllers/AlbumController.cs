@@ -27,6 +27,21 @@ namespace PL_MVC.Controllers
                 return RedirectToAction("NewAlbumBreak", "Album");
             }
         }
-        
+        [HttpGet]
+        public ActionResult GetAlbum(Guid id) 
+        {
+            var albums = Binder.GetAllAlbums(id);
+            return View(albums);
+        }
+        public ActionResult GetAlbumView(Guid idAlbum) //это неправильно
+        {
+           IEnumerable<Photo> photos = Binder.GetAllPhotoForAlbum(idAlbum);/*.FirstOrDefault(i => i.IDAlbum == idAlbum);*/
+            if (photos != null) 
+            {
+                return RedirectToAction("Profile", "User", photos);
+            }
+            else return RedirectToAction("Profile", "User");
+        }
+
     }
 }

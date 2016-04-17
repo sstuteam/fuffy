@@ -17,14 +17,17 @@ namespace BLL
         Guid GetIdAlbum(Guid IDUser, string nameAlbom);
         Album GetAlbum(Guid idAlbum);
         IEnumerable<Photo> Search(string name, string fragment);
+        IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum);
+        Photo GetPhoto(Guid idPhoto);
 
         //комментарии
-        IEnumerable<Comment> GetComments();
+        IEnumerable<Comment> GetComments(Guid id);
         bool AddComment(Comment comment);
         bool CheckAlbumName(Guid Id, string Name);
         int GetLikes(Guid Id);
         bool AddLike(Guid Id);
         bool DeleteLike(Guid Id);
+
         //пользователи
         bool AddUser(User user);
         bool CheckLogin(string Login);
@@ -32,6 +35,7 @@ namespace BLL
         IEnumerable<Album> GetAllAlbumsForUser(Guid iduser);
         User GetUser(string cookie);
         User GetUser(string Login, string Password);
-
+        User GetUser(Guid id);
+        IEnumerable<User> GetAllUser();
     }
 }

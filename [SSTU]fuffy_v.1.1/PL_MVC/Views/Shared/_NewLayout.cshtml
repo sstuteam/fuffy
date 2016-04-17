@@ -10,6 +10,7 @@
     <link href="~/Content/style.css" rel="stylesheet" />
     @RenderSection("styles", false)
     @RenderSection("styleForProfile", false)
+    @RenderSection("GetPhotoViewStyle", false)
 
 </head>
 <body>
@@ -25,7 +26,7 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#about">People</a></li>
+                    <li>@Html.ActionLink("People", "People", "People")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Settings", "Settings", "Settings")</li>
@@ -33,7 +34,7 @@
                     <li>@Html.ActionLink("Upload", "Upload", "File")</li>
                     <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
                     <li>
-                        <a href="~/User/Profile" style="padding:0"> @*стиль здесь, т.к. из класса не работает*@
+                        <a href="@Url.Action("Profile", "User")" style="padding:0"> @*стиль здесь, т.к. из класса не работает*@
                             <img class="image-head" src="~/Content/Photo/camera.png" />
                         </a>
                     </li>
@@ -54,5 +55,6 @@
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     @RenderSection("masonry", false)
+    @RenderSection("profileJS", false)
 </body>
 </html>

@@ -42,7 +42,7 @@
                 <div class="carousel-inner" style="height:100%">
                     <div class="item active" style="height:100%">
                         <div class="row-list" style="height:100%">
-                            @Html.Partial("_PartialAlbums")
+                            @Html.Action("GetAlbum", "Album", new { id=Model.idUser })
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,8 @@
     </div>
     <div class="row main">
         <div class="masonry">
-            @Html.Partial("PartialPhoto")
+            @Html.Action("PartialPhoto", "File", new {id=Model.idUser})
+            @*@Html.Partial("PartialPhoto")*@
         </div>
     </div>
 

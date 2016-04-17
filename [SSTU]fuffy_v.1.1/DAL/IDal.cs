@@ -14,13 +14,15 @@ namespace DAL
         bool AddAlbum(Album album);
         IEnumerable<Photo> GetAllPhoto();
         IEnumerable<Photo> GetAllPhotoForUser(Guid id);
+        IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum);
         IEnumerable<Album> GetAllAlbums(Guid id);
         Album GetAlbum(Guid idAlbum);
         bool AddPhoto(Photo image);
         IEnumerable<Photo> Search(string name, string fragment);
+        Photo GetPhoto(Guid idPhoto);
         //комментарии
         bool AddComment(Comment comment);
-        IEnumerable<Comment> GetComments();
+        IEnumerable<Comment> GetComments(Guid id);
         int GetLikes(Guid Id);
         bool AddLike(Guid Id);
         bool DeleteLike(Guid Id);
@@ -28,9 +30,10 @@ namespace DAL
         //пользователи
         bool Add(User user);
         IEnumerable<User> GetAllUser();
+        //IEnumerable<User> GetAllUserForUser();
         IEnumerable<Album> GetAllAlbumsForUser(Guid iduser);
         User GetUser(string cookie);                    //
         User GetUser(string Login, string Password);    //
-
+        User GetUser(Guid id);
     }
 }

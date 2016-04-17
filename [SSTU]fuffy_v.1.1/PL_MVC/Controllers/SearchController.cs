@@ -9,16 +9,21 @@ namespace PL_MVC.Controllers
 {
     public class SearchController : Controller
     {
-        [HttpPost]
-        public IEnumerable<Photo> Search(string name, string fragment)
+        [HttpGet]
+        public ActionResult SearchResult()
         {
-            IEnumerable<Photo> listPhoto = Search(name, fragment);
-            return listPhoto;
+            return View("PartialSearch");
+        }
+        [HttpPost]
+        public ActionResult Search(string name, string fragment)
+        {
+            var listPhoto = Search(name, fragment);
+            return View(listPhoto);
         }
         [HttpGet]
         public ActionResult Search()
         {
-            return View("~/Views/Search/Search.cshtml"); ;
+            return View("~/Views/Search/PartialSearch.cshtml"); ;
         }
     }
 }

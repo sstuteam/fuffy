@@ -54,7 +54,8 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public FileResult GetPhoto(Guid idPhoto)
         {
-            Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
+         Photo photo = Binder.GetPhoto(idPhoto);
+
             if (photo != null)
             {
                 return File(photo.Image, "image/jpeg"); 
@@ -65,10 +66,17 @@ namespace PL_MVC.Controllers
             }
         }
         [HttpGet]
+        public PartialViewResult PartialPhoto(Guid id)
+        {
+            var photoes = Binder.GetAllPhotoForUser(id);
+            return PartialView(photoes);
+        }
+        [HttpGet]
         public ViewResult GetPhotoView(Guid idPhoto)
         {
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
             ViewBag.AlbumName = Binder.GetAlbumName(photo.IDAlbum).Name;
+            ViewBag.CountLikes=Binder.GetLikes(idPhoto);
             if (photo != null)
             {
                 return View(photo);
@@ -78,6 +86,5 @@ namespace PL_MVC.Controllers
                 return null;
             }
         }
-
     }
 }

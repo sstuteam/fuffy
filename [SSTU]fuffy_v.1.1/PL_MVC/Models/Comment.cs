@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,41 +16,43 @@ namespace PL_MVC.Models
 
         public Guid UserId { get; set; } // ид юзера, который написал коментарий    // Для таблицы
         public Guid PhotoId { get; set; }// ид фото, к которому написан коммент     // связи 
+        
+        public DateTime Date { get; set; }
 
         public Comment() { }
-        public Comment(string text, Guid commentId, Guid photoId, Guid userId)
+        
+        public static implicit operator Entities.Comment(Comment CommentModel)
         {
-            this.Text = text;
-            this.CommentId = commentId;
-            this.PhotoId = photoId;
-            this.UserId = userId;
-        }
-
-        public Comment(string text)
-        {
-            Text = text;
-        }
-
-        public static explicit operator Entities.Comment(Comment commentModel)
-        {
-            return new Entities.Comment()
+            if (CommentModel != null)
             {
-                CommentId=commentModel.CommentId,
-                PhotoId=commentModel.PhotoId,
-                Text=commentModel.Text,
-                UserId=commentModel.UserId    
-            };
+                Entities.Comment commentEntities = new Entities.Comment()
+                {
+                    UserId=CommentModel.UserId,
+                    PhotoId=CommentModel.PhotoId,
+                    CommentId=CommentModel.CommentId,
+                    Like=CommentModel.Like,
+                    Text=CommentModel.Text
+                };
+                return commentEntities;
+            }
+            return null;
         }
 
-        public static explicit operator Comment(Entities.Comment commentEntitie)
+        public static implicit operator Comment(Entities.Comment CommentEntities)
         {
-            return new Comment()
+            if (CommentEntities != null)
             {
-                CommentId=commentEntitie.CommentId,
-                PhotoId=commentEntitie.PhotoId,
-                Text=commentEntitie.Text,
-                UserId=commentEntitie.UserId
-            };
+                Comment commentModel = new Comment()
+                {
+                    CommentId=CommentEntities.CommentId,
+                    Like=CommentEntities.Like,
+                    PhotoId=CommentEntities.PhotoId,
+                    Text=CommentEntities.Text,
+                    UserId=CommentEntities.UserId
+                };
+                return commentModel;
+            }
+            return null;
         }
     }
 }

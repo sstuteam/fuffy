@@ -78,11 +78,15 @@ footer{
     text-align:center;
     margin-top:10px;
 }
-.photo-width img{
-    width:100%;
-}
 .photo-info{
+    padding-top:5vh;
+    padding-left:5vw;
+}
+.to-center{
     text-align:center;
+}
+.to-center img{
+    max-width:100%;
 }
 /*Masonry*/
 .masonry {

@@ -14,15 +14,38 @@ namespace PL_MVC.Controllers
         {
             return View();
         }
-        public ActionResult Comment() //это правильно
+        [HttpGet]
+        public PartialViewResult GetComment(Guid id) //это правильно
         {
-            IEnumerable<Entities.Comment> comm = Binder.GetComments();
-            return Json(comm, JsonRequestBehavior.AllowGet);
+            var comments = Binder.GetComments(id);
+            if (comments.Count() != 0)
+            {
+                ViewBag.UserName = Binder.GetUser(comments.FirstOrDefault().UserId).Name;
+                return PartialView(comments);
+            }
+            else return null;
+            
         }
-        public ActionResult AddComment(string text)
+        [HttpPost]
+        public ActionResult AddComment(string text, Guid idPhoto)
         {
-            var com = Binder.AddComment(new Models.Comment(text));
-            return Json(com, JsonRequestBehavior.AllowGet);
+            Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
+            var user = AuthHelper.GetUser(HttpContext);
+            if (text != null)
+            {
+
+                Comment comment = new Comment()
+                {
+                    PhotoId = idPhoto,
+                    UserId = user.idUser,
+                    Like = 0,
+                    Text = text
+                };
+                Binder.AddComment(comment);
+            }
+            idPhoto = photo.IDPhoto;
+            return RedirectToAction("GetPhotoView", "File", new { idPhoto });
+            //return RedirectToAction("Profile", "User", user);
         }
     }
 }

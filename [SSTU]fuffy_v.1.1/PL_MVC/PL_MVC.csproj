@@ -97,6 +97,7 @@
     <Content Include="App_Data\FuffuDB_log.ldf">
       <DependentUpon>FuffuDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\GetPhotoViewStyle.css" />
     <Content Include="Content\Photo\camera.png" />
     <Content Include="Content\Photo\start.jpg" />
     <Content Include="Content\profile-and-search.css" />
@@ -158,8 +159,11 @@
     <Content Include="Views\File\GetPhotoView.cshtml" />
     <Content Include="Scripts\masonry.pkgd.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\Comment\GetComment.cshtml" />
+    <Content Include="Views\Album\GetAlbum.cshtml" />
+    <Content Include="Views\Album\GetAlbumView.cshtml" />
+    <Content Include="Views\People\People.cshtml" />
     <None Include="Views\Registration\Registration.cshtml" />
-    <Content Include="Views\Search\Search.html" />
     <Content Include="Views\User\Profile.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -174,6 +178,7 @@
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Models\PhotoContent.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -202,10 +207,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Views\Search\Search.cshtml" />
-    <Content Include="Views\Shared\PartialPhoto.cshtml" />
+    <Content Include="Views\File\PartialPhoto.cshtml" />
     <Content Include="Views\Shared\_NewLayout.cshtml" />
     <Content Include="Views\Settings\Settings.cshtml" />
-    <Content Include="Views\Shared\_PartialAlbums.cshtml" />
+    <Content Include="Views\Search\PartialSearch.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -216,8 +221,6 @@
   <ItemGroup>
     <Folder Include="Views\Account\" />
     <Folder Include="Views\AddUser\" />
-    <Folder Include="Views\Album\" />
-    <Folder Include="Views\Comment\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

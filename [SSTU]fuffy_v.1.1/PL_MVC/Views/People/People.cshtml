@@ -1,0 +1,31 @@
+﻿@model IEnumerable<PL_MVC.Models.User>
+
+@{
+    ViewBag.Title = "People";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+
+}
+<div class="container content">
+<table class="table">
+    <tr>
+        <th>
+            <b>@Html.DisplayNameFor(model => model.Name)</b>
+        </th>
+        <th>
+            <b>Likes</b>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="@Url.Action("GetOtherUserPage","People", new { idOtherUser = item.idUser })">@Html.DisplayFor(modelItem => item.Name)</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem=>item.countOfLikes)
+        </td>
+    </tr>
+}
+
+</table>
+    </div>

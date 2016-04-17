@@ -4,16 +4,21 @@
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
-
+@section profileJS{
+<script src="~/Scripts/profile.js"></script>
+    }
+@section GetPhotoViewStyle{
+<link href="~/Content/GetPhotoViewStyle.css" rel="stylesheet" />
+    }
 <div class="container content">
-    <h4>@Model.Name</h4>
     <div class="row">
-        <div class="col-md-9 photo-width">
-            <img src="@Url.Action("GetPhoto", "File", new { Model.IDPhoto })" />
+        <div class="col-md-8 to-center">
+            <h4>@Model.Name</h4>
+            <img src="@Url.Action("GetPhoto", "File", new { idPhoto = Model.IDPhoto })" />
         </div>
-        <div class="col-md-3 scroll photo-info">
+        <div class="col-md-4 photo-info">
             <div class="row">
-                Alboum: @ViewBag.AlboumName
+                Album: @ViewBag.AlbumName
             </div>
             <div class="row specification">
                 Specification: @Model.Spetification
@@ -22,8 +27,23 @@
                
             </div>
             <div class="row likes">
-                Likes: <button class="like" type="submit">@Model.CountLikes</button>
+                Likes:
+                    <a class="like" href="@Url.Action("AddLike", "File", new { Id=Model.IDPhoto})"> @ViewBag.CountLikes </a>
             </div>
         </div>
+    </div>
+    <div class="row comments">
+        Comments:
+        @Html.Action("GetComment", "Comment", new { id = Model.IDPhoto })
+        <div class="col-md-2"> </div>
+        </div>
+    <div class="row add-new-comment">
+        @using (@Html.BeginForm("AddComment", "Comment", new { IDPhoto = Model.IDPhoto }, FormMethod.Post))
+        {
+            <div class="col-md-6 col-md-offset-3 for-comment">
+                <textarea name="text" class="text-comment"></textarea><br />
+                <button type="submit">Send!</button>
+            </div>
+        }
     </div>
 </div>

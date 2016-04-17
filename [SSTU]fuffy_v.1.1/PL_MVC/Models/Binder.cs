@@ -29,7 +29,30 @@ namespace PL_MVC.Models
         {
             return bll.GetUser(Login, Password);
         }
-
+        public static IEnumerable<User> GetUsers()
+        {
+            List<User> listUser = new List<User>();
+            foreach (var item in bll.GetAllUser())
+            {
+                listUser.Add(new User()
+                {
+                    idUser = item.idUser,
+                    IsBlocked = item.IsBlocked,
+                    RoleId = item.RoleId,
+                    Cookies = item.Cookies,
+                    countOfAlbum = item.countOfAlbum,
+                    Password = item.Password,
+                    PasswordRepeat = item.Password,
+                    countOfLikes = item.countOfLikes,
+                    Email = item.Email,
+                    Login = item.Login,
+                    Name = item.Name,
+                    Status = item.Status
+                }
+                    );
+            }
+            return listUser;
+        }
         public static Guid GetIdAlbum(Guid idUser, string v)
         {
             return bll.GetIdAlbum(idUser, v);
@@ -46,36 +69,147 @@ namespace PL_MVC.Models
         }
         public static bool AddComment(Comment comment)
         {
-            return bll.AddComment((Entities.Comment)comment);
+            return bll.AddComment(comment);
         }
-        public static IEnumerable<Entities.Album> GetAllAlbums(Guid ID)
+
+
+        public static IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum)
         {
-            return bll.GetAllAlbums(ID);
+            List<Photo> listPhotoForAlbum = new List<Photo>();
+            foreach (var item in bll.GetAllPhotoForAlbum(idAlbum))
+            {
+                listPhotoForAlbum.Add(new Photo()
+                {
+                    IDAlbum = item.IDAlbum,
+                    CountLikes = item.CountLikes,
+                    IDPhoto = item.IDPhoto,
+                    Image = item.Image,
+                    ImageType = item.ImageType,
+                    Name = item.Name,
+                    Spetification = item.Spetification
+                });
+
+            }
+            return listPhotoForAlbum;
         }
-        public static IEnumerable<Entities.Album> GetAllAlbumsForUser(Guid iduser)
+
+        public static IEnumerable<Album> GetAllAlbums(Guid ID)
         {
-            return bll.GetAllAlbumsForUser(iduser);
+            List<Album> listAlbum = new List<Album>();
+            foreach (var item in bll.GetAllAlbums(ID))
+            {
+                listAlbum.Add(
+                    new Album(){
+                        Spetification = item.Spetification,
+                        Name = item.Name,
+                        IDAlbum = item.IDAlbum,
+                        IDUser = item.IDUser
+                    });
+            }
+            return listAlbum;
         }
-        public static IEnumerable<Entities.Comment> GetComments()
+        public static IEnumerable<Album> GetAllAlbumsForUser(Guid iduser)
         {
-            return bll.GetComments();
+            List<Album> listAlbumForUser = new List<Album>();
+            foreach (var item in bll.GetAllAlbumsForUser(iduser))
+            {
+                listAlbumForUser.Add(
+                    new Album()
+                    {
+                        Spetification = item.Spetification,
+                        Name = item.Name,
+                        IDAlbum = item.IDAlbum,
+                        IDUser = item.IDUser
+                    });
+            }
+            return listAlbumForUser;
+        }
+        public static IEnumerable<Comment> GetComments(Guid id)
+        {
+            List<Comment> comments = new List<Comment>();
+            foreach (var item in bll.GetComments(id))
+            {
+                comments.Add(new Comment()
+                {
+                    CommentId = item.CommentId,
+                    Date = item.Date,
+                    Like = item.Like,
+                    PhotoId = item.PhotoId,
+                    Text = item.Text,
+                    UserId = item.UserId
+                });
+            }
+            return comments;
         }
         public static IEnumerable<Entities.Photo> Search(string name, string fragment)
         {
             return bll.Search(name, fragment);
         }
-        public static IEnumerable<Entities.Photo> GetAllPhoto()
+        public static IEnumerable<Photo> GetAllPhoto()
         {
-            return bll.GetAllPhoto();
+            List<Photo> photoes = new List<Photo>();
+            foreach (var item in bll.GetAllPhoto())
+            {
+                photoes.Add(new Photo()
+                {
+                    IDAlbum = item.IDAlbum,
+                    IDPhoto = item.IDPhoto,
+                    CountLikes = item.CountLikes,
+                    Image = item.Image,
+                    ImageType = item.ImageType,
+                    Name = item.Name,
+                    Spetification = item.Spetification
+                });
+            }
+            return photoes;
         }
-        public static IEnumerable<Entities.Photo> GetAllPhotoForUser(Guid id)
+        public static IEnumerable<Photo> GetAllPhotoForUser(Guid id)
         {
-            return bll.GetAllPhotoForUser(id);
+            List<Photo> photoesForUser = new List<Photo>();
+            foreach (var item in bll.GetAllPhotoForUser(id))
+            {
+                photoesForUser.Add(new Photo()
+                {
+                    IDPhoto = item.IDPhoto,
+                    IDAlbum = item.IDAlbum,
+                    CountLikes = item.CountLikes,
+                    ImageType = item.ImageType,
+                    Image = item.Image,
+                    Name = item.Name,
+                    Spetification = item.Spetification
+                });
+            }
+            return photoesForUser;
         }
 
-        public static Entities.Album GetAlbumName(Guid iDAlbum)
+        public static Album GetAlbumName(Guid iDAlbum)
         {
-            return bll.GetAlbum(iDAlbum);
+            Album album = new Album();
+            album.Spetification = bll.GetAlbum(iDAlbum).Spetification;
+            album.Name = bll.GetAlbum(iDAlbum).Name;
+            album.IDAlbum = bll.GetAlbum(iDAlbum).IDAlbum;
+            album.IDUser = bll.GetAlbum(iDAlbum).IDUser;
+            return album;
+        }
+        public static Photo GetPhoto(Guid idPhoto)
+        {
+            return bll.GetPhoto(idPhoto);
+        }
+        public static User GetUser(Guid id)
+        {
+            return bll.GetUser(id);
+        }
+        public static int GetLikes(Guid Id)
+        {
+            return bll.GetLikes(Id);
+        }
+        public static bool AddLike(Guid Id)
+        {
+            return bll.AddLike(Id);
+        }
+        public static bool DeleteLike(Guid Id)
+        {
+            return bll.DeleteLike(Id);
         }
     }
 }

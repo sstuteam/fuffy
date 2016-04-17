@@ -1,0 +1,25 @@
+﻿@model IEnumerable<PL_MVC.Models.Comment>
+
+
+
+@foreach (var item in Model)
+{
+    <div class="comment">
+        <div class="comment-author">
+            <b><a href="@Url.Action("Profile", "User")">@ViewBag.UserName</a></b> 
+            @Html.DisplayFor(modelItem => item.Date)
+        </div>
+        <div class="comment-text">
+            @Html.DisplayFor(modelItem => item.Text)
+        </div>
+        <div class="comment-like">
+            likes:
+            @Html.DisplayFor(modelItem => item.Like)
+        </div>
+
+        <div class="comment-edit">
+            @Html.ActionLink("Edit", "Edit", new { id = item.CommentId })
+        </div>
+    </div>
+
+}
