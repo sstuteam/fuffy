@@ -167,7 +167,7 @@ namespace DAL
                     {
                         CommentId=(Guid)reader["CommentID"],
                         PhotoId=(Guid)reader["PhotoId"],
-                        Likes=(int)reader["Likes"],
+                        Like=(int)reader["Likes"],
                         Text=(string)reader["Comment"],
                         UserId=(Guid)reader["ID"],
                         Date=(DateTime)reader["Date"]
@@ -186,7 +186,7 @@ namespace DAL
             {
                 SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Comment] ([Comment], [Likes], [CommentID], [PhotoId], [ID], [Date]) VALUES (@Text, @Likes, @CommentId, @PhotoId, @UserId, @Date)", c);
                 com.Parameters.AddWithValue("@Text", comment.Text);
-                com.Parameters.AddWithValue("@Likes", comment.Likes);
+                com.Parameters.AddWithValue("@Likes", comment.Like);
                 com.Parameters.AddWithValue("@CommentId", comment.CommentId);
                 com.Parameters.AddWithValue("@PhotoID", comment.PhotoId);
                 com.Parameters.AddWithValue("@UserId", comment.UserId);
@@ -197,19 +197,8 @@ namespace DAL
         }
         public IEnumerable<Photo> Search(string name, string fragment)
         {
-            IEnumerable<Photo> listPhoto = GetAllPhoto();
-            var result = new List<Photo>();
-            using (SqlConnection c = new SqlConnection(ConnectionString))
-            {
-                foreach (var item in listPhoto)
-                {
-                    if (name == item.Name && item.Spetification.Contains(fragment))
-                    {
-                        result.Add(item);
-                    }
-                }
-            }
-            return result;
+            if (name == null) { name = ""; } if (fragment == null) { fragment = ""; }
+             return GetAllPhoto().Where(x=>x.Spetification.Contains(fragment) && x.Name==name  );
         }
         public Photo GetPhoto(Guid idPhoto)
         {
@@ -333,34 +322,7 @@ namespace DAL
             }
             return listAlbum;
         }
-        public int GetLikesComment(Guid CommentId,Guid PhotoId)
-        {
-            int likes = 0;
-            using (SqlConnection c = new SqlConnection(ConnectionString))
-            {
-                var comments = GetComments(PhotoId);
-                SqlCommand com1 = new SqlCommand("SELECT [CommentID],[PhotoId],[Likes] FROM [dbo].[Comment]", c);
-                c.Open();
-                var reader1 = com1.ExecuteReader();
-                while (reader1.Read())
-                {
-                    Comment comment1 = new Comment()
-                    {
-                        CommentId = (Guid)reader1["CommentID"],
-                        Likes = (int)reader1["Likes"]
-                    };
-                    foreach (var comment in comments)
-                    {
-                        if (comment.CommentId == CommentId)
-                        {
-                            likes = comment1.Likes;
-                        }
-                    }
-                }
-                return likes;
-            }
-        }
-        public int GetLikesPhoto(Guid Id)
+        public int GetLikes(Guid Id)
         {
             int likes = 0;
             using (SqlConnection c = new SqlConnection(ConnectionString))
@@ -383,11 +345,24 @@ namespace DAL
                             likes = like.Likes;
                         }
                     }
-                }                
+                }
+                //    var comments = GetComments();
+                //    SqlCommand com1 = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Comment]", c);
+                //    c.Open();
+                //    var reader1 = com.ExecuteReader();
+                //    foreach (var comment in comments)
+                //    {
+                //        Guid IDComment = (Guid)reader["ID"];
+                //        if (IDComment == Id)
+                //        {
+                //            likes = (int)reader["Likes"];
+                //        }
+                //    }
+                //}
                 return likes;
             }
         }
-        public bool AddLikePhoto(Guid Id)
+        public bool AddLike(Guid Id)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
@@ -405,31 +380,25 @@ namespace DAL
                     }
                     return false;
                 }
+                //var comments = GetComments();
+                //SqlCommand com1 = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Comment]", c);
+                //c.Open();
+                //var reader1 = com.ExecuteReader();
+                //foreach (var comment in comments)
+                //{
+                //    Guid IDComment = (Guid)reader["PhotoId"];
+                //    if (IDComment == Id)
+                //    {
+                //        int likes = (int)reader["Likes"];
+                //        likes += 1;
+                //        SqlCommand com3 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
+                //    }
+                //    return false;
+                //}
             }
             return true;
         }
-        public bool AddLikeComment(Guid CommentId,Guid PhotoId)
-        {
-            using (SqlConnection c = new SqlConnection(ConnectionString))
-            {
-                var comments = GetComments(PhotoId);
-                SqlCommand com = new SqlCommand("SELECT [CommentId],[Likes] FROM [dbo].[Comment]", c);
-                c.Open();
-                var reader = com.ExecuteReader();
-                foreach (var comment in comments)
-                {
-                    if (comment.CommentId == CommentId)
-                    {
-                        int likes = (int)reader["Likes"];
-                        likes += 1;
-                        SqlCommand com2 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
-                    }
-                    return false;
-                }
-            }
-            return true;
-        }
-        public bool DeleteLikePhoto(Guid Id)
+        public bool DeleteLike(Guid Id)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
@@ -447,27 +416,21 @@ namespace DAL
                     }
                     return false;
                 }
-            }
-            return true;
-        }
-        public bool DeleteLikeComment(Guid CommentId,Guid PhotoId)
-        {
-            using (SqlConnection c = new SqlConnection(ConnectionString))
-            {
-                var comments = GetComments(PhotoId);
-                SqlCommand com = new SqlCommand("SELECT [CommentId],[Likes] FROM [dbo].[Comment]", c);
-                c.Open();
-                var reader = com.ExecuteReader();
-                foreach (var comment in comments)
-                {
-                    if (comment.CommentId == CommentId)
-                    {
-                        int likes = (int)reader["Likes"];
-                        likes -= 1;
-                        SqlCommand com2 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
-                    }
-                    return false;
-                }
+                //var comments = GetComments();
+                //SqlCommand com1 = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Comment]", c);
+                //c.Open();
+                //var reader1 = com.ExecuteReader();
+                //foreach (var comment in comments)
+                //{
+                //    Guid IDComment = (Guid)reader["PhotoId"];
+                //    if (IDComment == Id)
+                //    {
+                //        int likes = (int)reader["Likes"];
+                //        likes -= 1;
+                //        SqlCommand com3 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
+                //    }
+                //    return false;
+                //}
             }
             return true;
         }

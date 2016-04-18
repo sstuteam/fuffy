@@ -14,16 +14,36 @@ namespace PL_MVC.Controllers
         {
             return View("PartialSearch");
         }
-        [HttpPost]
-        public ActionResult Search(string name, string fragment)
+        [HttpGet]
+        public ActionResult PartialSearch(string name, string fragment)
         {
-            var listPhoto = Search(name, fragment);
-            return View(listPhoto);
+            if (name != null || fragment != null)
+            {
+                IEnumerable<Photo> listPhoto = Binder.Search(name, fragment);
+                if (listPhoto.Count() != 0)
+                {
+                    return PartialView(listPhoto);
+                }
+            }
+            return View("Search");
         }
         [HttpGet]
         public ActionResult Search()
         {
-            return View("~/Views/Search/PartialSearch.cshtml"); ;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Search(string name, string fragment)
+        {
+            //if (name != null || fragment != null)
+            //{
+                IEnumerable<Photo> listPhoto = Binder.Search(name, fragment);
+                if (listPhoto.Count() != 0)
+                {
+                    return PartialView("PartialSearch", listPhoto);
+                }
+            //}
+            return View();
         }
     }
 }

@@ -33,12 +33,12 @@ namespace PL_MVC.Controllers
             var albums = Binder.GetAllAlbums(id);
             return View(albums);
         }
-        public ActionResult GetAlbumView(Guid idAlbum) //это неправильно
+        public ActionResult GetPhotoOfAlbum(Guid idAlbum) //это неправильно
         {
-           IEnumerable<Photo> photos = Binder.GetAllPhotoForAlbum(idAlbum);/*.FirstOrDefault(i => i.IDAlbum == idAlbum);*/
-            if (photos != null) 
+           IEnumerable<Photo> photoes = Binder.GetAllPhotoForAlbum(idAlbum);/*.FirstOrDefault(i => i.IDAlbum == idAlbum);*/
+            if (photoes.Count()!=0) 
             {
-                return RedirectToAction("Profile", "User", photos);
+                return View(photoes);
             }
             else return RedirectToAction("Profile", "User");
         }

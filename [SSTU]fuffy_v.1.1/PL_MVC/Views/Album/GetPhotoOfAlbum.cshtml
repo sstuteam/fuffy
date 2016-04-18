@@ -1,0 +1,5 @@
+﻿@model IEnumerable<PL_MVC.Models.Photo>
+@foreach (var item in Model)
+{
+    @Html.Action("GetPhoto", "File", new { idPhoto=item.IDPhoto })
+}

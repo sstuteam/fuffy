@@ -11,7 +11,8 @@
 <div class="container">
     <div class="content">
         <h2>Advanced Search</h2>
-        <form method="post" role="form">
+        @using (@Html.BeginForm())
+        {
             <div class="form-group">
                 <input class="form-control" type="search" placeholder="Title" name="name" />
             </div>
@@ -50,10 +51,8 @@
                 </label>
             </div>
             <div class="row row-btn-center">
-                <a href="@Url.Action("Search","Search")">Search!</a>
+                <button type="submit">Search!</button>
             </div>
-        </form>
-        <h2>Resutls:</h2>
-        @Html.Action("Search", "SearchResult")
-    </div>
+        }
+     </div>
 </div>

@@ -141,9 +141,23 @@ namespace PL_MVC.Models
             }
             return comments;
         }
-        public static IEnumerable<Entities.Photo> Search(string name, string fragment)
+        public static IEnumerable<Photo> Search(string name, string fragment)
         {
-            return bll.Search(name, fragment);
+            List<Photo> found = new List<Photo>();
+            foreach (var item in bll.Search(name, fragment))
+            {
+                found.Add(new Photo()
+                {
+                    IDAlbum = item.IDAlbum,
+                    CountLikes = item.CountLikes,
+                    IDPhoto = item.IDPhoto,
+                    Image = item.Image,
+                    ImageType = item.ImageType,
+                    Name = item.Name,
+                    Spetification = item.Spetification
+                });
+            }
+            return found;
         }
         public static IEnumerable<Photo> GetAllPhoto()
         {
