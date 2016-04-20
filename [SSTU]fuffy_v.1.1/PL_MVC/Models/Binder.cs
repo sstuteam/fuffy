@@ -221,9 +221,38 @@ namespace PL_MVC.Models
         {
             return bll.AddLike(Id);
         }
+        public static bool AddLikeForComment(Guid Id)
+        {
+            return bll.AddLikeForComment(Id);
+        }
+        public static int GetLikesForComment(Guid Id)
+        {
+            return bll.GetLikesForComment(Id);
+        }
+        public static bool DeleteLikeForComment(Guid Id)
+        {
+            return bll.DeleteLikeForComment(Id);
+        }
         public static bool DeleteLike(Guid Id)
         {
             return bll.DeleteLike(Id);
+        }
+        public static IEnumerable<Comment> GetComments()
+        {
+            List<Comment> comments = new List<Comment>();
+            foreach (var item in bll.GetComments())
+            {
+                comments.Add(new Comment()
+                {
+                    CommentId = item.CommentId,
+                    Date = item.Date,
+                    Like = item.Like,
+                    PhotoId = item.PhotoId,
+                    Text = item.Text,
+                    UserId = item.UserId
+                });
+            }
+            return comments;
         }
     }
 }

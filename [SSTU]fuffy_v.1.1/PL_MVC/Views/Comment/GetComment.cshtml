@@ -12,9 +12,23 @@
         <div class="comment-text">
             @Html.DisplayFor(modelItem => item.Text)
         </div>
+        @*@Html.Action("GetLikesForComment", "Like", new { idComment = item.CommentId })
+        <div id="like">
+            @using (Html.BeginForm("AddLikeForComment", "Like", new { idComment = item.CommentId }))
+            {
+                <button id="like" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+            }
+        </div>*@
+        @*<div id="deletelike">
+            @using (Html.BeginForm("DeleteLikeForComment", "Like", new { idComment = item.CommentId }))
+            {
+                <button type="submit"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+            }
+        </div>*@
+
         <div class="comment-like">
             likes:
-            @Html.DisplayFor(modelItem => item.Like)
+            @*@Html.DisplayFor(modelItem => item.Like)*@
         </div>
 
         <div class="comment-edit">

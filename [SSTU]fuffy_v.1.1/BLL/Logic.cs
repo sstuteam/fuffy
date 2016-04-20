@@ -142,6 +142,22 @@ namespace BLL
         {
             return dal.GetAllUser();
         }
+        public bool AddLikeForComment(Guid Id)
+        {
+            return dal.AddLikeForComment(Id);
+        }
+        public int GetLikesForComment(Guid Id)
+        {
+            return dal.GetLikesForComment(Id);
+        }
+        public IEnumerable<Comment> GetComments()
+        {
+            return dal.GetComments();
+        }
+        public bool DeleteLikeForComment(Guid Id)
+        {
+            return dal.DeleteLikeForComment(Id);
+        }
         //public User GetUser(string Login, string Password)   //*
         //{
         //    return dal.GetUser(Login, Password);

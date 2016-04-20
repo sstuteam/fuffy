@@ -130,3 +130,6 @@ footer{
         column-count: 5;
     }
 }
+.likes{
+    display:flex;
+}

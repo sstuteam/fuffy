@@ -180,6 +180,33 @@ namespace DAL
             }
             return listComment;
         }
+        public IEnumerable<Comment> GetComments()
+        {
+            var listComment = new List<Comment>();
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("SELECT [Comment], [Likes], [CommentID], [PhotoId], [ID], [Date]  FROM [dbo].[Comment]", c);
+                c.Open();
+                var reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+
+                    Comment comment = new Comment()
+                    {
+                        CommentId = (Guid)reader["CommentID"],
+                        PhotoId = (Guid)reader["PhotoId"],
+                        Like = (int)reader["Likes"],
+                        Text = (string)reader["Comment"],
+                        UserId = (Guid)reader["ID"],
+                        Date = (DateTime)reader["Date"]
+                    };
+                    
+                        listComment.Add(comment);
+                    
+                }
+            }
+            return listComment;
+        }
         public bool AddComment(Comment comment)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
@@ -324,115 +351,97 @@ namespace DAL
         }
         public int GetLikes(Guid Id)
         {
-            int likes = 0;
-            using (SqlConnection c = new SqlConnection(ConnectionString))
+            var photo = GetAllPhoto().FirstOrDefault(item => item.IDPhoto == Id); //можно было сократить
+            if (photo != null)
             {
-                var photoes = GetAllPhoto();
-                SqlCommand com = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Photo]", c);
-                c.Open();
-                var reader = com.ExecuteReader();
-                while (reader.Read())
-                {
-                    Like like = new Like()
-                    {
-                        PhotoId = (Guid)reader["PhotoId"],
-                        Likes = (int)reader["Likes"]
-                    };
-                    foreach (var photo in photoes)
-                    {
-                        if (photo.IDPhoto == Id)
-                        {
-                            likes = like.Likes;
-                        }
-                    }
-                }
-                //    var comments = GetComments();
-                //    SqlCommand com1 = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Comment]", c);
-                //    c.Open();
-                //    var reader1 = com.ExecuteReader();
-                //    foreach (var comment in comments)
-                //    {
-                //        Guid IDComment = (Guid)reader["ID"];
-                //        if (IDComment == Id)
-                //        {
-                //            likes = (int)reader["Likes"];
-                //        }
-                //    }
-                //}
-                return likes;
+                return photo.CountLikes;
             }
+            else return 0;
+        }
+        public int GetLikesForComment(Guid IdComment)
+        {
+            var comment = GetComments().FirstOrDefault(item=>item.CommentId==IdComment);
+            return comment.Like;
         }
         public bool AddLike(Guid Id)
         {
+            var image= GetAllPhoto().FirstOrDefault(item => item.IDPhoto == Id);
+            int likes = GetLikes(Id);
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                var photoes = GetAllPhoto();
-                SqlCommand com = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Photo]", c);
+                    likes += 1;
+
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Photo] SET [Likes]=@likes WHERE PhotoId=@PhotoId", c);
+                com.Parameters.AddWithValue("@PhotoId", image.IDPhoto);
+                com.Parameters.AddWithValue("@AlbumId", image.IDAlbum);
+                com.Parameters.AddWithValue("@Name", image.Name);
+                com.Parameters.AddWithValue("@Spetification", image.Spetification);
+                com.Parameters.AddWithValue("@Image", image.Image);
+                com.Parameters.AddWithValue("@likes", likes);
                 c.Open();
-                var reader = com.ExecuteReader();
-                foreach (var photo in photoes)
-                {
-                    if (photo.IDPhoto == Id)
-                    {
-                        int likes = (int)reader["Likes"];
-                        likes += 1;
-                        SqlCommand com2 = new SqlCommand("INSERT INTO [dbo].[Photo] ([Likes]) VALUES (@likes)", c);
-                    }
-                    return false;
-                }
-                //var comments = GetComments();
-                //SqlCommand com1 = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Comment]", c);
-                //c.Open();
-                //var reader1 = com.ExecuteReader();
-                //foreach (var comment in comments)
-                //{
-                //    Guid IDComment = (Guid)reader["PhotoId"];
-                //    if (IDComment == Id)
-                //    {
-                //        int likes = (int)reader["Likes"];
-                //        likes += 1;
-                //        SqlCommand com3 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
-                //    }
-                //    return false;
-                //}
+                var a = com.ExecuteNonQuery();
+                return a > 0;
             }
-            return true;
+        }
+        public bool AddLikeForComment(Guid Id)
+        {
+            var comment = GetComments(Id).FirstOrDefault(item => item.CommentId == Id);
+            int likes = GetLikes(Id);
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                likes += 1;
+
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Comment] SET [Likes]=@likes WHERE CommentId=@CommentId", c);
+                com.Parameters.AddWithValue("@CommentId", comment.CommentId);
+                com.Parameters.AddWithValue("@Date", comment.Date);
+                com.Parameters.AddWithValue("@likes", likes);
+                com.Parameters.AddWithValue("@PhotoId", comment.PhotoId);
+                com.Parameters.AddWithValue("@Text", comment.Text);
+                com.Parameters.AddWithValue("@UserId", comment.UserId);
+                c.Open();
+                var a = com.ExecuteNonQuery();
+                return a > 0;
+            }
         }
         public bool DeleteLike(Guid Id)
         {
+            var image = GetAllPhoto().FirstOrDefault(item => item.IDPhoto == Id);
+            int likes = GetLikes(Id);
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                var photoes = GetAllPhoto();
-                SqlCommand com = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Photo]", c);
+                likes -= 1;
+
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Photo] SET [Likes]=@likes WHERE PhotoId=@PhotoId", c);
+                com.Parameters.AddWithValue("@PhotoId", image.IDPhoto);
+                com.Parameters.AddWithValue("@AlbumId", image.IDAlbum);
+                com.Parameters.AddWithValue("@Name", image.Name);
+                com.Parameters.AddWithValue("@Spetification", image.Spetification);
+                com.Parameters.AddWithValue("@Image", image.Image);
+                com.Parameters.AddWithValue("@likes", likes);
                 c.Open();
-                var reader = com.ExecuteReader();
-                foreach (var photo in photoes)
-                {
-                    if (photo.IDPhoto == Id)
-                    {
-                        int likes = (int)reader["Likes"];
-                        likes -= 1;
-                        SqlCommand com2 = new SqlCommand("INSERT INTO [dbo].[Photo] ([Likes]) VALUES (@likes)", c);
-                    }
-                    return false;
-                }
-                //var comments = GetComments();
-                //SqlCommand com1 = new SqlCommand("SELECT [PhotoId],[Likes] FROM [dbo].[Comment]", c);
-                //c.Open();
-                //var reader1 = com.ExecuteReader();
-                //foreach (var comment in comments)
-                //{
-                //    Guid IDComment = (Guid)reader["PhotoId"];
-                //    if (IDComment == Id)
-                //    {
-                //        int likes = (int)reader["Likes"];
-                //        likes -= 1;
-                //        SqlCommand com3 = new SqlCommand("INSERT INTO [dbo].[Comment] ([Likes]) VALUES (@likes)", c);
-                //    }
-                //    return false;
-                //}
+                var a = com.ExecuteNonQuery(); //хз, зачем это
+                return a > 0;
             }
-            return true;
+        }
+        public bool DeleteLikeForComment(Guid Id)
+        {
+            var comment = GetComments(Id).FirstOrDefault(item => item.CommentId == Id);
+            int likes = GetLikes(Id);
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                likes -= 1;
+
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Comment] SET [Likes]=@likes WHERE CommentId=@CommentId", c);
+                com.Parameters.AddWithValue("@CommentId", comment.CommentId);
+                com.Parameters.AddWithValue("@Date", comment.Date);
+                com.Parameters.AddWithValue("@likes", likes);
+                com.Parameters.AddWithValue("@PhotoId", comment.PhotoId);
+                com.Parameters.AddWithValue("@Text", comment.Text);
+                com.Parameters.AddWithValue("@UserId", comment.UserId);
+                c.Open();
+                var a = com.ExecuteNonQuery();
+                return a > 0;
+            }
         }
     }
 
