@@ -54,12 +54,13 @@ namespace DAL
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Photo] ([PhotoId],[AlbumId],[Name],[Spetification],[Image]) VALUES (@PhotoId,@AlbumId,@Name,@Spetification,@Image)", c);
+                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Photo] ([PhotoId],[AlbumId],[Name],[Spetification],[Image],[Data]) VALUES (@PhotoId,@AlbumId,@Name,@Spetification,@Image,@Data)", c);
                 com.Parameters.AddWithValue("@PhotoId", image.IDPhoto);
                 com.Parameters.AddWithValue("@AlbumId", image.IDAlbum);
                 com.Parameters.AddWithValue("@Name", image.Name);
                 com.Parameters.AddWithValue("@Spetification", image.Spetification);
                 com.Parameters.AddWithValue("@Image", image.Image);
+                com.Parameters.AddWithValue("@Data", image.Data);
                 c.Open();
                 var a = com.ExecuteNonQuery();
                 return a > 0;
@@ -226,7 +227,7 @@ namespace DAL
                 com.Parameters.AddWithValue("@IDAlbum", album.IDAlbum);
                 com.Parameters.AddWithValue("@Spetification", album.Spetification);
                 c.Open();
-                var a = com.ExecuteNonQuery(); //хз, зачем это
+                var a = com.ExecuteNonQuery(); 
                 return a > 0;
             }
         }
@@ -238,7 +239,7 @@ namespace DAL
             var listPhoto = new List<Photo>();
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("SELECT  [Image], [Likes], [PhotoId],[AlbumId],[Name],[Spetification] FROM [dbo].[Photo]", c);
+                SqlCommand com = new SqlCommand("SELECT  [Image], [Likes], [PhotoId],[AlbumId],[Name],[Spetification],[Data] FROM [dbo].[Photo]", c);
                 c.Open();
                 var reader = com.ExecuteReader();
                 while (reader.Read())
@@ -250,8 +251,18 @@ namespace DAL
                         Name = (string)reader["Name"],
                         CountLikes = (int)reader["Likes"],
                         Spetification = (string)reader["Spetification"],
-                        Image = (byte[])reader["Image"]
+                        Image = (byte[])reader["Image"], 
+                        Data = (DateTime)reader["Data"]                     
                     };
+                    //if ((DateTime)reader["Data"] != DBNull.Value)
+                    //{
+                    //    photo.Data = (DateTime)reader["Data"]; //Чет пишет мол нельзя привести
+                    //}
+                    //else
+                    //{
+                    //    photo.Data = DateTime.MinValue;
+                    //}
+                    if(photo!=null)
                     listPhoto.Add(photo);
 
                 }

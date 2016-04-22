@@ -1,4 +1,5 @@
 ﻿@model PL_MVC.Models.User
+@using PL_MVC.Models
 @{
     ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_NewLayout.cshtml";
@@ -42,8 +43,8 @@
                 <div class="carousel-inner" style="height:100%">
                     <div class="item active" style="height:100%">
                         <div class="row-list" style="height:100%">
-                            @Html.Action("GetAlbum", "Album", new { id=Model.idUser })
-                        </div>
+                       @Html.Action("GetAlbum", "Album", new { id=Model.idUser })
+                      </div>
                     </div>
                 </div>
 

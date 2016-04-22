@@ -54,7 +54,9 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public FileResult GetPhoto(Guid idPhoto)
         {
-         Photo photo = Binder.GetPhoto(idPhoto);
+            //if (idPhoto == null)
+            //    return null;
+            Photo photo = Binder.GetPhoto(idPhoto);
 
             if (photo != null)
             {

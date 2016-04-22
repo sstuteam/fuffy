@@ -57,7 +57,10 @@ namespace PL_MVC.Models
         {
             return bll.GetIdAlbum(idUser, v);
         }
-
+        public static Photo GetAlbumPhoto(Guid idAlbum)
+        {
+            return bll.GetAlbumPhoto(idAlbum);
+        }
         public static bool AddAlbum(Album album)
         {
             return bll.AddAlbum(album);
@@ -133,7 +136,7 @@ namespace PL_MVC.Models
                 {
                     CommentId = item.CommentId,
                     Date = item.Date,
-                    Like = item.Like,
+                    Like = item.Likes,
                     PhotoId = item.PhotoId,
                     Text = item.Text,
                     UserId = item.UserId
@@ -201,15 +204,15 @@ namespace PL_MVC.Models
         }
         public static int GetLikes(Guid Id)
         {
-            return bll.GetLikes(Id);
+            return bll.GetLikesPhoto(Id);
         }
         public static bool AddLike(Guid Id)
         {
-            return bll.AddLike(Id);
+            return bll.AddLikePhoto(Id);
         }
         public static bool DeleteLike(Guid Id)
         {
-            return bll.DeleteLike(Id);
+            return bll.DeleteLikePhoto(Id);
         }
     }
 }

@@ -16,9 +16,13 @@ namespace BLL
         IEnumerable<Photo> GetAllPhoto();
         Guid GetIdAlbum(Guid IDUser, string nameAlbom);
         Album GetAlbum(Guid idAlbum);
+        Photo GetAlbumPhoto(Guid idAlbum);
         IEnumerable<Photo> Search(string name, string fragment);
         IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum);
         Photo GetPhoto(Guid idPhoto);
+            
+         
+        
 
         //комментарии
         IEnumerable<Comment> GetComments(Guid id);

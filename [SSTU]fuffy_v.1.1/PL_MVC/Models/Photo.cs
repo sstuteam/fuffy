@@ -11,6 +11,7 @@ namespace PL_MVC.Models
         public string Name { get; set; }
         public Guid IDPhoto;
         public Guid IDAlbum;
+        public DateTime Data;
         public int CountLikes { get; set; }
         public string Spetification { get; set; }
         public byte[] Image { get; set; }
@@ -28,7 +29,8 @@ namespace PL_MVC.Models
                     CountLikes = photoModel.CountLikes,
                     Name = photoModel.Name,
                     Spetification = photoModel.Spetification,
-                    Image = photoModel.Image
+                    Image = photoModel.Image,
+                    Data = photoModel.Data
                 };
                 return photoEntities;
             }
@@ -46,7 +48,8 @@ namespace PL_MVC.Models
                     IDPhoto = photoEntities.IDPhoto,
                     Image = photoEntities.Image,
                     Name = photoEntities.Name,
-                    Spetification = photoEntities.Spetification
+                    Spetification = photoEntities.Spetification,
+                    Data = photoEntities.Data
                 };
                 return photoModel;
             }

@@ -30,7 +30,7 @@ namespace PL_MVC.Models
                     UserId=CommentModel.UserId,
                     PhotoId=CommentModel.PhotoId,
                     CommentId=CommentModel.CommentId,
-                    Like=CommentModel.Like,
+                    Likes=CommentModel.Like,
                     Text=CommentModel.Text
                 };
                 return commentEntities;
@@ -45,7 +45,7 @@ namespace PL_MVC.Models
                 Comment commentModel = new Comment()
                 {
                     CommentId=CommentEntities.CommentId,
-                    Like=CommentEntities.Like,
+                    Like=CommentEntities.Likes,
                     PhotoId=CommentEntities.PhotoId,
                     Text=CommentEntities.Text,
                     UserId=CommentEntities.UserId
