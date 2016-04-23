@@ -16,11 +16,19 @@ namespace BLL
         IEnumerable<Photo> GetAllPhoto();
         Guid GetIdAlbum(Guid IDUser, string nameAlbom);
         Album GetAlbum(Guid idAlbum);
+        Photo GetAlbumPhoto(Guid idAlbum);
         IEnumerable<Photo> Search(string name, string fragment);
         IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum);
         Photo GetPhoto(Guid idPhoto);
+<<<<<<< HEAD
         bool AddLike(Guid Id);
         bool DeleteLike(Guid Id);
+=======
+            
+         
+        
+
+>>>>>>> master
         //комментарии
         IEnumerable<Comment> GetComments(Guid id);
         bool AddComment(Comment comment);

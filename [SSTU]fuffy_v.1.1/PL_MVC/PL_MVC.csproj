@@ -163,8 +163,12 @@
     <Content Include="Views\Album\GetAlbum.cshtml" />
     <Content Include="Views\Album\GetPhotoOfAlbum.cshtml" />
     <Content Include="Views\People\People.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Like\GetLikes.cshtml" />
     <Content Include="Views\Like\GetLikesForComment.cshtml" />
+=======
+    <Content Include="Views\Album\Terror.cshtml" />
+>>>>>>> master
     <None Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\User\Profile.html" />
     <Content Include="Web.config">
@@ -197,6 +201,7 @@
     <Compile Include="Models\Home.cs" />
     <Compile Include="Models\PageAuthorizeAttribute.cs" />
     <Compile Include="Models\Photo.cs" />
+    <Compile Include="Models\ProfileView.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -18,6 +18,7 @@ namespace BLL
 
         public bool AddPhoto(Photo image)
         {
+            image.Data = DateTime.Now;
             return dal.AddPhoto(image);
         }
 
@@ -115,8 +116,27 @@ namespace BLL
         {
             return dal.GetAlbum(idAlbum);
         }
+        public Photo GetAlbumPhoto(Guid idAlbum)
+        {
+          var c =  dal.GetAllPhotoForAlbum(idAlbum);
+            Photo photo1;
+            if (c.Count()!= 0)
+            {  photo1 = c.ElementAt(0); }
+            else  photo1 = null;
+            for (int i = 1; i < c.Count(); i++)
+            {
 
+<<<<<<< HEAD
         public int GetLikes(Guid Id)
+=======
+                if (photo1.Data < c.ElementAt(i).Data)
+                    photo1 = c.ElementAt(i);
+            }
+           
+            return photo1;/////////////////////////////////////////////////////////////
+        }
+        public int GetLikesPhoto(Guid Id)
+>>>>>>> master
         {
             return dal.GetLikes(Id);
         }
