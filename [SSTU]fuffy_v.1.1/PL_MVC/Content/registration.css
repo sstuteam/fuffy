@@ -1,4 +1,4 @@
-﻿@font-face {
+﻿/*@font-face {
     font-family: 'BuxtonSketch';
     src: url('../fonts/BuxtonSketch.ttf') format('truetype');
 }
@@ -77,4 +77,23 @@ button {
 
 body {
     font-size: 2.5vh;
+}*/
+
+body {
+    background-image: url(../Content/Photo/7.jpg);
+    background-size:cover;
+    background-position:right;
+    background-attachment:fixed;
+    color:white;
+}
+.star{
+    color:red;
+}
+#header h2{
+    text-align:center;
+    color:white;
+}
+.registration-level{
+    margin:10px;
+    text-shadow:20px;
 }

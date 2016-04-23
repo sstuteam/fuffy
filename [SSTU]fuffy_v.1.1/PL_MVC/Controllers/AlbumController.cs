@@ -63,12 +63,12 @@ namespace PL_MVC.Controllers
                 return null;
             }
         }
-        public ActionResult GetPhotoOfAlbum(Guid idAlbum) //это неправильно
+        public ActionResult GetAlbumView(Guid idAlbum) //это неправильно
         {
-           IEnumerable<Photo> photoes = Binder.GetAllPhotoForAlbum(idAlbum);/*.FirstOrDefault(i => i.IDAlbum == idAlbum);*/
-            if (photoes.Count()!=0) 
+           IEnumerable<Photo> photos = Binder.GetAllPhotoForAlbum(idAlbum);/*.FirstOrDefault(i => i.IDAlbum == idAlbum);*/
+            if (photos != null) 
             {
-                return View(photoes);
+                return RedirectToAction("Profile", "User", photos);
             }
             else return RedirectToAction("Profile", "User");
         }

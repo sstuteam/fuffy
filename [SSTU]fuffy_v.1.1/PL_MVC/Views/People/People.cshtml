@@ -22,7 +22,8 @@
             <a href="@Url.Action("GetOtherUserPage","People", new { idOtherUser = item.idUser })">@Html.DisplayFor(modelItem => item.Name)</a>
         </td>
         <td>
-            @Html.DisplayFor(modelItem=>item.countOfLikes)
+           @* @Html.DisplayFor(modelItem=>item.GetCountOfLikesForUser(item.idUser))*@
+            @item.GetCountOfLikesForUser(item.idUser)
         </td>
     </tr>
 }

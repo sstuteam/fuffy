@@ -1,82 +1,76 @@
 ﻿@model PL_MVC.Models.RegistrationModel
 @{
     ViewBag.Title = "Fuffy Registration";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-@section styles {
-    <link href="~/Content/common.css" rel="stylesheet" />    
+@section StyleForRegistration{
+
     <link href="~/Content/registration.css" rel="stylesheet" />
 }
-@section scripts{
-    
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    }
-   
-    <div class="container">
-        <div class="cap row">
-            <div class="cap-cell pull-left col-xs-3">               
-                <img class="logo" src="~/Content/Photo/Fuffy.png" />              
-            </div>
-        </div>
-        <div class="content row">
-            <div class="registration-info col-xs-12 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
-                @using (Html.BeginForm("registration","Registration"))
-                {                  
-                    <div class="registration-level">
-                        <label>Логин:</label><span class="star">*</span>
-                        @Html.TextBoxFor(x=>x.Login, new { @class = "registration-input text-input form-control", name = "login", id = "login" })
-                        @Html.ValidationMessageFor(x=>x.Login)                       
-                    </div>
-                    <div class="registration-level">
-                        <label>Пароль:</label><span class="star">*</span>                      
-                        @Html.PasswordFor(x=>x.Password, new { @class = "registration-input text-input form-control", name = "password", id = "password" })
-                        @Html.ValidationMessageFor(x => x.Password)
-                    </div>
+<div class="container container-fluid">
+    <div id="header"><h2>Регистрация</h2></div>
+    <div class="content container-fluid row">
+        <div class="registration-info container-fluid col-xs-12 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
+            @using (Html.BeginForm("registration", "Registration"))
+            {
+                <div class="registration-level">
+                    <label>Логин:</label><span class="star">*</span>
+                    @Html.TextBoxFor(x => x.Login, new { @class = "registration-input text-input form-control", name = "login", id = "login", placeholder = "Логин*" })
+                    @Html.ValidationMessageFor(x => x.Login)
+                </div>
+                <div class="registration-level">
+                    <label>Пароль:</label><span class="star">*</span>
+                    @Html.PasswordFor(x => x.Password, new { @class = "registration-input text-input form-control", name = "password", id = "password", placeholder = "Пароль*" })
+                    @Html.ValidationMessageFor(x => x.Password)
+                </div>
                     <div class="registration-level">
                         <label>Повторите пароль:</label><span class="star">*</span>
-                        @Html.PasswordFor(x=>x.PasswordRepeat, new { @class = "registration-input text-input form-control", name = "repeat-passwor", id = "repeat-password" })
-                        @Html.ValidationMessageFor(x => x.PasswordRepeat)                       
+                        @Html.PasswordFor(x => x.PasswordRepeat, new { @class = "registration-input text-input form-control", name = "repeat-passwor", id = "repeat-password", placeholder = "Повторите пароль*" })
+                        @Html.ValidationMessageFor(x => x.PasswordRepeat)
                     </div>
                     <div class="registration-level">
                         <label>Email:</label><span class="star">*</span>
-                        @Html.TextBoxFor(x => x.Email, new { @class = "registration-input text-input form-control", name = "email", id = "email" })
+                        @Html.TextBoxFor(x => x.Email, new { @class = "registration-input text-input form-control", name = "email", id = "email", placeholder = "Email*" })
                         @Html.ValidationMessageFor(x => x.Email)
                     </div>
                     <div class="registration-level">
-                        <label>Ник:</label><span class="star">*</span>                       
-                        @Html.TextBoxFor(x=>x.Name, new { @class = "registration-input text-input form-control", name = "name", id = "name" })
-                        @Html.ValidationMessageFor(x => x.Name)                      
+                        <label>Ник:</label><span class="star">*</span>
+
+                        @Html.TextBoxFor(x => x.Name, new { @class = "registration-input text-input form-control", name = "name", id = "name", placeholder = "Ник*" })
+                        @Html.ValidationMessageFor(x => x.Name)
                     </div>
                     <div class="registration-level">
                         <label for="avatar">Аватар:</label>
                         <input class="registration-input input-sm" type="file" name="avatar" id="avatar" />
                     </div>
-                    <div class="registration-level">                       
-                        <span>Укажите что из нижеперечисленного интересует Вас:</span>
+                    <div class="hobbies">
+                        <div class="registration-level">
+                            <span>Что из нижеперечисленного интересует Вас:</span>
+                        </div>
+                        <br />
+                        <div class="registration-level">
+                            <input type="checkbox" name="filter" id="policy" />
+                            <label for="policy">Политика</label>
+                        </div>
+                        <div class="registration-level">
+                            <input type="checkbox" name="filter" id="sport" />
+                            <label for="sport">Спорт</label>
+                        </div>
+                        <div class="registration-level">
+                            <input type="checkbox" name="filter" id="science" />
+                            <label for="science">Наука</label>
+                        </div>
+                        <div class="registration-level">
+                            <input type="checkbox" name="filter" id="culture" />
+                            <label for="culture">Культура</label>
+                        </div>
                     </div>
-                    <div class="registration-level">
-                        <input type="checkbox" name="filter" id="policy" />
-                        <label for="policy">Политика</label>
-                    </div>
-                    <div class="registration-level">
-                        <input type="checkbox" name="filter" id="sport" />
-                        <label for="sport">Спорт</label>
-                    </div>
-                    <div class="registration-level">
-                        <input type="checkbox" name="filter" id="science" />
-                        <label for="science">Наука</label>
-                    </div>
-                    <div class="registration-level">
-                        <input type="checkbox" name="filter" id="culture" />
-                        <label for="culture">Культура</label>
-                    </div>
-                    <div class="registration-level">
+                    <div class="registration-level container-fluid" style="margin-bottom:20px">
                         <button class="btn btn-danger" type="reset">Удалить</button>
-                        <button class="btn btn-success" type="submit" >Готово</button>
+                        <button class="btn btn-success" type="submit">Готово</button>
                     </div>
                     <span class="prompt">Данные, обязательные для заполнения отмечены "<span class="star">*</span>"</span>
-                }
-            </div>
+            }
         </div>
     </div>
+</div>

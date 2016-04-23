@@ -71,11 +71,7 @@ namespace PL_MVC.Controllers
         public PartialViewResult PartialPhoto(Guid id)
         {
             var photoes = Binder.GetAllPhotoForUser(id);
-            if (photoes.Count() != 0)
-            {
-                return PartialView(photoes);
-            }
-            else return null;
+            return PartialView(photoes);
         }
         [HttpGet]
         public ViewResult GetPhotoView(Guid idPhoto)

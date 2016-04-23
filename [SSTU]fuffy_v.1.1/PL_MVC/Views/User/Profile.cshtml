@@ -29,40 +29,23 @@
             <div class="row" style="height:50%">
                 <img class="avatar" src="/Content/Photo/forProfile.jpg">
             </div>
-
         </div>
-
-        <div class="col-sm-8 forcolons">
+        <div class="col-sm-8 forcolons scroll-x">
             <div class="row">
                 <h2>Albums:</h2>
             </div>
             <div class="row">
                 <h1> </h1>
             </div>
-            <div id="carousele" class="carousel slide" style="height:55%;padding-top: 20px" data-ride="carousel" data-interval="20000">
-                <div class="carousel-inner" style="height:100%">
-                    <div class="item active" style="height:100%">
-                        <div class="row-list" style="height:100%">
-                       @Html.Action("GetAlbum", "Album", new { id=Model.idUser })
-                      </div>
-                    </div>
-                </div>
-
-                <a class="left carousel-control" href="#carousele" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#carousele" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
-
+            <div>
+                @Html.Action("GetAlbum", "Album", new { id = Model.idUser })
             </div>
         </div>
     </div>
+
     <div class="row main">
         <div class="masonry">
-            @Html.Action("PartialPhoto", "File", new {id=Model.idUser})
-            @*@Html.Partial("PartialPhoto")*@
+            @Html.Action("PartialPhoto", "File", new { id = Model.idUser })
         </div>
     </div>
-
 </div>

@@ -11,7 +11,7 @@ namespace Entities
         public Guid CommentId { get; set; }
         public string Text { get; set; }
 
-        public int Like { get; set; }
+        public int Likes { get; set; }
 
         public Guid UserId { get; set; } // ид юзера, который написал коментарий    // Для таблицы
         public Guid PhotoId { get; set; }// ид фото, к которому написан коммент     // связи 

@@ -20,17 +20,16 @@ namespace DAL
         bool AddPhoto(Photo image);
         IEnumerable<Photo> Search(string name, string fragment);
         Photo GetPhoto(Guid idPhoto);
-        int GetLikes(Guid Id);
-        bool AddLike(Guid Id);
-        bool DeleteLike(Guid Id);
-        
         //комментарии
         bool AddComment(Comment comment);
         IEnumerable<Comment> GetComments(Guid id);
-        bool AddLikeForComment(Guid Id);
-        int GetLikesForComment(Guid Id);
+        int GetLikesPhoto(Guid Id);
+        bool AddLikePhoto(Guid Id, Like like);
+        bool DeleteLikePhoto(Guid Id);
+        int GetLikesComment(Guid Id);
+        bool AddLikeComment(Guid Id);
+        bool DeleteLikeComment(Guid CommentId);
         IEnumerable<Comment> GetComments();
-        bool DeleteLikeForComment(Guid Id);
 
         //пользователи
         bool Add(User user);

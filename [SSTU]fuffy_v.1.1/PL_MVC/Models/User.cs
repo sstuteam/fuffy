@@ -92,5 +92,16 @@ namespace PL_MVC.Models
             }
             return null;
         }
+        public int GetCountOfLikesForUser(Guid id)
+        {
+            int count = 0;
+            IEnumerable<Photo> photoes = Binder.GetAllPhotoForUser(id);
+            foreach (var photo in photoes)
+            {
+
+                count += photo.CountLikes;
+            }
+            return count;
+        }
     }
 }

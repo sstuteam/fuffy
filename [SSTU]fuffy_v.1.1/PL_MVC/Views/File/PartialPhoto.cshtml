@@ -2,8 +2,8 @@
 @foreach (var item in Model)
 {
     <div class="item">
-        <a href="@Url.Action("GetPhotoView", "File", new {item.IDPhoto })">
-            <img src="@Url.Action("GetPhoto", "File", new {item.IDPhoto })" class="img-polaroid" />
+        <a href="@Url.Action("GetPhotoView", "File", new { item.IDPhoto })">
+            <img src="@Url.Action("GetPhoto", "File", new { item.IDPhoto })" class="img-polaroid" />
         </a>
     </div>
 }

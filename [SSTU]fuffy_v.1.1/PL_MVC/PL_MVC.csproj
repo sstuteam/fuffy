@@ -112,26 +112,17 @@
     <Content Include="Content\Photo\3287x2183_537145_[www.ArtFile.ru].jpg" />
     <Content Include="Content\Photo\6.jpg" />
     <Content Include="Content\Photo\7.jpg" />
-    <Content Include="Content\Photo\add.png" />
-    <Content Include="Content\Photo\Background.png" />
     <Content Include="Content\Photo\best.jpg" />
     <Content Include="Content\Photo\big_logo.png" />
     <Content Include="Content\Photo\congruent_pentagon.png" />
-    <Content Include="Content\Photo\edit.png" />
     <Content Include="Content\Photo\forProfile.jpg" />
     <Content Include="Content\Photo\forProfileMin.jpg" />
-    <Content Include="Content\Photo\Fuffy.png" />
     <Content Include="Content\Photo\Fuffy1.png" />
-    <Content Include="Content\Photo\image1.jpg" />
-    <Content Include="Content\Photo\image2.jpg" />
     <Content Include="Content\Photo\image3.jpg" />
-    <Content Include="Content\Photo\List.png" />
     <Content Include="Content\Photo\look.com.ua-71249.jpg" />
-    <Content Include="Content\Photo\new.png" />
     <Content Include="Content\Photo\pink_rice.png" />
     <Content Include="Content\Photo\restaurant_icons.png" />
     <Content Include="Content\Photo\seamless_paper_texture.png" />
-    <Content Include="Content\Photo\set.png" />
     <Content Include="Content\Photo\skulls.png" />
     <Content Include="Content\Photo\symphony.png" />
     <Content Include="Content\profile.css" />
@@ -161,14 +152,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Views\Comment\GetComment.cshtml" />
     <Content Include="Views\Album\GetAlbum.cshtml" />
-    <Content Include="Views\Album\GetPhotoOfAlbum.cshtml" />
+    <Content Include="Views\Album\GetAlbumView.cshtml" />
     <Content Include="Views\People\People.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\Like\GetLikes.cshtml" />
-    <Content Include="Views\Like\GetLikesForComment.cshtml" />
-=======
     <Content Include="Views\Album\Terror.cshtml" />
->>>>>>> master
+    <Content Include="Views\Like\GetLikesForPhoto.cshtml" />
     <None Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\User\Profile.html" />
     <Content Include="Web.config">
@@ -186,6 +173,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Models\Like.cs" />
     <Compile Include="Models\PhotoContent.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SearchController.cs" />

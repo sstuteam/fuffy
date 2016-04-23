@@ -1,21 +1,19 @@
 ﻿@model IEnumerable<PL_MVC.Models.ProfileView>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         @foreach (var item in Model)
         {
             <th>
-                @Html.DisplayFor(modelItem => item.name)
+                <a href="@Url.Action("GetAlbum", "Album", new { idAlbum = item.IdAlbum }) ">@Html.DisplayFor(modelItem => item.name)</a>
+            </th>
+        }
+    </tr>
+    <tr>
+        @foreach (var item in Model)
+        {
+            <th>
+                <img src="@Url.Action("GetPhoto", "File", new { item.photo.IDPhoto })" class="img-polaroid size" />
             </th>
         }
     </tr>
 </table>
-<tr>
-    @foreach (var item in Model)
-    {       
-       <th> <img src="@Url.Action("GetPhoto", "File", new { item.photo.IDPhoto })" class="img-polaroid" /></th>
-    }
-    </tr>

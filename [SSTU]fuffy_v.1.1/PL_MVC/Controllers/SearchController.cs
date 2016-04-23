@@ -35,14 +35,14 @@ namespace PL_MVC.Controllers
         [HttpPost]
         public ActionResult Search(string name, string fragment)
         {
-            //if (name != null || fragment != null)
-            //{
-                IEnumerable<Photo> listPhoto = Binder.Search(name, fragment);
-                if (listPhoto.Count() != 0)
-                {
-                    return PartialView("PartialSearch", listPhoto);
-                }
-            //}
+            if (name != null || fragment != null)
+            {
+            IEnumerable<Photo> listPhoto = Binder.Search(name, fragment);
+            if (listPhoto.Count() != 0)
+            {
+                return PartialView("PartialSearch", listPhoto);
+            }
+            }
             return View();
         }
     }

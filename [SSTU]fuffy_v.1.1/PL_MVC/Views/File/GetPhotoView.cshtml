@@ -3,7 +3,6 @@
     ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-
 @section profileJS{
     <script src="~/Scripts/profile.js"></script>
 }
@@ -28,20 +27,20 @@
             </div>
             <div class="row likes">
                 Likes:
-                @Html.Action("GetLikes", "Like", new { id = Model.IDPhoto })
-                <br />
-                <div id="like">
-                    @using (Html.BeginForm("AddLike", "Like", new { idPhoto = Model.IDPhoto }))
+                @Html.Action("GetLikesForPhoto", "Like", new { id = Model.IDPhoto })
+                <div class="add-like">
+                    @using (Html.BeginForm("AddLikePhoto", "Like", new { idPhoto = Model.IDPhoto }))
                     {
                         <button id="like" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button>
                     }
                 </div>
-                <div id="deletelike">
+                @*<div id="delete-like">
                     @using (Html.BeginForm("DeleteLike", "Like", new { idPhoto = Model.IDPhoto }))
                     {
                         <button type="submit"><span class="glyphicon glyphicon-thumbs-down"></span></button>
                     }
-                </div>
+                </div>*@
+
             </div>
         </div>
     </div>

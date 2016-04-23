@@ -126,9 +126,6 @@ namespace BLL
             for (int i = 1; i < c.Count(); i++)
             {
 
-<<<<<<< HEAD
-        public int GetLikes(Guid Id)
-=======
                 if (photo1.Data < c.ElementAt(i).Data)
                     photo1 = c.ElementAt(i);
             }
@@ -136,17 +133,28 @@ namespace BLL
             return photo1;/////////////////////////////////////////////////////////////
         }
         public int GetLikesPhoto(Guid Id)
->>>>>>> master
         {
-            return dal.GetLikes(Id);
+            return dal.GetLikesPhoto(Id);
         }
-        public bool AddLike(Guid Id)
+        public bool AddLikePhoto(Guid Id, Like like)
         {
-            return dal.AddLike(Id);
+            return dal.AddLikePhoto(Id, like);
         }
-        public bool DeleteLike(Guid Id)
+        public bool DeleteLikePhoto(Guid Id)
         {
-            return dal.DeleteLike(Id);
+            return dal.DeleteLikePhoto(Id);
+        }
+        public int GetLikesComment(Guid CommentId)
+        {
+            return dal.GetLikesComment(CommentId);
+        }
+        public bool AddLikeComment(Guid CommentId)
+        {
+            return dal.AddLikeComment(CommentId);
+        }
+        public bool DeleteLikeComment(Guid CommentId)
+        {
+            return dal.DeleteLikeComment(CommentId);
         }
 
         public IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum)
@@ -162,21 +170,9 @@ namespace BLL
         {
             return dal.GetAllUser();
         }
-        public bool AddLikeForComment(Guid Id)
-        {
-            return dal.AddLikeForComment(Id);
-        }
-        public int GetLikesForComment(Guid Id)
-        {
-            return dal.GetLikesForComment(Id);
-        }
         public IEnumerable<Comment> GetComments()
         {
             return dal.GetComments();
-        }
-        public bool DeleteLikeForComment(Guid Id)
-        {
-            return dal.DeleteLikeForComment(Id);
         }
         //public User GetUser(string Login, string Password)   //*
         //{

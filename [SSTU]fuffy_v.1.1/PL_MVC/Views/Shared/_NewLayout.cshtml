@@ -11,11 +11,11 @@
     @RenderSection("styles", false)
     @RenderSection("styleForProfile", false)
     @RenderSection("GetPhotoViewStyle", false)
+    @RenderSection("StyleForRegistration", false)
 
 </head>
 <body>
-    <div class="navbar navbar-inverse">
-        <!--Убрала navbar-fixed-top, т.к. при резких рывках он глючил -_- -->
+    <div class="navbar navbar-inverse"> <!--Убрала navbar-fixed-top, т.к. при резких рывках он глючил -_- -->
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -35,23 +35,22 @@
                     <li>@Html.ActionLink("Upload", "Upload", "File")</li>
                     <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
                     <li>
-                        <a href="@Url.Action("Profile", "User")" style="padding:0">
-                            @*стиль здесь, т.к. из класса не работает*@
+                        <a href="@Url.Action("Profile", "User")" style="padding:0"> @*стиль здесь, т.к. из класса не работает*@
                             <img class="image-head" src="~/Content/Photo/camera.png" />
                         </a>
                     </li>
                     <li>
-                        @using (@Html.BeginForm())
-                        {
+                       @using (@Html.BeginForm("Search", "Search"))
+                       {
                             <input name="name" type="text" class="form-control" placeholder="Search...">
-                        }
+                       }
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-
-    @RenderBody()
+    
+        @RenderBody()
 
     <footer>Fuffy &copy; 2016</footer>
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>

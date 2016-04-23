@@ -1,7 +1,7 @@
 ﻿body {
          /*padding-top: 50px;*/ /*из-за этой строчке на мобильных версиях был отступ*/
         background-color: #fafafa;
-     }
+        }
 
 .navbar {
             background-color: #904684;
@@ -129,7 +129,4 @@ footer{
         -webkit-column-count: 5;
         column-count: 5;
     }
-}
-.likes{
-    display:flex;
 }
