@@ -138,3 +138,10 @@ C:\Users\Aleks\Documents\Fuffy\Новая папка2\[SSTU]fuffy_v.1.1\DAL\bin\
 C:\Users\Aleks\Documents\Fuffy\Новая папка2\[SSTU]fuffy_v.1.1\DAL\bin\Debug\DAL.pdb
 C:\Users\Aleks\Documents\Fuffy\Новая папка2\[SSTU]fuffy_v.1.1\DAL\bin\Debug\Entities.dll
 C:\Users\Aleks\Documents\Fuffy\Новая папка2\[SSTU]fuffy_v.1.1\DAL\bin\Debug\Entities.pdb
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\DAL\bin\Debug\DAL.dll
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\DAL\bin\Debug\DAL.pdb
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\DAL\bin\Debug\Entities.dll
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\DAL\bin\Debug\Entities.pdb
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.dll
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\DAL\obj\Debug\DAL.pdb

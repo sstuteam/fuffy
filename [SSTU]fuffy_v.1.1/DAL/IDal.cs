@@ -24,11 +24,12 @@ namespace DAL
         bool AddComment(Comment comment);
         IEnumerable<Comment> GetComments(Guid id);
         int GetLikesPhoto(Guid Id);
-        bool AddLikePhoto(Guid Id);
+        bool AddLikePhoto(Guid Id, Like like);
         bool DeleteLikePhoto(Guid Id);
-        int GetLikesComment(Guid CommentId,Guid PhotoId);
-        bool AddLikeComment(Guid CommentId, Guid PhotoId);
-        bool DeleteLikeComment(Guid CommentId, Guid PhotoId);
+        int GetLikesComment(Guid Id);
+        bool AddLikeComment(Guid Id);
+        bool DeleteLikeComment(Guid CommentId);
+        IEnumerable<Comment> GetComments();
 
         //пользователи
         bool Add(User user);

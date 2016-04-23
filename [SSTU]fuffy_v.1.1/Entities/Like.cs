@@ -9,6 +9,6 @@ namespace Entities
     public class Like
     {
         public Guid PhotoId  { get; set; }
-        public int Likes { get; set; }
+        public Guid UserId { get; set; }
     }
 }

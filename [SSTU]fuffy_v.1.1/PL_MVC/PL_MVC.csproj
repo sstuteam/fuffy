@@ -164,6 +164,7 @@
     <Content Include="Views\Album\GetAlbumView.cshtml" />
     <Content Include="Views\People\People.cshtml" />
     <Content Include="Views\Album\Terror.cshtml" />
+    <Content Include="Views\Like\GetLikesForPhoto.cshtml" />
     <None Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\User\Profile.html" />
     <Content Include="Web.config">
@@ -179,7 +180,9 @@
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Models\Like.cs" />
     <Compile Include="Models\PhotoContent.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SearchController.cs" />

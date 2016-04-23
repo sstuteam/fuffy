@@ -29,11 +29,12 @@ namespace BLL
         bool AddComment(Comment comment);
         bool CheckAlbumName(Guid Id, string Name);
         int GetLikesPhoto(Guid Id);
-        bool AddLikePhoto(Guid Id);
+        bool AddLikePhoto(Guid Id, Like like);
         bool DeleteLikePhoto(Guid Id);
-        int GetLikesComment(Guid CommentId,Guid PhotoId);
-        bool AddLikeComment(Guid CommentId, Guid PhotoId);
-        bool DeleteLikeComment(Guid CommentId, Guid PhotoId);
+        int GetLikesComment(Guid CommentId);
+        bool AddLikeComment(Guid CommentId);
+        bool DeleteLikeComment(Guid CommentId);
+        IEnumerable<Comment> GetComments();
 
         //пользователи
         bool AddUser(User user);

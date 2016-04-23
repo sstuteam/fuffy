@@ -136,25 +136,25 @@ namespace BLL
         {
             return dal.GetLikesPhoto(Id);
         }
-        public bool AddLikePhoto(Guid Id)
+        public bool AddLikePhoto(Guid Id, Like like)
         {
-            return dal.AddLikePhoto(Id);
+            return dal.AddLikePhoto(Id, like);
         }
         public bool DeleteLikePhoto(Guid Id)
         {
             return dal.DeleteLikePhoto(Id);
         }
-        public int GetLikesComment(Guid CommentId, Guid PhotoId)
+        public int GetLikesComment(Guid CommentId)
         {
-            return dal.GetLikesComment(CommentId, PhotoId);
+            return dal.GetLikesComment(CommentId);
         }
-        public bool AddLikeComment(Guid CommentId, Guid PhotoId)
+        public bool AddLikeComment(Guid CommentId)
         {
-            return dal.AddLikeComment(CommentId, PhotoId);
+            return dal.AddLikeComment(CommentId);
         }
-        public bool DeleteLikeComment(Guid CommentId, Guid PhotoId)
+        public bool DeleteLikeComment(Guid CommentId)
         {
-            return dal.DeleteLikeComment(CommentId, PhotoId);
+            return dal.DeleteLikeComment(CommentId);
         }
 
         public IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum)
@@ -169,6 +169,10 @@ namespace BLL
         public IEnumerable<User> GetAllUser()
         {
             return dal.GetAllUser();
+        }
+        public IEnumerable<Comment> GetComments()
+        {
+            return dal.GetComments();
         }
         //public User GetUser(string Login, string Password)   //*
         //{

@@ -71,3 +71,8 @@ C:\Users\Aleks\Documents\Fuffy\Новая папка2\[SSTU]fuffy_v.1.1\Entities
 C:\Users\Aleks\Documents\Fuffy\Новая папка2\[SSTU]fuffy_v.1.1\Entities\bin\Debug\Entities.pdb
 C:\Users\Aleks\Documents\Fuffy\Новая папка2\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.dll
 C:\Users\Aleks\Documents\Fuffy\Новая папка2\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.pdb
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\Entities\bin\Debug\Entities.dll
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\Entities\bin\Debug\Entities.pdb
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.dll
+C:\Users\DEn\Desktop\fuffy-master\[SSTU]fuffy_v.1.1\Entities\obj\Debug\Entities.pdb

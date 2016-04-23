@@ -3,13 +3,12 @@
     ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-
 @section profileJS{
-<script src="~/Scripts/profile.js"></script>
-    }
+    <script src="~/Scripts/profile.js"></script>
+}
 @section GetPhotoViewStyle{
-<link href="~/Content/GetPhotoViewStyle.css" rel="stylesheet" />
-    }
+    <link href="~/Content/GetPhotoViewStyle.css" rel="stylesheet" />
+}
 <div class="container content">
     <div class="row">
         <div class="col-md-8 to-center">
@@ -24,11 +23,24 @@
                 Specification: @Model.Spetification
             </div>
             <div class="row">
-               
+
             </div>
             <div class="row likes">
                 Likes:
-                    <a class="like" href="@Url.Action("AddLike", "File", new { Id=Model.IDPhoto})"> @ViewBag.CountLikes </a>
+                @Html.Action("GetLikesForPhoto", "Like", new { id = Model.IDPhoto })
+                <div class="add-like">
+                    @using (Html.BeginForm("AddLikePhoto", "Like", new { idPhoto = Model.IDPhoto }))
+                    {
+                        <button id="like" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                    }
+                </div>
+                @*<div id="delete-like">
+                    @using (Html.BeginForm("DeleteLike", "Like", new { idPhoto = Model.IDPhoto }))
+                    {
+                        <button type="submit"><span class="glyphicon glyphicon-thumbs-down"></span></button>
+                    }
+                </div>*@
+
             </div>
         </div>
     </div>
@@ -36,7 +48,7 @@
         Comments:
         @Html.Action("GetComment", "Comment", new { id = Model.IDPhoto })
         <div class="col-md-2"> </div>
-        </div>
+    </div>
     <div class="row add-new-comment">
         @using (@Html.BeginForm("AddComment", "Comment", new { IDPhoto = Model.IDPhoto }, FormMethod.Post))
         {

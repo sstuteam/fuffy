@@ -59,7 +59,20 @@ namespace PL_MVC.Models
         }
         public static Photo GetAlbumPhoto(Guid idAlbum)
         {
-            return bll.GetAlbumPhoto(idAlbum);
+           /* Entities.Photo entPhoto=*/ return bll.GetAlbumPhoto(idAlbum);
+            //Photo photo = new Photo()
+            //{
+            //    IDAlbum = entPhoto.IDAlbum,
+            //    IDPhoto = entPhoto.IDPhoto,
+            //    Data = entPhoto.Data,
+            //    CountLikes = entPhoto.CountLikes,
+            //    Image = entPhoto.Image,
+            //    Name = entPhoto.Name,
+            //    Spetification = entPhoto.Spetification,
+            //    ImageType = entPhoto.ImageType
+            //};
+            //return photo;
+            
         }
         public static bool AddAlbum(Album album)
         {
@@ -144,6 +157,23 @@ namespace PL_MVC.Models
             }
             return comments;
         }
+        public static IEnumerable<Comment> GetComments()
+        {
+            List<Comment> comments = new List<Comment>();
+            foreach (var item in bll.GetComments())
+            {
+                comments.Add(new Comment()
+                {
+                    CommentId = item.CommentId,
+                    Date = item.Date,
+                    Like = item.Likes,
+                    PhotoId = item.PhotoId,
+                    Text = item.Text,
+                    UserId = item.UserId
+                });
+            }
+            return comments;
+        }
         public static IEnumerable<Entities.Photo> Search(string name, string fragment)
         {
             return bll.Search(name, fragment);
@@ -206,9 +236,14 @@ namespace PL_MVC.Models
         {
             return bll.GetLikesPhoto(Id);
         }
-        public static bool AddLike(Guid Id)
+        public static bool AddLike(Guid Id, Like like)
         {
-            return bll.AddLikePhoto(Id);
+            Like likeVM = new Like()
+            {
+                PhotoId = like.PhotoId,
+                UserId = like.UserId
+            };
+            return bll.AddLikePhoto(Id, likeVM);
         }
         public static bool DeleteLike(Guid Id)
         {
