@@ -87,8 +87,15 @@ namespace PL_MVC.Models
         {
             return bll.AddComment(comment);
         }
+        public static bool AddAvatar(Guid UserId, Photo Image)
+        {
+            return bll.AddAvatar(UserId, Image);
+        }
 
-
+        public static bool GetAvatar(Guid UserId)
+        {
+            return bll.GetAvatar(UserId);
+        }
         public static IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum)
         {
             List<Photo> listPhotoForAlbum = new List<Photo>();

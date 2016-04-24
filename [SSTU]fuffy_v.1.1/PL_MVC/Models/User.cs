@@ -16,7 +16,7 @@ namespace PL_MVC.Models
         public Guid idUser; //а нужен ли id в моделях?
         public string Name { get; set; }
         public string Email { get; set; }
-        public byte[] Avatar { get; set; }//нужно описать
+        public byte[] Avatar { get; set; }
         public int RoleId { get; set; }   //
         public string Cookies { get; set; }
         public string Status { get; set; }
@@ -63,7 +63,7 @@ namespace PL_MVC.Models
                     Password = userModel.Password,
                     RoleId = userModel.RoleId,
                     Status = userModel.Status,
-                    //Avatar =userModel.Avatar, (Нужно описать)
+                    Avatar =userModel.Avatar, 
                     //GetAllAlbums = userModel.GetAllAlbums
                 };
                 return userEntity;
@@ -88,6 +88,7 @@ namespace PL_MVC.Models
                     Password = userEntity.Password,
                     RoleId = userEntity.RoleId,
                     Status = userEntity.Status,
+                    Avatar = userEntity.Avatar,
                     // GetAllAlbums = userEntity.GetAllAlbums
                 };
                 return userModel;

@@ -66,20 +66,21 @@ namespace DAL
                 return a > 0;
             }
         }
-        public bool AddAvatar(Photo image)
+        public bool AddAvatar(Guid UserId, Photo image)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com1 = new SqlCommand("SELECT [Avatar] FROM [dbo].[Login]", c);
+                SqlCommand com1 = new SqlCommand("SELECT [Avatar],[ID] FROM [dbo].[Login]", c);
                 c.Open();
                 var reader = com1.ExecuteReader();
                 while (reader.Read())
                 {
                     var Avatar = (Guid)reader["Avatar"];
+                    var user = GetUser(UserId);
                     if (Avatar == null)
                     {
                         var ava = image.Image;
-                        SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Login] [Avatar] VALUES @ava)", c);      
+                        SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Login] [Avatar] VALUES @ava)", c);
                         c.Open();
                         var a = com.ExecuteNonQuery();
                         return a > 0;
@@ -93,28 +94,22 @@ namespace DAL
                         return a > 0;
                     }
                 }
-            }return true;
+            } return true;
         }
-        public bool/*byte[]*/ ShowAvatar(Guid UserId)
+        public bool GetAvatar(Guid UserId)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com1 = new SqlCommand("SELECT [Avatar],[ID] FROM [dbo].[Login]", c);
+                SqlCommand com1 = new SqlCommand("SELECT [Avatar] FROM [dbo].[Login]", c);
                 c.Open();
                 var reader = com1.ExecuteReader();
                 while (reader.Read())
                 {
-                    User user = new User()
-                    {
-                        idUser = (Guid)reader["ID"],
-                        //Avatar = (byte[])reader["Avatar"],
-                    };
-                    if (user.idUser == UserId)
-                    {
-                        //var Avatar = user.Avatar;
-                    }
+                    var user = GetUser(UserId);
+                    user.Avatar = (byte[])reader["Avatar"];
                 }
-            } return true;//Avatar
+            }
+            return true;
         }
         public IEnumerable<User> GetAllUser()
         {

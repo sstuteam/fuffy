@@ -12,8 +12,8 @@ namespace BLL
         //фотографии
         bool AddAlbum(Album album);
         bool AddPhoto(Photo image);
-        bool AddAvatar(Photo image);
-        bool/*byte[]*/ ShowAvatar(Guid UserId);
+        bool AddAvatar(Guid ImageId, Photo image);
+        bool GetAvatar(Guid UserId);
         IEnumerable<Photo> GetAllPhotoForUser(Guid id);
         IEnumerable<Photo> GetAllPhoto();
         Guid GetIdAlbum(Guid IDUser, string nameAlbom);

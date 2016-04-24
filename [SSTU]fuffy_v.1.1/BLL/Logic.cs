@@ -21,13 +21,13 @@ namespace BLL
             image.Data = DateTime.Now;
             return dal.AddPhoto(image);
         }
-        public bool AddAvatar(Photo image)
+        public bool AddAvatar(Guid UserId, Photo image)
         {
-            return dal.AddAvatar(image);
+            return dal.AddAvatar(UserId, image);
         }
-        public bool/*byte[]*/ ShowAvatar(Guid UserId)
+        public bool GetAvatar(Guid UserId)
         {
-            return dal.ShowAvatar(UserId);
+            return dal.GetAvatar(UserId);
         }
         public bool AddAlbum(Album album)
         {
