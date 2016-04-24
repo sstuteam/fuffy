@@ -18,6 +18,8 @@ namespace DAL
         IEnumerable<Album> GetAllAlbums(Guid id);
         Album GetAlbum(Guid idAlbum);
         bool AddPhoto(Photo image);
+        bool AddAvatar(Photo image);
+        bool/*byte[]*/ ShowAvatar(Guid UserId);
         IEnumerable<Photo> Search(string name, string fragment);
         Photo GetPhoto(Guid idPhoto);
         //комментарии
