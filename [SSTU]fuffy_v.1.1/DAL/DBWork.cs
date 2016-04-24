@@ -75,7 +75,7 @@ namespace DAL
                 var reader = com1.ExecuteReader();
                 while (reader.Read())
                 {
-                    var Avatar = (Guid)reader["Avatar"];
+                    var Avatar = (byte[])reader["Avatar"];
                     var user = GetUser(UserId);
                     if (Avatar == null)
                     {
@@ -88,7 +88,7 @@ namespace DAL
                     else
                     {
                         var ava = image.Image;
-                        SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET [Avatar]=@ava", c);
+                        SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET [Avatar]=@ava WHERE ID = @UserId", c);
                         c.Open();
                         var a = com.ExecuteNonQuery();
                         return a > 0;
