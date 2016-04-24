@@ -99,7 +99,10 @@
     </Content>
     <Content Include="Content\GetPhotoViewStyle.css" />
     <Content Include="Content\Photo\camera.png" />
+    <Content Include="Content\Photo\paper_texture602.jpg" />
     <Content Include="Content\Photo\start.jpg" />
+    <Content Include="Content\Photo\tekstura_bumaga_goluboy_fon_1920x1080.jpg" />
+    <Content Include="Content\Photo\photocards.jpg" />
     <Content Include="Content\profile-and-search.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\admin-panel.css" />
@@ -156,6 +159,7 @@
     <Content Include="Views\People\People.cshtml" />
     <Content Include="Views\Album\Terror.cshtml" />
     <Content Include="Views\Like\GetLikesForPhoto.cshtml" />
+    <Content Include="Views\File\GetAvatar.cshtml" />
     <None Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\User\Profile.html" />
     <Content Include="Web.config">
@@ -198,7 +202,6 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />

@@ -97,3 +97,7 @@ body {
     margin:10px;
     text-shadow:20px;
 }
+.container-back {
+    background-color:rgba(210, 184, 204, 0.29);
+    border-radius: 0 0 5px 5px;
+}

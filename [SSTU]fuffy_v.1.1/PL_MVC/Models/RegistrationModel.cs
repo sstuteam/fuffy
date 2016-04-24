@@ -24,5 +24,6 @@ namespace PL_MVC.Models
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string PasswordRepeat { get; set; }
+        public byte[] Avatar { get; set; }
     }
 }

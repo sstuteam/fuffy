@@ -1,12 +1,18 @@
 ﻿body {
          /*padding-top: 50px;*/ /*из-за этой строчке на мобильных версиях был отступ*/
-        background-color: #fafafa;
+        /*background-color: #fafafa;*/
+        background-image:url("../Content/Photo/photocards.jpg");
+        background-size:cover;
+    background-position:right;
+    background-attachment:fixed;
+        padding:0;
         }
 
 .navbar {
             background-color: #904684;
             border-color:#904684;
             text-align:center;
+            margin-bottom:0;
         }
 input[type="search"]{
     width:200px;
@@ -38,6 +44,11 @@ h1, h2, h4 {
     height: 50.5vh;
     overflow-y:scroll;
 }
+
+.user-page{
+    background-color: rgba(210, 206, 184, 0.75);
+    margin-top:0;
+}
 .user-name{
     text-align:center;
 }
@@ -45,6 +56,11 @@ h1, h2, h4 {
     max-height: 30vh;
     max-width: 100%;
     border-radius: 5px;
+}
+.container-for-avatar{
+        height: 50%;
+    width: 100%;
+    margin-left: inherit;
 }
 .album-name{
     text-align:center;
@@ -56,6 +72,8 @@ h1, h2, h4 {
 .main{
     padding-top:60px;
     padding-bottom:10px;
+    background-color: rgba(210, 206, 184, 0.75);
+    border-radius: 0 0 5px 5px;
 }
 .main img{
     width:100%;

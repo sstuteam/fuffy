@@ -30,15 +30,19 @@
                     <li>@Html.ActionLink("People", "People", "People")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Settings", "Settings", "Settings")</li>
-                    <li>@Html.ActionLink("Add album", "NewAlbum", "Album")</li>
-                    <li>@Html.ActionLink("Upload", "Upload", "File")</li>
-                    <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
+                    @*@if (User.Identity.IsAuthenticated) {*@ 
+                        <li>@Html.ActionLink("Settings", "Settings", "Settings")</li>
+                        <li>@Html.ActionLink("Add album", "NewAlbum", "Album")</li>
+                        <li>@Html.ActionLink("Upload", "Upload", "File")</li>
+                        <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
+                    
                     <li>
-                        <a href="@Url.Action("Profile", "User")" style="padding:0"> @*стиль здесь, т.к. из класса не работает*@
-                            <img class="image-head" src="~/Content/Photo/camera.png" />
-                        </a>
+                        @Html.ActionLink("Profile", "Profile", "User")
+                        @*@Html.Action("GetAvatar", "File", new { Model.idUser })*@
+                           @* <img style="width:32px" class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser=Model.idUser })">*@
+                        
                     </li>
+                    @*  }*@
                     <li>
                        @using (@Html.BeginForm("Search", "Search"))
                        {

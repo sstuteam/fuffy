@@ -67,6 +67,18 @@ namespace PL_MVC.Controllers
                 return null;
             }
         }
+        public FileResult GetAvatar(Guid idUser)
+        {
+            User user = Binder.GetUser(idUser);
+            if (user.Avatar != null)
+            {
+                return File(user.Avatar, "image/jpeg");
+            }
+            else
+            {
+                return null;
+            }
+        }
         [HttpGet]
         public PartialViewResult PartialPhoto(Guid id)
         {

@@ -38,13 +38,14 @@ namespace DAL
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
                 user.Password = GetHashString(user.Password);
-                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Login] ([ID],[Login],[Password],[Nick],[Email],[Cookies]) VALUES (@ID,@Login,@Password,@Nick,@Email,@Cookies)", c);
+                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Login] ([ID],[Login],[Password],[Nick],[Email],[Cookies],[Avatar]) VALUES (@ID,@Login,@Password,@Nick,@Email,@Cookies,@Avatar)", c);
                 com.Parameters.AddWithValue("@ID", user.idUser);
                 com.Parameters.AddWithValue("@Login", user.Login);
                 com.Parameters.AddWithValue("@Password", user.Password);
                 com.Parameters.AddWithValue("@Nick", user.Name);
                 com.Parameters.AddWithValue("@Email", user.Email);
                 com.Parameters.AddWithValue("@Cookies", user.Cookies);
+                com.Parameters.AddWithValue("@Avatar", user.Avatar);
                 c.Open();
                 var a = com.ExecuteNonQuery();
                 return a > 0;
@@ -75,24 +76,24 @@ namespace DAL
                 var reader = com1.ExecuteReader();
                 while (reader.Read())
                 {
-                    var Avatar = (byte[])reader["Avatar"];
+                    //var Avatar = (byte[])reader["Avatar"];
                     var user = GetUser(UserId);
-                    if (Avatar == null)
-                    {
-                        var ava = image.Image;
-                        SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Login] [Avatar] VALUES @ava)", c);
-                        c.Open();
-                        var a = com.ExecuteNonQuery();
-                        return a > 0;
-                    }
-                    else
-                    {
+                    //if (Avatar == null)
+                    //{
+                    //    var ava = image.Image;
+                    //    SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Login] [Avatar] VALUES @ava)", c);
+                    //    c.Open();
+                    //    var a = com.ExecuteNonQuery();
+                    //    return a > 0;
+                    //}
+                    //else
+                    //{
                         var ava = image.Image;
                         SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET [Avatar]=@ava WHERE ID = @UserId", c);
                         c.Open();
                         var a = com.ExecuteNonQuery();
                         return a > 0;
-                    }
+                    //}
                 }
             } return true;
         }
@@ -116,7 +117,7 @@ namespace DAL
             var listUser = new List<User>();
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("SELECT [ID],[Login],[Password],[Email],[Nick],[Cookies],[Status],[RoleID] FROM [dbo].[Login]", c);
+                SqlCommand com = new SqlCommand("SELECT [ID],[Login],[Password],[Email],[Nick],[Cookies],[Status],[RoleID],[Avatar] FROM [dbo].[Login]", c);
                 c.Open();
                 var reader = com.ExecuteReader();
                 while (reader.Read())
@@ -129,6 +130,7 @@ namespace DAL
                         Name = (string)reader["Nick"],
                         Email = (string)reader["Email"],
                         Cookies = (string)reader["Cookies"],
+                        Avatar=(byte[])reader["Avatar"]
                         /*Status = (string)reader["Status"],*/
                         /*RoleId = (int)reader["RoleID"],*/
                     };

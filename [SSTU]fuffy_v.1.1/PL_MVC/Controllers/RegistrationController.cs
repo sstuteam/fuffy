@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PL_MVC.Models;
+using System.IO;
 
 namespace PL_MVC.Controllers
 {
@@ -16,11 +17,20 @@ namespace PL_MVC.Controllers
             return View("~/Views/Registration/Registration.cshtml");
         }
         [HttpPost]
-        public ActionResult Registration(User user)
+        public ActionResult Registration(User user, HttpPostedFileBase uploaded)
         {
             Binder.CheckLogin(user.Login);
             user.Cookies = Guid.NewGuid().ToString();
             user.idUser = Guid.NewGuid();
+            Photo avatar = new Photo()
+            {
+                IDPhoto = Guid.NewGuid(),                  
+                Image = new byte[uploaded.ContentLength]
+            };
+            using (BinaryReader br = new BinaryReader(uploaded.InputStream))
+            {
+                avatar.Image = br.ReadBytes(avatar.Image.Length);
+            }
             Album album = new Album()
             {
                 IDAlbum = Guid.NewGuid(),
@@ -28,7 +38,9 @@ namespace PL_MVC.Controllers
                 Name = "Other",
                 Spetification = "No spetification"
             };
+            user.Avatar = avatar.Image;
             Binder.AddUser(user);
+            //Binder.AddAvatar(user.idUser, avatar);
             Binder.AddAlbum(album);
             return RedirectToAction("Index", "Home");
         }

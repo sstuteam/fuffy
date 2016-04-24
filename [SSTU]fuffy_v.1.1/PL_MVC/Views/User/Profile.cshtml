@@ -11,7 +11,7 @@
     <script src="~/Scripts/masonry.pkgd.min.js"></script>
 }
 <div class="container">
-    <div class="row">
+    <div class="row user-page">
         <div class="col-sm-4 forcolons">
             <div class="row">
                 <div class="col-sm-4">
@@ -26,8 +26,8 @@
                     <h4>@Model.Status</h4>
                 </div>
             </div>
-            <div class="row" style="height:50%">
-                <img class="avatar" src="/Content/Photo/forProfile.jpg">
+            <div class="row container-for-avatar">
+                <img class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser=Model.idUser })">
             </div>
         </div>
         <div class="col-sm-8 forcolons scroll-x">

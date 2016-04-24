@@ -33,6 +33,17 @@ namespace PL_MVC.Models
         //public DateTime dateOfBirthday;  //Дата рождения
         public int countOfLikes; //Количество лайков, поставленных пользователю за все его фотографии
         public int countOfAlbum; //Количество альбомов   
+        public int GetCountOfLikesForUser(Guid id)
+        {
+            int count = 0;
+            IEnumerable<Photo> photoes = Binder.GetAllPhotoForUser(id);
+            foreach (var photo in photoes)
+            {
+
+                count += photo.CountLikes;
+            }
+            return count;
+        }
         public IEnumerable<Album> GetAllAlbumsForUser()
         {
             return Binder.GetAllAlbumsForUser(idUser);
@@ -95,16 +106,6 @@ namespace PL_MVC.Models
             }
             return null;
         }
-        public int GetCountOfLikesForUser(Guid id)
-        {
-            int count = 0;
-            IEnumerable<Photo> photoes = Binder.GetAllPhotoForUser(id);
-            foreach (var photo in photoes)
-            {
-
-                count += photo.CountLikes;
-            }
-            return count;
-        }
+       
     }
 }
