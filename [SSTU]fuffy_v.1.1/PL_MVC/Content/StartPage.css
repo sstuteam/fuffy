@@ -339,3 +339,10 @@ nav{
         }
     }
 }
+.popular{
+    width:100%;
+    margin-bottom:15px;
+}
+.color-for-text{
+    color:white;
+}

@@ -11,7 +11,7 @@ namespace Entities
         public string Name { get; set; }
         public Guid IDPhoto;
         public Guid IDAlbum;
-        public DateTime Data;
+        public DateTime Data = DateTime.Now;
         public int CountLikes { get; set; }
         public string Spetification { get; set; }
         public byte[] Image { get; set; }

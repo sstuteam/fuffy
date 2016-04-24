@@ -19,3 +19,6 @@
     height:100px;
     resize:none;
 }
+img{
+    width:inherit!important;
+}
