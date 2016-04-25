@@ -17,7 +17,7 @@ namespace PL_MVC.Controllers
             return View("~/Views/Registration/Registration.cshtml");
         }
         [HttpPost]
-        public ActionResult Registration(User user, HttpPostedFileBase uploaded)
+        public ActionResult Registration(User user, HttpPostedFileBase uploaded,string Hobbies)
         {
             Binder.CheckLogin(user.Login);
             user.Cookies = Guid.NewGuid().ToString();
@@ -39,6 +39,7 @@ namespace PL_MVC.Controllers
                 Spetification = "No spetification"
             };
             user.Avatar = avatar.Image;
+            user.Hobbies = Hobbies;//передаем строку с предпочтением
             Binder.AddUser(user);
             //Binder.AddAvatar(user.idUser, avatar);
             Binder.AddAlbum(album);

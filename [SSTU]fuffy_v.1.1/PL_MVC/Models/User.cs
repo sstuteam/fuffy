@@ -20,6 +20,7 @@ namespace PL_MVC.Models
         public int RoleId { get; set; }   //
         public string Cookies { get; set; }
         public string Status { get; set; }
+        public string Hobbies { get; set; }
         /// <summary>
         /// Свойство, показывающее заблокирован ли пользователь
         /// </summary>
@@ -75,6 +76,7 @@ namespace PL_MVC.Models
                     RoleId = userModel.RoleId,
                     Status = userModel.Status,
                     Avatar =userModel.Avatar, 
+                    Hobbies=userModel.Hobbies,
                     //GetAllAlbums = userModel.GetAllAlbums
                 };
                 return userEntity;
@@ -100,6 +102,7 @@ namespace PL_MVC.Models
                     RoleId = userEntity.RoleId,
                     Status = userEntity.Status,
                     Avatar = userEntity.Avatar,
+                    Hobbies=userEntity.Hobbies,
                     // GetAllAlbums = userEntity.GetAllAlbums
                 };
                 return userModel;

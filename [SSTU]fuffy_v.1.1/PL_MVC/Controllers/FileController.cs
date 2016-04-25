@@ -11,7 +11,7 @@ namespace PL_MVC.Controllers
     public class FileController : Controller
     {
         [HttpPost]
-        public ActionResult Upload(HttpPostedFileBase uploaded,string AlbumName, string Title, string spetification)
+        public ActionResult Upload(HttpPostedFileBase uploaded,string AlbumName, string Title, string spetification,string Category)
         {           
             var user = AuthHelper.GetUser(HttpContext);
             if (uploaded != null)
@@ -23,7 +23,8 @@ namespace PL_MVC.Controllers
                     Spetification = spetification,
                     CountLikes = 0,//не пишет в дб                    
                     Image = new byte[uploaded.ContentLength],
-                    ImageType = uploaded.ContentType
+                    ImageType = uploaded.ContentType,
+                    Category=Category,//добавил поле категория
                 };
                 if (AlbumName != null)
                 {
