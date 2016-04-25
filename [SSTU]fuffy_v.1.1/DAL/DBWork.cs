@@ -55,13 +55,14 @@ namespace DAL
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Photo] ([PhotoId],[AlbumId],[Name],[Spetification],[Image],[Data]) VALUES (@PhotoId,@AlbumId,@Name,@Spetification,@Image,@Data)", c);
+                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Photo] ([PhotoId],[AlbumId],[Name],[Spetification],[Image],[Data],[Category]) VALUES (@PhotoId,@AlbumId,@Name,@Spetification,@Image,@Data,@Category)", c);
                 com.Parameters.AddWithValue("@PhotoId", image.IDPhoto);
                 com.Parameters.AddWithValue("@AlbumId", image.IDAlbum);
                 com.Parameters.AddWithValue("@Name", image.Name);
                 com.Parameters.AddWithValue("@Spetification", image.Spetification);
                 com.Parameters.AddWithValue("@Image", image.Image);
                 com.Parameters.AddWithValue("@Data", image.Data);
+                com.Parameters.AddWithValue("@Category", image.Category);
                 c.Open();
                 var a = com.ExecuteNonQuery();
                 return a > 0;
