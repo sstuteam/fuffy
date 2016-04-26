@@ -204,7 +204,9 @@ namespace PL_MVC.Models
                     Image = item.Image,
                     ImageType = item.ImageType,
                     Name = item.Name,
-                    Spetification = item.Spetification
+                    Spetification = item.Spetification,
+                    Data = item.Data,
+                    Category = item.Category              //поправил
                 });
             }
             return photoes;
@@ -230,12 +232,13 @@ namespace PL_MVC.Models
 
         public static Album GetAlbumName(Guid iDAlbum)
         {
-            Album album = new Album();
-            album.Spetification = bll.GetAlbum(iDAlbum).Spetification;
-            album.Name = bll.GetAlbum(iDAlbum).Name;
-            album.IDAlbum = bll.GetAlbum(iDAlbum).IDAlbum;
-            album.IDUser = bll.GetAlbum(iDAlbum).IDUser;
-            return album;
+            //Album album = new Album();
+            //album.Spetification = bll.GetAlbum(iDAlbum).Spetification;
+            //album.Name = bll.GetAlbum(iDAlbum).Name;
+            //album.IDAlbum = bll.GetAlbum(iDAlbum).IDAlbum;
+            //album.IDUser = bll.GetAlbum(iDAlbum).IDUser;
+            //return album;
+            return bll.GetAlbum(iDAlbum); //норм так то
         }
         public static Photo GetPhoto(Guid idPhoto)
         {

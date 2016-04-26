@@ -13,7 +13,7 @@ namespace Entities
         public string Email { get; set; }
         public Guid idUser;
         public string Name { get; set; }
-        public string Hobbies { get; set; }
+        //public string Hobbies { get; set; }
         public string Cookies { get; set; }
         public int RoleId { get; set; }     //
         public string Status { get; set; }

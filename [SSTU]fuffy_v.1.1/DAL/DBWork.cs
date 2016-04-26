@@ -278,7 +278,7 @@ namespace DAL
             var listPhoto = new List<Photo>();
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("SELECT  [Image], [Likes], [PhotoId],[AlbumId],[Name],[Spetification],[Data] FROM [dbo].[Photo]", c);
+                SqlCommand com = new SqlCommand("SELECT  [Image], [Likes], [PhotoId],[AlbumId],[Name],[Spetification],[Data],[Category] FROM [dbo].[Photo]", c);
                 c.Open();
                 var reader = com.ExecuteReader();
                 while (reader.Read())
@@ -291,16 +291,10 @@ namespace DAL
                         CountLikes = (int)reader["Likes"],
                         Spetification = (string)reader["Spetification"],
                         Image = (byte[])reader["Image"], 
-                        Data = (DateTime)reader["Data"]                     
+                        Data = (DateTime)reader["Data"],
+                        Category=(string)reader["Category"]        
                     };
-                    //if ((DateTime)reader["Data"] != DBNull.Value)
-                    //{
-                    //    photo.Data = (DateTime)reader["Data"]; //Чет пишет мол нельзя привести
-                    //}
-                    //else
-                    //{
-                    //    photo.Data = DateTime.MinValue;
-                    //}
+                   // photo.Category = reader["Category"].ToString();
                     if(photo!=null)
                     listPhoto.Add(photo);
 
