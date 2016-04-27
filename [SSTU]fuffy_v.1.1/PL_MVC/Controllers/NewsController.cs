@@ -14,55 +14,36 @@ namespace PL_MVC.Controllers
         public ActionResult News()
         {
             return View("~/Views/News/News.cshtml");
-        }        
+        }
+        //public ActionResult NewsModels(IEnumerable<Photo> ListPhoto)
+        //{
+        //    return View("~/Views/News/News.cshtml",ListPhoto);
+        //}
+        //[HttpGet]
+        //public ActionResult NewsGet(string Category)
+        //{
+        //    var photoes = Binder.GetAllPhoto();
+        //    IEnumerable<Photo> sortedPhotoes = photoes.OrderBy(photo => photo.Name);
+        //    return RedirectToAction("NewsModel",sortedPhotoes);
+        //}
         public PartialViewResult PartialPhoto( string politic,string sport, string sience, string calture)
         {
-            var users = Binder.GetUsers();
             var photoes = Binder.GetAllPhoto();
-            List<NewsClass> newsclass = new List<NewsClass>();
-            for (int i=0; i<photoes.Count();i++)
-            {
-                NewsClass usless = new NewsClass();
-                usless.photo = photoes.ElementAt(i);
-                // usless.user = null;
-                for (int k = 0; k < users.Count(); k++)
-                {                   
-                    IEnumerable<Photo> hi = Binder.GetAllPhotoForUser(users.ElementAt(k).idUser);
-                    for (int y = 0; y < hi.Count(); y++)
-                    {
-                        if (hi.ElementAt(i).IDPhoto == usless.photo.IDPhoto)
-                            usless.user = users.ElementAt(k);
-                    }
-                    //if (hi.Contains(photoes.ElementAt(i)))
-                    //{ usless.user = users.ElementAt(k); }
-                }
-               
-                newsclass.Add(usless);         
-            }
-            //for (int i = 0; i < photoes.Count(); i++)
-            //{
-            //    for (int k = 0; k < users.Count(); k++)
-            //    {
-            //        IEnumerable<Photo> hi = Binder.GetAllPhotoForUser(users.ElementAt(k).idUser);
-            //        if (hi.Contains(photoes.ElementAt(i)))
-            //        { newsclass.ElementAt(i).user = users.ElementAt(k); }
-            //    }
-            //}
-            List<NewsClass> T=new List<NewsClass>();
+            List<Photo> T=new List<Photo>();
             if (politic != null||sport!=null||sience!=null||calture!=null)
             {
                 for (int i = 0; i < photoes.Count(); i++)
                 {
-                    if (newsclass.ElementAt(i).photo.Category == politic|| newsclass.ElementAt(i).photo.Category == sport|| newsclass.ElementAt(i).photo.Category == sience|| newsclass.ElementAt(i).photo.Category == calture)
-                        T.Add(newsclass.ElementAt(i));
+                    if (photoes.ElementAt(i).Category == politic|| photoes.ElementAt(i).Category ==sport|| photoes.ElementAt(i).Category ==sience|| photoes.ElementAt(i).Category ==calture)
+                        T.Add(photoes.ElementAt(i));
                 }
-                IEnumerable<NewsClass> Rect = T;
+                IEnumerable<Photo> Rect = T;
                 return PartialView("~/Views/News/NewsGet.cshtml", Rect);
             }
             else
             {
-                IEnumerable<NewsClass> classforresult = newsclass.OrderBy(tt => tt.photo.Data);
-                return PartialView("~/Views/News/NewsGet.cshtml", classforresult);                
+                IEnumerable<Photo> sortedPhotoes = photoes.OrderBy(photo => photo.Name);
+                return PartialView("~/Views/News/NewsGet.cshtml", sortedPhotoes);
             }
         }
     }
