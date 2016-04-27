@@ -9,14 +9,33 @@ namespace PL_MVC.Controllers
 {
     public class SearchController : Controller
     {
-        [HttpGet]
-        public ActionResult SearchResult()
+        //[HttpGet]
+        //public ActionResult SearchResult()
+        //{
+        //    return View("PartialSearch");
+        //}
+        //[HttpGet]
+        //public PartialViewResult PartialSearch(string name, string fragment)
+        //{
+        //    if (name != null || fragment != null)
+        //    {
+        //        IEnumerable<Photo> listPhoto = Binder.Search(name, fragment);
+        //        if (listPhoto.Count() != 0)
+        //        {
+        //            return PartialView(listPhoto);
+        //        }
+        //    }
+        //    return PartialView("Search");
+        //}
+        // GET: Search
+        public ActionResult Search()
         {
-            return View("PartialSearch");
+            return View();
         }
-        [HttpGet]
-        public ActionResult PartialSearch(string name, string fragment)
+        //[HttpPost]
+        public PartialViewResult PartialSearch(string name, string fragment)
         {
+            IEnumerable<Photo> listAllPhoto = Binder.GetAllPhoto();
             if (name != null || fragment != null)
             {
                 IEnumerable<Photo> listPhoto = Binder.Search(name, fragment);
@@ -25,25 +44,7 @@ namespace PL_MVC.Controllers
                     return PartialView(listPhoto);
                 }
             }
-            return View("Search");
-        }
-        [HttpGet]
-        public ActionResult Search()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Search(string name, string fragment)
-        {
-            if (name != null || fragment != null)
-            {
-            IEnumerable<Photo> listPhoto = Binder.Search(name, fragment);
-            if (listPhoto.Count() != 0)
-            {
-                return PartialView("PartialSearch", listPhoto);
-            }
-            }
-            return View();
+            return PartialView(listAllPhoto.Where(x=>x.Spetification=="None"));
         }
     }
 }
