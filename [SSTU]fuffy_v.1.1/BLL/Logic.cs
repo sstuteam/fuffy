@@ -116,7 +116,7 @@ namespace BLL
 
         public IEnumerable<Photo> GetAllPhotoForUser(Guid id)
         {
-            return dal.GetAllPhotoForUser(id).ToArray();
+            return dal.GetAllPhotoForUser(id);
         }
 
         public Album GetAlbum(Guid idAlbum)

@@ -4,25 +4,19 @@
 }
 @using (Html.BeginForm("News", "News", FormMethod.Get))
 {
-    <div class="container content user-page" id="Category">
-        @*<select name="Category" class="Onemore" id="Category">
-            <option>Политика</option>
-            <option>Спорт</option>
-            <option>Наука</option>
-            <option>Культура</option>
-        </select>*@
-        
+    <div class="container main" id="Category">
         <div id="Hobbies">
-        <input type="checkbox" name="politic" value="Политика"/> Политика
-        <input type="checkbox" name="sport" value="Спорт" /> Спорт
-        <input type="checkbox" name="sience" value="Наука" /> Наука
-        <input type="checkbox" name="calture" value="Культура" /> Культура
+            <input type="checkbox" name="politic" value="Политика" /> Политика
+            <input type="checkbox" name="sport" value="Спорт" /> Спорт
+            <input type="checkbox" name="sience" value="Наука" /> Наука
+            <input type="checkbox" name="calture" value="Культура" /> Культура
             <button type="submit">Показать</button>
+        </div>   
+        <br>     
+        <div >           
+            <div class="masonry">                
+                    @Html.Action("PartialPhoto", "News")
+            </div>                
             </div>
-    </div>
-<div class="row main">
-    <div class="masonry">
-        @Html.Action("PartialPhoto", "News")
-    </div>
-</div>
+        </div>
 }

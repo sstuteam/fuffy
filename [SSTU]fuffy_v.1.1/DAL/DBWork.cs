@@ -331,16 +331,19 @@ namespace DAL
         {
             var albums = GetAllAlbums(idUser);
             var photoes = GetAllPhoto();
-            foreach (var photo in photoes)
+            List<Photo> photo=new List<Photo>();
+            for (int i =0; i<photoes.Count(); i++)
             {
-                foreach (var album in albums)
+                for (int k =0; k<albums.Count();k++)
                 {
-                    if (photo.IDAlbum == album.IDAlbum)
+                    if (photoes.ElementAt(i).IDAlbum == albums.ElementAt(k).IDAlbum)
                     {
-                        yield return photo;
-                    }
+                        photo.Add(photoes.ElementAt(i));
+                    }         
                 }
             }
+            IEnumerable<Photo> toresult = photo;
+            return toresult;
         }
         public IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum)
         {

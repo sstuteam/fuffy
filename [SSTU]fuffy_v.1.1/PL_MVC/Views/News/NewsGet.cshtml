@@ -1,13 +1,25 @@
-﻿@model IEnumerable<PL_MVC.Models.Photo>
-    
-@foreach (var item in Model)
-{
-    if (item != null)
-    {
-    <div class="item">
-        <a href="@Url.Action("GetPhotoView", "File", new { item.IDPhoto })">
-            <img src="@Url.Action("GetPhoto", "File", new { item.IDPhoto })" />
-        </a>
-    </div>
+﻿@model IEnumerable<PL_MVC.Models.NewsClass>
+       
+        @foreach (var item in Model)
+        {
+            if (item != null)
+            {
+                <table>
+                    <tr>
+                        <th width="50px" height="90px">
+                            <img class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser = item.user.idUser })" />
+                        </th>
+                        <th wigth ="60px" height="120px">
+                            <a href="@Url.Action("GetPhotoView", "File", new { item.photo.IDPhoto })">
+                                <img src="@Url.Action("GetPhoto", "File", new { item.photo.IDPhoto })" />
+                            </a>
+                        </th>
+                    </tr>
+                </table>
+            }
         }
-    }
+
+                
+
+
+        
