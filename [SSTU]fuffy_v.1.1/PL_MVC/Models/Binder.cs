@@ -11,6 +11,10 @@ namespace PL_MVC.Models
     public static class Binder
     {
         public static IBLL bll = new Logic();
+        public static bool DeletePhoto(Guid idPhoto)
+        {
+            return bll.DeletePhoto(idPhoto);
+        }
         public static bool AddUser(User user)
         {
             return bll.AddUser((Entities.User)user);

@@ -10,6 +10,7 @@ namespace BLL
     public interface IBLL
     {
         //фотографии
+        bool DeletePhoto(Guid idPhoto);
         bool AddAlbum(Album album);
         bool AddPhoto(Photo image);
         bool AddAvatar(Guid UserId, Photo image);

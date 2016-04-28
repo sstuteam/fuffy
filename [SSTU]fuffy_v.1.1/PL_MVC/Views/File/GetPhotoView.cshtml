@@ -40,8 +40,12 @@
                         <button type="submit"><span class="glyphicon glyphicon-thumbs-down"></span></button>
                     }
                 </div>*@
-
+                <br>
             </div>
+           <div class="row active" >
+               <a href="@Url.Action("DeletePhoto","File", new { idPhoto = Model.IDPhoto })" >Delete photo</a>
+             </div>
+              
         </div>
     </div>
     <div class="row comments">

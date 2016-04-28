@@ -102,5 +102,11 @@ namespace PL_MVC.Controllers
                 return null;
             }
         }
+        public ActionResult DeletePhoto(Guid idPhoto)
+        {
+            if (Binder.DeletePhoto(idPhoto))
+                return RedirectToAction("Profile", "User");
+            else return null;
+        }
     }
 }

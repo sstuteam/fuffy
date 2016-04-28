@@ -21,6 +21,11 @@ namespace BLL
             image.Data = DateTime.Now;
             return dal.AddPhoto(image);
         }
+        public bool DeletePhoto(Guid idPhoto)
+        {
+           return dal.DeletePhoto(idPhoto);
+           
+        }
         public bool AddAvatar(Guid UserId, Photo image)
         {
             return dal.AddAvatar(UserId, image);

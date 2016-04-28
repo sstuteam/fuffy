@@ -204,6 +204,24 @@ namespace DAL
         {
             return GetComments().Where(item => item.PhotoId == id);
         }
+        public bool DeletePhoto(Guid id)  /////////////////////////////////////////////////////////////////////////////////////
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand comComent = new SqlCommand("DELETE FROM [dbo].[Comment] WHERE PhotoId=@PhotoId" , c);
+                comComent.Parameters.AddWithValue("@PhotoId", id);
+                SqlCommand comLike = new SqlCommand("DELETE FROM [dbo].[LikesForPhoto] WHERE PhotoId=@PhotoId", c);
+                comLike.Parameters.AddWithValue("@PhotoId", id);//хз как то не так лайки работают
+                SqlCommand comPhoto = new SqlCommand("DELETE FROM [dbo].[Photo] WHERE PhotoId=@PhotoId", c);
+                comPhoto.Parameters.AddWithValue("@PhotoId", id);
+                c.Open();
+                var a = comLike.ExecuteNonQuery();
+                var b = comComent.ExecuteNonQuery();
+                var d = comPhoto.ExecuteNonQuery();
+                return (a > -1 && b>-1&&d>-1);
+            }            
+           
+        }
         public IEnumerable<Comment> GetComments()
         {
             var listComment = new List<Comment>();
