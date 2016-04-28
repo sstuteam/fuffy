@@ -84,7 +84,7 @@ namespace PL_MVC.Controllers
         public PartialViewResult PartialPhoto(Guid id)
         {
             var photoes = Binder.GetAllPhotoForUser(id);
-            IEnumerable<Photo> sortedPhotoes = photoes.OrderBy(photo => photo.Name);
+            IEnumerable<Photo> sortedPhotoes = photoes.OrderBy(photo => photo.Data);
             return PartialView(sortedPhotoes);
         }
         [HttpGet]

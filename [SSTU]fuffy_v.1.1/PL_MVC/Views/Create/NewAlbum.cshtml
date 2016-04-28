@@ -4,16 +4,17 @@
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
-<!DOCTYPE html>
 
-    <div class="container content">    
-         @using (Html.BeginForm("Add", "Album", FormMethod.Get))
-         {
-            <div id="newlabel">
-                Укажите имя альбома
-               <input name="Name" value="@(Model == null ? "" : "Model.Name")" type="text">                            
-</div>
-<button name="Add">Принять</button>
-    }       
-       <!-- <label>Model.IDUser</label>--><!--Не понятно, как передать юзер айди-->
+
+<div class="container content main">
+    <h2>New Album</h2>
+    @using (Html.BeginForm("Add", "Album", FormMethod.Get))
+    {
+        <div id="newlabel">
+            Укажите имя альбома
+            <input name="Name" value="@(Model == null ? "" : "Model.Name")" type="text">
         </div>
+        <button name="Add">Принять</button>
+    }
+    <!-- <label>Model.IDUser</label>--><!--Не понятно, как передать юзер айди-->
+</div>

@@ -1,28 +1,59 @@
 ﻿@{
     ViewBag.Title = "News";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
-}
-@using (Html.BeginForm("News", "News", FormMethod.Get))
-{
-    <div class="container content user-page" id="Category">
-        @*<select name="Category" class="Onemore" id="Category">
-            <option>Политика</option>
-            <option>Спорт</option>
-            <option>Наука</option>
-            <option>Культура</option>
-        </select>*@
-        
-        <div id="Hobbies">
-        <input type="checkbox" name="politic" value="Политика"/> Политика
-        <input type="checkbox" name="sport" value="Спорт" /> Спорт
-        <input type="checkbox" name="sience" value="Наука" /> Наука
-        <input type="checkbox" name="calture" value="Культура" /> Культура
-            <button type="submit">Показать</button>
+}<div class="container main">
+    <h2>News</h2>
+
+    @using (Html.BeginForm("News", "News", FormMethod.Get))
+    {
+        <div class="category" id="Category">
+            @*<select name="Category" class="Onemore" id="Category">
+                    <option>Политика</option>
+                    <option>Спорт</option>
+                    <option>Наука</option>
+                    <option>Культура</option>
+                </select>*@
+
+            <div class="checkbox">
+                <label><input type="checkbox" name="c1" value="Astrophotography" /> Astrophotography</label>
             </div>
-    </div>
-<div class="row main">
+            <div class="checkbox">
+                <label><input type="checkbox" name="c2" value="High key" /> High key</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="c3" value="Documentary photography" /> Documentary photography</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="c4" value="Concept photography" /> Concept photography</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="c5" value="Genre Art" /> Genre Art</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="c6" value="Glamour photography" /> Glamour photography</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="c7" value="Macro photography" /> Macro photography</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="c8" value="Night photography" /> Night photography</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="c9" value="Monochrome photography" /> Monochrome photography</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="c10" value="Panorama" /> Panorama</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="cat" value="Cats" /> Cats!&hearts;</label>
+            </div>
+            <button type="submit">Показать</button>
+
+        </div>
+    }
+
     <div class="masonry">
-        @Html.Action("PartialPhoto", "News")
+        @Html.Action("NewsGet", "News")
     </div>
 </div>
-}
+

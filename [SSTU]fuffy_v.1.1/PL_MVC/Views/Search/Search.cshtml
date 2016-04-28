@@ -9,7 +9,7 @@
 }
 
 <div class="container">
-    <div class="content">
+    <div class="content main">
         <h2>Advanced Search</h2>
         @using (@Html.BeginForm())
         {
@@ -54,5 +54,8 @@
                 <button type="submit">Search!</button>
             </div>
         }
+        <div class="masonry">
+            @Html.Action("PartialSearch", "Search")
+        </div>
     </div>
 </div>

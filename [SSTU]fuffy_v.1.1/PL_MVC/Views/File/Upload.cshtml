@@ -3,7 +3,7 @@
     ViewBag.Title = "Upload";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-<div class="container content">
+<div class="container content main">
     <h2>Upload</h2>
 
     @using (@Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -15,11 +15,18 @@
         <p>Specification:</p>
         <textarea rows="5" cols="30"  name="spetification"></textarea>
         <p>Catigory:</p>
-        <select name="Category" class="Onemore">
-            <option>Политика</option>
-            <option>Спорт</option>
-            <option>Наука</option>
-            <option>Культура</option>
+        <select name="Category" id="category">
+            <option>Astrophotography</option>
+            <option>High key</option>
+            <option>Documentary photography</option>
+            <option>Concept photography</option>
+            <option>Genre Art</option>
+            <option>Glamour photography</option>
+            <option>Macro photography</option>
+            <option>Night photography</option>
+            <option>Monochrome photography</option>
+            <option>Panorama</option>
+            <option>Cats</option>
         </select>
         <p/>
         <div>
