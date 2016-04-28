@@ -148,7 +148,6 @@
     <Content Include="Views\Admin\Users.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\File\Upload.cshtml" />
-    <Content Include="Views\Create\NewAlbum.cshtml" />
     <Content Include="Views\Create\NewAlbumBreak.cshtml" />
     <Content Include="Views\File\GetPhotoView.cshtml" />
     <Content Include="Scripts\masonry.pkgd.min.js" />
@@ -162,6 +161,7 @@
     <Content Include="Views\File\GetAvatar.cshtml" />
     <Content Include="Views\News\News.cshtml" />
     <Content Include="Views\News\NewsGet.cshtml" />
+    <Content Include="Views\Create\NewAlbum.cshtml" />
     <None Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\User\Profile.html" />
     <Content Include="Web.config">
@@ -214,6 +214,7 @@
     <Content Include="Views\Settings\Settings.cshtml" />
     <Content Include="Views\Search\PartialSearch.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_NewLayout - Copy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

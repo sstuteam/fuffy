@@ -1,2 +1,24 @@
-﻿@model IEnumerable<Entities.Photo>
+﻿@model IEnumerable<PL_MVC.Models.Photo>
+@{
+    ViewBag.Title = @ViewBag.AlbumName;
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
 
+}
+@section masonry{
+    <script src="~/Scripts/masonry.pkgd.min.js"></script>
+}
+<div class="main container">
+  
+    <h3><a href="@Url.Action("Profile", "User")">&larr;Back</a></h3>
+    <h2>@ViewBag.AlbumName</h2>
+<div class="masonry">
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                <a href="@Url.Action("GetPhotoView", "File", new { item.IDPhoto })">
+                    <img src="@Url.Action("GetPhoto", "File", new { item.IDPhoto })" />
+                </a>
+            </div>
+        }
+    </div>
+</div>
