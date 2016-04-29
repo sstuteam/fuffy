@@ -42,9 +42,12 @@
                 </div>*@
                 <br>
             </div>
+            @if (Url.Action("IsMyPhoto", "User", new { id = Model.IDPhoto })=="1")
+            { 
            <div class="row active" >
                <a href="@Url.Action("DeletePhoto","File", new { idPhoto = Model.IDPhoto })" >Delete photo</a>
              </div>
+            }
               
         </div>
     </div>

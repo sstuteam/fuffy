@@ -14,7 +14,13 @@ namespace PL_MVC.Controllers
         {            
             return View();
         }
-        
+        public string IsMyPhoto(Guid IdPhoto)
+        {
+           Guid ID= AuthHelper.GetUser(HttpContext).idUser;           
+                if (Binder.GetAllPhotoForUser(ID).FirstOrDefault().IDPhoto == IdPhoto)
+                return "1";
+            else return "0";
+        }
        
         [PageAuthorize(RoleID = 0)]        
         new public ActionResult Profile()
