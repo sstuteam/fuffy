@@ -232,3 +232,12 @@ C:\Users\DEn\Documents\fuffy30\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.pdb
 C:\Users\DEn\Documents\fuffy30\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\DEn\Documents\fuffy30\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.dll
 C:\Users\DEn\Documents\fuffy30\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.pdb
+C:\Users\DEn\Documents\fuffy32\[SSTU]fuffy_v.1.1\BLL\bin\Debug\BLL.dll
+C:\Users\DEn\Documents\fuffy32\[SSTU]fuffy_v.1.1\BLL\bin\Debug\BLL.pdb
+C:\Users\DEn\Documents\fuffy32\[SSTU]fuffy_v.1.1\BLL\bin\Debug\DAL.dll
+C:\Users\DEn\Documents\fuffy32\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.dll
+C:\Users\DEn\Documents\fuffy32\[SSTU]fuffy_v.1.1\BLL\bin\Debug\DAL.pdb
+C:\Users\DEn\Documents\fuffy32\[SSTU]fuffy_v.1.1\BLL\bin\Debug\Entities.pdb
+C:\Users\DEn\Documents\fuffy32\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\DEn\Documents\fuffy32\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.dll
+C:\Users\DEn\Documents\fuffy32\[SSTU]fuffy_v.1.1\BLL\obj\Debug\BLL.pdb

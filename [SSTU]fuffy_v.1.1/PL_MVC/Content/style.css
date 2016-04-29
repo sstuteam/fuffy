@@ -6,6 +6,8 @@
     background-position:right;
     background-attachment:fixed;
         padding:0;
+        font-family:monospace;
+        font-size:2vh;
         }
 
 .navbar {
@@ -18,6 +20,9 @@ input[type="search"]{
     width:200px;
     margin-left:auto;
     margin-right:auto;
+}
+.margin div{
+    margin:5px;
 }
 
 h3 {
@@ -36,6 +41,9 @@ h1, h2, h4 {
 }
 .category {
     margin-bottom: 20px;
+}
+.no-center-align{
+     text-align:start;
 }
 .content{
     /*padding-top:60px;*/
@@ -80,6 +88,7 @@ h1, h2, h4 {
     border-radius: 5px;
 }
 .main{
+    text-align:center;
     padding-bottom:10px;
     background-color: rgba(210, 206, 184, 0.75);
     border-radius: 0 0 5px 5px;
@@ -89,8 +98,9 @@ h1, h2, h4 {
     padding-bottom:10px;
 }
 .forcolons {
+    text-align:center;
     border:1px solid gray;
-    margin-top:35px;
+    /*margin-top:35px;*/
     border-radius:3px 3px;
     height: 50.5vh;
 }

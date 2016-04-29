@@ -10,11 +10,14 @@
         <h2>Create new album</h2>    
          @using (Html.BeginForm("Add", "Album", FormMethod.Get))
          {
+             <div class="margin">
             <div id="newlabel">
-                Title:   
+                Title:</div>
+                <div>   
                <input name="Name" value="@(Model == null ? "" : "Model.Name")" type="text">                            
 </div>
-<button name="Add">Ok</button>
+<button name="Add">Create</button>
+                 </div>
     }       
        <!-- <label>Model.IDUser</label>--><!--Не понятно, как передать юзер айди-->
         </div>

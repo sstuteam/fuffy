@@ -16,11 +16,7 @@
     width: 120px;
     height:120px;
 }
-.forcolons {
-   border:1px solid gray;
-    height: 45vh;
-text-align:center;
-}
+
 .scroll-x{
   overflow-x: scroll;
 }
@@ -35,7 +31,7 @@ text-align:center;
     padding-top: 20px;
 }
 .size{
-    width:100%;
+    width:15em;
     border-radius: 0 7px 7px 0;
     border-color:white;
     /*border-right: 7px; border-bottom:7px;*/

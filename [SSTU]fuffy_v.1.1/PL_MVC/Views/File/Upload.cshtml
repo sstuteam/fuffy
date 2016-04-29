@@ -3,17 +3,17 @@
     ViewBag.Title = "Upload";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-<div class="container content main">
+<div class="container main">
     <h2>Upload</h2>
-
+  
     @using (@Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
+    {  <div class="no-center-align">
         <input type="file" class="file" name="uploaded" />
         <p></p>
         <p>Title:</p>
-        <input type="text" name="Title"/>
+        <input type="text" name="Title" />
         <p>Specification:</p>
-        <textarea rows="5" cols="30"  name="spetification"></textarea>
+        <textarea rows="5" cols="30" name="spetification"></textarea>
         <p>Catigory:</p>
         <select name="Category" id="category">
             <option>Astrophotography</option>
@@ -28,7 +28,7 @@
             <option>Panorama</option>
             <option>Cats</option>
         </select>
-        <p/>
+        <p />
         <div>
             <span>Album:</span>
             <select name="AlbumName">
@@ -40,6 +40,7 @@
         </div>
         <p></p>
         <button type="submit">Send!</button>
-
+    </div>
     }
+    
 </div>
