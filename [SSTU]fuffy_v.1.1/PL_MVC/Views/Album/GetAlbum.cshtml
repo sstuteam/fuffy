@@ -1,9 +1,9 @@
-﻿@*@model IEnumerable<PL_MVC.Models.Album>
+﻿@model IEnumerable<PL_MVC.Models.Album>
 
 @foreach (var item in Model)
 {
 
     <div class="item">
-        <a href="@Url.Action("GetAlbum", "Album", new { idAlbum = item.IDAlbum }) ">@Html.DisplayFor(modelItem => item.Name)</a>
+        <a href="@Url.Action("GetAlbumView", "Album", new { idAlbum = item.IDAlbum }) ">@Html.DisplayFor(modelItem => item.Name)</a>
     </div>
-}*@
+}

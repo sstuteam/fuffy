@@ -35,9 +35,8 @@ text-align:center;
     padding-top: 20px;
 }
 .size{
-    width:15vw;
+    width:100%;
     border-radius: 0 7px 7px 0;
     border-color:white;
-    border: 3px outset;
     /*border-right: 7px; border-bottom:7px;*/
 }

@@ -42,8 +42,12 @@ namespace PL_MVC.Controllers
                     heh.photo = Binder.GetAlbumPhoto(albums.ElementAt(i).IDAlbum);
                     viy.Add(heh);
                 }
-                else { }
-                //viy.Add(heh);
+                else
+                {
+                    heh.photo = new Photo();
+                    viy.Add(heh);
+                }
+                //
             }
             IEnumerable<ProfileView> Terror = viy;
             //if (viy.Count != 0)
@@ -55,7 +59,8 @@ namespace PL_MVC.Controllers
             Photo InReturn;
             if (Binder.GetAlbumPhoto(idAlbum) != null)
             {
-                InReturn = Binder.GetAlbumPhoto(idAlbum); return File(InReturn.Image, "image/jpeg");
+                InReturn = Binder.GetAlbumPhoto(idAlbum);
+                return File(InReturn.Image, "image/jpeg");
             }
             else
             {
@@ -63,14 +68,15 @@ namespace PL_MVC.Controllers
                 return null;
             }
         }
-        public ActionResult GetAlbumView(Guid idAlbum) //это неправильно
+        public PartialViewResult GetAlbumView(Guid idAlbum) //это неправильно
         {
            IEnumerable<Photo> photos = Binder.GetAllPhotoForAlbum(idAlbum);/*.FirstOrDefault(i => i.IDAlbum == idAlbum);*/
+            ViewBag.AlbumName = Binder.GetAlbumName(idAlbum).Name;
             if (photos != null) 
             {
-                return RedirectToAction("Profile", "User", photos);
+                return PartialView(photos);
             }
-            else return RedirectToAction("Profile", "User");
+            else return PartialView(Binder.GetAllPhoto());
         }
 
     }

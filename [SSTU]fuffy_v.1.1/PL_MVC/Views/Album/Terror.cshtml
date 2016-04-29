@@ -4,7 +4,7 @@
         @foreach (var item in Model)
         {
             <th>
-                <a href="@Url.Action("GetAlbum", "Album", new { idAlbum = item.IdAlbum }) ">@Html.DisplayFor(modelItem => item.name)</a>
+                <a href="@Url.Action("GetAlbumView", "Album", new { idAlbum = item.IdAlbum }) ">@Html.DisplayFor(modelItem => item.name)</a>
             </th>
         }
     </tr>
@@ -12,7 +12,9 @@
         @foreach (var item in Model)
         {
             <th>
-                <img src="@Url.Action("GetPhoto", "File", new { item.photo.IDPhoto })" class="img-polaroid size" />
+                <a href="@Url.Action("GetAlbumView", "Album", new { idAlbum = item.IdAlbum }) ">
+                    <img src="@Url.Action("GetPhoto", "File", new { item.photo.IDPhoto })" class="img-polaroid size" />
+                </a>
             </th>
         }
     </tr>
