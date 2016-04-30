@@ -1,0 +1,9 @@
+﻿@model IEnumerable<PL_MVC.Models.User>
+
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6 col-sm-6">
+            <a href="@Url.Action("GetOtherUserPage","People", new { idOtherUser = item.idUser })"><img class="popular" src="@Url.Action("GetAvatar", "File", new { idUser=item.idUser})" /></a>
+</div>
+    }

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<PL_MVC.Models.Photo>
+
+@foreach (var item in Model)
+{
+    <div class="col-md-6 col-sm-6">
+        <a href="@Url.Action("GetPhotoView", "File", new { item.IDPhoto })">
+            <img class="popular" src="@Url.Action("GetPhoto", "File", new { idPhoto=item.IDPhoto})" />
+
+        </a>
+    </div>
+}

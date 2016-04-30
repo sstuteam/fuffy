@@ -34,10 +34,10 @@ namespace PL_MVC.Models
         //public DateTime dateOfBirthday;  //Дата рождения
         public int countOfLikes; //Количество лайков, поставленных пользователю за все его фотографии
         public int countOfAlbum; //Количество альбомов   
-        public int GetCountOfLikesForUser(Guid id)
+        public int GetCountOfLikesForUser()
         {
             int count = 0;
-            IEnumerable<Photo> photoes = Binder.GetAllPhotoForUser(id);
+            IEnumerable<Photo> photoes = Binder.GetAllPhotoForUser(idUser);
             foreach (var photo in photoes)
             {
 

@@ -13,7 +13,7 @@ namespace PL_MVC.Controllers
         public ActionResult People()
         {
             var allUsers = Binder.GetUsers();
-            IEnumerable<User> sorted = allUsers.OrderBy(x => x.countOfLikes);
+            IEnumerable<User> sorted = allUsers.OrderBy(x => x.GetCountOfLikesForUser()).Reverse();
             return View(sorted);
         }
         public ActionResult GetOtherUserPage(Guid idOtherUser)

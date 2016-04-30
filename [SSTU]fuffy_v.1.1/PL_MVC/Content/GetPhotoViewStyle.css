@@ -1,7 +1,8 @@
 ﻿body {
 }
 .comments{
-    margin-top:5vh;
+    margin:0;
+    text-align:start;
 }
 .place-for-comments{
     margin:5px;

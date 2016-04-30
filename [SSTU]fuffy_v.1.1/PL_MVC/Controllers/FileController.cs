@@ -84,7 +84,7 @@ namespace PL_MVC.Controllers
         public PartialViewResult PartialPhoto(Guid id)
         {
             var photoes = Binder.GetAllPhotoForUser(id);
-            IEnumerable<Photo> sortedPhotoes = photoes.OrderBy(photo => photo.Data);
+            IEnumerable<Photo> sortedPhotoes = photoes.OrderBy(photo => photo.Data).Reverse();
             return PartialView(sortedPhotoes);
         }
         [HttpGet]
@@ -93,6 +93,7 @@ namespace PL_MVC.Controllers
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
             ViewBag.AlbumName = Binder.GetAlbumName(photo.IDAlbum).Name;
             ViewBag.CountLikes=Binder.GetLikes(idPhoto);
+            
             if (photo != null)
             {
                 return View(photo);

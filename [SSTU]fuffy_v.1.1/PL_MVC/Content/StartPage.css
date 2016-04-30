@@ -342,6 +342,7 @@ nav{
 .popular{
     width:100%;
     margin-bottom:15px;
+    border-radius:3px;
 }
 .color-for-text{
     color:white;

@@ -180,41 +180,15 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h2 class="color-for-text">Популярные пользователи</h2>
+                    <h2 class="color-for-text">Popular photos</h2>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <img class="popular" src="~/Content/Photo/2.jpg"/>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <img class="popular"src="~/Content/Photo/2.jpg" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <img class="popular" src="~/Content/Photo/2.jpg" />
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <img class="popular" src="~/Content/Photo/2.jpg" />
-                        </div>
+                        @Html.Action("GetPopularPhotos")
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
-                    <h2 class="color-for-text">Популярные фотографии</h2>
+                    <h2 class="color-for-text">Popular users</h2>
                     <div class="row">
-                        <div class="col-md-6 col-sm-6 ">
-                            <img class="popular" src="~/Content/Photo/2.jpg" />
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <img class="popular" src="~/Content/Photo/2.jpg" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <img class="popular" src="~/Content/Photo/2.jpg" />
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <img class="popular" src="~/Content/Photo/2.jpg" />
-                        </div>
+                        @Html.Action("GetPopularUsers")
                     </div>
                 </div>
             </div>

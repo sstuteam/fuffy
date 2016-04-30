@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PL_MVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,8 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public ActionResult Settings()
         {
-            return View();
+            var user = AuthHelper.GetUser(HttpContext);
+            return View(user);
         }
     }
 }

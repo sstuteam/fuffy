@@ -17,7 +17,7 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public PartialViewResult GetComment(Guid id) //это правильно
         {
-            var comments = Binder.GetComments(id);
+            var comments = Binder.GetComments(id).OrderBy(x=>x.Date);
             if (comments.Count() != 0)
             {
                 ViewBag.UserName = Binder.GetUser(comments.FirstOrDefault().UserId).Name;
