@@ -550,7 +550,25 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
-        
+
+        public bool UpdateUser(User user)
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET ([Login]=@Login,[Nick]=@Name,[RoleId]=@RoleId,[Status]=@Status,[Password]=@Password,[Email]=@Email) WHERE ID=@ID", c);
+                com.Parameters.AddWithValue("@Login", user.Login);
+                com.Parameters.AddWithValue("@Name", user.Name);
+                com.Parameters.AddWithValue("@RoleId", user.RoleId);
+                com.Parameters.AddWithValue("@Status", user.Status);
+                //com.Parameters.AddWithValue("@IsBlocked", user.IsBlocked);
+                //com.Parameters.AddWithValue("@Hobbies", user.Hobbies);
+                com.Parameters.AddWithValue("@Password", user.Password);
+                com.Parameters.AddWithValue("@Email", user.Email);
+                com.Parameters.AddWithValue("@ID", user.idUser);
+                c.Open();
+                return com.ExecuteNonQuery() == 1;
+            }
+        }
     }
 
 }

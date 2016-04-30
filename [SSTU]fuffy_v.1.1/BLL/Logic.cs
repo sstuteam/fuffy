@@ -190,5 +190,9 @@ namespace BLL
         //{
         //    return dal.GetUser(Login, Password);
         //}
+        public bool UpdateUser(User user)
+        {
+            return dal.UpdateUser(user);
+        }
     }
 }

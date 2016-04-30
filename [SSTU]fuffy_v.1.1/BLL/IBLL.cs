@@ -48,5 +48,6 @@ namespace BLL
         User GetUser(string Login, string Password);
         User GetUser(Guid id);
         IEnumerable<User> GetAllUser();
+        bool UpdateUser(User user);
     }
 }

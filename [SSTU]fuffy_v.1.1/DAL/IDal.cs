@@ -42,5 +42,6 @@ namespace DAL
         User GetUser(string cookie);                    //
         User GetUser(string Login, string Password);    //
         User GetUser(Guid id);
+        bool UpdateUser(User user);
     }
 }

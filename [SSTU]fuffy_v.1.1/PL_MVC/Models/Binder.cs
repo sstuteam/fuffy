@@ -269,5 +269,9 @@ namespace PL_MVC.Models
         {
             return bll.DeleteLikePhoto(Id);
         }
+        public static bool UpdateUser(User user)
+        {
+            return bll.UpdateUser(user);
+        }
     }
 }
