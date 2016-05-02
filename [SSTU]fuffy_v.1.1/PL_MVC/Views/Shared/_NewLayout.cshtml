@@ -15,48 +15,59 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse"> <!--Убрала navbar-fixed-top, т.к. при резких рывках он глючил -_- -->
+    <div class="navbar navbar-inverse">
+        <!--Убрала navbar-fixed-top, т.к. при резких рывках он глючил -_- -->
         <div class="container">
             <div class="navbar-header">
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Fuffy", "News", "News")</li>
+                    </ul>
+                }
+                else {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Fuffy", "Index", "Home")</li>
+                    </ul>
+                }
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Fuffy", "News", "News")</li>
-                </ul>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("People", "People", "People")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    @*@if (User.Identity.IsAuthenticated) {*@ 
+                    @if (User.Identity.IsAuthenticated)
+                    {
                         <li>@Html.ActionLink("Settings", "Settings", "Settings")</li>
                         <li>@Html.ActionLink("Add album", "NewAlbum", "Album")</li>
                         <li>@Html.ActionLink("Upload", "Upload", "File")</li>
                         <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
-                    
+
+                        <li>
+                            @Html.ActionLink("Profile", "Profile", "User")
+                            @*@Html.Action("GetAvatar", "File", new { Model.idUser })*@
+                            @* <img style="width:32px" class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser=Model.idUser })">*@
+
+                        </li>
+                    }
                     <li>
-                        @Html.ActionLink("Profile", "Profile", "User")
-                        @*@Html.Action("GetAvatar", "File", new { Model.idUser })*@
-                           @* <img style="width:32px" class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser=Model.idUser })">*@
-                        
-                    </li>
-                    @*  }*@
-                    <li>
-                       @using (@Html.BeginForm("Search", "Search"))
-                       {
-                            <input name="name" type="text" class="form-control" placeholder="Search...">
-                       }
+                        @using (@Html.BeginForm("Search", "Search"))
+                        {
+                            <input name="name" type="text" class="form-control width-for-search" placeholder="Search...">
+                        }
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    
-        @RenderBody()
+
+    @RenderBody()
 
     <footer>Fuffy &copy; 2016</footer>
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>

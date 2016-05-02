@@ -10,6 +10,7 @@ namespace PL_MVC.Controllers
 {
     public class FileController : Controller
     {
+        [Authorize]
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase uploaded,string AlbumName, string Title, string spetification,string Category)
         {           
@@ -43,6 +44,7 @@ namespace PL_MVC.Controllers
             }
             return RedirectToAction("Profile", "User", user);
         }
+        [Authorize]
         [HttpGet]
         public ActionResult Upload()
         {
@@ -103,11 +105,17 @@ namespace PL_MVC.Controllers
                 return null;
             }
         }
+        [Authorize]
         public ActionResult DeletePhoto(Guid idPhoto)
         {
             if (Binder.DeletePhoto(idPhoto))
+            {
                 return RedirectToAction("Profile", "User");
-            else return null;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

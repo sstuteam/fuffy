@@ -11,19 +11,19 @@ var yhl = 0;
 //    yhl = 1;
 //})
 
-    //$(document.body).on("click", ".like", function (e) {
-    //    var element = (this);
-    //    e.preventDefault();
-    //    $.ajax({
-    //        url: $(element).attr("href"),
-    //        data: null,
-    //        type: 'Post',
-    //        success:function(data){
-    //            $('.like').val(data);
-                
-    //        }
-    //    })
-    //})
+$(document.body).on("click", "#like", function (e) {
+    var element = (this);
+    e.preventDefault();
+    $.ajax({
+        url: $(element).attr("data-href"),
+        data: null,
+        type: 'Post',
+        success: function (data) {
+            $('#CountLike').text(data);
+        }
+    })
+})
+
 
     //$('.sendcomment').click(function () {
     //    $.ajax({

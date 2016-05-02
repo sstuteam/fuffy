@@ -1188,7 +1188,6 @@ C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\PL_MVC.pdb
 C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\BLL.dll
 C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\Entities.dll
 C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\System.Web.Helpers.dll
 C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\System.Web.Mvc.dll
 C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\System.Web.Razor.dll
@@ -1212,3 +1211,4 @@ C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\ru\System.Web.Webpag
 C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\ru\System.Web.Webpages.Razor.resources.dll
 C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\ru\System.Web.Helpers.resources.dll
 C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\ru\System.Web.Mvc.resources.dll
+C:\Users\DEn\Documents\fuffy33\[SSTU]fuffy_v.1.1\PL_MVC\bin\Microsoft.Web.Infrastructure.dll

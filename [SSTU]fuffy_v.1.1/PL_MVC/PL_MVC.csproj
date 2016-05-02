@@ -182,6 +182,7 @@
     <Compile Include="Controllers\LikeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Models\FuffyRoleProvider.cs" />
     <Compile Include="Models\Like.cs" />
     <Compile Include="Models\PhotoContent.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />

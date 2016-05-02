@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PL_MVC.Models;
+using System.Web.Security;
 
 namespace PL_MVC.Controllers
 {
@@ -18,9 +19,11 @@ namespace PL_MVC.Controllers
         public ActionResult LogIn(Home homeModel)
         {
             User user = Binder.GetUser(homeModel.Login, homeModel.Password);
+            
             if (user != null)
             {
                 AuthHelper.LogInUser(HttpContext, user.Cookies);
+                FormsAuthentication.SetAuthCookie(user.Login, user.IsRemember);
                 switch (user.RoleId)
                 {
                     case 0: return RedirectToAction(nameof(UserController.Profile), "User");

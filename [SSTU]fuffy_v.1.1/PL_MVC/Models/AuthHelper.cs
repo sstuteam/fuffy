@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Security;
 
 namespace PL_MVC.Models
 {
@@ -22,6 +23,7 @@ namespace PL_MVC.Models
                 Expires = DateTime.Now.AddYears(1)
             };
             httpContext.Response.Cookies.Add(cookie);
+
         }
         /// <summary>
         /// Выход пользователя, установление недействительного куки
@@ -29,7 +31,8 @@ namespace PL_MVC.Models
         /// <param name="httpContext"></param>
         public static void LogOffUser(HttpContextBase httpContext)
         {
-            if(httpContext.Request.Cookies["auth"]!=null)
+            FormsAuthentication.SignOut();
+            if (httpContext.Request.Cookies["auth"] != null)
             {
                 var cookie = new HttpCookie("auth")
                 {

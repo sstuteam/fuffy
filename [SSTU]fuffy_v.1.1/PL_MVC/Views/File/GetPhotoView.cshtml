@@ -25,13 +25,14 @@
             <div class="row">
                 @ViewBag.UserName
             </div>
-            <div class="row likes">
-                Likes:
-                @Html.Action("GetLikesForPhoto", "Like", new { id = Model.IDPhoto })
+            <div class="row likes">Likes:
+                <span id="CountLike"> @Html.Action("GetLikesForPhoto", "Like", new { id = Model.IDPhoto })</span>
+
+
                 <div class="add-like">
                     @using (Html.BeginForm("AddLikePhoto", "Like", new { idPhoto = Model.IDPhoto }))
                     {
-                        <button id="like" type="submit"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                        <button id="like" type="submit" data-href="@Url.Action("AddLikePhoto", "Like", new { idPhoto = Model.IDPhoto } )"><span class="glyphicon glyphicon-thumbs-up"></span></button>
                     }
                 </div>
                 @*<div id="delete-like">
@@ -42,12 +43,10 @@
                 </div>*@
                 <br>
             </div>
-            @*@if (Url.Action("IsMyPhoto", "User", new { id = Model.IDPhoto })=="1")
-            {*@ 
+          
            <div class="row active" >
                <a href="@Url.Action("DeletePhoto","File", new { idPhoto = Model.IDPhoto })" >Delete photo</a>
              </div>
-            @* } *@
               
         </div>
     </div>

@@ -10,6 +10,7 @@ namespace PL_MVC.Controllers
     public class PeopleController : Controller
     {
         // GET: People
+        [Authorize]
         public ActionResult People()
         {
             var allUsers = Binder.GetUsers();

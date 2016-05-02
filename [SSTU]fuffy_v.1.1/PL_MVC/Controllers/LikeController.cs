@@ -18,16 +18,12 @@ namespace PL_MVC.Controllers
         public PartialViewResult GetLikesForPhoto(Guid id) //это правильно
         {
             ViewBag.Likes = Binder.GetLikes(id);
+            if (Request.IsAjaxRequest())
+            {
+                return Json(ViewBag.Likes, JsonRequestBehavior.AllowGet); //Json(ViewBag.Likes, JsonRequestBehavior.AllowGet);
+            }
             return PartialView();
-
         }
-        //[HttpGet]
-        //public PartialViewResult GetLikesForComment(Guid idComment)
-        //{
-        //    ViewBag.Likes = Binder.GetLikesForComment(idComment);
-        //    return PartialView();
-
-        //}
         [HttpPost]
         public ActionResult AddLikePhoto(Guid idPhoto)
         {
@@ -35,18 +31,13 @@ namespace PL_MVC.Controllers
             var user = AuthHelper.GetUser(HttpContext);
             Binder.AddLike(idPhoto, new Like() { UserId = user.idUser, PhotoId = photo.IDPhoto });
             idPhoto = photo.IDPhoto;
+            if (Request.IsAjaxRequest())
+            {
+                return Json(Binder.GetLikes(idPhoto) , JsonRequestBehavior.AllowGet);
+            }
             return RedirectToAction("GetPhotoView", "File", new { idPhoto });
             //return RedirectToAction("Profile", "User", user);
-        }
-        //[HttpPost]
-        //public ActionResult AddLikeForComment(Guid idComment)
-        //{
-        //    Comment comment = Binder.GetComments().FirstOrDefault(i => i.CommentId == idComment);
-        //    Binder.AddLike(idComment);
-        //    idComment = comment.CommentId;
-        //    return RedirectToAction("GetPhotoView", "File", new { idComment });
-        //    //return RedirectToAction("Profile", "User", user);
-        //}
+        } //return RedirectToAction("Profile", "User", user);
         [HttpPost]
         public ActionResult DeleteLikePhoto(Guid idPhoto)
         {
@@ -56,14 +47,5 @@ namespace PL_MVC.Controllers
             return RedirectToAction("GetPhotoView", "File", new { idPhoto });
             //return RedirectToAction("Profile", "User", user);
         }
-        //[HttpPost]
-        //public ActionResult DeleteLikeForComment(Guid idComment)
-        //{
-        //    Comment comment = Binder.GetComments().FirstOrDefault(i => i.CommentId == idComment);
-        //    Binder.DeleteLike(idComment);
-        //    idComment = comment.CommentId;
-        //    return RedirectToAction("GetPhotoView", "File", new { idComment });
-        //    //return RedirectToAction("Profile", "User", user);
-        //}
     }
 }

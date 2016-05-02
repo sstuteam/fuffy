@@ -11,7 +11,7 @@ namespace PL_MVC.Models
     {
         public string Login { get; set; }
         public string Password { get; set; } // пароль будет зашифрованном виде
-
+        public bool IsRemember { get; set; }
         public string PasswordRepeat { get; set; }
         public Guid idUser; //а нужен ли id в моделях?
         public string Name { get; set; }
