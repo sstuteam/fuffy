@@ -49,14 +49,8 @@ namespace PL_MVC.Controllers
         }
         public ActionResult DeleteComment(Guid commentId)
         {
-            if (Binder.DeleteComment(commentId))
-            {
-                return RedirectToAction("Profile", "User");
-            }
-            else
-            {
-                return null;
-            }
+            Binder.DeleteComment(commentId);            
+            return RedirectToAction("Profile", "User");            
         }
     }
 }

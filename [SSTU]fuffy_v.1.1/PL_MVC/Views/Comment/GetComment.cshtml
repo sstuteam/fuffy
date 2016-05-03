@@ -21,7 +21,7 @@
             @Html.ActionLink("Edit", "Edit", new { id = item.CommentId })
         </div>
         <div class="comment-edit">
-            @Html.ActionLink("DeleteComment", "Comment", new { id = item.CommentId })
+            @Html.ActionLink("DeleteComment", "DeleteComment", new { commentId = item.CommentId })
         </div>
     </div>
     
