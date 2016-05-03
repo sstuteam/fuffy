@@ -47,5 +47,16 @@ namespace PL_MVC.Controllers
             return RedirectToAction("GetPhotoView", "File", new { idPhoto });
             //return RedirectToAction("Profile", "User", user);
         }
+        public ActionResult DeleteComment(Guid commentId)
+        {
+            if (Binder.DeleteComment(commentId))
+            {
+                return RedirectToAction("Profile", "User");
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

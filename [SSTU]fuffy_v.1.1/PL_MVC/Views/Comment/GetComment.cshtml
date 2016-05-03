@@ -20,6 +20,9 @@
         <div class="comment-edit">
             @Html.ActionLink("Edit", "Edit", new { id = item.CommentId })
         </div>
+        <div class="comment-edit">
+            @Html.ActionLink("DeleteComment", "Comment", new { id = item.CommentId })
+        </div>
     </div>
-
+    
 }
