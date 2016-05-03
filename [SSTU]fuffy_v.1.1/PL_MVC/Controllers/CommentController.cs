@@ -18,9 +18,9 @@ namespace PL_MVC.Controllers
         public PartialViewResult GetComment(Guid id) //это правильно
         {
             var comments = Binder.GetComments(id).OrderBy(x=>x.Date);
+            ViewBag.UserId = AuthHelper.GetUser(HttpContext).idUser;
             if (comments.Count() != 0)
             {
-                ViewBag.UserName = Binder.GetUser(comments.FirstOrDefault().UserId).Name;
                 return PartialView(comments);
             }
             else return null;
@@ -31,6 +31,7 @@ namespace PL_MVC.Controllers
         {
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
             var user = AuthHelper.GetUser(HttpContext);
+            
             if (text != null)
             {
 
@@ -49,8 +50,10 @@ namespace PL_MVC.Controllers
         }
         public ActionResult DeleteComment(Guid commentId)
         {
+            Comment comment = Binder.GetComments().FirstOrDefault(x => x.CommentId == commentId);
+            Guid idPhoto = comment.PhotoId;
             Binder.DeleteComment(commentId);            
-            return RedirectToAction("Profile", "User");            
+            return RedirectToAction("GetPhotoView", "File", new { idPhoto});            
         }
     }
 }

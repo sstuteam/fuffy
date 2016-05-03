@@ -21,6 +21,11 @@ namespace PL_MVC.Models
 
         public Comment() { }
         
+        public string GetUserName()
+        {
+            return Binder.GetUser(UserId).Name;
+        }
+
         public static implicit operator Entities.Comment(Comment CommentModel)
         {
             if (CommentModel != null)
