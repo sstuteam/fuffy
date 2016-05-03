@@ -15,7 +15,7 @@
         @if (ViewBag.UserId == item.UserId)
         {
         <div class="comment-edit">
-            @Html.ActionLink("Edit", "Edit", new { id = item.CommentId })
+            @Html.ActionLink("Edit", "EditComment", new { commentId=item.CommentId })
         </div>
         <div class="comment-edit">
             @Html.ActionLink("DeleteComment", "DeleteComment", new { commentId = item.CommentId })

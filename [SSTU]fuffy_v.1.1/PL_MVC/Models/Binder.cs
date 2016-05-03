@@ -281,5 +281,9 @@ namespace PL_MVC.Models
         {
             return bll.UpdateUser(user);
         }
+        public static bool EditComment(Comment comment)
+        {
+            return bll.EditComment(comment);
+        }
     }
 }

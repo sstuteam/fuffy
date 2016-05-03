@@ -198,5 +198,10 @@ namespace BLL
         {
             return dal.UpdateUser(user);
         }
+
+        public bool EditComment(Comment comment)
+        {
+            return dal.EditComment(comment);
+        }
     }
 }

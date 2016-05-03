@@ -23,6 +23,7 @@ namespace DAL
         bool GetAvatar(Guid UserId);
         IEnumerable<Photo> Search(string name, string fragment);
         Photo GetPhoto(Guid idPhoto);
+
         //комментарии
         bool AddComment(Comment comment);
         bool DeleteComment(Guid commentId);
@@ -34,6 +35,7 @@ namespace DAL
         bool AddLikeComment(Guid Id);
         bool DeleteLikeComment(Guid CommentId);
         IEnumerable<Comment> GetComments();
+        bool EditComment(Comment comment);
 
         //пользователи
         bool Add(User user);

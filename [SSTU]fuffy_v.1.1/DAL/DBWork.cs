@@ -581,6 +581,18 @@ namespace DAL
                 return com.ExecuteNonQuery() == 1;
             }
         }
+        public bool EditComment(Comment comment)
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Comment] SET [Comment]=@Comment, [Date]=@Date WHERE CommentId=@CommentId", c);
+                com.Parameters.AddWithValue("@CommentId", comment.CommentId);
+                com.Parameters.AddWithValue("@Date", comment.Date);
+                com.Parameters.AddWithValue("@Comment", comment.Text);
+                c.Open();
+                return com.ExecuteNonQuery() == 1;
+            }
+        }
     }
 
 }

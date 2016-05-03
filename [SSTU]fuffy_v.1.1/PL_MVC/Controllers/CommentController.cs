@@ -52,8 +52,21 @@ namespace PL_MVC.Controllers
         {
             Comment comment = Binder.GetComments().FirstOrDefault(x => x.CommentId == commentId);
             Guid idPhoto = comment.PhotoId;
-            Binder.DeleteComment(commentId);            
+            Binder.DeleteComment(commentId);
             return RedirectToAction("GetPhotoView", "File", new { idPhoto});            
+        }
+        [HttpGet]
+        public ActionResult EditComment(Guid commentId)
+        {
+            Comment comment = Binder.GetComments().FirstOrDefault(x => x.CommentId == commentId);
+            return View(comment);
+        }
+        [HttpPost]
+        public ActionResult EditComment(Comment comment)
+        {
+            Binder.EditComment(comment);
+            Guid idPhoto = comment.PhotoId;
+            return RedirectToAction("GetPhotoView", "File", new { idPhoto });
         }
     }
 }

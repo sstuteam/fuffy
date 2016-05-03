@@ -39,6 +39,7 @@ namespace BLL
         bool AddLikeComment(Guid CommentId);
         bool DeleteLikeComment(Guid CommentId);
         IEnumerable<Comment> GetComments();
+        bool EditComment(Comment comment);
 
         //пользователи
         bool AddUser(User user);
