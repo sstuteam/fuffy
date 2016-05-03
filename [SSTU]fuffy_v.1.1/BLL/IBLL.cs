@@ -30,6 +30,7 @@ namespace BLL
         //комментарии
         IEnumerable<Comment> GetComments(Guid id);
         bool AddComment(Comment comment);
+        bool DeleteComment(Guid commentId);
         bool CheckAlbumName(Guid Id, string Name);
         int GetLikesPhoto(Guid Id);
         bool AddLikePhoto(Guid Id, Like like);

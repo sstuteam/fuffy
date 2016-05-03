@@ -204,6 +204,18 @@ namespace DAL
         {
             return GetComments().Where(item => item.PhotoId == id);
         }
+        public bool DeleteComment(Guid commentId)
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand comComent = new SqlCommand("DELETE FROM [dbo].[Comment] WHERE CommentID=@commentId", c);
+                comComent.Parameters.AddWithValue("@PhotoId", commentId);
+                c.Open();
+                var b = comComent.ExecuteNonQuery();
+                return b > -1 ;
+            }
+        }       
+
         public bool DeletePhoto(Guid id)  /////////////////////////////////////////////////////////////////////////////////////
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))

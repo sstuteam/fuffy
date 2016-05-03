@@ -25,6 +25,7 @@ namespace DAL
         Photo GetPhoto(Guid idPhoto);
         //комментарии
         bool AddComment(Comment comment);
+        bool DeleteComment(Guid commentId);
         IEnumerable<Comment> GetComments(Guid id);
         int GetLikesPhoto(Guid Id);
         bool AddLikePhoto(Guid Id, Like like);

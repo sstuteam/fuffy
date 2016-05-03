@@ -91,6 +91,10 @@ namespace PL_MVC.Models
         {
             return bll.AddComment(comment);
         }
+        public static bool DeleteComment(Guid commentId)
+        {
+            return bll.DeleteComment(commentId);
+        }
        
         public static IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum)
         {

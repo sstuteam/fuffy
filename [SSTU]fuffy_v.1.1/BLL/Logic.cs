@@ -52,6 +52,10 @@ namespace BLL
             comment.Date = DateTime.Now;
             return dal.AddComment(comment);
         }
+        public bool DeleteComment(Guid commentId)
+        {
+            return dal.DeleteComment(commentId);
+        }
 
         public bool AddUser(User user)
         {
