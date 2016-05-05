@@ -17,22 +17,6 @@ namespace DAL
         {
             ConnectionString = ConfigurationManager.ConnectionStrings["FuffyDB"].ConnectionString;
         }
-
-        //public bool AddPhoto(Album album)
-        //{
-        //    using (SqlConnection c = new SqlConnection(ConnectionString))
-        //    {
-        //        SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Album] ([ID],[IDAlbum],[Name],[Spetification]) VALUES (@ID,@IDAlbum,@Name,@Spetification)", c);
-        //        com.Parameters.AddWithValue("@ID", album.IDUser);
-        //        com.Parameters.AddWithValue("@IDAlbum", album.IDAlbum);
-        //        com.Parameters.AddWithValue("@Name", album.Name);
-        //        com.Parameters.AddWithValue("@Spetification", album.Spetification);
-        //        c.Open();
-        //        var a = com.ExecuteNonQuery();         //попробывать другой вариант
-        //        return a > 0;
-        //    }
-        //}
-
         public bool Add(User user)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
@@ -234,6 +218,44 @@ namespace DAL
             }            
            
         }
+        public bool DeleteAllUserAlbums(Guid id)
+        {
+            var listAlbums = GetAllAlbumsForUser(id);
+            int count = listAlbums.Count();
+            int c = 0;          
+            foreach (var item in listAlbums)
+            {
+                c++;          
+                 DeleteAlbum(item.IDAlbum);
+            }
+            if (c == count)
+                return true;
+            else return false;
+            //
+        }
+        public bool DeleteAlbum(Guid Albumid)//////////////////////////////////////////////////////////////////////////////////////
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("DELETE FROM [dbo].[Album] WHERE IDAlbum=@IDAlbum", c);
+                com.Parameters.AddWithValue("@IDAlbum", Albumid);
+                c.Open();
+                var reader = com.ExecuteNonQuery();
+                return (reader > -1);
+                }
+            }
+        public bool DeleteUser(Guid UserID)//////////////////////////////////////////////////////////////////////////////////////
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("DELETE FROM [dbo].[Login] WHERE ID=@ID", c);
+                com.Parameters.AddWithValue("@ID", UserID);
+                c.Open();
+                var reader = com.ExecuteNonQuery();
+                return (reader > -1);
+            }
+        }
+
         public IEnumerable<Comment> GetComments()
         {
             var listComment = new List<Comment>();
@@ -593,6 +615,60 @@ namespace DAL
                 return com.ExecuteNonQuery() == 1;
             }
         }
+        //public bool Delete
+        public bool CreateAdmin(User user)//////////
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET RoleId=@RoleId WHERE ID=@ID", c);               
+                com.Parameters.AddWithValue("@RoleId", user.RoleId);              
+                com.Parameters.AddWithValue("@ID", user.idUser);
+                c.Open();
+                var a = com.ExecuteNonQuery();
+                return (a >- 1);               
+            }
+        }
+        public bool BlockUser(User user)//////////
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET RoleId=@RoleId WHERE ID=@ID", c);
+                com.Parameters.AddWithValue("@RoleId", user.RoleId);
+                com.Parameters.AddWithValue("@ID", user.idUser);
+                c.Open();
+                var a = com.ExecuteNonQuery();
+                return (a > -1);
+            }
+        }
+        public bool UnBlockUser(User user)//////////
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET RoleId=@RoleId WHERE ID=@ID", c);
+                com.Parameters.AddWithValue("@RoleId", user.RoleId);
+                com.Parameters.AddWithValue("@ID", user.idUser);
+                c.Open();
+                var a = com.ExecuteNonQuery();
+                return (a > -1);
+            }
+        }
+        public bool CreateModerator(User user)//////////
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET RoleId=@RoleId WHERE ID=@ID", c);
+                com.Parameters.AddWithValue("@RoleId", user.RoleId);
+                com.Parameters.AddWithValue("@ID", user.idUser);
+                c.Open();
+                var a = com.ExecuteNonQuery();
+                return (a > -1);
+            }
+        }
+
     }
 
 }

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using DAL;
 using Entities;
 
+
+
 namespace BLL
 {
     public class Logic : IBLL
@@ -154,7 +156,12 @@ namespace BLL
         }
         public bool AddLikePhoto(Guid Id, Like like)
         {
-            return dal.AddLikePhoto(Id, like);
+            User T=dal.GetAllUser().FirstOrDefault(x => x.idUser == Id);
+            if (T.RoleId != 3)
+            {
+                return dal.AddLikePhoto(Id, like);
+            }
+            else return true;//чтоб не получал лайки, пёс
         }
         public bool DeleteLikePhoto(Guid Id)
         {
@@ -166,7 +173,13 @@ namespace BLL
         }
         public bool AddLikeComment(Guid CommentId)
         {
-            return dal.AddLikeComment(CommentId);
+            Comment T = dal.GetComments().FirstOrDefault(x => x.CommentId == CommentId);
+            var TT = dal.GetAllUser().FirstOrDefault(x => x.idUser == T.UserId);
+            if (TT.RoleId != 3)
+            {
+                return dal.AddLikeComment(CommentId);
+            }
+            else return true; //чтоб не получал лайки, пёс
         }
         public bool DeleteLikeComment(Guid CommentId)
         {
@@ -202,6 +215,52 @@ namespace BLL
         public bool EditComment(Comment comment)
         {
             return dal.EditComment(comment);
+        }
+        
+        public bool DeleteUser(string name)  ///////////////
+        {
+            User user = dal.GetAllUser().FirstOrDefault(x => x.Name==name);
+            //dal.GetAllAlbumsForUser(IdUser);
+            if (user.RoleId != 1)
+            {
+                var Array = dal.GetAllPhotoForUser(user.idUser);
+                foreach (var item in Array)
+                {
+                    dal.DeletePhoto(item.IDPhoto);
+                }
+                dal.DeleteAllUserAlbums(user.idUser);
+                dal.DeleteUser(user.idUser);
+            }
+
+            return true;        
+        }
+        public  bool CreateAdmin(string name)
+        {
+            User Get = dal.GetAllUser().FirstOrDefault(x => x.Name == name);
+            Get.RoleId = 1;
+            dal.CreateAdmin(Get);            
+            return true;/////////
+        }
+        public  bool CreateModerator(string name)
+        {
+            User Get = dal.GetAllUser().FirstOrDefault(x => x.Name == name);
+            Get.RoleId = 2;
+            dal.CreateModerator(Get);
+            return true;/////////////////////
+        }
+        public  bool BlockUser(string name)
+        {
+            User Get = dal.GetAllUser().FirstOrDefault(x => x.Name == name);
+            Get.RoleId = 3;
+            dal.BlockUser(Get);
+            return true;////////////////////
+        }
+        public  bool UnBlockUser(string name)
+        {
+            User Get = dal.GetAllUser().FirstOrDefault(x => x.Name == name);
+            Get.RoleId = 0;
+            dal.UnBlockUser(Get);
+            return true;//////////////////////////
         }
     }
 }

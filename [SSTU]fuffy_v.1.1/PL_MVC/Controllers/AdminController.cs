@@ -28,10 +28,37 @@ namespace PL_MVC.Controllers
         {
             return View("~/Views/Admin/Pages.cshtml");
         }
-
+        [PageAuthorize(RoleID = 1)]
         public ActionResult UserLists()
         {
-            return View("~/Views/Admin/Users.cshtml");
+        var allUsers = Binder.GetUsers();
+        IEnumerable<User> sorted = allUsers.OrderBy(x => x.GetCountOfLikesForUser()).Reverse();        
+            return View("~/Views/Admin/Users.cshtml",sorted);
         }
+        [PageAuthorize(RoleID = 1)]
+        public ActionResult Operation(string Name,string action)//////////////////////////////////////////////////////////////////////////////////////////
+        {
+            if (Name != null)
+            {
+                bool t=false;
+                if (action == "Delete")
+                { t = Binder.DeleteUser(Name); }
+                else if (action == "Block")
+                { t = Binder.BlockUser(Name); }
+                else if (action == "UnBlock")
+                { t = Binder.UnBlockUser(Name); }
+                else if (action == "Moderator")
+                { t = Binder.CreateModerator(Name); }
+                else if (action == "Admin")
+                { t = Binder.CreateAdmin(Name); }
+                else return null;
+                if (t == true)
+                {
+                    return RedirectToAction(nameof(Pages));
+                }
+                else return null;
+            }
+            else return null;
+        }      
     }
 }

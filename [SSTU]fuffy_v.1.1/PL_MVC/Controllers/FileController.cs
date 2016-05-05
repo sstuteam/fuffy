@@ -12,6 +12,7 @@ namespace PL_MVC.Controllers
     {
         [Authorize]
         [HttpPost]
+        [PageAuthorize(RoleID = 0)PageAuthorize(RoleID = 2)]
         public ActionResult Upload(HttpPostedFileBase uploaded,string AlbumName, string Title, string spetification,string Category)
         {           
             var user = AuthHelper.GetUser(HttpContext);
@@ -46,6 +47,7 @@ namespace PL_MVC.Controllers
         }
         [Authorize]
         [HttpGet]
+        [PageAuthorize(RoleID = 0)PageAuthorize(RoleID = 2)]
         public ActionResult Upload()
         {
             User user = AuthHelper.GetUser(HttpContext);

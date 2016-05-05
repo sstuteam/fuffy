@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PL_MVC.Models;
 
 namespace PL_MVC.Controllers
 {
@@ -26,7 +27,8 @@ namespace PL_MVC.Controllers
             else return null;
             
         }
-        [HttpPost]
+        [PageAuthorize(RoleID = 0)PageAuthorize(RoleID = 2)]
+        [HttpPost]       
         public ActionResult AddComment(string text, Guid idPhoto)
         {
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
@@ -48,6 +50,7 @@ namespace PL_MVC.Controllers
             return RedirectToAction("GetPhotoView", "File", new { idPhoto });
             //return RedirectToAction("Profile", "User", user);
         }
+        [PageAuthorize(RoleID = 2)]
         public ActionResult DeleteComment(Guid commentId)
         {
             Comment comment = Binder.GetComments().FirstOrDefault(x => x.CommentId == commentId);
@@ -56,12 +59,14 @@ namespace PL_MVC.Controllers
             return RedirectToAction("GetPhotoView", "File", new { idPhoto});            
         }
         [HttpGet]
+        [PageAuthorize(RoleID = 2)]
         public ActionResult EditComment(Guid commentId)
         {
             Comment comment = Binder.GetComments().FirstOrDefault(x => x.CommentId == commentId);
             return View(comment);
         }
         [HttpPost]
+        [PageAuthorize(RoleID = 2)]
         public ActionResult EditComment(Comment comment)
         {
             Binder.EditComment(comment);

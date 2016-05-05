@@ -12,12 +12,19 @@ namespace DAL
 
         //фото
         bool AddAlbum(Album album);
+        bool DeleteAlbum(Guid id);
+        bool CreateModerator(User user);
+        bool UnBlockUser(User user);
+        bool BlockUser(User user);
+        bool DeleteAllUserAlbums(Guid id);
+        bool DeleteUser(Guid UserID);
         IEnumerable<Photo> GetAllPhoto();
         IEnumerable<Photo> GetAllPhotoForUser(Guid id);
         IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum);
         IEnumerable<Album> GetAllAlbums(Guid id);
         Album GetAlbum(Guid idAlbum);
         bool AddPhoto(Photo image);
+        bool CreateAdmin(User user);
         bool DeletePhoto(Guid idPhoto);
         bool AddAvatar(Guid UserId, Photo image);
         bool GetAvatar(Guid UserId);

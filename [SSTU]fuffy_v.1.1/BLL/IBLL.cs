@@ -11,6 +11,11 @@ namespace BLL
     {
         //фотографии
         bool DeletePhoto(Guid idPhoto);
+        bool CreateAdmin(string name);       
+        bool CreateModerator(string name);
+        bool BlockUser(string name);
+        bool UnBlockUser(string name);
+        bool DeleteUser(string name);
         bool AddAlbum(Album album);
         bool AddPhoto(Photo image);
         bool AddAvatar(Guid UserId, Photo image);

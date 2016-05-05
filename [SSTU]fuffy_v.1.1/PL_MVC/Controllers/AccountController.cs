@@ -16,7 +16,7 @@ namespace PL_MVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult LogIn(Home homeModel)
+        public ActionResult LogIn(Home homeModel)  //жиесть брат
         {
             User user = Binder.GetUser(homeModel.Login, homeModel.Password);
             

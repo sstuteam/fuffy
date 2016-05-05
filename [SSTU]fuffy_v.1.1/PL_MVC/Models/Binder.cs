@@ -15,6 +15,26 @@ namespace PL_MVC.Models
         {
             return bll.DeletePhoto(idPhoto);
         }
+        public static bool DeleteUser(string name)
+        {
+            return bll.DeleteUser(name);
+        }
+        public static bool CreateAdmin(string name)
+        {
+            return bll.CreateAdmin(name);/////////
+        }
+        public static bool CreateModerator(string name)
+        {
+            return bll.CreateModerator(name);/////////////////////
+        }
+        public static bool BlockUser(string name)
+        {
+            return bll.BlockUser(name);////////////////////
+        }
+        public static bool UnBlockUser(string name)
+        {
+            return bll.UnBlockUser(name);//////////////////////////
+        }
         public static bool AddUser(User user)
         {
             return bll.AddUser((Entities.User)user);

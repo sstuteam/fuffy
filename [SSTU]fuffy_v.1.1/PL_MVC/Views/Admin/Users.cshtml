@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<PL_MVC.Models.User>
 @{
     ViewBag.Title = "Users";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -31,57 +31,66 @@
                 <div id="users">
 
                     <div class="col-xs-10 two">
-
+@using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
+{
                         <a href="#1" class="btn btn-primary btn-block font" data-toggle="collapse">Активые пользователи</a>
-
                         <div id="1" class="collapse padding-left">
                             <div class="row">
                                 <div class="col-xs-5">
 
                                     <input type="text" class="form-control for-search" placeholder="Поиск" />
                                     <form>
-                                        <select size="100" multiple name="hero[]" class="select">
-                                            <option>Мария</option>
+                                        <select size="100" name="Name" class="select" id="Name" typeof=string>
+                                          @foreach (var item in Model)
+                                          {
+                                              if (item.RoleId != 3)
+                                              {
+                                            <option>@item.Name</option>
+                                              }
+                                          }
                                         </select>
                                     </form>
                                 </div>
                                 <!-- закрывает div inline -->
                                 <div class="col-xs-5 padding">
-                                    <button class="btn btn-danger">Заблокировать</button>
-                                    <p class="font">Назначить:</p>
-                                    <select class="selectpicker">
-                                        <option>Модератором</option>
-                                        <option>Редактором</option>
-                                        <option>Ещё кем-то</option>
-                                    </select>
-                                    <br />
-                                    <button class="btn btn-success">Ок</button>
+                                    <button class="btn btn-danger"value="Block"  typeof="string" name="action" type="submit">Заблокировать</button>
+                                    <button class="btn btn-danger" value="Moderator" typeof="string" name="action" type="submit">Назначить модератором</button>
+                                    <button class="btn btn-danger" value="Admin" typeof="string" name="action" type="submit">Назначить админом</button>
+                                    <br />                                    
                                 </div>
                             </div>
                         </div>
-
+}
+@using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
+{
                         <a href="#2" class="btn btn-primary btn-block font" data-toggle="collapse">Заблокированные пользователи</a>
-
                         <div id="2" class="collapse padding-left">
                             <div class="row">
                                 <div class="col-xs-5">
 
                                     <input type="text" class="form-control for-search" placeholder="Поиск" />
                                     <form>
-                                        <select size="100" multiple name="hero[]" class="select selectpicker">
-                                            <option>Иван</option>
+                                        <select size="100" name="Name" class="select" id="Name" typeof=string>
+                                           @foreach (var item in Model)
+                                           {
+                                               if (item.RoleId == 3)
+                                               {
+                                            <option>@item.Name</option>
+                                               }
+                                           }
                                         </select>
                                     </form>
                                 </div>
                                 <!-- закрывает div inline -->
                                 <div class="col-xs-5 padding">
-                                    <button class="btn btn-success">Разблокировать</button>
+                                    <button class="btn btn-success"value="UnBlock" typeof="string" name="action"type="submit">Разблокировать</button>
 
                                 </div>
                             </div>
                         </div>
-
-
+}
+@using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
+{
                         <a href="#3" class="btn btn-primary btn-block font" data-toggle="collapse">Все пользователи</a>
 
                         <div id="3" class="collapse padding-left">
@@ -90,22 +99,25 @@
 
                                     <input type="text" class="form-control for-search" placeholder="Поиск" />
                                     <form>
-                                        <select size="100" multiple name="hero[]" class="select">
-                                            <option>Иван</option>
-                                            <option>Мария</option>
+                                        <select size="100" name="Name" class="select" id="Name" typeof=string >
+
+@foreach (var item in Model)
+{
+                                            <option>@item.Name</option>
+}
                                         </select>
                                     </form>
                                 </div>
                                 <!-- закрывает div inline -->
                                 <div class="col-xs-5 padding">
-                                    <button class="btn btn-success">Разблокировать</button>
-                                    <button class="btn btn-danger">Заблокировать</button>
+                                    <button class="btn btn-success"value="Block"  typeof="string" name="action" type="submit">Заблокировать</button>
+                                    <button class="btn btn-danger" value="UnBlock" typeof="string" name="action"type="submit">Разблокировать</button>
+                                    <button class="btn btn-danger"value="Delete" type="submit"  typeof="string" name="action">Удалить</button>
                                 </div>
                             </div>
-                        </div>
-
+                        </div>  
+}
                     </div>
-
                 </div>
                 <div id="pages">
                 </div>
