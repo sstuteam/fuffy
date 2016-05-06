@@ -305,5 +305,9 @@ namespace PL_MVC.Models
         {
             return bll.EditComment(comment);
         }
+        public static bool EditPhoto(Photo photo)
+        {
+            return bll.EditPhoto(photo);
+        }
     }
 }

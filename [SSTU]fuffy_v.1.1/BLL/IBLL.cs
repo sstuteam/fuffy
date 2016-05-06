@@ -28,9 +28,9 @@ namespace BLL
         IEnumerable<Photo> Search(string name, string fragment);
         IEnumerable<Photo> GetAllPhotoForAlbum(Guid idAlbum);
         Photo GetPhoto(Guid idPhoto);
-            
-         
-        
+        bool EditPhoto(Photo photo);
+
+
 
         //комментарии
         IEnumerable<Comment> GetComments(Guid id);

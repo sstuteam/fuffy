@@ -1,4 +1,12 @@
-﻿@font-face {
+﻿.admin select{
+    width:100%;
+    height:300px;
+}
+.for-button button{
+    display:list-item;
+    margin-top:5px;
+}
+/*@font-face {
     font-family: 'BuxtonSketch';
     src: url('../fonts/BuxtonSketch.ttf') format('truetype');
 }
@@ -167,4 +175,4 @@ body {
 a{
 	text-decoration: none;
 	color:#7B4E89;
-}
+}*/

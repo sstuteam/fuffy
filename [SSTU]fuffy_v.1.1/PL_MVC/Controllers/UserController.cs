@@ -23,7 +23,7 @@ namespace PL_MVC.Controllers
         //    else return "0";
         //}
 
-        [PageAuthorize(RoleID = 0)]        
+        //[PageAuthorize(RoleID = 0)]        
         new public ActionResult Profile()
         {
             var user = AuthHelper.GetUser(HttpContext);

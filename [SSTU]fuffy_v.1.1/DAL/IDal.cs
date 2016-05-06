@@ -30,7 +30,7 @@ namespace DAL
         bool GetAvatar(Guid UserId);
         IEnumerable<Photo> Search(string name, string fragment);
         Photo GetPhoto(Guid idPhoto);
-
+        bool EditPhoto(Photo photo);
         //комментарии
         bool AddComment(Comment comment);
         bool DeleteComment(Guid commentId);

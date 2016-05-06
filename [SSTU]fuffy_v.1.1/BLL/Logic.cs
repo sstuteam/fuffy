@@ -262,5 +262,10 @@ namespace BLL
             dal.UnBlockUser(Get);
             return true;//////////////////////////
         }
+
+        public bool EditPhoto(Photo photo)
+        {
+            return dal.EditPhoto(photo);
+        }
     }
 }

@@ -50,11 +50,17 @@
         }
         </div>
     </div>
+
     <div class="row comments">
         Comments:
-        @Html.Action("GetComment", "Comment", new { id = Model.IDPhoto })
+
+       
+    @Html.Action("GetComment", "Comment", new { id = Model.IDPhoto })
         <div class="col-md-2"> </div>
+
     </div>
+    @*@if (ViewBag.userRoleId != 0)
+    {*@
     <div class="row add-new-comment">
         @using (@Html.BeginForm("AddComment", "Comment", new { IDPhoto = Model.IDPhoto }, FormMethod.Post))
         {
@@ -64,4 +70,5 @@
             </div>
         }
     </div>
+    @*}*@
 </div>

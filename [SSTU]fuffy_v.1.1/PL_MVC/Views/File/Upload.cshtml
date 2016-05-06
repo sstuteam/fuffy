@@ -1,7 +1,14 @@
 ﻿@model PL_MVC.Models.User
 @{
     ViewBag.Title = "Upload";
-    Layout = "~/Views/Shared/_NewLayout.cshtml";
+    if (Model.RoleId == 0)
+    {
+        Layout = "~/Views/Shared/_NewLayout.cshtml";
+    }
+    if (Model.RoleId == 1)
+    {
+        Layout = "~/Views/Shared/_LayoutForAdmin.cshtml";
+    }
 }
 <div class="container main">
     <h2>Upload</h2>

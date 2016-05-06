@@ -2,8 +2,11 @@
 @using PL_MVC.Models
 @{
     ViewBag.Title = Model.Name;
-    Layout = "~/Views/Shared/_NewLayout.cshtml";
-}
+    if (Model.RoleId == 0)
+    {
+        Layout = "~/Views/Shared/_NewLayout.cshtml";
+    }
+    }
 @section styleForProfile{
     <link href="~/Content/StyleSheet.css" rel="stylesheet" />
 }
@@ -14,8 +17,14 @@
     <div class="row user-page">
         <div class="col-sm-4 forcolons">
             <div class="row">
-                <div class="col-sm-4">
-                    <h2>@Model.Name</h2>
+                <div class="col-sm-4 user-name">
+                    @if (Model.RoleId == 1)
+                    {
+                            <h2>
+                                <a title="Go to Admin panel" href="@Url.Action("Users", "Admin")">@Model.Name</a>
+                            </h2>
+                    }
+                    else {<h2>@Model.Name</h2>}
                 </div>
                 <div class="col-sm-1">
                     <img src="">        <!--здесь желатьльно поставить переход на редактирование-->
@@ -44,6 +53,7 @@
     </div>
 
     <div class="row main">
+        
         <div class="masonry">
             @Html.Action("PartialPhoto", "File", new { id = Model.idUser })
         </div>

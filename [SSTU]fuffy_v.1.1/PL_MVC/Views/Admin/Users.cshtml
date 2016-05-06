@@ -1,38 +1,124 @@
 ﻿@model IEnumerable<PL_MVC.Models.User>
 @{
     ViewBag.Title = "Users";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-@section styles {
+@section adminPanelStyles{
+    <link href="~/Content/admin-panel.css" rel="stylesheet" />
+    }
+<div class="container main admin">
+    @using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
+    {
+        <h3>Active</h3>
+                            <div class="row">
+                                <div class="col-xs-5">
+
+                                    <input type="text" class="form-control for-search" placeholder="Поиск" />
+                                    <form>
+                                        <select size="100" name="Name" class="select" id="Name" typeof=string>
+                                            @foreach (var item in Model)
+                                            {
+                                            if (item.RoleId != 3)
+                                            {
+                                            <option>@item.Name</option>
+                                            }
+                                            }
+                                        </select>
+                                    </form>
+                                </div>
+                                <div class="col-xs-5 for-button">
+                                    <button class="btn btn-danger" value="Block" typeof="string" name="action" type="submit">Заблокировать</button>
+                                    <button class="btn btn-danger" value="Moderator" typeof="string" name="action" type="submit">Назначить модератором</button>
+                                    <button class="btn btn-danger" value="Admin" typeof="string" name="action" type="submit">Назначить админом</button>
+                                    <br />
+                                </div>
+                            </div>
+    }
+    <hr />
+    @using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
+    {
+    <h3>Blocked users</h3>
+        <div class="row">
+            <div class="col-xs-5">
+
+                <input type="text" class="form-control for-search" placeholder="Поиск" />
+                <form>
+                    <select size="100" name="Name" class="select" id="Name" typeof=string>
+                        @foreach (var item in Model)
+                        {
+                        if (item.RoleId == 3)
+                        {
+                        <option>@item.Name</option>
+                        }
+                        }
+                    </select>
+                </form>
+            </div>
+            <div class="col-xs-5 padding">
+                <button class="btn btn-success" value="UnBlock" typeof="string" name="action" type="submit">Разблокировать</button>
+
+            </div>
+        </div>
+    }
+    <hr />
+   @using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
+   {
+    <h3>All users</h3>
+        <div class="row">
+            <div class="col-xs-5">
+
+                <input type="text" class="form-control for-search" placeholder="Поиск" />
+                <form>
+                    <select size="100" name="Name" class="select" id="Name" typeof=string>
+
+                        @foreach (var item in Model)
+                        {
+                        <option>@item.Name</option>
+                        }
+                    </select>
+                </form>
+            </div>
+            <div class="col-xs-5 for-button">
+                <button class="btn btn-danger" value="Block" typeof="string" name="action" type="submit">Заблокировать</button>
+                <button class="btn btn-success" value="UnBlock" typeof="string" name="action" type="submit">Разблокировать</button>
+                <button class="btn btn-danger" value="Delete" type="submit" typeof="string" name="action">Удалить</button>
+            </div>
+        </div>
+    }
+</div>
+
+
+@*@section styles {
     <link href="~/Content/admin-panel.css" rel="stylesheet" />
 }
 @section scripts{
     <script src="~/Scripts/admin-panel-change-background.js"></script>
-}
-    <div class="container">
-        <div class="main">
+}*@
 
-            <div class="row">
+<!--<div class="container">
+    <div class="main">
 
-                <div class="col-xs-2">
-                    <div class="row point font">
-                        @Html.ActionLink("Пользователи", "UserLists", "Admin")
-                    </div>
-                    <div class="row point font">
-                        @Html.ActionLink("Страницы", "Pages", "Admin")
-                    </div>
-                    @*<a href="~/Views/Admin/Users.cshtml" onclick="goToPage()">
+        <div class="row">
+
+            <div class="col-xs-2">
+                <div class="row point font">
+                    @Html.ActionLink("Пользователи", "UserLists", "Admin")
+                </div>
+                <div class="row point font">
+                    @Html.ActionLink("Страницы", "Pages", "Admin")
+                </div>
+                @*<a href="~/Views/Admin/Users.cshtml" onclick="goToPage()">
                         <div class="row point font">Пользователи</div>
                     </a>
                     <a href="~/Views/Admin/Pages.cshtml">
                         <div class="row point font" onclick="goToPage()">Страницы</div>
                     </a>*@
-                </div>
-                <div id="users">
+            </div>
+            <div id="users">
 
-                    <div class="col-xs-10 two">
-@using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
-{
+                <div class="col-xs-10 two">
+                    @@using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
+                    {
                         <a href="#1" class="btn btn-primary btn-block font" data-toggle="collapse">Активые пользователи</a>
                         <div id="1" class="collapse padding-left">
                             <div class="row">
@@ -41,28 +127,27 @@
                                     <input type="text" class="form-control for-search" placeholder="Поиск" />
                                     <form>
                                         <select size="100" name="Name" class="select" id="Name" typeof=string>
-                                          @foreach (var item in Model)
-                                          {
-                                              if (item.RoleId != 3)
-                                              {
-                                            <option>@item.Name</option>
-                                              }
-                                          }
+                                            @@foreach (var item in Model)
+                                            {
+                                                if (item.RoleId != 3)
+                                                {
+                                                    <option>@@item.Name</option>
+                                                }
+                                            }
                                         </select>
                                     </form>
                                 </div>
-                                <!-- закрывает div inline -->
                                 <div class="col-xs-5 padding">
-                                    <button class="btn btn-danger"value="Block"  typeof="string" name="action" type="submit">Заблокировать</button>
+                                    <button class="btn btn-danger" value="Block" typeof="string" name="action" type="submit">Заблокировать</button>
                                     <button class="btn btn-danger" value="Moderator" typeof="string" name="action" type="submit">Назначить модератором</button>
                                     <button class="btn btn-danger" value="Admin" typeof="string" name="action" type="submit">Назначить админом</button>
-                                    <br />                                    
+                                    <br />
                                 </div>
                             </div>
                         </div>
-}
-@using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
-{
+                    }
+                    @@using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
+                    {
                         <a href="#2" class="btn btn-primary btn-block font" data-toggle="collapse">Заблокированные пользователи</a>
                         <div id="2" class="collapse padding-left">
                             <div class="row">
@@ -71,26 +156,25 @@
                                     <input type="text" class="form-control for-search" placeholder="Поиск" />
                                     <form>
                                         <select size="100" name="Name" class="select" id="Name" typeof=string>
-                                           @foreach (var item in Model)
-                                           {
-                                               if (item.RoleId == 3)
-                                               {
-                                            <option>@item.Name</option>
-                                               }
-                                           }
+                                            @@foreach (var item in Model)
+                                            {
+                                                if (item.RoleId == 3)
+                                                {
+                                                    <option>@@item.Name</option>
+                                                }
+                                            }
                                         </select>
                                     </form>
                                 </div>
-                                <!-- закрывает div inline -->
                                 <div class="col-xs-5 padding">
-                                    <button class="btn btn-success"value="UnBlock" typeof="string" name="action"type="submit">Разблокировать</button>
+                                    <button class="btn btn-success" value="UnBlock" typeof="string" name="action" type="submit">Разблокировать</button>
 
                                 </div>
                             </div>
                         </div>
-}
-@using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
-{
+                    }
+                    @@using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
+                    {
                         <a href="#3" class="btn btn-primary btn-block font" data-toggle="collapse">Все пользователи</a>
 
                         <div id="3" class="collapse padding-left">
@@ -99,28 +183,27 @@
 
                                     <input type="text" class="form-control for-search" placeholder="Поиск" />
                                     <form>
-                                        <select size="100" name="Name" class="select" id="Name" typeof=string >
+                                        <select size="100" name="Name" class="select" id="Name" typeof=string>
 
-@foreach (var item in Model)
-{
-                                            <option>@item.Name</option>
-}
+                                            @@foreach (var item in Model)
+                                            {
+                                                <option>@@item.Name</option>
+                                            }
                                         </select>
                                     </form>
                                 </div>
-                                <!-- закрывает div inline -->
                                 <div class="col-xs-5 padding">
-                                    <button class="btn btn-success"value="Block"  typeof="string" name="action" type="submit">Заблокировать</button>
-                                    <button class="btn btn-danger" value="UnBlock" typeof="string" name="action"type="submit">Разблокировать</button>
-                                    <button class="btn btn-danger"value="Delete" type="submit"  typeof="string" name="action">Удалить</button>
+                                    <button class="btn btn-success" value="Block" typeof="string" name="action" type="submit">Заблокировать</button>
+                                    <button class="btn btn-danger" value="UnBlock" typeof="string" name="action" type="submit">Разблокировать</button>
+                                    <button class="btn btn-danger" value="Delete" type="submit" typeof="string" name="action">Удалить</button>
                                 </div>
                             </div>
-                        </div>  
-}
-                    </div>
+                        </div>
+                    }
                 </div>
-                <div id="pages">
-                </div>
+            </div>
+            <div id="pages">
             </div>
         </div>
     </div>
+</div>-->

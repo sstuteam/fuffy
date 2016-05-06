@@ -20,13 +20,15 @@ namespace PL_MVC.Controllers
         {
             //var user = AuthHelper.GetUser(HttpContext);
             //return View("~/Views/Admin/AdminPanel.cshtml", user);
-            return RedirectToAction(nameof(Pages));
+            return RedirectToAction(nameof(Users));
         }
 
         [PageAuthorize(RoleID = 1)]
-        public ActionResult Pages()
+        public ActionResult Users()
         {
-            return View("~/Views/Admin/Pages.cshtml");
+            var allUsers = Binder.GetUsers();
+            IEnumerable<User> sorted = allUsers.OrderBy(x => x.GetCountOfLikesForUser()).Reverse();
+            return View("~/Views/Admin/Users.cshtml", sorted);
         }
         [PageAuthorize(RoleID = 1)]
         public ActionResult UserLists()
@@ -54,7 +56,7 @@ namespace PL_MVC.Controllers
                 else return null;
                 if (t == true)
                 {
-                    return RedirectToAction(nameof(Pages));
+                    return RedirectToAction(nameof(Users));
                 }
                 else return null;
             }

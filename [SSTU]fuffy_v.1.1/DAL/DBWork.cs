@@ -615,6 +615,23 @@ namespace DAL
                 return com.ExecuteNonQuery() == 1;
             }
         }
+
+        public bool EditPhoto(Photo photo)
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Photo] SET [Spetification]=@Specification, [Data]=@Date, [Category]=@Category, [Name]=@Name WHERE PhotoId=@PhotoId", c);
+                com.Parameters.AddWithValue("@PhotoId", photo.IDPhoto);
+                com.Parameters.AddWithValue("@Specification", photo.Spetification);
+                com.Parameters.AddWithValue("@Date", photo.Data);
+                //com.Parameters.AddWithValue("@AlbumId", photo.IDAlbum);
+                com.Parameters.AddWithValue("@Category", photo.Category);
+                com.Parameters.AddWithValue("@Name", photo.Name);
+                c.Open();
+                return com.ExecuteNonQuery() == 1;
+            }
+        }
+
         //public bool Delete
         public bool CreateAdmin(User user)//////////
         {

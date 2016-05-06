@@ -12,7 +12,8 @@ namespace PL_MVC.Controllers
     {
         [Authorize]
         [HttpPost]
-        [PageAuthorize(RoleID = 0)PageAuthorize(RoleID = 2)]
+        //[PageAuthorize(RoleID = 0)]
+        //[PageAuthorize(RoleID = 2)]
         public ActionResult Upload(HttpPostedFileBase uploaded,string AlbumName, string Title, string spetification,string Category)
         {           
             var user = AuthHelper.GetUser(HttpContext);
@@ -40,18 +41,26 @@ namespace PL_MVC.Controllers
                 {
                     image.Image = br.ReadBytes(image.Image.Length);
                 }
-                Binder.Add(image);
+                if (user.RoleId != 3)
+                {
+                    Binder.Add(image);
+                }
                 //return File(image.Image, uploaded.ContentType);                
             }
             return RedirectToAction("Profile", "User", user);
         }
         [Authorize]
         [HttpGet]
-        [PageAuthorize(RoleID = 0)PageAuthorize(RoleID = 2)]
+        //[PageAuthorize(RoleID = 0)]
+        //[PageAuthorize(RoleID = 2)]
         public ActionResult Upload()
         {
             User user = AuthHelper.GetUser(HttpContext);
-            return View(user);
+            if (user.RoleId != 3)
+            {
+                return View(user);
+            }
+            else return null;
         }
 
         //<a href=/File/GetPhoto/4234324>
@@ -119,6 +128,23 @@ namespace PL_MVC.Controllers
             {
                 return null;
             }
+        }
+        [HttpGet]
+        [PageAuthorize(RoleID = 2)]
+        //[PageAuthorize(RoleID = 0)]
+        public ActionResult EditPhoto(Guid photoId)
+        {
+            Photo photo = Binder.GetAllPhoto().FirstOrDefault(x => x.IDPhoto == photoId);
+            return View(photo);
+        }
+        [HttpPost]
+        //[PageAuthorize(RoleID = 2)]
+        [PageAuthorize(RoleID = 0)]
+        public ActionResult EditComment(Photo photo)
+        {
+            Binder.EditPhoto(photo);
+            Guid idPhoto = photo.IDPhoto;
+            return RedirectToAction("GetPhotoView", "File", new { idPhoto });
         }
     }
 }

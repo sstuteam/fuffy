@@ -1,10 +1,7 @@
 ﻿using PL_MVC.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using PL_MVC.Models;
 
 namespace PL_MVC.Controllers
 {
@@ -20,20 +17,21 @@ namespace PL_MVC.Controllers
         {
             var comments = Binder.GetComments(id).OrderBy(x=>x.Date);
             ViewBag.UserId = AuthHelper.GetUser(HttpContext).idUser;
-            if (comments.Count() != 0)
+            ViewBag.userRoleId = AuthHelper.GetUser(HttpContext).RoleId;
+            if (comments.Count() != 0 )
             {
                 return PartialView(comments);
             }
             else return null;
             
         }
-        [PageAuthorize(RoleID = 0)PageAuthorize(RoleID = 2)]
+        //[PageAuthorize(RoleID = 0)PageAuthorize(RoleID = 2)]
         [HttpPost]       
         public ActionResult AddComment(string text, Guid idPhoto)
         {
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
             var user = AuthHelper.GetUser(HttpContext);
-            
+            ViewBag.userRoleId = AuthHelper.GetUser(HttpContext).RoleId;
             if (text != null)
             {
 
@@ -44,13 +42,16 @@ namespace PL_MVC.Controllers
                     Like = 0,
                     Text = text
                 };
-                Binder.AddComment(comment);
+                if (user.RoleId !=3)
+                {
+                    Binder.AddComment(comment);
+                }
             }
             idPhoto = photo.IDPhoto;
             return RedirectToAction("GetPhotoView", "File", new { idPhoto });
             //return RedirectToAction("Profile", "User", user);
         }
-        [PageAuthorize(RoleID = 2)]
+        [PageAuthorize(RoleID = 0)]
         public ActionResult DeleteComment(Guid commentId)
         {
             Comment comment = Binder.GetComments().FirstOrDefault(x => x.CommentId == commentId);

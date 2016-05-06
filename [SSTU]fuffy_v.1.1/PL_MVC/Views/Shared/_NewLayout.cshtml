@@ -12,6 +12,7 @@
     @RenderSection("styleForProfile", false)
     @RenderSection("GetPhotoViewStyle", false)
     @RenderSection("StyleForRegistration", false)
+    @RenderSection("adminPanelStyles", false)
 
 </head>
 <body>
@@ -26,6 +27,7 @@
                         <li>@Html.ActionLink("Fuffy", "News", "News")</li>
                     </ul>
                 }
+
                 else {
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Fuffy", "Index", "Home")</li>

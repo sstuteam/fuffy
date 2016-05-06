@@ -165,6 +165,7 @@
     <Content Include="Views\Home\GetPopularPhotos.cshtml" />
     <Content Include="Views\Home\GetPopularUsers.cshtml" />
     <Content Include="Views\Comment\EditComment.cshtml" />
+    <Content Include="Views\File\EditPhoto.cshtml" />
     <None Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\User\Profile.html" />
     <Content Include="Web.config">
@@ -217,7 +218,6 @@
     <Content Include="Views\Shared\_NewLayout.cshtml" />
     <Content Include="Views\Settings\Settings.cshtml" />
     <Content Include="Views\Search\PartialSearch.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
