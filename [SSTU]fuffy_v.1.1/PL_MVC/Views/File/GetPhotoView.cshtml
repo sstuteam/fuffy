@@ -25,7 +25,8 @@
             <div class="row">
                 @ViewBag.UserName
             </div>
-            <div class="row likes">Likes:
+            <div class="row likes">
+                Likes:
                 <span id="CountLike"> @Html.Action("GetLikesForPhoto", "Like", new { id = Model.IDPhoto })</span>
 
 
@@ -35,38 +36,34 @@
                         <button id="like" type="submit" data-href="@Url.Action("AddLikePhoto", "Like", new { idPhoto = Model.IDPhoto } )"><span class="glyphicon glyphicon-thumbs-up"></span></button>
                     }
                 </div>
-                @*<div id="delete-like">
-                    @using (Html.BeginForm("DeleteLike", "Like", new { idPhoto = Model.IDPhoto }))
-                    {
-                        <button type="submit"><span class="glyphicon glyphicon-thumbs-down"></span></button>
-                    }
-                </div>*@
                 <br>
             </div>
-        @if (ViewBag.UserId == ViewBag.UserIdFromAlbum)
-        { <div class="row active" >
-               <a href="@Url.Action("DeletePhoto", "File", new { idPhoto = Model.IDPhoto })" >Delete photo</a>
-             </div>
-        }
+            @if (ViewBag.UserId == ViewBag.UserIdFromAlbum)
+            { <div class="row active">
+                <a id="delete-photo" href="@Url.Action("DeletePhoto", "File", new { idPhoto = Model.IDPhoto })">Delete photo</a>
+            </div>
+            <div>
+                <a href="@Url.Action("EditPhoto", "File", new { idPhoto = Model.IDPhoto })">Edit photo</a>
+            </div>
+            }
         </div>
     </div>
 
     <div class="row comments">
         Comments:
 
-       
-    @Html.Action("GetComment", "Comment", new { id = Model.IDPhoto })
+        @Html.Action("GetComment", "Comment", new { id = Model.IDPhoto })
         <div class="col-md-2"> </div>
 
     </div>
     @*@if (ViewBag.userRoleId != 0)
-    {*@
+        {*@
     <div class="row add-new-comment">
         @using (@Html.BeginForm("AddComment", "Comment", new { IDPhoto = Model.IDPhoto }, FormMethod.Post))
         {
             <div class="col-md-6 col-md-offset-3 for-comment">
                 <textarea name="text" class="text-comment"></textarea><br />
-                <button type="submit">Send!</button>
+                <button id="add-comment" type="submit" data-href="@Url.Action("AddComment", "Comment", new { idPhoto = Model.IDPhoto } )">Send!</button>
             </div>
         }
     </div>

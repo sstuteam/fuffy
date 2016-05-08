@@ -1,7 +1,9 @@
 ﻿using PL_MVC.Models;
 using System;
 using System.Linq;
+using System.Collections;
 using System.Web.Mvc;
+using System.Collections.Generic;
 
 namespace PL_MVC.Controllers
 {
@@ -30,6 +32,7 @@ namespace PL_MVC.Controllers
         public ActionResult AddComment(string text, Guid idPhoto)
         {
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
+            
             var user = AuthHelper.GetUser(HttpContext);
             ViewBag.userRoleId = AuthHelper.GetUser(HttpContext).RoleId;
             if (text != null)
@@ -42,32 +45,37 @@ namespace PL_MVC.Controllers
                     Like = 0,
                     Text = text
                 };
-                if (user.RoleId !=3)
+                if (user.RoleId !=3 && Request.IsAjaxRequest())
                 {
                     Binder.AddComment(comment);
+                    return Json(Binder.GetComments(idPhoto).OrderBy(x => x.Date), JsonRequestBehavior.AllowGet);
                 }
             }
             idPhoto = photo.IDPhoto;
             return RedirectToAction("GetPhotoView", "File", new { idPhoto });
             //return RedirectToAction("Profile", "User", user);
         }
-        [PageAuthorize(RoleID = 0)]
+        //[PageAuthorize(RoleID = 0)]
         public ActionResult DeleteComment(Guid commentId)
         {
             Comment comment = Binder.GetComments().FirstOrDefault(x => x.CommentId == commentId);
             Guid idPhoto = comment.PhotoId;
-            Binder.DeleteComment(commentId);
+            if (Request.IsAjaxRequest())
+            {
+                Binder.DeleteComment(commentId);
+                return Json(Binder.GetComments(idPhoto).OrderBy(x => x.Date), JsonRequestBehavior.AllowGet);
+            }
             return RedirectToAction("GetPhotoView", "File", new { idPhoto});            
         }
         [HttpGet]
-        [PageAuthorize(RoleID = 2)]
+        //[PageAuthorize(RoleID = 2)]
         public ActionResult EditComment(Guid commentId)
         {
             Comment comment = Binder.GetComments().FirstOrDefault(x => x.CommentId == commentId);
             return View(comment);
         }
         [HttpPost]
-        [PageAuthorize(RoleID = 2)]
+        //[PageAuthorize(RoleID = 2)]
         public ActionResult EditComment(Comment comment)
         {
             Binder.EditComment(comment);

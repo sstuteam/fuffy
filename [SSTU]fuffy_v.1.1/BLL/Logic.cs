@@ -156,12 +156,12 @@ namespace BLL
         }
         public bool AddLikePhoto(Guid Id, Like like)
         {
-            User T=dal.GetAllUser().FirstOrDefault(x => x.idUser == Id);
-            if (T.RoleId != 3)
-            {
+            //User T=dal.GetAllUser().FirstOrDefault(x => x.idUser == Id);
+            //if (T.RoleId != 3)
+            //{
                 return dal.AddLikePhoto(Id, like);
-            }
-            else return true;//чтоб не получал лайки, пёс
+            //}
+            //else return true;//чтоб не получал лайки, пёс
         }
         public bool DeleteLikePhoto(Guid Id)
         {
@@ -265,6 +265,7 @@ namespace BLL
 
         public bool EditPhoto(Photo photo)
         {
+            photo.Data = DateTime.Now;
             return dal.EditPhoto(photo);
         }
     }

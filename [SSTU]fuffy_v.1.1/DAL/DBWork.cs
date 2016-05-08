@@ -622,7 +622,13 @@ namespace DAL
             {
                 SqlCommand com = new SqlCommand("UPDATE [dbo].[Photo] SET [Spetification]=@Specification, [Data]=@Date, [Category]=@Category, [Name]=@Name WHERE PhotoId=@PhotoId", c);
                 com.Parameters.AddWithValue("@PhotoId", photo.IDPhoto);
-                com.Parameters.AddWithValue("@Specification", photo.Spetification);
+                if (photo.Spetification == null)
+                {
+                    com.Parameters.AddWithValue("@Specification", DBNull.Value);
+                }
+                else {
+                    com.Parameters.AddWithValue("@Specification", photo.Spetification);
+                }
                 com.Parameters.AddWithValue("@Date", photo.Data);
                 //com.Parameters.AddWithValue("@AlbumId", photo.IDAlbum);
                 com.Parameters.AddWithValue("@Category", photo.Category);

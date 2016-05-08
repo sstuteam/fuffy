@@ -29,6 +29,10 @@ namespace PL_MVC.Controllers
                     ImageType = uploaded.ContentType,
                     Category=Category,//добавил поле категория
                 };
+                if (image.Spetification == null)
+                {
+                    image.Spetification = "";
+                }
                 if (AlbumName != null)
                 {
                     image.IDAlbum = Binder.GetIdAlbum(user.idUser, AlbumName);//берет имменно такой альбом
@@ -96,9 +100,7 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public PartialViewResult PartialPhoto(Guid id)
         {
-            var photoes = Binder.GetAllPhotoForUser(id);
-            IEnumerable<Photo> sortedPhotoes = photoes.OrderBy(photo => photo.Data).Reverse();
-            return PartialView(sortedPhotoes);
+            return PartialView(Binder.GetAllPhotoForUser(id).OrderBy(photo => photo.Date).Reverse());
         }
         [HttpGet]
         public ViewResult GetPhotoView(Guid idPhoto)
@@ -129,22 +131,27 @@ namespace PL_MVC.Controllers
                 return null;
             }
         }
-        [HttpGet]
-        [PageAuthorize(RoleID = 2)]
-        //[PageAuthorize(RoleID = 0)]
-        public ActionResult EditPhoto(Guid photoId)
-        {
-            Photo photo = Binder.GetAllPhoto().FirstOrDefault(x => x.IDPhoto == photoId);
-            return View(photo);
-        }
         [HttpPost]
         //[PageAuthorize(RoleID = 2)]
-        [PageAuthorize(RoleID = 0)]
-        public ActionResult EditComment(Photo photo)
+        //[PageAuthorize(RoleID = 0)]
+        public ActionResult EditPhoto(Photo photo)
         {
+            if (photo.Spetification == null)
+            {
+                photo.Spetification = "";
+            }
             Binder.EditPhoto(photo);
             Guid idPhoto = photo.IDPhoto;
             return RedirectToAction("GetPhotoView", "File", new { idPhoto });
         }
+        [HttpGet]
+        //[PageAuthorize(RoleID = 2)]
+        //[PageAuthorize(RoleID = 0)]
+        public ActionResult EditPhoto(Guid idPhoto)
+        {
+            Photo photo = Binder.GetAllPhoto().FirstOrDefault(x => x.IDPhoto == idPhoto);
+            return View(photo);
+        }
+
     }
 }

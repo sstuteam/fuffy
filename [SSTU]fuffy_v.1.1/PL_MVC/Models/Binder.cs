@@ -130,7 +130,7 @@ namespace PL_MVC.Models
                     ImageType = item.ImageType,
                     Name = item.Name,
                     Spetification = item.Spetification,
-                    Data=item.Data
+                    Date=item.Data
 
                 });
 
@@ -217,7 +217,7 @@ namespace PL_MVC.Models
                     ImageType = item.ImageType,
                     Name = item.Name,
                     Spetification = item.Spetification,
-                    Data=item.Data
+                    Date=item.Data
                 });
             }
             return found;
@@ -236,7 +236,7 @@ namespace PL_MVC.Models
                     ImageType = item.ImageType,
                     Name = item.Name,
                     Spetification = item.Spetification,
-                    Data = item.Data,
+                    Date = item.Data,
                     Category = item.Category              //поправил
                 });
             }
@@ -256,7 +256,7 @@ namespace PL_MVC.Models
                     Image = item.Image,
                     Name = item.Name,
                     Spetification = item.Spetification,
-                    Data = item.Data
+                    Date = item.Data
                 });
             }
             return photoesForUser;

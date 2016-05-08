@@ -9,9 +9,9 @@ namespace PL_MVC.Models
     public class Photo
     {
         public string Name { get; set; }
-        public Guid IDPhoto;
-        public Guid IDAlbum;
-        public DateTime Data;
+        public Guid IDPhoto { get; set; }
+        public Guid IDAlbum { get; set; }
+        public DateTime Date { get; set; }
         public string Category { get; set; }//добавил
         public int CountLikes { get; set; }
         public string Spetification { get; set; }
@@ -31,7 +31,7 @@ namespace PL_MVC.Models
                     Name = photoModel.Name,
                     Spetification = photoModel.Spetification,
                     Image = photoModel.Image,
-                    Data = photoModel.Data,
+                    Data = photoModel.Date,
                     Category=photoModel.Category
                 };
                 return photoEntities;
@@ -51,7 +51,7 @@ namespace PL_MVC.Models
                     Image = photoEntities.Image,
                     Name = photoEntities.Name,
                     Spetification = photoEntities.Spetification,
-                    Data = photoEntities.Data,
+                    Date = photoEntities.Data,
                     Category= photoEntities.Category
                 };
                 return photoModel;

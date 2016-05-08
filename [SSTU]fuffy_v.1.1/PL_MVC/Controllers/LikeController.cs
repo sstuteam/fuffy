@@ -18,10 +18,10 @@ namespace PL_MVC.Controllers
         public PartialViewResult GetLikesForPhoto(Guid id) //это правильно
         {
             ViewBag.Likes = Binder.GetLikes(id);
-            if (Request.IsAjaxRequest())
-            {
-                return Json(ViewBag.Likes, JsonRequestBehavior.AllowGet); //Json(ViewBag.Likes, JsonRequestBehavior.AllowGet);
-            }
+            //if (Request.IsAjaxRequest())
+            //{
+            //    return Json(ViewBag.Likes, JsonRequestBehavior.AllowGet); //Json(ViewBag.Likes, JsonRequestBehavior.AllowGet);
+            //}
             return PartialView();
         }
         [HttpPost]

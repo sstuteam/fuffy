@@ -1,25 +1,30 @@
-﻿@model IEnumerable<PL_MVC.Models.Comment>
+﻿@model IEnumerable < PL_MVC.Models.Comment >
+    
 
-
-
+@section profileJS{
+    <script src="~/Scripts/profile.js"></script>
+}
+<div id = "Comments" >
 @foreach (var item in Model)
 {
     <div class="comment">
         <div class="comment-author">
-            <b><a href="@Url.Action("GetOtherUserPage", "People", new { idOtherUser=item.UserId })">@item.GetUserName()</a></b> 
-            @Html.DisplayFor(modelItem => item.Date)
+            <b><a href="@Url.Action("GetOtherUserPage", "People", new { idOtherUser=item.UserId })">@item.GetUserName()</a></b>
+            @item.Date
         </div>
         <div class="comment-text">
             @Html.DisplayFor(modelItem => item.Text)
         </div>
         @if (ViewBag.UserId == item.UserId)
         {
-        <div class="comment-edit">
-            @Html.ActionLink("Edit", "EditComment", new { commentId=item.CommentId })
-        </div>
-        <div class="comment-edit">
-            @Html.ActionLink("DeleteComment", "DeleteComment", new { commentId = item.CommentId })
-        </div>}
+            <div class="comment-edit">
+                @Html.ActionLink("Edit", "EditComment", new { commentId = item.CommentId })
+            </div>
+                <div class="comment-edit">
+                    @Html.ActionLink("DeleteComment", "DeleteComment", new { commentId = item.CommentId }, new { @id = "delete-comment" })
+                </div>}
     </div>
-    
+
 }
+</div>
+
