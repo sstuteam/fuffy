@@ -13,8 +13,15 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public ActionResult Settings()
         {
-            var user = AuthHelper.GetUser(HttpContext);
+            User user = AuthHelper.GetUser(HttpContext);
             return View(user);
+        }
+        [HttpPost]
+        public ActionResult Settings(User user)
+        {
+            Binder.UpdateUser(user);
+            Guid idUser = user.idUser;
+            return RedirectToAction("Profile", "User", new { idUser });
         }
     }
 }
