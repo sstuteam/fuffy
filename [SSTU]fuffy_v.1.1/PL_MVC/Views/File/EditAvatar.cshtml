@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "EditAvatar";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+<div class="container main">
+    <h2>EditAvatar</h2>
+    @using (@Html.BeginForm("EditAvatar", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input name="uploaded" type="file" />
+        <button type="submit">Update</button>
+    }
+</div>

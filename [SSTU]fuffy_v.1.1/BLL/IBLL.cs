@@ -18,7 +18,7 @@ namespace BLL
         bool DeleteUser(string name);
         bool AddAlbum(Album album);
         bool AddPhoto(Photo image);
-        bool AddAvatar(Guid UserId, Photo image);
+        bool EditAvatar(Guid UserId, Photo image);
         bool GetAvatar(Guid UserId);
         IEnumerable<Photo> GetAllPhotoForUser(Guid id);
         IEnumerable<Photo> GetAllPhoto();

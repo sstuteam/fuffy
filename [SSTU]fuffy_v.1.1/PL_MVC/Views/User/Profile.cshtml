@@ -36,9 +36,12 @@
                 </div>
             </div>
             <div class="row container-for-avatar">
-                <img class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser=Model.idUser })">
+                        <a href="@Url.Action("EditAvatar", "File")">
+                            <img class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser=Model.idUser })">
+                        </a>
+                
             </div>
-        </div>
+            </div>
         <div class="col-sm-8 forcolons scroll-x">
             <div class="row">
                 <h2>Albums:</h2>

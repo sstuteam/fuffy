@@ -26,7 +26,7 @@ namespace DAL
         bool AddPhoto(Photo image);
         bool CreateAdmin(User user);
         bool DeletePhoto(Guid idPhoto);
-        bool AddAvatar(Guid UserId, Photo image);
+        bool EditAvatar(Guid UserId, Photo image);
         bool GetAvatar(Guid UserId);
         IEnumerable<Photo> Search(string name, string fragment);
         Photo GetPhoto(Guid idPhoto);

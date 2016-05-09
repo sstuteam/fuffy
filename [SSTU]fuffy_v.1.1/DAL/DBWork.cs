@@ -52,35 +52,18 @@ namespace DAL
                 return a > 0;
             }
         }
-        public bool AddAvatar(Guid UserId, Photo image)
+        public bool EditAvatar(Guid UserId, Photo image)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com1 = new SqlCommand("SELECT [Avatar],[ID] FROM [dbo].[Login]", c);
-                c.Open();
-                var reader = com1.ExecuteReader();
-                while (reader.Read())
-                {
-                    //var Avatar = (byte[])reader["Avatar"];
-                    var user = GetUser(UserId);
-                    //if (Avatar == null)
-                    //{
-                    //    var ava = image.Image;
-                    //    SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Login] [Avatar] VALUES @ava)", c);
-                    //    c.Open();
-                    //    var a = com.ExecuteNonQuery();
-                    //    return a > 0;
-                    //}
-                    //else
-                    //{
-                        var ava = image.Image;
-                        SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET [Avatar]=@ava WHERE ID = @UserId", c);
+                        SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET [Avatar]=@Avatar WHERE ID = @UserId", c);
+                com.Parameters.AddWithValue("@Avatar", image.Image);
+                com.Parameters.AddWithValue("@UserId", UserId);         
                         c.Open();
                         var a = com.ExecuteNonQuery();
                         return a > 0;
-                    //}
-                }
-            } return true;
+                
+            }
         }
         public bool GetAvatar(Guid UserId)
         {
@@ -589,8 +572,8 @@ namespace DAL
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET ([Login]=@Login,[Nick]=@Name,[RoleId]=@RoleId,[Status]=@Status,[Password]=@Password,[Email]=@Email) WHERE ID=@ID", c);
-                com.Parameters.AddWithValue("@Login", user.Login);
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET [Nick]=@Name,[RoleId]=@RoleId,[Status]=@Status,[Password]=@Password,[Email]=@Email WHERE [ID]=@ID", c);
+                //com.Parameters.AddWithValue("@Login", user.Login);
                 com.Parameters.AddWithValue("@Name", user.Name);
                 com.Parameters.AddWithValue("@RoleId", user.RoleId);
                 com.Parameters.AddWithValue("@Status", user.Status);

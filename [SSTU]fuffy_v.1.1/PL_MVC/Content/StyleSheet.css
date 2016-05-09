@@ -36,3 +36,16 @@
     border-color:white;
     /*border-right: 7px; border-bottom:7px;*/
 }
+.avatar{
+}
+/*.details{
+    visibility:hidden;
+    top:40vh;
+    position:absolute;
+    margin-left:auto;
+    margin-right:auto;
+    width:90%;
+}
+.avatar:hover + .details{
+    visibility:visible;
+}*/

@@ -309,5 +309,9 @@ namespace PL_MVC.Models
         {
             return bll.EditPhoto(photo);
         }
+        public static bool EditAvatar(Guid userId, Photo image)
+        {
+            return bll.EditAvatar(userId, image);
+        }
     }
 }

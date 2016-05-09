@@ -80,7 +80,7 @@ h1, h2, h4 {
     font-style:italic;
 }
 .avatar{
-    max-height: 30vh;
+    max-height: 230px;
     max-width: 100%;
     border-radius: 5px;
 }
@@ -111,7 +111,7 @@ h1, h2, h4 {
     border:1px solid gray;
     /*margin-top:35px;*/
     border-radius:3px 3px;
-    height: 50.5vh;
+    height: 400px;
 }
 .row-list{
     padding-left:5vw;

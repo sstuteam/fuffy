@@ -28,9 +28,9 @@ namespace BLL
            return dal.DeletePhoto(idPhoto);
            
         }
-        public bool AddAvatar(Guid UserId, Photo image)
+        public bool EditAvatar(Guid UserId, Photo image)
         {
-            return dal.AddAvatar(UserId, image);
+            return dal.EditAvatar(UserId, image);
         }
         public bool GetAvatar(Guid UserId)
         {

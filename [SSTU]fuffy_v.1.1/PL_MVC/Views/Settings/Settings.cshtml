@@ -1,43 +1,43 @@
-﻿
+﻿@model PL_MVC.Models.User
 @{
     ViewBag.Title = "Settings";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-<div class="container main for-divs">
-    <div class="row for-divs">
-        <h3>Аватар</h3>
-        <div class="col-sm-4">
-            <h4>Текущий</h4>
-            <img class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser=Model.idUser })">
-        </div>
-        <div class="col-sm-2">
-            <h4>Новый</h4>
-            <form enctype="multipart/form-data" method="post">
-                <div class="form-group">
-                    <input type="file" name="avatar" id="avatar">
-                    <input type="submit" style="color:black">
-                </div>
-            </form>
-        </div>
-    </div>
-    <form method="post">
+@using (Html.BeginForm(@*"UpdateUser", "Settings", new { user=Model}*@))
+{
+    <div class="container main for-divs">
         <div class="row for-divs">
-            <h3>Данные пользователя (Оставьте пустым, что не нужно менять)</h3>
+            @*<h3>Аватар</h3>
             <div class="col-sm-4">
-                <h4>Email: <b>КакойтоЕмейл@qwer.com</b></h4>
-                <input type="text" class="form-control" placeholder="NewEmail">
+                <h4>Текущий</h4>
+                <img class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser = Model.idUser })">
             </div>
-            <div class="col-sm-3">
-                <h4>Name: <b>Иван Иванов</b></h4>
-                <input type="text" class="form-control" placeholder="NewName">
-            </div>
-            <div class="col-sm-3">
-                <h4>Изменение пароля</h4>
-                <input type="password" class="form-control form-group" placeholder="Старый пароль">
-                <input type="password" class="form-control form-group" placeholder="Новый пароль">
-                <input type="password" class="form-control form-group" placeholder="Повторите пароль">
-            </div>
+            <div class="col-sm-2">
+                <h4>Новый</h4>
+                <form enctype="multipart/form-data" method="post">
+                    <div class="form-group">
+                        <input type="file" name="Avatar" id="avatar">
+                    </div>
+                </form>
+            </div>*@
         </div>
-        <button class="btn btn-default" type="submit">Отправить</button>
-    </form>
-</div>
+            <div class="row for-divs">
+                <h3>Данные пользователя (Оставьте пустым, что не нужно менять)</h3>
+                <div class="col-sm-4">
+                    <h4>Email: <b>КакойтоЕмейл@qwer.com</b></h4>
+                    <input type="text" name="Email" class="form-control" placeholder="NewEmail">
+                </div>
+                <div class="col-sm-3">
+                    <h4>Name: <b>Иван Иванов</b></h4>
+                    @Html.EditorFor(x => x.Name)
+                </div>
+                <div class="col-sm-3">
+                    <h4>Изменение пароля</h4>
+                    <input type="password" name="Password" class="form-control form-group" placeholder="Новый пароль">
+                    <input type="password" name="RepeatPassword" class="form-control form-group" placeholder="Повторите пароль">
+
+                </div>
+            </div>
+            <button class="btn btn-default" type="submit">Отправить</button>
+    </div>
+}

@@ -98,6 +98,41 @@ namespace PL_MVC.Controllers
             }
         }
         [HttpGet]
+        public ActionResult EditAvatar()
+        {
+            ViewBag.UserId = AuthHelper.GetUser(HttpContext);
+            return View();
+        }
+        //[HttpPost]
+        public ActionResult EditAvatar(HttpPostedFileBase uploaded)
+        {
+            var user = AuthHelper.GetUser(HttpContext);
+            if (uploaded != null)
+            {
+                Photo image = new Photo()
+                {
+                    IDPhoto = Guid.NewGuid(),
+                    Name = "",
+                    Spetification = "",
+                    CountLikes = 0,//не пишет в дб                    
+                    Image = new byte[uploaded.ContentLength],
+                    ImageType = uploaded.ContentType,
+                    Category = "",//добавил поле категория
+                    IDAlbum = Guid.NewGuid()
+                };
+                using (BinaryReader br = new BinaryReader(uploaded.InputStream))
+                {
+                    image.Image = br.ReadBytes(image.Image.Length);
+                }
+                if (user.RoleId != 3)
+                {
+                    Binder.EditAvatar(user.idUser, image);
+                }
+                //return File(image.Image, uploaded.ContentType);                
+            }
+            return RedirectToAction("Profile", "User", user);
+        }
+        [HttpGet]
         public PartialViewResult PartialPhoto(Guid id)
         {
             return PartialView(Binder.GetAllPhotoForUser(id).OrderBy(photo => photo.Date).Reverse());

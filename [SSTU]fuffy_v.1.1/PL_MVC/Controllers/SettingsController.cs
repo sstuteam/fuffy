@@ -19,9 +19,48 @@ namespace PL_MVC.Controllers
         [HttpPost]
         public ActionResult Settings(User user)
         {
+            User userBeforeUpdate = AuthHelper.GetUser(HttpContext);
+            ViewBag.PasswordBeforeUpdate = userBeforeUpdate.Password;
+            if (user.Avatar == null)
+            {
+                user.Avatar = userBeforeUpdate.Avatar;
+            }
+            if (user.Cookies == null)
+            {
+                user.Cookies = userBeforeUpdate.Cookies;
+            }
+            if (user.countOfAlbum == 0)
+            {
+                user.countOfAlbum = userBeforeUpdate.countOfAlbum;
+            }
+            if (user.countOfLikes == 0)
+            {
+                user.countOfLikes = userBeforeUpdate.countOfLikes;
+            }
+            if (user.Email == null)
+            {
+                user.Email = userBeforeUpdate.Email;
+            }
+            if (user.Avatar == null)
+            {
+                user.Avatar = userBeforeUpdate.Avatar;
+            }
+            if (user.Name == null)
+            {
+                user.Name = userBeforeUpdate.Name;
+            }
+            if (user.Password == null && user.PasswordRepeat == null)
+            {
+                user.Password = userBeforeUpdate.Password; //тут паролю присваиваются куки (?)
+            }
+            if (user.Status == null)
+            {
+                user.Status = userBeforeUpdate.Status;
+            }
+            user.RoleId = userBeforeUpdate.RoleId;
+            user.idUser = userBeforeUpdate.idUser;
             Binder.UpdateUser(user);
-            Guid idUser = user.idUser;
-            return RedirectToAction("Profile", "User", new { idUser });
+            return RedirectToAction("Profile", "User", new { user.idUser });
         }
     }
 }
