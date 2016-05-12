@@ -15,6 +15,10 @@ namespace PL_MVC.Models
         {
             return bll.DeletePhoto(idPhoto);
         }
+        public static bool ChangeStatus(Guid id, string Name)
+        {
+            return bll.ChangeStatus(id,Name);
+        }
         public static bool DeleteUser(string name)
         {
             return bll.DeleteUser(name);

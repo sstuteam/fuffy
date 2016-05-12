@@ -16,6 +16,7 @@ namespace BLL
         bool BlockUser(string name);
         bool UnBlockUser(string name);
         bool DeleteUser(string name);
+        bool ChangeStatus(Guid id, string Name);
         bool AddAlbum(Album album);
         bool AddPhoto(Photo image);
         bool EditAvatar(Guid UserId, Photo image);

@@ -19,6 +19,8 @@ namespace PL_MVC.Controllers
         }
         public ActionResult GetOtherUserPage(Guid idOtherUser)
         {
+            ViewBag.UserId = AuthHelper.GetUser(HttpContext).idUser;
+            ViewBag.Id = idOtherUser;
             Models.User user = Binder.GetUser(idOtherUser);
             return View("~/Views/User/Profile.cshtml", user);
         }

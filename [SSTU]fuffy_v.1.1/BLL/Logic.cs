@@ -17,7 +17,10 @@ namespace BLL
         {
             dal = new DBWork();
         }
-
+        public bool ChangeStatus(Guid id, string Name)
+        {
+            return dal.ChangeStatus(id,Name);
+        }
         public bool AddPhoto(Photo image)
         {
             image.Data = DateTime.Now;

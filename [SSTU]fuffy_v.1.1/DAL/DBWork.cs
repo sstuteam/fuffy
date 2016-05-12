@@ -52,6 +52,19 @@ namespace DAL
                 return a > 0;
             }
         }
+        public bool ChangeStatus(Guid id, string Name)
+        {
+            using (SqlConnection c = new SqlConnection(ConnectionString))
+            {
+                SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET [Status]=@Status WHERE ID = @ID", c);
+                com.Parameters.AddWithValue("@ID", id);
+                com.Parameters.AddWithValue("@Status", Name);
+                c.Open();
+                var a = com.ExecuteNonQuery();
+                return a > 0;
+
+            }
+        }
         public bool EditAvatar(Guid UserId, Photo image)
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))

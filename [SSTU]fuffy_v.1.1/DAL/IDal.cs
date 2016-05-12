@@ -13,6 +13,7 @@ namespace DAL
         //фото
         bool AddAlbum(Album album);
         bool DeleteAlbum(Guid id);
+        bool ChangeStatus(Guid id, string Name);
         bool CreateModerator(User user);
         bool UnBlockUser(User user);
         bool BlockUser(User user);

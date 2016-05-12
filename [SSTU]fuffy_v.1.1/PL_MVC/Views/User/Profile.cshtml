@@ -10,6 +10,9 @@
 @section styleForProfile{
     <link href="~/Content/StyleSheet.css" rel="stylesheet" />
 }
+@section profileJS{
+    <script src="~/Scripts/JSforprofile.js"></script>
+}
 @section masonry{
     <script src="~/Scripts/masonry.pkgd.min.js"></script>
 }
@@ -30,9 +33,18 @@
                     <img src="">        <!--здесь желатьльно поставить переход на редактирование-->
                 </div>
             </div><div class="row">
-                <div class="col-sm-12">
-                    <h4>Status:</h4>
-                    <h4>@Model.Status</h4>
+                <div id="Reload" class="col-sm-12">
+                    <h4>Status:</h4><!--Shit man -->
+                    @if (ViewBag.UserId == ViewBag.Id)
+                    {
+                        using (Html.BeginForm("ChangeStatus", "User", FormMethod.Get))
+                    {
+                    <input  id="Name" class="Name" name="Name" value="@Model.Status">
+                        <button  id="status" type="submit" data-href="@Url.Action("ChangeStatus", "User")">Изменить</button>
+                    }
+                    }
+                    else
+                    {<h4>@Model.Status</h4>}
                 </div>
             </div>
             <div class="row container-for-avatar">

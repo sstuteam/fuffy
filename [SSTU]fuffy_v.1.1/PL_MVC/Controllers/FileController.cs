@@ -143,7 +143,7 @@ namespace PL_MVC.Controllers
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
             ViewBag.AlbumName = Binder.GetAlbumName(photo.IDAlbum).Name;
             ViewBag.CountLikes=Binder.GetLikes(idPhoto);
-            ViewBag.UserId = AuthHelper.GetUser(HttpContext).idUser;
+            ViewBag.UserId = AuthHelper.GetUser(HttpContext).idUser;  
             ViewBag.UserIdFromAlbum = Binder.GetAlbumName(photo.IDAlbum).IDUser;
             if (photo != null)
             {
