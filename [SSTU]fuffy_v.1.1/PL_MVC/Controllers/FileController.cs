@@ -60,6 +60,7 @@ namespace PL_MVC.Controllers
         public ActionResult Upload()
         {
             User user = AuthHelper.GetUser(HttpContext);
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             if (user.RoleId != 3)
             {
                 return View(user);
@@ -100,6 +101,7 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public ActionResult EditAvatar()
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             ViewBag.UserId = AuthHelper.GetUser(HttpContext);
             return View();
         }
@@ -135,6 +137,7 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public PartialViewResult PartialPhoto(Guid id)
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             return PartialView(Binder.GetAllPhotoForUser(id).OrderBy(photo => photo.Date).Reverse());
         }
         [HttpGet]
@@ -143,8 +146,12 @@ namespace PL_MVC.Controllers
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
             ViewBag.AlbumName = Binder.GetAlbumName(photo.IDAlbum).Name;
             ViewBag.CountLikes=Binder.GetLikes(idPhoto);
-            ViewBag.UserId = AuthHelper.GetUser(HttpContext).idUser;  
-            ViewBag.UserIdFromAlbum = Binder.GetAlbumName(photo.IDAlbum).IDUser;
+            ViewBag.UserId = AuthHelper.GetUser(HttpContext).idUser;
+
+            Guid userId = Binder.GetAlbumName(photo.IDAlbum).IDUser;
+            ViewBag.Prf = Binder.GetUser(userId).Preference;
+
+            ViewBag.UserIdFromAlbum = userId;
             if (photo != null)
             {
                 return View(photo);
@@ -171,6 +178,7 @@ namespace PL_MVC.Controllers
         //[PageAuthorize(RoleID = 0)]
         public ActionResult EditPhoto(Photo photo)
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             if (photo.Spetification == null)
             {
                 photo.Spetification = "";
@@ -184,6 +192,7 @@ namespace PL_MVC.Controllers
         //[PageAuthorize(RoleID = 0)]
         public ActionResult EditPhoto(Guid idPhoto)
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(x => x.IDPhoto == idPhoto);
             return View(photo);
         }

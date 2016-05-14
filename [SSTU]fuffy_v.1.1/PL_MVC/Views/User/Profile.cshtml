@@ -11,12 +11,13 @@
     <link href="~/Content/StyleSheet.css" rel="stylesheet" />
 }
 @section profileJS{
-    <script src="~/Scripts/JSforprofile.js"></script>
+    <script src="~/Scripts/profile.js"></script>
 }
 @section masonry{
     <script src="~/Scripts/masonry.pkgd.min.js"></script>
 }
-<div class="container">
+<div class="preference">@ViewBag.Prf</div>
+
     <div class="row user-page">
         <div class="col-sm-4 forcolons">
             <div class="row">
@@ -34,7 +35,7 @@
                 </div>
             </div><div class="row">
                 <div id="Reload" class="col-sm-12">
-                    <h4>Status:</h4><!--Shit man -->
+                    <p>@Model.Status</p>
                     @if (ViewBag.UserId == ViewBag.Id)
                     {
                         using (Html.BeginForm("ChangeStatus", "User", FormMethod.Get))
@@ -43,8 +44,7 @@
                         <button  id="status" type="submit" data-href="@Url.Action("ChangeStatus", "User")">Изменить</button>
                     }
                     }
-                    else
-                    {<h4>@Model.Status</h4>}
+                        
                 </div>
             </div>
             <div class="row container-for-avatar">
@@ -73,4 +73,3 @@
             @Html.Action("PartialPhoto", "File", new { id = Model.idUser })
         </div>
     </div>
-</div>

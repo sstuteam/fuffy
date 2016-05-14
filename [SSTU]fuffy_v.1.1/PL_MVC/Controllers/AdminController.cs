@@ -12,12 +12,14 @@ namespace PL_MVC.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             return View();
         }
 
         [PageAuthorize(RoleID = 1)]
         public ActionResult AdminPanel()
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             //var user = AuthHelper.GetUser(HttpContext);
             //return View("~/Views/Admin/AdminPanel.cshtml", user);
             return RedirectToAction(nameof(Users));
@@ -26,6 +28,7 @@ namespace PL_MVC.Controllers
         [PageAuthorize(RoleID = 1)]
         public ActionResult Users()
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             var allUsers = Binder.GetUsers();
             IEnumerable<User> sorted = allUsers.OrderBy(x => x.GetCountOfLikesForUser()).Reverse();
             return View("~/Views/Admin/Users.cshtml", sorted);
@@ -33,13 +36,15 @@ namespace PL_MVC.Controllers
         [PageAuthorize(RoleID = 1)]
         public ActionResult UserLists()
         {
-        var allUsers = Binder.GetUsers();
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
+            var allUsers = Binder.GetUsers();
         IEnumerable<User> sorted = allUsers.OrderBy(x => x.GetCountOfLikesForUser()).Reverse();        
             return View("~/Views/Admin/Users.cshtml",sorted);
         }
         [PageAuthorize(RoleID = 1)]
         public ActionResult Operation(string Name,string action)//////////////////////////////////////////////////////////////////////////////////////////
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             if (Name != null)
             {
                 bool t=false;

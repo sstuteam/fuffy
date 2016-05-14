@@ -6,7 +6,8 @@
 @section GetPhotoViewStyle{
     <link href="~/Content/GetPhotoViewStyle.css" rel="stylesheet" />
 }
-<div class="container main">
+<div class="preference">@ViewBag.Prf</div>
+<div class="main">
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()

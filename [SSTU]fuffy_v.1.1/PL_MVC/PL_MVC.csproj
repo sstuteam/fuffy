@@ -99,7 +99,11 @@
     </Content>
     <Content Include="Content\GetPhotoViewStyle.css" />
     <Content Include="Content\Photo\camera.png" />
+    <Content Include="Content\Photo\culture.jpg" />
     <Content Include="Content\Photo\paper_texture602.jpg" />
+    <Content Include="Content\Photo\policy.jpg" />
+    <Content Include="Content\Photo\science.jpg" />
+    <Content Include="Content\Photo\sport.png" />
     <Content Include="Content\Photo\start.jpg" />
     <Content Include="Content\Photo\tekstura_bumaga_goluboy_fon_1920x1080.jpg" />
     <Content Include="Content\Photo\photocards.jpg" />
@@ -138,7 +142,9 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\admin-panel-change-background.js" />
     <Content Include="fonts\BuxtonSketch.ttf" />
+    <Content Include="Scripts\ajax.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\chagneDesign.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />

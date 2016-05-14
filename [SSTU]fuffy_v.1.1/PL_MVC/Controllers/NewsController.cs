@@ -13,6 +13,12 @@ namespace PL_MVC.Controllers
         // GET: News
         public ActionResult News()
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
+            //if (Request.IsAjaxRequest())
+            //{
+            //    return View();
+            //}
+            /*else*/
             return View();
         }
         

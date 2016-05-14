@@ -3,10 +3,9 @@
 @{
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
+<div class="preference">@ViewBag.Prf</div>
 
-<!DOCTYPE html>
-
-    <div class="container content main">    
+    <div class="content main">    
          @using (Html.BeginForm("Add", "Album", FormMethod.Get))
          {
             <div id="newlabel">

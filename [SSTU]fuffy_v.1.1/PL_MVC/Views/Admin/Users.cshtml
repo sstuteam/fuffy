@@ -5,8 +5,8 @@
 }
 @section adminPanelStyles{
     <link href="~/Content/admin-panel.css" rel="stylesheet" />
-}
-<div class="container main admin">
+}<div class="preference">@ViewBag.Prf</div>
+<div class="main admin">
     @using (Html.BeginForm("Operation", "Admin", new { enctype = "multipart/form-data" }))
     {
         <h3>Active</h3>

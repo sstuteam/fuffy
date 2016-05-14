@@ -12,11 +12,13 @@ namespace PL_MVC.Controllers
         // GET: Album
         public ActionResult NewAlbum()
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             return View("~/Views/Create/NewAlbum.cshtml");
         }
         [HttpGet]
         public ActionResult Add(Album model)
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             var user = AuthHelper.GetUser(HttpContext);
             model.IDUser = user.idUser;
             if (Binder.AddAlbum(model))
@@ -30,6 +32,7 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public ActionResult GetAlbum(Guid id) 
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             var albums = Binder.GetAllAlbums(id);//исправил
             List<ProfileView> viy = new List<ProfileView>(0);
             for (int i = 0; i < albums.Count(); i++)
@@ -51,11 +54,16 @@ namespace PL_MVC.Controllers
             }
             IEnumerable<ProfileView> Terror = viy;
             //if (viy.Count != 0)
-            return PartialView("~/Views/Album/Terror.cshtml",Terror);
+            //if (Request.IsAjaxRequest())
+            //{
+            //    return PartialView("~/Views/Album/Terror.cshtml", Terror);
+            //}
+            /*else*/ return PartialView("~/Views/Album/Terror.cshtml", Terror);
             //else { return PartialView("~/Views/Album/Terror.cshtml",albums); }
         }
         public ActionResult  GetAlbumPhoto(Guid idAlbum)
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             Photo InReturn;
             if (Binder.GetAlbumPhoto(idAlbum) != null)
             {
@@ -70,7 +78,8 @@ namespace PL_MVC.Controllers
         }
         public PartialViewResult GetAlbumView(Guid idAlbum) //это неправильно
         {
-           IEnumerable<Photo> photos = Binder.GetAllPhotoForAlbum(idAlbum);/*.FirstOrDefault(i => i.IDAlbum == idAlbum);*/
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
+            IEnumerable<Photo> photos = Binder.GetAllPhotoForAlbum(idAlbum);/*.FirstOrDefault(i => i.IDAlbum == idAlbum);*/
             ViewBag.AlbumName = Binder.GetAlbumName(idAlbum).Name;
             if (photos != null) 
             {

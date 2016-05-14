@@ -4,6 +4,10 @@
     background-position:right;
     background-attachment:fixed;
 }
+.navbar-inverse{
+    background-color:none;
+    border-color:none;
+}
 .sitename{
     font-size: 90px;
     line-height: 90px;

@@ -8,24 +8,24 @@
     <link href="~/Content/registration.css" rel="stylesheet" />
 }
 <div class="container container-fluid container-back">
-    <div id="header"><h2>Регистрация</h2></div>
+    <div id="header"><h2>Registration</h2></div>
     <div class="content container-fluid row">
         <div class="registration-info container-fluid col-xs-12 col-sm-8 col-sm-push-2 col-md-6 col-md-push-3">
             @using (Html.BeginForm("Registration", "Registration", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 <div class="registration-level">
-                    <label>Логин:</label><span class="star">*</span>
-                    @Html.TextBoxFor(x => x.Login, new { @class = "registration-input text-input form-control", name = "login", id = "login", placeholder = "Логин*" })
+                    <label>Login:</label><span class="star">*</span>
+                    @Html.TextBoxFor(x => x.Login, new { @class = "registration-input text-input form-control", name = "login", id = "login", placeholder = "Login*" })
                     @Html.ValidationMessageFor(x => x.Login)
                 </div>
                 <div class="registration-level">
-                    <label>Пароль:</label><span class="star">*</span>
-                    @Html.PasswordFor(x => x.Password, new { @class = "registration-input text-input form-control", name = "password", id = "password", placeholder = "Пароль*" })
+                    <label>Password:</label><span class="star">*</span>
+                    @Html.PasswordFor(x => x.Password, new { @class = "registration-input text-input form-control", name = "password", id = "password", placeholder = "Password*" })
                     @Html.ValidationMessageFor(x => x.Password)
                 </div>
                     <div class="registration-level">
-                        <label>Повторите пароль:</label><span class="star">*</span>
-                        @Html.PasswordFor(x => x.PasswordRepeat, new { @class = "registration-input text-input form-control", name = "repeat-passwor", id = "repeat-password", placeholder = "Повторите пароль*" })
+                        <label>Confirm password:</label><span class="star">*</span>
+                        @Html.PasswordFor(x => x.PasswordRepeat, new { @class = "registration-input text-input form-control", name = "repeat-passwor", id = "repeat-password", placeholder = "Confirm password*" })
                         @Html.ValidationMessageFor(x => x.PasswordRepeat)
                     </div>
                     <div class="registration-level">
@@ -34,13 +34,13 @@
                         @Html.ValidationMessageFor(x => x.Email)
                     </div>
                     <div class="registration-level">
-                        <label>Ник:</label><span class="star">*</span>
+                        <label>Nick:</label><span class="star">*</span>
 
-                        @Html.TextBoxFor(x => x.Name, new { @class = "registration-input text-input form-control", name = "name", id = "name", placeholder = "Ник*" })
+                        @Html.TextBoxFor(x => x.Name, new { @class = "registration-input text-input form-control", name = "name", id = "name", placeholder = "Nick*" })
                         @Html.ValidationMessageFor(x => x.Name)
                     </div>
                     <div class="registration-level">
-                        <label for="avatar">Аватар:</label>
+                        <label for="avatar">Avatar:</label>
                          @*@using (Html.BeginForm("Upload", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
                          {*@
                             <input class="registration-input input-sm" type="file" name="uploaded" id="uploaded" />
@@ -48,24 +48,24 @@
                     </div>
                     <div class="hobbies" typeof="string"  id="hobbies">
                         <div class="registration-level">
-                            <span>Что из нижеперечисленного интересует Вас:</span>
+                            <span>Preference</span>
                         </div>
                         <br />
                         <div class="registration-level">
-                            <input type="checkbox" name="filter" id="policy" />
-                            <label for="policy">Политика</label>
+                            <input value="policy" type="radio" name="Preference" id="policy" />
+                            <label value="policy" name="Preference" for="policy">Policy</label>
                         </div>
                         <div class="registration-level">
-                            <input type="checkbox" name="filter" id="sport" />
-                            <label for="sport">Спорт</label>
+                            <input value="sport" type="radio" name="Preference" id="sport" />
+                            <label value="sport" name="Preference" for="sport">Sport</label>
                         </div>
                         <div class="registration-level">
-                            <input type="checkbox" name="filter" id="science" />
-                            <label for="science">Наука</label>
+                            <input value="science" type="radio" name="Preference" id="science" />
+                            <label value="science" name="Preference" for="science">Science</label>
                         </div>
                         <div class="registration-level">
-                            <input type="checkbox" name="filter" id="culture" />
-                            <label for="culture">Культура</label>
+                            <input value="culture" type="radio" name="Preference" id="culture" />
+                            <label value="culture" name="Preference" for="culture">Culture</label>
                         </div>
                         @*<select name="Hobbies" class="Onemore" > 
                                 <option>Политика</option>

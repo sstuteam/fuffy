@@ -8,12 +8,7 @@ using PL_MVC.Models;
 namespace PL_MVC.Controllers
 {
     public class UserController : Controller
-    {        
-        // GET: User
-        public ActionResult Index()
-        {            
-            return View();
-        }
+    {    
         //public string IsMyPhoto(Guid IdPhoto)
         //{
 
@@ -29,7 +24,13 @@ namespace PL_MVC.Controllers
             ViewBag.UserId = AuthHelper.GetUser(HttpContext).idUser;
             ViewBag.Id = AuthHelper.GetUser(HttpContext).idUser;
             var user = AuthHelper.GetUser(HttpContext);
-            return View("~/Views/User/Profile.cshtml",user);
+            var idOtherUser = AuthHelper.GetUser(HttpContext).idUser;
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
+            //if (Request.IsAjaxRequest())
+            //{
+            //    return View("~/Views/User/Profile.cshtml", user);
+            //}
+            /*else*/ return View("~/Views/User/Profile.cshtml", user);
         }
         public ActionResult ChangeStatus(string Name)
         {

@@ -1,9 +1,9 @@
 ﻿@{
     ViewBag.Title = "News";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
-}<div class="container main">
+}<div class="main">
     <h2>News</h2>
-
+     <div class="preference">@ViewBag.Prf</div>
     @using (Html.BeginForm("News", "News", FormMethod.Get))
     {
         <div class="no-center-align">

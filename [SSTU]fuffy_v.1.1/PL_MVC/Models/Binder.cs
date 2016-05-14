@@ -41,7 +41,7 @@ namespace PL_MVC.Models
         }
         public static bool AddUser(User user)
         {
-            return bll.AddUser((Entities.User)user);
+            return bll.AddUser(user);
         }
 
         public static bool CheckLogin(string Login)
@@ -75,7 +75,8 @@ namespace PL_MVC.Models
                     Email = item.Email,
                     Login = item.Login,
                     Name = item.Name,
-                    Status = item.Status
+                    Status = item.Status,
+                    Preference=item.Preference
                 }
                     );
             }

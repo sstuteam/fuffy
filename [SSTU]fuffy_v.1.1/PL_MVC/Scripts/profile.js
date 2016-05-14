@@ -45,7 +45,7 @@ $(document.body).on("click", "#add-comment", function (e) {
   //} 
             $(result).each(function (index, item) {
                 $("#Comments").empty();
-                $("#Comments").append( item.Text );
+                $("#Comments").append(item.Text );
             });
             
         }

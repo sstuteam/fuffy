@@ -1,9 +1,9 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "EditAvatar";
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-<div class="container main">
+<div class="preference">@ViewBag.Prf</div>
+<div class="main">
     <h2>EditAvatar</h2>
     @using (@Html.BeginForm("EditAvatar", "File", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {

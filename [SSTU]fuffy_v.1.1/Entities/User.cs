@@ -17,6 +17,7 @@ namespace Entities
         public string Cookies { get; set; }
         public int RoleId { get; set; }     //
         public string Status { get; set; }
+        public string Preference { get; set; }
         public byte[] Avatar { get; set; }
         //public string sername;
 

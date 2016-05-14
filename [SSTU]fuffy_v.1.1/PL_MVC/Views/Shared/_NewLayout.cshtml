@@ -5,6 +5,7 @@
     <title>@ViewBag.Title • Fuffy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="~/Content/reset.css" rel="stylesheet" />
+    @RenderSection("styles", false)
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
     <link href="~/Content/style.css" rel="stylesheet" />
@@ -24,13 +25,13 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Fuffy", "News", "News")</li>
+                        <li>@Html.ActionLink("Fuffy", "News", "News"@*, new { @id="news"}*@)</li>
                     </ul>
                 }
 
                 else {
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Fuffy", "Index", "Home")</li>
+                        <li><a href="@Url.Action("Index", "Home")" id="news">Fuffy</a></li>
                     </ul>
                 }
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,18 +42,18 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("People", "People", "People")</li>
+                    <li>@Html.ActionLink("People", "People", "People"@*, new { @id="people" }*@)</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Settings", "Settings", "Settings")</li>
-                        <li>@Html.ActionLink("Add album", "NewAlbum", "Album")</li>
-                        <li>@Html.ActionLink("Upload", "Upload", "File")</li>
+                        <li>@Html.ActionLink("Settings", "Settings", "Settings"@*, new { @id="settings"}*@)</li>
+                        <li>@Html.ActionLink("Add album", "NewAlbum", "Album"@*, new { @id = "add-album" }*@)</li>
+                        <li>@Html.ActionLink("Upload", "Upload", "File"@*, new { @id = "add-photo" }*@)</li>
                         <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
 
                         <li>
-                            @Html.ActionLink("Profile", "Profile", "User")
+                            @Html.ActionLink("Profile", "Profile", "User"@*, new { @id = "profile" }*@)
                             @*@Html.Action("GetAvatar", "File", new { Model.idUser })*@
                             @* <img style="width:32px" class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser=Model.idUser })">*@
 
@@ -68,13 +69,16 @@
             </div>
         </div>
     </div>
-
-    @RenderBody()
-
+    <div class="container">
+        @RenderBody()
+    </div>
     <footer>Fuffy &copy; 2016</footer>
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/ajax.js"></script>
+    <script src="~/Scripts/chagneDesign.js"></script>
     @RenderSection("masonry", false)
     @RenderSection("profileJS", false)
+
 </body>
 </html>

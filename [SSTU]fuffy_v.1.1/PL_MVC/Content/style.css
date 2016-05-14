@@ -1,7 +1,7 @@
 ﻿body {
          /*padding-top: 50px;*/ /*из-за этой строчке на мобильных версиях был отступ*/
         /*background-color: #fafafa;*/
-        background-image:url("../Content/Photo/photocards.jpg");
+        /*background-image:url("../Content/Photo/photocards.jpg");*/
         background-size:cover;
     background-position:right;
     background-attachment:fixed;
@@ -11,11 +11,15 @@
         }
 
 .navbar {
-            background-color: #904684;
-            border-color:#904684;
+            /*background-color: #904684;*/
+            /*border-color:#904684;*/
             text-align:center;
             margin-bottom:0;
         }
+.navbar-inverse{
+    background-color:none;
+    border-color:none;
+}
 input[type="search"]{
     width:200px;
     margin-left:auto;
@@ -37,7 +41,8 @@ h3 {
    }
 
 h1, h2, h4 {
-                
+    margin-top:0;
+    padding-top:20px; 
     color:#603259;
            }
 .image-head{
@@ -178,3 +183,7 @@ footer{
 }
 a{color:none!important;}
 textarea{resize:none;}
+.preference{
+    visibility:hidden;
+    position:absolute;
+}

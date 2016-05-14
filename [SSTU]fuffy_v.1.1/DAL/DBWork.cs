@@ -22,7 +22,7 @@ namespace DAL
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
                 user.Password = GetHashString(user.Password);
-                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Login] ([ID],[Login],[Password],[Nick],[Email],[Cookies],[Avatar]) VALUES (@ID,@Login,@Password,@Nick,@Email,@Cookies,@Avatar)", c);
+                SqlCommand com = new SqlCommand("INSERT INTO [dbo].[Login] ([ID],[Login],[Password],[Nick],[Email],[Cookies],[Avatar],[Preference]) VALUES (@ID,@Login,@Password,@Nick,@Email,@Cookies,@Avatar,@Preference)", c);
                 com.Parameters.AddWithValue("@ID", user.idUser);
                 com.Parameters.AddWithValue("@Login", user.Login);
                 com.Parameters.AddWithValue("@Password", user.Password);
@@ -30,6 +30,7 @@ namespace DAL
                 com.Parameters.AddWithValue("@Email", user.Email);
                 com.Parameters.AddWithValue("@Cookies", user.Cookies);
                 com.Parameters.AddWithValue("@Avatar", user.Avatar);
+                com.Parameters.AddWithValue("@Preference", user.Preference);
                 c.Open();
                 var a = com.ExecuteNonQuery();
                 return a > 0;
@@ -98,7 +99,7 @@ namespace DAL
             var listUser = new List<User>();
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
-                SqlCommand com = new SqlCommand("SELECT [ID],[Login],[Password],[Email],[Nick],[Cookies],[Status],[RoleID],[Avatar] FROM [dbo].[Login]", c);
+                SqlCommand com = new SqlCommand("SELECT [ID],[Login],[Password],[Email],[Nick],[Cookies],[Status],[RoleID],[Avatar],[Preference] FROM [dbo].[Login]", c);
                 c.Open();
                 var reader = com.ExecuteReader();
                 while (reader.Read())
@@ -111,8 +112,9 @@ namespace DAL
                         Name = (string)reader["Nick"],
                         Email = (string)reader["Email"],
                         Cookies = (string)reader["Cookies"],
-                        Avatar=(byte[])reader["Avatar"]
-                        /*Status = (string)reader["Status"],*/
+                        Avatar=(byte[])reader["Avatar"],
+                        Status = (string)reader["Status"],
+                        Preference=(string)reader["Preference"]
                         /*RoleId = (int)reader["RoleID"],*/
                     };
                     if (reader["Status"] == System.DBNull.Value)

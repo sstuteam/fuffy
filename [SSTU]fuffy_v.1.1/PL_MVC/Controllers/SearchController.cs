@@ -30,6 +30,7 @@ namespace PL_MVC.Controllers
         // GET: Search
         public ActionResult Search()
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             return View();
         }
         //[HttpPost]

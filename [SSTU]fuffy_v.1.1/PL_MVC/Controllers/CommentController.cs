@@ -17,6 +17,7 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public PartialViewResult GetComment(Guid id) //это правильно
         {
+
             var comments = Binder.GetComments(id).OrderBy(x=>x.Date);
             ViewBag.UserId = AuthHelper.GetUser(HttpContext).idUser;
             ViewBag.userRoleId = AuthHelper.GetUser(HttpContext).RoleId;
@@ -71,6 +72,7 @@ namespace PL_MVC.Controllers
         //[PageAuthorize(RoleID = 2)]
         public ActionResult EditComment(Guid commentId)
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             Comment comment = Binder.GetComments().FirstOrDefault(x => x.CommentId == commentId);
             return View(comment);
         }

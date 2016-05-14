@@ -3,10 +3,10 @@
 @{
     Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
+<div class="preference">@ViewBag.Prf</div>
 
 
-
-    <div class="container content main">
+    <div class="content main">
         <h2>Create new album</h2>    
          @using (Html.BeginForm("Add", "Album", FormMethod.Get))
          {

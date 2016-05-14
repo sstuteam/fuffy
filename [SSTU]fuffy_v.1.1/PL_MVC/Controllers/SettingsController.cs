@@ -13,8 +13,13 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public ActionResult Settings()
         {
+            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             User user = AuthHelper.GetUser(HttpContext);
-            return View(user);
+            //if (Request.IsAjaxRequest())
+            //{
+            //    return View(user);
+            //}
+            /*else*/ return View();
         }
         [HttpPost]
         public ActionResult Settings(User user)
