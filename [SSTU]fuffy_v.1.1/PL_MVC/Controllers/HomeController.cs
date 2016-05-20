@@ -21,7 +21,7 @@ namespace PL_MVC.Controllers
         }
         public PartialViewResult GetPopularPhotos()
         {
-            return PartialView(Binder.GetAllPhoto().OrderBy(x => x.CountLikes).Reverse().Take(4).ToArray());
+            return PartialView(Binder.GetAllPhoto().Where(x=>x.Category!="Album").OrderBy(x => x.CountLikes).Reverse().Take(4).ToArray());
         }
         public PartialViewResult GetPopularUsers()
         {

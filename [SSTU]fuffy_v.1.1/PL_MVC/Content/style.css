@@ -187,3 +187,6 @@ textarea{resize:none;}
     visibility:hidden;
     position:absolute;
 }
+.search-form{
+    margin-top:7px;
+}

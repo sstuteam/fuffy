@@ -6,10 +6,11 @@
 @section profileJS{
     <script src="~/Scripts/profile.js"></script>
 }
-<div class="preference">@ViewBag.Prf</div>
+
 @section GetPhotoViewStyle{
     <link href="~/Content/GetPhotoViewStyle.css" rel="stylesheet" />
 }
+<div class="preference">@ViewBag.Prf</div>
 <div class="main">
     <div class="row">
         <div class="col-md-8 to-center">
@@ -21,11 +22,17 @@
                 Album: @ViewBag.AlbumName
             </div>
             <div class="row specification">
+                Category: @Model.Category
+            </div>
+            <div class="row specification">
                 Specification: @Model.Spetification
             </div>
-            <div class="row">
-                @ViewBag.UserName
-            </div>
+            @if (ViewBag.UserId != ViewBag.UserIdFromAlbum)
+            {
+                <div class="row">
+                    Author:<a href="@Url.Action("GetOtherUserPage","People", new { idOtherUser = ViewBag.UserIdFromAlbum })">@ViewBag.UserName</a>
+                </div>
+            }
             <div class="row likes">
                 Likes:
                 <span id="CountLike"> @Html.Action("GetLikesForPhoto", "Like", new { id = Model.IDPhoto })</span>

@@ -1,7 +1,7 @@
 ﻿@model PL_MVC.Models.Photo
 @{
     ViewBag.Title = "Search";
-    Layout = "~/Views/Shared/_NewLayout.cshtml";
+    //Layout = "~/Views/Shared/_NewLayout.cshtml";
 
 }
 @section styles{
@@ -16,37 +16,30 @@
                 <input class="form-control" type="search" placeholder="Title" name="name" />
             </div>
             <div class="form-group">
-                <input class="form-control" type="search" placeholder="User name" />
+                <input class="form-control" type="search" placeholder="User name" name="userName" />
             </div>
             <div class="form-group">
                 <input class="form-control" type="search" placeholder="Key words" name="fragment" />
             </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"> Register
-                    </label>
-                </div>
-            </div>
             <h4>Preferences</h4>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox"> Art
+                    <input value="art" name="prf" type="checkbox"> Art
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox"> Sport
+                    <input value="sport" name="prf" type="checkbox"> Sport
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" /> Politics
+                    <input value="policy" name="prf" type="checkbox" /> Policy
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" /> Science
+                    <input value="science" name="prf" type="checkbox" /> Science
                 </label>
             </div>
             <div class="row row-btn-center">

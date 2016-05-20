@@ -26,11 +26,11 @@ namespace PL_MVC.Controllers
             var user = AuthHelper.GetUser(HttpContext);
             var idOtherUser = AuthHelper.GetUser(HttpContext).idUser;
             ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
-            //if (Request.IsAjaxRequest())
-            //{
-            //    return View("~/Views/User/Profile.cshtml", user);
-            //}
-            /*else*/ return View("~/Views/User/Profile.cshtml", user);
+            if (Request.IsAjaxRequest())
+            {
+                return View("~/Views/User/Profile.cshtml", user);
+            }
+            else return View("~/Views/User/Profile.cshtml", user);
         }
         public ActionResult ChangeStatus(string Name)
         {

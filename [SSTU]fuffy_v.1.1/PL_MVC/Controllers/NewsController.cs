@@ -14,17 +14,17 @@ namespace PL_MVC.Controllers
         public ActionResult News()
         {
             ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
-            //if (Request.IsAjaxRequest())
-            //{
-            //    return View();
-            //}
-            /*else*/
+            if (Request.IsAjaxRequest())
+            {
+                return View();
+            }
+            else
             return View();
         }
         
         public PartialViewResult NewsGet( string c1, string c2, string c3, string c4, string c5, string c6, string c7, string c8, string c9, string c10, string cat)
         {
-            var photoes = Binder.GetAllPhoto();
+            var photoes = Binder.GetAllPhoto().Where(x => x.Category != "Album").OrderBy(photo => photo.Name); ;
             List<Photo> T=new List<Photo>();
             if (c1!= null||c2!=null||c3!=null||c4!=null||c5!=null||c6!=null||c7!=null||c8!=null||c9!=null||c10!=null||cat!=null)
             {
@@ -40,8 +40,7 @@ namespace PL_MVC.Controllers
             }
             else
             {
-                IEnumerable<Photo> sortedPhotoes = photoes.OrderBy(photo => photo.Name);
-                return PartialView(sortedPhotoes);
+                return PartialView(photoes);
             }
         }
         //public ActionResult NewsModels(IEnumerable<Photo> ListPhoto)

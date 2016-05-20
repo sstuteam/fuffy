@@ -34,18 +34,71 @@ namespace PL_MVC.Controllers
             return View();
         }
         //[HttpPost]
-        public PartialViewResult PartialSearch(string name, string fragment)
+        public PartialViewResult PartialSearch(string name, string fragment, string userName, string prf)
         {
-            IEnumerable<Photo> listAllPhoto = Binder.GetAllPhoto();
-            if (name != null || fragment != null)
+            IEnumerable<Photo> listAllPhoto = Binder.GetAllPhoto().Where(photo => photo.Category != "Album");
+            var users = Binder.GetUsers().Where(item => item.Name == userName);
+            if (name == null) { name = ""; }
+            if (fragment == null) { fragment = ""; }
+            if (userName == null) { userName = ""; }
+            List<Photo> founded = new List<Photo>();
+            if (users.Count() != 0 && users != null)
             {
-                IEnumerable<Photo> listPhoto = Binder.Search(name, fragment);
-                if (listPhoto.Count() != 0)
+                if (name == "" && fragment == "")
                 {
-                    return PartialView(listPhoto);
+                    foreach (var photo in listAllPhoto)
+                    {
+                        foreach (var user in users)
+                        {
+                            if (user.idUser == Binder.GetAlbumName(photo.IDAlbum).IDUser || user.Preference == Binder.GetUser(Binder.GetAlbumName(photo.IDAlbum).IDUser).Preference)
+                            {
+                                founded.Add(photo);
+                            }
+                        }
+                    }
                 }
+                else {
+                    foreach (var photo in listAllPhoto)
+                    {
+                        foreach (var user in users)
+                        {
+                            if ((user.idUser == Binder.GetAlbumName(photo.IDAlbum).IDUser || user.Preference == Binder.GetUser(Binder.GetAlbumName(photo.IDAlbum).IDUser).Preference) && photo.Spetification.Contains(fragment) && photo.Name == name)
+                            {
+                                founded.Add(photo);
+                            }
+                        }
+                    }
+                }
+                if (fragment != "" && name == "")
+                {
+                    foreach (var photo in listAllPhoto)
+                    {
+                        foreach (var user in users)
+                        {
+                            if ((user.idUser == Binder.GetAlbumName(photo.IDAlbum).IDUser || user.Preference == Binder.GetUser(Binder.GetAlbumName(photo.IDAlbum).IDUser).Preference) && photo.Spetification.Contains(fragment))
+                            {
+                                founded.Add(photo);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var photo in listAllPhoto)
+                    {
+                        foreach (var user in users)
+                        {
+                            if ((user.idUser == Binder.GetAlbumName(photo.IDAlbum).IDUser || user.Preference == Binder.GetUser(Binder.GetAlbumName(photo.IDAlbum).IDUser).Preference) && photo.Name == name)
+                            {
+                                founded.Add(photo);
+                            }
+                        }
+                    }
+                }
+                return PartialView(founded);
             }
-            return PartialView(listAllPhoto.Where(x=>x.Spetification=="None"));
+            
+            return PartialView(listAllPhoto.Where(photo=>Binder.GetUsers().FirstOrDefault().Preference==prf || photo.Spetification.Contains(fragment) || photo.Name==name));
         }
     }
 }

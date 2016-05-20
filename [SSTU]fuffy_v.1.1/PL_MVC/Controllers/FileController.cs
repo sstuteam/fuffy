@@ -65,7 +65,7 @@ namespace PL_MVC.Controllers
             {
                 return View(user);
             }
-            else return null;
+            else return View(user);
         }
 
         //<a href=/File/GetPhoto/4234324>
@@ -116,7 +116,7 @@ namespace PL_MVC.Controllers
                     IDPhoto = Guid.NewGuid(),
                     Name = "",
                     Spetification = "",
-                    CountLikes = 0,//не пишет в дб                    
+                    CountLikes = 0,              
                     Image = new byte[uploaded.ContentLength],
                     ImageType = uploaded.ContentType,
                     Category = "",//добавил поле категория
@@ -138,20 +138,20 @@ namespace PL_MVC.Controllers
         public PartialViewResult PartialPhoto(Guid id)
         {
             ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
-            return PartialView(Binder.GetAllPhotoForUser(id).OrderBy(photo => photo.Date).Reverse());
+            return PartialView(Binder.GetAllPhotoForUser(id).Where(photo=>photo.Category!="Album").OrderBy(photo => photo.Date).Reverse());
         }
         [HttpGet]
         public ViewResult GetPhotoView(Guid idPhoto)
         {
             Photo photo = Binder.GetAllPhoto().FirstOrDefault(i => i.IDPhoto == idPhoto);
+                        
+            ViewBag.Prf = Binder.GetUser(Binder.GetAlbumName(photo.IDAlbum).IDUser).Preference;
             ViewBag.AlbumName = Binder.GetAlbumName(photo.IDAlbum).Name;
             ViewBag.CountLikes=Binder.GetLikes(idPhoto);
             ViewBag.UserId = AuthHelper.GetUser(HttpContext).idUser;
+            ViewBag.UserIdFromAlbum = Binder.GetAlbumName(photo.IDAlbum).IDUser;
+            ViewBag.UserName= Binder.GetUser(Binder.GetAlbumName(photo.IDAlbum).IDUser).Name;
 
-            Guid userId = Binder.GetAlbumName(photo.IDAlbum).IDUser;
-            ViewBag.Prf = Binder.GetUser(userId).Preference;
-
-            ViewBag.UserIdFromAlbum = userId;
             if (photo != null)
             {
                 return View(photo);

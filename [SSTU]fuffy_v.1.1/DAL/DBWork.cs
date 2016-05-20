@@ -587,6 +587,7 @@ namespace DAL
         {
             using (SqlConnection c = new SqlConnection(ConnectionString))
             {
+                user.Password = GetHashString(user.Password);
                 SqlCommand com = new SqlCommand("UPDATE [dbo].[Login] SET [Nick]=@Name,[RoleId]=@RoleId,[Status]=@Status,[Password]=@Password,[Email]=@Email WHERE [ID]=@ID", c);
                 //com.Parameters.AddWithValue("@Login", user.Login);
                 com.Parameters.AddWithValue("@Name", user.Name);

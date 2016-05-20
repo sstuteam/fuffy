@@ -2,11 +2,8 @@
 @using PL_MVC.Models
 @{
     ViewBag.Title = Model.Name;
-    if (Model.RoleId == 0)
-    {
-        Layout = "~/Views/Shared/_NewLayout.cshtml";
-    }
-    }
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
 @section styleForProfile{
     <link href="~/Content/StyleSheet.css" rel="stylesheet" />
 }
@@ -18,58 +15,66 @@
 }
 <div class="preference">@ViewBag.Prf</div>
 
-    <div class="row user-page">
-        <div class="col-sm-4 forcolons">
-            <div class="row">
-                <div class="col-sm-4 user-name">
-                    @if (Model.RoleId == 1)
-                    {
-                            <h2>
-                                <a title="Go to Admin panel" href="@Url.Action("Users", "Admin")">@Model.Name</a>
-                            </h2>
-                    }
-                    else {<h2>@Model.Name</h2>}
-                </div>
-                <div class="col-sm-1">
-                    <img src="">        <!--здесь желатьльно поставить переход на редактирование-->
-                </div>
-            </div><div class="row">
-                <div id="Reload" class="col-sm-12">
-                    <p>@Model.Status</p>
-                    @if (ViewBag.UserId == ViewBag.Id)
-                    {
-                        using (Html.BeginForm("ChangeStatus", "User", FormMethod.Get))
-                    {
-                    <input  id="Name" class="Name" name="Name" value="@Model.Status">
-                        <button  id="status" type="submit" data-href="@Url.Action("ChangeStatus", "User")">Изменить</button>
-                    }
-                    }
-                        
-                </div>
+<div class="row user-page">
+    <div class="col-sm-4 forcolons">
+        <div class="row">
+            <div class="col-sm-4 user-name">
+                @if (Model.RoleId == 1)
+                {
+                    <h2>
+                        <a title="Go to Admin panel" href="@Url.Action("Users", "Admin")">@Model.Name</a>
+                    </h2>
+                }
+                else {<h2>@Model.Name</h2>}
             </div>
-            <div class="row container-for-avatar">
-                        <a href="@Url.Action("EditAvatar", "File")">
-                            <img class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser=Model.idUser })">
-                        </a>
-                
+            <div class="col-sm-1">
+                <img src="">        <!--здесь желатьльно поставить переход на редактирование-->
             </div>
-            </div>
-        <div class="col-sm-8 forcolons scroll-x">
-            <div class="row">
-                <h2>Albums:</h2>
-            </div>
-            <div class="row">
-                <h1> </h1>
-            </div>
-            <div>
-                @Html.Action("GetAlbum", "Album", new { id = Model.idUser })
-            </div>
-        </div>
-    </div>
+        </div><div class="row">
+            <div id="Reload" class="col-sm-12">
+                <p>@Model.Status</p>
+                @if (ViewBag.UserId == ViewBag.Id)
+                {
 
-    <div class="row main">
-        
-        <div class="masonry">
-            @Html.Action("PartialPhoto", "File", new { id = Model.idUser })
+                    using (Html.BeginForm("ChangeStatus", "User", FormMethod.Get, new { @class = "add-status" }))
+                    {
+                        <input id="Name" class="Name" name="Name" value="@Model.Status">
+                        <button id="status" type="submit" data-href="@Url.Action("ChangeStatus", "User")">Change</button>
+                    }
+                }
+
+            </div>
+        </div>
+        @if (ViewBag.UserId == ViewBag.Id)
+        {
+            <div class="row container-for-avatar">
+                <a href="@Url.Action("EditAvatar", "File")">
+                    <img class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser = Model.idUser })">
+                </a>
+
+            </div>
+        }
+        else {  <div class="row container-for-avatar">
+            <img class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser = Model.idUser })">
+
+        </div> }
+    </div>
+    <div class="col-sm-8 forcolons scroll-x">
+        <div class="row">
+            <h2>Albums:</h2>
+        </div>
+        <div class="row">
+            <h1> </h1>
+        </div>
+        <div>
+            @Html.Action("GetAlbum", "Album", new { id = Model.idUser })
         </div>
     </div>
+</div>
+
+<div class="row main">
+
+    <div class="masonry">
+        @Html.Action("PartialPhoto", "File", new { id = Model.idUser })
+    </div>
+</div>

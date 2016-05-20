@@ -9,7 +9,6 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
     <link href="~/Content/style.css" rel="stylesheet" />
-    @RenderSection("styles", false)
     @RenderSection("styleForProfile", false)
     @RenderSection("GetPhotoViewStyle", false)
     @RenderSection("StyleForRegistration", false)
@@ -25,13 +24,13 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Fuffy", "News", "News"@*, new { @id="news"}*@)</li>
+                        <li><a href="@Url.Action("News", "News")" id="news">Fuffy</a></li>
                     </ul>
                 }
 
                 else {
                     <ul class="nav navbar-nav">
-                        <li><a href="@Url.Action("Index", "Home")" id="news">Fuffy</a></li>
+                        <li><a href="@Url.Action("Index", "Home")">Fuffy</a></li>
                     </ul>
                 }
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,24 +41,19 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("People", "People", "People"@*, new { @id="people" }*@)</li>
+                    <li><a href="@Url.Action("People", "People")" id="people">People</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Settings", "Settings", "Settings"@*, new { @id="settings"}*@)</li>
-                        <li>@Html.ActionLink("Add album", "NewAlbum", "Album"@*, new { @id = "add-album" }*@)</li>
-                        <li>@Html.ActionLink("Upload", "Upload", "File"@*, new { @id = "add-photo" }*@)</li>
+                        <li><a href="@Url.Action("Settings", "Settings")" id="settings">Settings</a></li>
+                        <li><a href="@Url.Action("NewAlbum", "Album")" id="add-album">Add album</a></li>
+                        <li><a href="@Url.Action("Upload", "File")" id="add-photo">Add photo</a></li>
                         <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
+                        <li><a href="@Url.Action("Profile", "User")" id="profile">Profile</a></li>
 
-                        <li>
-                            @Html.ActionLink("Profile", "Profile", "User"@*, new { @id = "profile" }*@)
-                            @*@Html.Action("GetAvatar", "File", new { Model.idUser })*@
-                            @* <img style="width:32px" class="avatar" src="@Url.Action("GetAvatar", "File", new { idUser=Model.idUser })">*@
-
-                        </li>
                     }
-                    <li>
+                    <li class="search-form">
                         @using (@Html.BeginForm("Search", "Search"))
                         {
                             <input name="name" type="text" class="form-control width-for-search" placeholder="Search...">

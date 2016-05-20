@@ -19,31 +19,36 @@ namespace PL_MVC.Controllers
         [HttpPost]
         public ActionResult Registration(User user, HttpPostedFileBase uploaded/*,string Hobbies*/)
         {
-            Binder.CheckLogin(user.Login);
-            user.Cookies = Guid.NewGuid().ToString();
-            user.idUser = Guid.NewGuid();
-            Photo avatar = new Photo()
+            if (/*ModelState.IsValid*/!(uploaded==null && user.Login==null && user.Name==null && user.Email==null && user.Password==null && user.PasswordRepeat==null&&user.Password!=user.PasswordRepeat && user.Preference==null))
             {
-                IDPhoto = Guid.NewGuid(),                  
-                Image = new byte[uploaded.ContentLength]
-            };
-            using (BinaryReader br = new BinaryReader(uploaded.InputStream))
-            {
-                avatar.Image = br.ReadBytes(avatar.Image.Length);
+                Binder.CheckLogin(user.Login);
+                user.Cookies = Guid.NewGuid().ToString();
+                user.idUser = Guid.NewGuid();
+                Photo avatar = new Photo()
+                {
+
+                    IDPhoto = Guid.NewGuid(),
+                    Image = new byte[uploaded.ContentLength]
+                };
+                using (BinaryReader br = new BinaryReader(uploaded.InputStream))
+                {
+                    avatar.Image = br.ReadBytes(avatar.Image.Length);
+                }
+                Album album = new Album()
+                {
+                    IDAlbum = Guid.NewGuid(),
+                    IDUser = user.idUser,
+                    Name = "Other",
+                    Spetification = "No spetification"
+                };
+                user.Avatar = avatar.Image;
+                //user.Hobbies = Hobbies;//передаем строку с предпочтением
+                Binder.AddUser(user);
+                //Binder.AddAvatar(user.idUser, avatar);
+                Binder.AddAlbum(album);
+                return RedirectToAction("Index", "Home");
             }
-            Album album = new Album()
-            {
-                IDAlbum = Guid.NewGuid(),
-                IDUser = user.idUser,
-                Name = "Other",
-                Spetification = "No spetification"
-            };
-            user.Avatar = avatar.Image;
-            //user.Hobbies = Hobbies;//передаем строку с предпочтением
-            Binder.AddUser(user);
-            //Binder.AddAvatar(user.idUser, avatar);
-            Binder.AddAlbum(album);
-            return RedirectToAction("Index", "Home");
+            return View();
         }
         [HttpPost]
         public ActionResult AddUser(User user)

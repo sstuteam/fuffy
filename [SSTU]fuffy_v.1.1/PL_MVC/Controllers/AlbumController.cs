@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PL_MVC.Models;
+using System.IO;
 
 namespace PL_MVC.Controllers
 {
@@ -47,7 +48,28 @@ namespace PL_MVC.Controllers
                 }
                 else
                 {
-                    heh.photo = new Photo();
+                    byte[] image;
+                    using (FileStream fstream = System.IO.File.OpenRead(AppDomain.CurrentDomain.BaseDirectory+ "Content/Photo/camera.png"))
+                    {
+                        image = new byte[fstream.Length];
+                        fstream.Read(image, 0, image.Length);
+                        
+                    
+                        heh.photo = new Photo()
+                        {
+                            Category = "Album",
+                            IDAlbum=heh.IdAlbum,
+                            Spetification="",
+                            Date=DateTime.Now,
+                            CountLikes=0,
+                            IDPhoto=Guid.NewGuid(),
+                            ImageType="img/jpeg",
+                            Name="",
+                            Image=image
+                        };
+                        heh.photo.Category = "Album";
+                        Binder.Add(heh.photo);
+                            }
                     viy.Add(heh);
                 }
                 //

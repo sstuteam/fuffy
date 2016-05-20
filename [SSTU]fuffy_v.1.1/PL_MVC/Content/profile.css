@@ -296,7 +296,9 @@ img {
 textarea {
     border-radius: 3px;
 }
-
+.add-status{
+    margin-bottom:10px;
+}
 #modal-add {    
     position:center;
     font-family: Arial;     

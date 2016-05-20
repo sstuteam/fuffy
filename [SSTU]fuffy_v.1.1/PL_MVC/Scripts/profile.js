@@ -43,10 +43,10 @@ $(document.body).on("click", "#add-comment", function (e) {
             //   +"</div>"
             //)
   //} 
-            $(result).each(function (index, item) {
-                $("#Comments").empty();
-                $("#Comments").append(item.Text );
-            });
+            //$(result).each(function (index, item) {
+                $("body").empty();
+                $("body").append(result);
+            //});
             
         }
     })

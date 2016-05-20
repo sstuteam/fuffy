@@ -15,11 +15,12 @@ namespace PL_MVC.Controllers
         {
             ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
             User user = AuthHelper.GetUser(HttpContext);
-            //if (Request.IsAjaxRequest())
-            //{
-            //    return View(user);
-            //}
-            /*else*/ return View();
+            if (Request.IsAjaxRequest())
+            {
+                return View(user);
+            }
+            else
+            return View(user);
         }
         [HttpPost]
         public ActionResult Settings(User user)
@@ -54,7 +55,7 @@ namespace PL_MVC.Controllers
             {
                 user.Name = userBeforeUpdate.Name;
             }
-            if (user.Password == null && user.PasswordRepeat == null)
+            if (user.Password == null && user.PasswordRepeat == null && user.Password != user.PasswordRepeat)
             {
                 user.Password = userBeforeUpdate.Password; //тут паролю присваиваются куки (?)
             }

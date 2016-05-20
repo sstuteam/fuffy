@@ -49,7 +49,7 @@ namespace PL_MVC.Controllers
                 if (user.RoleId !=3 && Request.IsAjaxRequest())
                 {
                     Binder.AddComment(comment);
-                    return Json(Binder.GetComments(idPhoto).OrderBy(x => x.Date), JsonRequestBehavior.AllowGet);
+                    return RedirectToAction("GetPhotoView", "File", new { idPhoto=comment.PhotoId });
                 }
             }
             idPhoto = photo.IDPhoto;
