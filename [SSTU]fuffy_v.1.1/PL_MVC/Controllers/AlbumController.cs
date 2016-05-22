@@ -100,14 +100,14 @@ namespace PL_MVC.Controllers
         }
         public PartialViewResult GetAlbumView(Guid idAlbum) //это неправильно
         {
-            ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
-            IEnumerable<Photo> photos = Binder.GetAllPhotoForAlbum(idAlbum);/*.FirstOrDefault(i => i.IDAlbum == idAlbum);*/
+            ViewBag.Prf = Binder.GetUser(Binder.GetAlbumName(idAlbum).IDUser).Preference;
+            IEnumerable<Photo> photos = Binder.GetAllPhotoForAlbum(idAlbum).Where(photo => photo.Category != "Album");
             ViewBag.AlbumName = Binder.GetAlbumName(idAlbum).Name;
             if (photos != null) 
             {
                 return PartialView(photos);
             }
-            else return PartialView(Binder.GetAllPhoto());
+            else return PartialView(Binder.GetAllPhoto().Where(photo => photo.Category != "Album"));
         }
 
     }

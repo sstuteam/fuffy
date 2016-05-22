@@ -66,14 +66,34 @@
     </div>
     @*@if (ViewBag.userRoleId != 0)
         {*@
-    <div class="row add-new-comment">
-        @using (@Html.BeginForm("AddComment", "Comment", new { IDPhoto = Model.IDPhoto }, FormMethod.Post))
-        {
-            <div class="col-md-6 col-md-offset-3 for-comment">
-                <textarea name="text" class="text-comment"></textarea><br />
-                <button id="add-comment" type="submit" data-href="@Url.Action("AddComment", "Comment", new { idPhoto = Model.IDPhoto } )">Send!</button>
-            </div>
-        }
+    <div class="row add-new-comment"><div class="col-md-6 col-md-offset-3 for-comment">
+    @using (@Html.BeginForm("AddComment", "Comment", new { IDPhoto = Model.IDPhoto }, FormMethod.Post))
+    {
+        <div>
+        <textarea name="text" class="text-comment"></textarea></div>
+        <button id="add-comment" type="submit" data-href="@Url.Action("AddComment", "Comment", new { idPhoto = Model.IDPhoto } )">Send!</button>
+
+    }
+</div>
+
     </div>
     @*}*@
 </div>
+
+<script id="commentTemplate" type="text/template">
+    <div class="comment">
+         <div class="comment-author">
+            <b><a href="/People/GetOtherUserPage?idOtherUser=<%- UserId %>">culture</a></b>
+            <%-Date %>
+        </div>
+         <div class="comment-text">
+            <%-Text %>
+        </div>
+        <div class="comment-edit">
+            <a href="/Comment/EditComment?commentId=<%- CommentId %>">Edit</a>
+        </div>
+        <div class="comment-edit">
+            <a href="/Comment/DeleteComment?commentId= <%- CommentId %>" id="delete-comment">DeleteComment</a>
+        </div>
+    </div>
+</script>

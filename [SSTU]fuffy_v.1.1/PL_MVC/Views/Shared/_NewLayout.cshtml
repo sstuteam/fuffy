@@ -17,7 +17,6 @@
 </head>
 <body>
     <div class="navbar navbar-inverse">
-        <!--Убрала navbar-fixed-top, т.к. при резких рывках он глючил -_- -->
         <div class="container">
             <div class="navbar-header">
 
@@ -67,9 +66,11 @@
         @RenderBody()
     </div>
     <footer>Fuffy &copy; 2016</footer>
+    <script src="~/Scripts/lodash.js"></script>
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/ajax.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    @*<script src="~/Scripts/ajax.js"></script>*@
     <script src="~/Scripts/chagneDesign.js"></script>
     @RenderSection("masonry", false)
     @RenderSection("profileJS", false)

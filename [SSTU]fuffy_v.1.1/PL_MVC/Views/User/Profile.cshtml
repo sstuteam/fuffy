@@ -33,16 +33,17 @@
         </div><div class="row">
             <div id="Reload" class="col-sm-12">
                 <p>@Model.Status</p>
+                <div class="add-status">
                 @if (ViewBag.UserId == ViewBag.Id)
                 {
 
-                    using (Html.BeginForm("ChangeStatus", "User", FormMethod.Get, new { @class = "add-status" }))
+                    using (Html.BeginForm("ChangeStatus", "User", FormMethod.Get))
                     {
                         <input id="Name" class="Name" name="Name" value="@Model.Status">
                         <button id="status" type="submit" data-href="@Url.Action("ChangeStatus", "User")">Change</button>
                     }
                 }
-
+</div>
             </div>
         </div>
         @if (ViewBag.UserId == ViewBag.Id)

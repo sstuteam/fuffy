@@ -1,0 +1,18 @@
+﻿<div class="comment">
+    <div class="comment-author">
+        <b><a href="@Url.Action("GetOtherUserPage", "People", new { idOtherUser=Model.UserId })">@Model.GetUserName()</a></b>
+        @Model.Date
+    </div>
+    <div class="comment-text">
+        @Model.Text
+    </div>
+    @if (ViewBag.UserId == Model.UserId)
+    {
+        <div class="comment-edit">
+            @Html.ActionLink("Edit", "EditComment", new { commentId = Model.CommentId })
+        </div>
+            <div class="comment-edit">
+                @Html.ActionLink("DeleteComment", "DeleteComment", new { commentId = Model.CommentId }, new { @id = "delete-comment" })
+            </div>}
+</div>
+

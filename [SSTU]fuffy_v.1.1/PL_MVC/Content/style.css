@@ -11,8 +11,8 @@
         }
 
 .navbar {
-            /*background-color: #904684;*/
-            /*border-color:#904684;*/
+            background-color: #904684;
+            border-color:#904684;
             text-align:center;
             margin-bottom:0;
         }
@@ -189,4 +189,7 @@ textarea{resize:none;}
 }
 .search-form{
     margin-top:7px;
+}
+.add-status{
+    margin-bottom:10px;
 }

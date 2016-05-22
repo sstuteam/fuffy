@@ -10,7 +10,6 @@
 .comment{
     border: 1px solid violet;
     margin:3px;
-    width:100%;
 }
 .add-new-comment{
     text-align:center;

@@ -8,7 +8,8 @@
 <div id = "Comments" >
 @foreach (var item in Model)
 {
-    <div class="comment">
+    @Html.Partial("GetOneComent", item)
+    @*<div class="comment">
         <div class="comment-author">
             <b><a href="@Url.Action("GetOtherUserPage", "People", new { idOtherUser=item.UserId })">@item.GetUserName()</a></b>
             @item.Date
@@ -24,7 +25,7 @@
                 <div class="comment-edit">
                     @Html.ActionLink("DeleteComment", "DeleteComment", new { commentId = item.CommentId }, new { @id = "delete-comment" })
                 </div>}
-    </div>
+    </div>*@
 
 }
 </div>

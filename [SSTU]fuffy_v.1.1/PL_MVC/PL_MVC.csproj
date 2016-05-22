@@ -149,6 +149,10 @@
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lodash.core.js" />
+    <Content Include="Scripts\lodash.core.min.js" />
+    <Content Include="Scripts\lodash.js" />
+    <Content Include="Scripts\lodash.min.js" />
     <Content Include="Scripts\profile.js" />
     <Content Include="Views\Admin\Pages.cshtml" />
     <Content Include="Views\Admin\Users.cshtml" />
@@ -173,6 +177,7 @@
     <Content Include="Views\Comment\EditComment.cshtml" />
     <Content Include="Views\File\EditPhoto.cshtml" />
     <Content Include="Views\File\EditAvatar.cshtml" />
+    <Content Include="Views\Shared\GetOneComent.cshtml" />
     <None Include="Views\Registration\Registration.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

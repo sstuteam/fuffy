@@ -49,12 +49,13 @@ namespace PL_MVC.Controllers
                 if (user.RoleId !=3 && Request.IsAjaxRequest())
                 {
                     Binder.AddComment(comment);
-                    return RedirectToAction("GetPhotoView", "File", new { idPhoto=comment.PhotoId });
+                    return Json(Binder.GetComments(idPhoto).OrderBy(x => x.Date).Last());
                 }
             }
             idPhoto = photo.IDPhoto;
-            return RedirectToAction("GetPhotoView", "File", new { idPhoto });
+            // return RedirectToAction("GetPhotoView", "File", new { idPhoto });
             //return RedirectToAction("Profile", "User", user);
+            return Json(string.Empty);
         }
         //[PageAuthorize(RoleID = 0)]
         public ActionResult DeleteComment(Guid commentId)

@@ -6,6 +6,10 @@
     display:list-item;
     margin-top:5px;
 }
+.preference{
+    visibility:hidden;
+    position:absolute;
+}
 /*@font-face {
     font-family: 'BuxtonSketch';
     src: url('../fonts/BuxtonSketch.ttf') format('truetype');

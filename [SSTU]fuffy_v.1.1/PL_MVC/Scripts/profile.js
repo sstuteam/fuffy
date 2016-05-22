@@ -1,85 +1,75 @@
 /// <reference path="jquery.validate.js" />
 /// <reference path="jquery.validate.unobtrusive.min.js" />
+$(function () {
+    'use strict';
 
-$(document.body).on("click", "#like", function (e) {
-    var element = (this);
-    e.preventDefault();
-    $.ajax({
-        url: $(element).attr("data-href"),
-        data: null,
-        type: 'Post',
-        success: function (data) {
-            $('#CountLike').text(data);
-        }
-    })
-})
+    var $countLike = $('#CountLike'),
+        $commentTemplate = $('#commentTemplate'),
+        $comments = $('#Comments'),
+        $container = $('.container'),
+        $sendComment = $('.sendcomment');
 
-$(document.body).on("click", "#add-comment", function (e) {
-    var element = (this);
-    e.preventDefault();
-    $.ajax({
-        url: $(element).attr("data-href"),
-        data: { text: $(".text-comment").val() },
-        type: 'Post',
-        dataType: 'json',
-        success: function (result) {
-            //var s = '';
-            //for (var i = 0; i < result.length; i++) {
-            //$("#Comments").html("@foreach (var item in Model){<div class="+"comment"+">"+
-            //       +"<div class="+"comment-author"+">"+
-            //           +"<b><a href="+"@Url.Action("+"GetOtherUserPage"+","+ "People"+", new { idOtherUser=item.UserId })"+result[i]+".GetUserName()</a></b>@Html.DisplayFor(modelItem => item.Date)"+
-            //               +"</div>"+
-            //       +"<div class="+"comment-text"+">"+
-            //           +"@Html.DisplayFor(modelItem => item.Text)"+result[i].Text+
-            //       +"</div>"+
-            //       +"@if (ViewBag.UserId == item.UserId)"+
-            //               +"{"+
-            //           +"<div class="+"comment-edit"+">"+
-            //               +"@Html.ActionLink("+"Edit"+","+ "EditComment"+", new { commentId = item.CommentId })"+
-            //           +"</div>"+
-            //               +"<div class="+"comment-edit"+">"+
-            //                   +"@Html.ActionLink("+"DeleteComment"+"," +"DeleteComment"+","+ "new { commentId = item.CommentId })"+
-            //               +"</div>}"+
-            //   +"</div>"
-            //)
-  //} 
-            //$(result).each(function (index, item) {
-                $("body").empty();
-                $("body").append(result);
-            //});
-            
-        }
+    $container.on("click", "#like", function (e) {
+        var element = (this);
+        e.preventDefault();
+        $.ajax({
+            url: $(element).attr("data-href"),
+            data: null,
+            type: 'Post',
+            success: function (data) {
+                $countLike.text(data);
+            }
+        })
     })
-})
-$(document.body).on("click", "#delete-comment", function (e) {
-    var element = (this);
-    e.preventDefault();
-    $.ajax({
-        url: $(element).attr("href"),
-        data: { text: $(".text-comment").val() },
-        type: 'Post',
-        dataType: 'json',
-        success: function (result) {
-            $(result).each(function (index, item) {
-                $("#Comments").empty();
-                $("#Comments").html(item.Text);
-            });
-        }
-    })
-})
-$(document.body).on("click", "#delete-photo", function (e) {
-    var element = (this);
-    e.preventDefault();
-    $.ajax({
-        url: $(element).attr("href"),
-        data: null,
-        type: 'Post',
-        success: function (result) {
-            $('#Comments').val(result)
-        }
-    })
-})
-    $('.sendcomment').click(function () {
+
+    $container.on("click", "#add-comment", function (e) {
+        var element = (this);
+        e.preventDefault();
+        $.ajax({
+            url: $(element).attr("data-href"),
+            data: { text: $(".text-comment").val() },
+            type: 'Post',
+            dataType: 'json',
+            success: function (result) {
+                debugger;
+                var compileFn = _.template($commentTemplate.html()),
+                    dateInMS;
+
+                dateInMS = parseInt(result.Date.match(/\d/ig).join(''));
+                result.Date = moment(dateInMS).format('DD.MM.YYYY');
+                $comments.append(compileFn(result));
+            }
+        })
+    });
+
+    $container.on("click", "#delete-comment", function (e) {
+        var element = (this);
+        e.preventDefault();
+        $.ajax({
+            url: $(element).attr("href"),
+            data: { text: $(".text-comment").val() },
+            type: 'Post',
+            dataType: 'json',
+            success: function (result) {
+                element.closest('.comment').remove();
+            }
+        })
+    });
+
+    $container.on("click", "#delete-photo", function (e) {
+        var element = (this);
+        e.preventDefault();
+        $.ajax({
+            url: $(element).attr("href"),
+            data: null,
+            type: 'Post',
+            success: function (result) {
+              $comments.val(result)
+            }
+        })
+    });
+
+    $sendComment.click(function () {
         $.ajax({
             url: '/Comment/GetComment',
             contentType: 'application/json; charset=utf-8',
@@ -91,4 +81,4 @@ $(document.body).on("click", "#delete-photo", function (e) {
             }
         })
     })
-
+});
