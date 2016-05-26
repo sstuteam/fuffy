@@ -9,7 +9,6 @@ namespace PL_MVC.Controllers
 {
     public class CommentController : Controller
     {
-        // GET: Comment
         public ActionResult Index()
         {
             return View();
@@ -28,7 +27,6 @@ namespace PL_MVC.Controllers
             else return null;
             
         }
-        //[PageAuthorize(RoleID = 0)PageAuthorize(RoleID = 2)]
         [HttpPost]       
         public ActionResult AddComment(string text, Guid idPhoto)
         {
@@ -53,11 +51,8 @@ namespace PL_MVC.Controllers
                 }
             }
             idPhoto = photo.IDPhoto;
-            // return RedirectToAction("GetPhotoView", "File", new { idPhoto });
-            //return RedirectToAction("Profile", "User", user);
             return Json(string.Empty);
         }
-        //[PageAuthorize(RoleID = 0)]
         public ActionResult DeleteComment(Guid commentId)
         {
             Comment comment = Binder.GetComments().FirstOrDefault(x => x.CommentId == commentId);
@@ -70,7 +65,6 @@ namespace PL_MVC.Controllers
             return RedirectToAction("GetPhotoView", "File", new { idPhoto});            
         }
         [HttpGet]
-        //[PageAuthorize(RoleID = 2)]
         public ActionResult EditComment(Guid commentId)
         {
             ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
@@ -78,7 +72,6 @@ namespace PL_MVC.Controllers
             return View(comment);
         }
         [HttpPost]
-        //[PageAuthorize(RoleID = 2)]
         public ActionResult EditComment(Comment comment)
         {
             Binder.EditComment(comment);

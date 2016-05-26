@@ -32,18 +32,21 @@
             </div>
         </div><div class="row">
             <div id="Reload" class="col-sm-12">
-                <p>@Model.Status</p>
-                <div class="add-status">
-                @if (ViewBag.UserId == ViewBag.Id)
-                {
-
-                    using (Html.BeginForm("ChangeStatus", "User", FormMethod.Get))
+                <div class="change-status">
+                    @if (ViewBag.UserId == ViewBag.Id && User.Identity.IsAuthenticated)
                     {
-                        <input id="Name" class="Name" name="Name" value="@Model.Status">
-                        <button id="status" type="submit" data-href="@Url.Action("ChangeStatus", "User")">Change</button>
+
+                        using (Html.BeginForm("ChangeStatus", "User"))
+                        {
+
+                            <input id="status" name="status" class="status" value="@Model.Status" />
+                            <button class="send-status" id="send-status" type="submit" data-href="@Url.Action("ChangeStatus", "User", new { idUser=Model.idUser})">Change</button>
+                        }
                     }
-                }
-</div>
+                    else {
+                        <p class="text-status" id="text-status">@Model.Status</p>
+                    }
+                </div>
             </div>
         </div>
         @if (ViewBag.UserId == ViewBag.Id)

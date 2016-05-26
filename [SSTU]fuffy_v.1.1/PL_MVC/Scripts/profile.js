@@ -7,7 +7,9 @@ $(function () {
         $commentTemplate = $('#commentTemplate'),
         $comments = $('#Comments'),
         $container = $('.container'),
-        $sendComment = $('.sendcomment');
+        $sendComment = $('.sendcomment'),
+        $changeStatus = $('.change-status'),
+        $textOfStatus = $('#text-status');
 
     $container.on("click", "#like", function (e) {
         var element = (this);
@@ -21,7 +23,18 @@ $(function () {
             }
         })
     })
-
+    $changeStatus.on("click", "#send-status", function (e) {
+        var element = (this);
+        e.preventDefault();
+        $.ajax({
+            url: $(element).attr("data-href"),
+            data: {status: $('#status').val()},
+            type: 'Post',
+            success: function (data) {
+                $textOfStatus.text(data);
+            }
+        })
+    })
     $container.on("click", "#add-comment", function (e) {
         var element = (this);
         e.preventDefault();
@@ -31,12 +44,12 @@ $(function () {
             type: 'Post',
             dataType: 'json',
             success: function (result) {
-                debugger;
+                //debugger;
                 var compileFn = _.template($commentTemplate.html()),
                     dateInMS;
 
                 dateInMS = parseInt(result.Date.match(/\d/ig).join(''));
-                result.Date = moment(dateInMS).format('DD.MM.YYYY');
+                result.Date = moment(dateInMS).format('DD.MM.YYYY HH:mm:ss');
                 $comments.append(compileFn(result));
             }
         })
@@ -56,18 +69,6 @@ $(function () {
         })
     });
 
-    $container.on("click", "#delete-photo", function (e) {
-        var element = (this);
-        e.preventDefault();
-        $.ajax({
-            url: $(element).attr("href"),
-            data: null,
-            type: 'Post',
-            success: function (result) {
-              $comments.val(result)
-            }
-        })
-    });
 
     $sendComment.click(function () {
         $.ajax({
@@ -81,4 +82,5 @@ $(function () {
             }
         })
     })
+
 });

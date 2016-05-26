@@ -190,6 +190,24 @@ textarea{resize:none;}
 .search-form{
     margin-top:7px;
 }
-.add-status{
-    margin-bottom:10px;
+.change-status{
+       margin-bottom:10px;
 }
+.status{
+    background-color:rgba(255, 255, 255, 0);
+    border:none;
+    padding:5px;
+    text-align:center;
+    width:100%;
+}
+.status:focus{
+    background-color:rgba(245, 245, 245, 0.15);
+    border:none;
+}
+    .status:focus + .send-status {
+        visibility:visible;
+    }
+    .send-status{
+        visibility:hidden;
+        
+    }

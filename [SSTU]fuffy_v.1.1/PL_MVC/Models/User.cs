@@ -31,7 +31,6 @@ namespace PL_MVC.Models
         ///// Свойство показывающее имеет ли пользователь права администратора
         ///// </summary>
         //public bool IsAdmin { get; private set; }
-
         //public DateTime dateOfBirthday;  //Дата рождения
         public int countOfLikes; //Количество лайков, поставленных пользователю за все его фотографии
         public int countOfAlbum; //Количество альбомов   

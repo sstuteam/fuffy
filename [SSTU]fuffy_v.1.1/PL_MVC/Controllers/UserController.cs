@@ -32,10 +32,15 @@ namespace PL_MVC.Controllers
             }
             else return View("~/Views/User/Profile.cshtml", user);
         }
-        public ActionResult ChangeStatus(string Name)
+        [Authorize]
+        public ActionResult ChangeStatus(Guid idUser, string status)
         {
-            var user = AuthHelper.GetUser(HttpContext);
-            Binder.ChangeStatus(user.idUser,Name);
+            var user = Binder.GetUser(idUser); 
+            Binder.ChangeStatus(user.idUser, status);
+            if (Request.IsAjaxRequest())
+            {
+                return Json(user.Status, JsonRequestBehavior.AllowGet);
+            }
             return RedirectToAction("Profile");
         }
         

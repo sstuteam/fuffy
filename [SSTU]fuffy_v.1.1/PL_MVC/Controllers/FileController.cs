@@ -12,8 +12,6 @@ namespace PL_MVC.Controllers
     {
         [Authorize]
         [HttpPost]
-        //[PageAuthorize(RoleID = 0)]
-        //[PageAuthorize(RoleID = 2)]
         public ActionResult Upload(HttpPostedFileBase uploaded,string AlbumName, string Title, string spetification,string Category)
         {           
             var user = AuthHelper.GetUser(HttpContext);
@@ -48,15 +46,12 @@ namespace PL_MVC.Controllers
                 if (user.RoleId != 3)
                 {
                     Binder.Add(image);
-                }
-                //return File(image.Image, uploaded.ContentType);                
+                }             
             }
             return RedirectToAction("Profile", "User", user);
         }
         [Authorize]
         [HttpGet]
-        //[PageAuthorize(RoleID = 0)]
-        //[PageAuthorize(RoleID = 2)]
         public ActionResult Upload()
         {
             User user = AuthHelper.GetUser(HttpContext);
@@ -73,8 +68,6 @@ namespace PL_MVC.Controllers
         [HttpGet]
         public FileResult GetPhoto(Guid idPhoto)
         {
-            //if (idPhoto == null)
-            //    return null;
             Photo photo = Binder.GetPhoto(idPhoto);
 
             if (photo != null)
@@ -105,7 +98,6 @@ namespace PL_MVC.Controllers
             ViewBag.UserId = AuthHelper.GetUser(HttpContext);
             return View();
         }
-        //[HttpPost]
         public ActionResult EditAvatar(HttpPostedFileBase uploaded)
         {
             var user = AuthHelper.GetUser(HttpContext);
@@ -129,8 +121,7 @@ namespace PL_MVC.Controllers
                 if (user.RoleId != 3)
                 {
                     Binder.EditAvatar(user.idUser, image);
-                }
-                //return File(image.Image, uploaded.ContentType);                
+                }               
             }
             return RedirectToAction("Profile", "User", user);
         }
@@ -174,8 +165,6 @@ namespace PL_MVC.Controllers
             }
         }
         [HttpPost]
-        //[PageAuthorize(RoleID = 2)]
-        //[PageAuthorize(RoleID = 0)]
         public ActionResult EditPhoto(Photo photo)
         {
             ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
@@ -188,8 +177,6 @@ namespace PL_MVC.Controllers
             return RedirectToAction("GetPhotoView", "File", new { idPhoto });
         }
         [HttpGet]
-        //[PageAuthorize(RoleID = 2)]
-        //[PageAuthorize(RoleID = 0)]
         public ActionResult EditPhoto(Guid idPhoto)
         {
             ViewBag.Prf = AuthHelper.GetUser(HttpContext).Preference;
